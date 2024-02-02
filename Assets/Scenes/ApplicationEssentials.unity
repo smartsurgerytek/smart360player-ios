@@ -216,20 +216,17 @@ MonoBehaviour:
   _verificationFolderPath: Verification
   _resultFileName: Info
   _verificationInfo:
-    _applicationExpiredDate: 268
+    _applicationExpiredDate: 638426016000000000
     _modules:
     - _id: 0
-      _expiredDate: 632111904000000000
+      _expiredDate: 638424288000000000
       _hash: 
-    - _id: -177
-      _expiredDate: 408
+    - _id: 1
+      _expiredDate: 638424288000000000
       _hash: 
     _editions:
-    - _id: 155
-      _expiredDate: 0
-      _hash: 
-    - _id: 641
-      _expiredDate: 0
+    - _id: 0
+      _expiredDate: 638426016000000000
       _hash: 
     _hash: 
 --- !u!1 &1174464768
