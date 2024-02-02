@@ -2,12 +2,12 @@
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Edition Manager", menuName = "Managers/Edition Manager")]
-public class EditionManager : ScriptableObject
+[CreateAssetMenu(fileName = "Module Manager", menuName = "Managers/Module Manager")]
+public class ModuleManager : ScriptableObject
 {
-    
-    [SerializeField, TableList] private EditionModel[] _data;
-    public EditionModel[] data { get => _data?.ToArray(); internal set => _data = value; }
+
+    [SerializeField, TableList] private ModuleModel[] _data;
+    public ModuleModel[] data { get => _data?.ToArray(); internal set => _data = value; }
 
     private void OnValidate()
     {

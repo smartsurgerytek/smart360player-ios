@@ -81,7 +81,10 @@ public class VerificationSystem : MonoBehaviour
     {
         if(_initialized) { throw new Exception("This should not happen. Check the error immdiately!"); }
         
-        LoadVerificationInfo();
+        var verificationInfo = LoadVerificationInfo();
+        var verificationResult = new VerificationResult();
+        //verificationResult.;
+        Verify(verificationInfo);
     }
     [Button]
     private string HashVerificationInfo()
@@ -92,8 +95,8 @@ public class VerificationSystem : MonoBehaviour
     private string HashVerificationInfo(VerificationInfo info)
     {
         var numList = new Queue<long>();
-        numList.Enqueue(info.applicationExpiredDate);
         numList.Enqueue(info.serialNumber.GetHashCode());
+        numList.Enqueue(info.applicationExpiredDate);
         for (int i = 0; i < info.modules.Length; i++)
         {
             numList.Enqueue(info.modules[i].id);
@@ -134,15 +137,29 @@ public class VerificationSystem : MonoBehaviour
         File.WriteAllText(Path.Combine(Application.persistentDataPath, _verificationFolderPath, _resultFileName), json);
     }
     [Button]
-    private void LoadVerificationInfo()
+    private VerificationInfo LoadVerificationInfo()
     {
         var json = File.ReadAllText(Path.Combine(Application.persistentDataPath, _verificationFolderPath, _resultFileName));
-        _verificationInfo = JsonUtility.FromJson<VerificationInfo>(json);
+        return JsonUtility.FromJson<VerificationInfo>(json);
     }
 
-    public bool Verify()
+    public bool Verify(VerificationInfo verificationInfo)
     {
+        if (!VerifyHash(verificationInfo)) return false;
+        if (!VerifyDevice(verificationInfo)) return false;
         return true;
+    }
+    public bool VerifyHash(VerificationInfo verificationInfo)
+    {
+        return verificationInfo.hash == HashVerificationInfo(verificationInfo);
+    }
+    public bool VerifyDevice(VerificationInfo verificationInfo)
+    {
+#if UNITY_ANDROID
+        return verificationInfo.serialNumber == SystemInfo.deviceUniqueIdentifier;
+#elif UNITY_EDITOR
+        return true;
+#endif
     }
     public bool VeritfyLicense()
     {

@@ -217,6 +217,7 @@ MonoBehaviour:
   _resultFileName: Info
   _verificationInfo:
     _applicationExpiredDate: 638426016000000000
+    _serialNumber: bb2b548cd945c851f1b81076abd19947
     _modules:
     - _id: 0
       _expiredDate: 638424288000000000
@@ -228,7 +229,7 @@ MonoBehaviour:
     - _id: 0
       _expiredDate: 638426016000000000
       _hash: 
-    _hash: 
+    _hash: -2017612633061982207
 --- !u!1 &1174464768
 GameObject:
   m_ObjectHideFlags: 0

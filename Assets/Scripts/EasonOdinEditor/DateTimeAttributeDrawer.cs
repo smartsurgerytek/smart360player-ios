@@ -21,7 +21,6 @@ namespace Eason.Odin.Editor
             base.Initialize();
             _tempString = new DateTime((long)Property.ValueEntry.WeakSmartValue).ToString(Attribute.format);
             _id = Guid.NewGuid().ToString();
-            Debug.Log(_id);
         }
         protected override void DrawPropertyLayout(GUIContent label)
         {

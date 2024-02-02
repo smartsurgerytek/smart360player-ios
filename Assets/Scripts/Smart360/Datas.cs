@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using JetBrains.Annotations;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 using UnityEngine.Video;
@@ -68,9 +69,21 @@ public struct VideoModel
     public double startTime { get => _startTime; }
 }
 [Serializable]
+public struct ModuleModel
+{
+    [SerializeField, ReadOnly] private int _index;
+    [SerializeField] private string _name;
+    [SerializeField] private string _displayName;
+    public int index { get => _index; internal set => _index = value; }
+    public string name { get => _name; set => _name = value; }
+    public string displayName { get => _displayName; set => _displayName = value; }
+}
+
+[Serializable]
 public struct EditionModel
 {
     [SerializeField, ReadOnly] private int _index;
+    [SerializeField] private int _module;
     [SerializeField] private string _name;
     [SerializeField] private string _englishName;
     [SerializeField] private string _displayName;
