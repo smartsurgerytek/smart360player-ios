@@ -1,0 +1,61 @@
+﻿using Sirenix.OdinInspector;
+using System;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+
+
+[CreateAssetMenu(fileName = "Application Manager", menuName = "Managers/Application Manager")]
+public class ApplicationManager : ScriptableObject
+{
+    [SerializeField] private StaffGroupManager _staffGroupManager;
+    [SerializeField] private StaffManager _staffManager;
+    [SerializeField] private VideoManager _videoManager;
+    [SerializeField] private EditionManager _editionManager;
+    [SerializeField] private FileManager _fileManager;
+    public StaffGroupManager staffGroupManager { get => _staffGroupManager; }
+    public StaffManager staffManager { get => _staffManager; }
+    public VideoManager videoManager { get => _videoManager; }
+    public EditionManager editionManager { get => _editionManager; }
+    public FileManager fileManager { get => _fileManager; }
+
+    [Button]
+    private void AutoRefreshFilePath()
+    {
+        var staffs = staffManager.data;
+        var videos = videoManager.data;
+        var editions = editionManager.data;
+        var surroundings = videoManager.surroundingData;
+        for (int i = 0; i < videos.Length; i++)
+        {
+            var editionIndex = videos[i].edition.ToString("D2");
+            var editionName = editions[videos[i].edition].name;
+            var staffName = staffs[videos[i].staff].acronym;
+            videos[i].fileName = $"{editionIndex}_{editionName}_{staffName}.mp4";
+        }
+        videoManager.data = videos;
+
+
+        for (int i = 0;i < editions.Length; i++)
+        {
+            var editionIndex = i.ToString("D2");
+            var editionName = editions[i].name;
+            surroundings[i].fileName = $"{editionIndex}_{editionName}_Env360.mp4";
+        }
+        videoManager.surroundingData = surroundings;
+    }
+    //[Button]
+    //private string[] GetFilePathsByEdition(int edition)
+    //{
+    //    var rt = videoManager.GetFilePathsByEdition(edition).ToList();
+    //    rt.Add(editionManager.data[edition].surroundingVideoUrl);
+    //    return rt.ToArray() ;
+    //}
+    //[Button]
+    //private string[] CheckFileExist(int edition)
+    //{
+    //    var paths = videoManager.GetFilePathsByEdition(edition);
+    //    return paths.Where(path => File.Exists(path)).ToArray();
+    //}
+    
+}

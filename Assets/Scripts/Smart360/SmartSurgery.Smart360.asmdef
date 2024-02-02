@@ -1,0 +1,22 @@
+{
+    "name": "SmartSurgery.Smart360",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4d5fe3bf048f9dd439f80e803915bd7b",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:59812433ce33abb40a48faff33092301",
+        "GUID:f64c9ebcd7899c3448a08dc9f9ddbe30",
+        "GUID:0d7f514e893adb346a01b97fced7ee0a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Sirenix.OdinInspector.Attributes.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56ca3ffab044a44596197d10a9b6fd0, type: 3}
+  m_Name: Staff Manager
+  m_EditorClassIdentifier: 
+  _data:
+  - _index: 0
+    _displayTitleName: "\u4F4F\u9662\u91AB\u5E2B"
+    _displayButtonName: "\u4F4F\u9662"
+    _acronym: R
+    _group: 1
+  - _index: 1
+    _displayTitleName: "\u4E3B\u6CBB\u91AB\u5E2B"
+    _displayButtonName: "\u4E3B\u6CBB"
+    _acronym: VS
+    _group: 1
+  - _index: 2
+    _displayTitleName: "\u6025\u8A3A\u91AB\u5E2B"
+    _displayButtonName: "\u6025\u8A3A"
+    _acronym: EP
+    _group: 1
+  - _index: 3
+    _displayTitleName: "\u8CC7\u6DFA\u91AB\u5E2B"
+    _displayButtonName: "\u8CC7\u6DFA"
+    _acronym: JP
+    _group: 1
+  - _index: 4
+    _displayTitleName: "\u8B77\u7406\u9577"
+    _displayButtonName: Leader
+    _acronym: HN
+    _group: 0
+  - _index: 5
+    _displayTitleName: "\u4E3B\u8B77"
+    _displayButtonName: "\u4E3B\u8B77"
+    _acronym: PN
+    _group: 0
+  - _index: 6
+    _displayTitleName: "\u8CC7\u6DF1\u8B77\u7406\u5E2B"
+    _displayButtonName: "\u8CC7\u6DF1"
+    _acronym: SN
+    _group: 0
+  - _index: 7
+    _displayTitleName: "\u8CC7\u6DFA\u8B77\u7406\u5E2B"
+    _displayButtonName: "\u8CC7\u6DFA"
+    _acronym: JN
+    _group: 0
+  - _index: 8
+    _displayTitleName: "\u6025\u8A3A\u8B77\u7406\u5E2B"
+    _displayButtonName: "\u6025\u8A3A"
+    _acronym: EN
+    _group: 0

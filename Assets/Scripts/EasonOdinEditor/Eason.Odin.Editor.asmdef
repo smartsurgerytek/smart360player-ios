@@ -1,0 +1,18 @@
+{
+    "name": "Eason.Odin.Editor",
+    "rootNamespace": "Eason.Odin.Editor",
+    "references": [
+        "GUID:0d7f514e893adb346a01b97fced7ee0a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Sirenix.OdinInspector.Editor.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
