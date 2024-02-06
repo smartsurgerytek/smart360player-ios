@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PopUpView : MonoBehaviour
 {
+    [Header("Setting")]
+    [SerializeField] private bool _initialOpened;
     [Header("Components")]
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private Button _backButton;
@@ -24,25 +26,33 @@ public class PopUpView : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }
-
+    private void Start()
+    {
+        if (!_initialOpened) Hide(true);
+    }
     public void Show(CanvasGroup caller = null) 
     {
         if (_isOpened) throw new Exception("This pop up view  has opened already.");
         _backButton.onClick.AddListener(_backButton_onClick);
         _callerCanvasGroup = caller;
-        ShowCanvas(_canvasGroup, false);
-        if(_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, true);
+
+        ShowCanvas(_canvasGroup, true);
+
+        if(_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, false);
         _isOpened = true;
+    }
+    private void Hide(bool noCheck = false)
+    {
+        if (!noCheck && !_isOpened) throw new Exception("This pop up view is not opened.");
+        ShowCanvas(_canvasGroup, false);
+        if (_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, true);
+        _callerCanvasGroup = null;
+        _isOpened = false;
     }
     private void _backButton_onClick()
     {
-        if (!_isOpened) throw new Exception("This pop up view is not opened.");
-        if (!_callerCanvasGroup) throw new Exception("You cannot go back without a desination.");
         _backButton.onClick.RemoveListener(_backButton_onClick);
-        _callerCanvasGroup = null;
-        ShowCanvas(_canvasGroup, true);
-        if(_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, false);
-        _isOpened = false;
+        Hide();
         back.Invoke();
     }
     private void ShowCanvas(CanvasGroup canvasGroup, bool show)
@@ -50,5 +60,9 @@ public class PopUpView : MonoBehaviour
         canvasGroup.alpha = show ? 1 : 0;
         canvasGroup.interactable = show;
         canvasGroup.blocksRaycasts = show;
+    }
+    private void ShowCanvas(GameObject gameObject, bool show)
+    {
+        gameObject.SetActive(show);
     }
 }

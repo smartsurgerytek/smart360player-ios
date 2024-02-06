@@ -213,23 +213,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a18921293afdb47ba7c0bdbc07cfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _applicationManager: {fileID: 0}
   _verificationFolderPath: Verification
-  _resultFileName: Info
+  _fileName: Info
   _verificationInfo:
-    _applicationExpiredDate: 638426016000000000
-    _serialNumber: bb2b548cd945c851f1b81076abd19947
+    _purchased: 1
+    _applicationExpiredDate: 3155378112000000000
+    _deviceUniqueIdentifier: bb2b548cd945c851f1b81076abd19947
     _modules:
     - _id: 0
-      _expiredDate: 638424288000000000
-      _hash: 
-    - _id: 1
-      _expiredDate: 638424288000000000
-      _hash: 
+      _purchased: 1
+      _expiredDate: 3155378112000000000
+      _hash: 3131923008338302721
     _editions:
     - _id: 0
-      _expiredDate: 638426016000000000
-      _hash: 
-    _hash: -2017612633061982207
+      _purchased: 1
+      _expiredDate: 3155378112000000000
+      _hash: 3131923008338302721
+    - _id: 1
+      _purchased: 1
+      _expiredDate: 314496000000000
+      _hash: 7747941479776897729
+    - _id: 2
+      _purchased: 1
+      _expiredDate: 3155378112000000000
+      _hash: -8045531978976391551
+    - _id: 3
+      _purchased: 1
+      _expiredDate: 3155378112000000000
+      _hash: 7331751438926635585
+    _hash: 1763190293844197377
+    _lastTimeLogin: 0
+  _verificationResult:
+    _verified: 0
+    _isValid: 0
+    _deviceInvalid: 0
+    _lastTimeLoginInvalid: 0
+    _applicationHashInvalid: 0
+    _applicationExpired: 0
+    _applicationUnpaid: 0
+    _moduleHashInvalid: 
+    _moduleUnpaid: 
+    _moduleExpired: 
+    _editionHashInvalid: 
+    _editionUnpaid: 
+    _editionExpired: 
+  _verificationView: {fileID: 0}
 --- !u!1 &1174464768
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _applicationManager: {fileID: 11400000, guid: ca4fec60a68cded43a65408506cae64c, type: 2}
-  _verificationSystem: {fileID: 0}
-  _verificationView: {fileID: 0}
+  _verificationSystem: {fileID: 1128237994}
   _videoPlayerScene: VideoPlayer
   _mainMenuScene: MainMenu

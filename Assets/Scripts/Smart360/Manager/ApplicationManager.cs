@@ -13,11 +13,23 @@ public class ApplicationManager : ScriptableObject
     [SerializeField] private VideoManager _videoManager;
     [SerializeField] private EditionManager _editionManager;
     [SerializeField] private FileManager _fileManager;
+    [SerializeField] private ModuleManager _moduleManager;
+    [SerializeField] private ApplicationVerificationManager _applicationVerificationManager;
+    [SerializeField] private ModuleVerificationManager _moduleVerificationManager;
+    [SerializeField] private EditionVerificationManager _editionVerificationManager;
+    [SerializeField] private UserManager _userManager;
+    [SerializeField] private DeviceManager _deviceManager;
     public StaffGroupManager staffGroupManager { get => _staffGroupManager; }
     public StaffManager staffManager { get => _staffManager; }
     public VideoManager videoManager { get => _videoManager; }
     public EditionManager editionManager { get => _editionManager; }
     public FileManager fileManager { get => _fileManager; }
+    public ModuleManager moduleManager { get => _moduleManager; }
+    public ApplicationVerificationManager applicationVerificationManager {get=>_applicationVerificationManager;}
+    public ModuleVerificationManager moduleVerificationManager {get=>_moduleVerificationManager;}
+    public EditionVerificationManager editionVerificationManager {get=>_editionVerificationManager;}
+    public UserManager userManager {get=>_userManager;}
+    public DeviceManager deviceManager { get => _deviceManager; }
 
     [Button]
     private void AutoRefreshFilePath()

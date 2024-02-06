@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     [Header("Components")]
     [SerializeField] private VerificationSystem _verificationSystem;
     [SerializeField] private Button _exitButton;
+    [SerializeField] private VerificationView _verificationView;
 
     [Header("Edition Buttons")]
     [SerializeField, HideInInspector] private bool[] _enables;
@@ -27,6 +28,8 @@ public class MainMenuManager : MonoBehaviour
 
     public ApplicationManager applicationManager { get => _applicationManager; internal set => _applicationManager = value; }
     public UnityEvent<int> clickEditionButton { get => _clickEditionButton; }
+    public VerificationSystem verificationSystem { get => _verificationSystem; internal set => _verificationSystem = value; }
+    public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
 
     private void CleanUp()
     {
@@ -41,9 +44,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (_initialized) return;
         CleanUp();
-
-        //_muteButton = GetComponent<MuteButton>();
-        //_muteButton.SetAudioSource(_audioSource);
+        //_verificationSystem.verificationView = verificationView;
         _exitButton.onClick.AddListener(_exitButton_onClick);
         var editions = _applicationManager?.editionManager?.data;
         if (editions == null)
@@ -53,9 +54,14 @@ public class MainMenuManager : MonoBehaviour
         _editionButtons = new EditionButton[editions.Length];
         for (int i = 0; i < editions.Length; i++)
         {
+            var state = EditionButton.State.Normal;
+            if (!_enables[i]) state = EditionButton.State.Unenabled;
+            else if (verificationSystem.IsEditionUnpaid(i)) state = EditionButton.State.Unpaid;
+            else if (verificationSystem.IsEditionExpired(i)) state = EditionButton.State.Expired;
+
             _editionButtons[i] = Instantiate(_editionButtonPrefab);
             _editionButtons[i].clickButton.AddListener(_editionButton_onClick);
-            _editionButtons[i].Initialize(i, editions[i].englishName, _enables[i]);
+            _editionButtons[i].Initialize(i, editions[i].englishName,  state);
             
             _editionButtonsLayout.Layout(i, _editionButtons[i].transform);
         }
