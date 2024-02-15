@@ -223,6 +223,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: _editionButton
+      Entry: 6
+      Data: 
     - Name: _credential
       Entry: 7
       Data: 0|EasonCredentialContext, SmartSurgery.Smart360
@@ -252,6 +255,21 @@ MonoBehaviour:
       Data: 3|EasonModuleCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _module
+      Entry: 6
+      Data: 
+    - Name: _edition
+      Entry: 7
+      Data: 4|EditionContext, SmartSurgery.Smart360
+    - Name: _currentEditions
+      Entry: 6
+      Data: 
+    - Name: _data
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8

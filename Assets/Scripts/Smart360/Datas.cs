@@ -81,7 +81,7 @@ public struct ModuleModel
 }
 
 [Serializable]
-public struct EditionModel
+public struct EditionModel : IEdition
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private int _module;
@@ -90,7 +90,7 @@ public struct EditionModel
     [SerializeField] private string _displayName;
     [SerializeField] private int _initialSelected;
 
-    public int index { get => _index; internal set => _index = value; }
+    public int id { get => _index; internal set => _index = value; }
     public int module { get => _module; }
     public string name { get => _name; set => _name = value; }
     public string englishName { get => _englishName; set => _englishName = value; }

@@ -59,13 +59,13 @@ public class MainMenuManager : MonoBehaviour
         //{
         //    return;
         //}
-        var count = context.edition.GetCount(module);
         var view = rawView.mainMenuView.editionButtonsView;
         var credentialContext = context.credential;
+        var editions = context.edition.GetCurrentEditions();
         view.CleanUp();
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < editions.Length; i++)
         {
-            view.AddEditionButton(i, enabled, credentialContext.IsUnpaid(i),credentialContext.isExpired(i), context.edition.GetName(i),_editionButton_onClick);
+            view.AddEditionButton(i, enabled, credentialContext.IsUnpaid(editions[i]), credentialContext.isExpired(editions[i]), context.edition.GetName(editions[i]), _editionButton_onClick);
         }
         //_editionButtons = new EditionButton[editions.Length];
         //for (int i = 0; i < editions.Length; i++)

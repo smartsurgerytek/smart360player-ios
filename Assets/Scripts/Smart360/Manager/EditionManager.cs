@@ -20,25 +20,36 @@ public class EditionManager : ScriptableObject
     {
         for (int i = 0; i < _data.Length; i++)
         {
-            _data[i].index = i;
+            _data[i].id = i;
         }
     }
 }
 public struct EditionContext : IEditionContext
 {
+    [SerializeField] private int[] _currentEditions;
     [SerializeField, TableList] private EditionModel[] _data;
     #region IEditionContext
+
+    void IEditionContext.Initialize()
+    {
+
+    }
 
     int IEditionContext.GetCount(int index)
     {
         return _data.Count(o => o.module == index);
     }
 
+    int[] IEditionContext.GetCurrentEditions()
+    {
+        return _currentEditions.ToArray();
+    }
 
     string IEditionContext.GetName(int index)
     {
         return _data[index].name;
     }
+
     //private EditionModel[] GetEditions(int module)
     //{
     //    //var editionList = _data.Where(o => o.module == module).ToList();
