@@ -2,11 +2,21 @@
 
 public class MasterApplication : MonoBehaviour
 {
-    private MasterModel _model;
-    private MasterView _view;
-    private MasterController _controller;
-
-    public MasterModel model { get => _model; }
+    [SerializeField] private MasterContext _context;
+    [SerializeField] private MasterView _view;
+    [SerializeField] private MasterController _controller;
+    public MasterContext context { get => _context; }
     public MasterView view {get=> _view;}
     public MasterController controller {get=> _controller;}
+
+    internal void Initialize()
+    {
+        _context.Initialize();
+        _view.Initialize();
+    }
+    internal void InternalUpdate()
+    {
+        _controller.InternalUpdate(_context, _view);
+    }
+    
 }

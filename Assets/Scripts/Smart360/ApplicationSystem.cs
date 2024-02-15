@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ApplicationSystem : MonoBehaviour
 {
     private static ApplicationSystem _instance;
-    private MasterApplication _masterApplication;
+    [SerializeField] private MasterApplication _masterApplication;
 
     [SerializeField] private ApplicationManager _applicationManager;
     [SerializeField] private VerificationSystem _verificationSystem;
@@ -23,6 +23,8 @@ public class ApplicationSystem : MonoBehaviour
     [NonSerialized, ShowInInspector, ReadOnly] private int _editionToLoad;
     [NonSerialized, ShowInInspector, ReadOnly] private bool _waitForVideoPlayerSceneLoaded;
     [NonSerialized, ShowInInspector, ReadOnly] private bool _videoPlayerSceneNeedInitialize;
+
+
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _needLoadMainMenuScene = true;
     [NonSerialized, ShowInInspector, ReadOnly] private bool _waitForMainMenuLoaded;
@@ -48,17 +50,15 @@ public class ApplicationSystem : MonoBehaviour
 
     private void Initialize()
     {
-        //_masterApplication.controller.credentialLoader = new 
-        var credentialContext = new EasonLoadingCredentialContext();
-        credentialContext = (EasonLoadingCredentialContext)_masterApplication.controller.credentialLoader.Load(credentialContext);
-
-        _verificationSystem.Initialize(_masterApplication.controller.credentialLoader);
+        _masterApplication.Initialize();
+        _verificationSystem.Initialize();
         _initialized = true;
     }
 
 
     private void Update()
     {
+        //_masterApplication.Update();
         _verificationSystem.InternalUpdate();
         CheckMainMenu();
         CheckVideoPlayerScene();

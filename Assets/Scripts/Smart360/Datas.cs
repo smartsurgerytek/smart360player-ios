@@ -91,6 +91,7 @@ public struct EditionModel
     [SerializeField] private int _initialSelected;
 
     public int index { get => _index; internal set => _index = value; }
+    public int module { get => _module; }
     public string name { get => _name; set => _name = value; }
     public string englishName { get => _englishName; set => _englishName = value; }
     public string displayName { get => _displayName; set => _displayName = value; }

@@ -1,6 +1,12 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
+using System;
+using UnityEngine;
 
-public class MasterController : MonoBehaviour
+public class MasterController : SerializedMonoBehaviour
 {
-    public ICredentialLoader credentialLoader { get; internal set; }
+    internal void InternalUpdate(MasterContext context, MasterView view)
+    {
+
+    }
 }

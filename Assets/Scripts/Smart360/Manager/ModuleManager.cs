@@ -9,6 +9,7 @@ public class ModuleManager : ScriptableObject
     [SerializeField, TableList] private ModuleModel[] _data;
     public ModuleModel[] data { get => _data?.ToArray(); internal set => _data = value; }
 
+
     private void OnValidate()
     {
         if (_data == null) return;
@@ -21,4 +22,5 @@ public class ModuleManager : ScriptableObject
             _data[i].index = i;
         }
     }
+
 }

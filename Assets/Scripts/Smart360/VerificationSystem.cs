@@ -13,24 +13,28 @@ public struct ModuleCredential
     [SerializeField, TableColumnWidth(40,resizable: false), ReadOnly] private int _id;
     [SerializeField, TableColumnWidth(70, resizable: false)] private bool _purchased;
     [SerializeField, TableColumnWidth(100, resizable: false), DateTime] private long _expiredDate;
+    [SerializeField] private string _deviceUniqueIdentifier;
     [SerializeField, ReadOnly] private string _hash;
 
-    public int id { get => _id; internal set => _id = value; }
-    public long expiredDate { get => _expiredDate; }
+    public int id { get => _id; }
+    public bool purchased { get => _purchased; internal set => _purchased = value; }
+    public long expiredDate { get => _expiredDate; internal set => _expiredDate = value; }
+    public string deviceUniqueIdentifier { get => _deviceUniqueIdentifier; }
     public string hash { get => _hash; internal set => _hash = value; }
-    public bool purchased { get =>_purchased; internal set => _purchased = value; }
 }
 [Serializable]
 public struct EditionCredential
 {
-    [SerializeField, TableColumnWidth(40, resizable: false), ReadOnly] private int _id;
+    [SerializeField, TableColumnWidth(40, resizable: false)] private int _id;
     [SerializeField, TableColumnWidth(70, resizable: false)] private bool _purchased;
     [SerializeField, TableColumnWidth(100, resizable: false), DateTime] private long _expiredDate;
+    [SerializeField] private string _deviceUniqueIdentifier;
     [SerializeField, ReadOnly] private string _hash;
 
-    public int id { get => _id; internal set => _id = value; }
+    public int id { get => _id;}
     public bool purchased { get => _purchased; internal set => _purchased = value; }
     public long expiredDate { get => _expiredDate; }
+    public string deviceUniqueIdentifier { get => _deviceUniqueIdentifier; }
     public string hash { get => _hash; internal set => _hash = value; }
 }
 [Serializable]
@@ -43,23 +47,29 @@ public struct ApplicationCredential
     public bool purchased { get => _purchased; }
     public long expiredDate { get => _expiredDate; }
     public string deviceUniqueIdentifier { get => _deviceUniqueIdentifier; }
-    public string hash { get => _hash; }
+    public string hash 
+    {
+        get => _hash;
+        internal set => _hash = value;
+    }
 }
 [Serializable]
 public struct Credential
 {
+
     [SerializeField] ApplicationCredential _application;
     [SerializeField, TableList] private ModuleCredential[] _modules;
     [SerializeField, TableList] private EditionCredential[] _editions;
-    [SerializeField] private string _hash;
 
+    public ApplicationCredential application { get => _application; }
     public ModuleCredential[] modules { get => _modules.ToArray(); }
     public EditionCredential[] editions { get => _editions.ToArray(); }
+    public bool purchased { get => application.purchased; }
 
-    public long applicationExpiredDate { get => _application.expiredDate; }
-    public string deviceUniqueIdentifier { get => _application.deviceUniqueIdentifier; }
-    public bool purchased { get => _application.purchased; }
-    public string hash { get => _hash; internal set => _hash = value; }
+    internal void SetApplicationHash(string hash)
+    {
+        _application.hash = hash;
+    }
     internal void SetEditionHash(int id, string hash)
     {
         _editions[id].hash = hash;
@@ -118,6 +128,10 @@ public struct CredentialCookie
 {
     [SerializeField, DateTime] private long _lastTimeLogin;
     public long lastTimeLogin { get => _lastTimeLogin; }
+    [Button] public void UpdateCookie()
+    {
+        _lastTimeLogin = DateTime.Now.Ticks;
+    }
 }
 public class VerificationSystem : MonoBehaviour
 {
@@ -162,13 +176,6 @@ public class VerificationSystem : MonoBehaviour
     //}
 
 
-    [Button("Hash Application")]
-    private string HashVerificationInfoButtonClick(bool apply = true)
-    {
-        var rt = HashVerificationInfo(_credential);
-        if (apply) _credential.hash = rt;
-        return rt;
-    }
     [Button("Hash Modules")]
     private string[] HashModuleVerificationInfoButtonClick(bool apply = true)
     {
@@ -186,7 +193,7 @@ public class VerificationSystem : MonoBehaviour
         var rt = new string[_credential.editions.Length];
         for (int i = 0; i < rt.Length; i++)
         {
-            rt[i] = HashEditionVerificationInfo(_credential, _credential.editions[i]);
+            //rt[i] = HashEditionVerificationInfo(_credential, _credential.editions[i]);
             if (apply) _credential.SetEditionHash(i, rt[i]);
         }
         return rt;
@@ -213,12 +220,10 @@ public class VerificationSystem : MonoBehaviour
     {
         return true;
     }
-    public void Initialize(ICredentialLoader credentialLoader)
+    public void Initialize()
     {
         if (_initialized) { throw new Exception("This should not happen. Check the error immdiately!"); }
 
-        //var credential = credentialLoader.Load();
-        //_verificationResult = Verify(credential, cookie);
         _initialized = true;
     }
 
@@ -237,18 +242,18 @@ public class VerificationSystem : MonoBehaviour
         var result = new VerificationResult(verificationInfo.modules.Length, verificationInfo.editions.Length);
 
 
-        if (!VerifyHash(verificationInfo))
-        {
-            result.applicationHashInvalid = true;
-        }
-        if (!VerifyDevice(verificationInfo))
-        {
-            result.deviceInvalid = true;
-        }
-        if (!VerifyExpiration(verificationInfo))
-        {
-            result.applicationExpired = true;
-        }
+        //if (!VerifyHash(verificationInfo))
+        //{
+        //    result.applicationHashInvalid = true;
+        //}
+        //if (!VerifyDevice(verificationInfo))
+        //{
+        //    result.deviceInvalid = true;
+        //}
+        //if (!VerifyExpiration(verificationInfo))
+        //{
+        //    result.applicationExpired = true;
+        //}
         if (!VerifyLastTimeLogin(cookie))
         {
             result.lastTimeLoginInvalid = true;
@@ -274,10 +279,10 @@ public class VerificationSystem : MonoBehaviour
         }
         for (int i = 0; i < verificationInfo.editions.Length; i++)
         {
-            if (!VerifyEditionHash(verificationInfo, verificationInfo.editions[i]))
-            {
-                result.editionHashInvalid[i] = true;
-            }
+            //if (!VerifyEditionHash(verificationInfo, verificationInfo.editions[i]))
+            //{
+            //    result.editionHashInvalid[i] = true;
+            //}
             if (!VerifyEditionPurchased(verificationInfo.editions[i]))
             {
                 result.editionUnpaid[i] = true;
@@ -293,68 +298,17 @@ public class VerificationSystem : MonoBehaviour
     }
 
 
-    private string HashVerificationInfo(Credential info)
-    {
-        var numList = new Queue<long>();
-        numList.Enqueue(info.deviceUniqueIdentifier.GetHashCode());
-        if (info.purchased)
-        {
-            EnqueneBySalt(numList, info.deviceUniqueIdentifier.GetHashCode());
-        }
-        numList.Enqueue(info.applicationExpiredDate);
-        for (int i = 0; i < info.modules.Length; i++)
-        {
-            EnqueneBySalt(numList, info.modules[i].id);
-            EnqueneBySalt(numList, info.modules[i].expiredDate);
-        }
-        for (int i = 0; i < info.editions.Length; i++)
-        {
-            EnqueneBySalt(numList, info.editions[i].id);
-            EnqueneBySalt(numList, info.editions[i].expiredDate);
-        }
-        long num = numList.Dequeue();
-        while (numList.Any())
-        {
-            var power = numList.Dequeue();
-            if (power == 0) continue;
-            num = Int64Pow(num, power);
-        }
-        return num.ToString();
-    }
-
     internal bool IsUnpaid()
     {
         return _verificationResult.applicationUnpaid;
     }
     private string HashModuleVerificationInfo(Credential parentInfo, ModuleCredential info)
     {
-
         var numList = new Queue<long>();
-        EnqueneBySalt(numList, parentInfo.deviceUniqueIdentifier.GetHashCode());
+        EnqueneBySalt(numList, info.deviceUniqueIdentifier.GetHashCode());
         if (parentInfo.purchased)
         {
-            EnqueneBySalt(numList, parentInfo.deviceUniqueIdentifier.GetHashCode());
-        }
-        EnqueneBySalt(numList, info.id);
-        EnqueneBySalt(numList, info.expiredDate);
-
-        long num = numList.Dequeue();
-        while (numList.Any())
-        {
-            var power = numList.Dequeue();
-            if (power == 0) continue;
-            num = Int64Pow(num, power);
-        }
-        return num.ToString();
-    }
-    private string HashEditionVerificationInfo(Credential parentInfo, EditionCredential info)
-    {
-
-        var numList = new Queue<long>();
-        EnqueneBySalt(numList, parentInfo.deviceUniqueIdentifier.GetHashCode());
-        if (parentInfo.purchased)
-        {
-            EnqueneBySalt(numList, parentInfo.deviceUniqueIdentifier.GetHashCode());
+            EnqueneBySalt(numList, info.deviceUniqueIdentifier.GetHashCode());
         }
         EnqueneBySalt(numList, info.id);
         EnqueneBySalt(numList, info.expiredDate);
@@ -370,26 +324,26 @@ public class VerificationSystem : MonoBehaviour
     }
 
     #region Application Verifier
-    public bool VerifyHash(Credential credential)
-    {
-        return credential.hash == HashVerificationInfo(credential);
-    }
-    public bool VerifyDevice(Credential credential)
-    {
-#if UNITY_ANDROID
-        return credential.deviceUniqueIdentifier == SystemInfo.deviceUniqueIdentifier;
-#elif UNITY_EDITOR
-        return true;
-#endif
-    }
+    //public bool VerifyHash(Credential credential)
+    //{
+    //    return credential.hash == HashVerificationInfo(credential);
+    //}
+//    public bool VerifyDevice(Credential credential)
+//    {
+//#if UNITY_ANDROID
+//        return credential.deviceUniqueIdentifier == SystemInfo.deviceUniqueIdentifier;
+//#elif UNITY_EDITOR
+//        return true;
+//#endif
+//    }
     private bool VerifyLastTimeLogin(CredentialCookie cookie)
     {
         return DateTime.Now.Ticks > cookie.lastTimeLogin;
     }
-    private bool VerifyExpiration(Credential verificationInfo)
-    {
-        return verificationInfo.applicationExpiredDate < DateTime.Now.Ticks;
-    }
+    //private bool VerifyExpiration(Credential verificationInfo)
+    //{
+    //    return verificationInfo.applicationExpiredDate < DateTime.Now.Ticks;
+    //}
     private bool VerifyPurchased(Credential verificationInfo)
     {
         return verificationInfo.purchased;
@@ -410,10 +364,10 @@ public class VerificationSystem : MonoBehaviour
     }
     #endregion
     #region Edition Verifier
-    public bool VerifyEditionHash(Credential parentInfo, EditionCredential info)
-    {
-        return info.hash == HashEditionVerificationInfo(parentInfo, info);
-    }
+    //public bool VerifyEditionHash(Credential parentInfo, EditionCredential info)
+    //{
+    //    return info.hash == HashEditionVerificationInfo(parentInfo, info);
+    //}
     private bool VerifyEditionPurchased(EditionCredential editionVerificationInfo)
     {
         return editionVerificationInfo.purchased;

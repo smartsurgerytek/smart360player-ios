@@ -1,6 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class MasterView : MonoBehaviour
 {
+    internal MainMenuView mainMenuView;
     [SerializeField] private VerificationView _verificationView;
+
+    internal void Initialize()
+    {
+        throw new NotImplementedException();
+    }
 }

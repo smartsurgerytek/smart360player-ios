@@ -31,7 +31,7 @@ public class MainMenuManager : MonoBehaviour
     public VerificationSystem verificationSystem { get => _verificationSystem; internal set => _verificationSystem = value; }
     public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
 
-    private void CleanUp()
+    private void CleanUpEditionButtons()
     {
         if (_editionButtons == null) return;
         for (int i = 0; i < _editionButtons.Length; i++)
@@ -43,31 +43,45 @@ public class MainMenuManager : MonoBehaviour
     internal void Initialize()
     {
         if (_initialized) return;
-        CleanUp();
+        CleanUpEditionButtons();
+
         //_verificationSystem.verificationView = verificationView;
         _exitButton.onClick.AddListener(_exitButton_onClick);
-        var editions = _applicationManager?.editionManager?.data;
-        if (editions == null)
-        {
-            return;
-        }
-        _editionButtons = new EditionButton[editions.Length];
-        for (int i = 0; i < editions.Length; i++)
-        {
-            var state = EditionButton.State.Normal;
-            if (!_enables[i]) state = EditionButton.State.Unenabled;
-            else if (verificationSystem.IsEditionUnpaid(i)) state = EditionButton.State.Unpaid;
-            else if (verificationSystem.IsEditionExpired(i)) state = EditionButton.State.Expired;
 
-            _editionButtons[i] = Instantiate(_editionButtonPrefab);
-            _editionButtons[i].clickButton.AddListener(_editionButton_onClick);
-            _editionButtons[i].Initialize(i, editions[i].englishName,  state);
-            
-            _editionButtonsLayout.Layout(i, _editionButtons[i].transform);
-        }
+
         _initialized = true;
     }
+    private void CreateEditionButtons(MasterContext context, MasterView rawView, int module)
+    {
 
+        //var editions = _applicationManager?.editionManager?.data;
+        //if (editions == null)
+        //{
+        //    return;
+        //}
+        var count = context.edition.GetCount(module);
+        var view = rawView.mainMenuView.editionButtonsView;
+        var credentialContext = context.credential;
+        view.CleanUp();
+        for (int i = 0; i < count; i++)
+        {
+            view.AddEditionButton(i, enabled, credentialContext.IsUnpaid(i),credentialContext.isExpired(i), context.edition.GetName(i),_editionButton_onClick);
+        }
+        //_editionButtons = new EditionButton[editions.Length];
+        //for (int i = 0; i < editions.Length; i++)
+        //{
+        //    var state = EditionButton.State.Normal;
+        //    if (!_enables[i]) state = EditionButton.State.Unenabled;
+        //    else if (verificationSystem.IsEditionUnpaid(i)) state = EditionButton.State.Unpaid;
+        //    else if (verificationSystem.IsEditionExpired(i)) state = EditionButton.State.Expired;
+
+        //    _editionButtons[i] = Instantiate(_editionButtonPrefab);
+        //    _editionButtons[i].clickButton.AddListener(_editionButton_onClick);
+        //    _editionButtons[i].Initialize(i, editions[i].englishName, state);
+
+        //    _editionButtonsLayout.Layout(i, _editionButtons[i].transform);
+        //}
+    }
     private void _exitButton_onClick()
     {
         Application.Quit();
