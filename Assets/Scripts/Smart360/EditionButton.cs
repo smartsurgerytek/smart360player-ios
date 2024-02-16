@@ -6,34 +6,45 @@ using UnityEngine.UI;
 
 public class EditionButton : MonoBehaviour
 {
-    public enum State
+    public enum VerificationState
     {
         Normal,
         Unpaid,
         Expired,
         Unenabled
     }
+    
+    [Header("Profile")]
+    [SerializeField] private int _index;
+    [SerializeField] private int _editionId;
+
+    [Header("Components")]
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _titleText;
-    [SerializeField] private int _index;
-    [SerializeField] private UnityEvent<int> _clickButton;
     [SerializeField] private CanvasGroup _unpaid;
     [SerializeField] private CanvasGroup _expired;
-    [SerializeField,ReadOnly] private State _state;
+
+    [Header("State")]
+    [SerializeField,ReadOnly] private VerificationState _verificationState;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent<int> _clickButton;
+
+    public int index { get => _index; internal set => _index = value; }
+    public int EditionId { get => _editionId; internal set => _editionId = value; }
+    public string title { get => _titleText.text; internal set => _titleText.text = value; }
+    public VerificationState verificationState { get => _verificationState; internal set => _verificationState = value; }
     public UnityEvent<int> clickButton { get => _clickButton; }
 
-    public void Initialize(int index, string title, State state)
+    public void Initialize()
     {
-        _state = state;
-        _index = index;
-        _titleText.text = title;
-        _button.interactable = state != State.Unenabled;
+        _button.interactable = verificationState != VerificationState.Unenabled;
         _button.onClick.AddListener(_button_onClick);
-        if(state == State.Unpaid)
+        if(verificationState == VerificationState.Unpaid)
         {
             SetCanvasGroup(_unpaid, true);
         }
-        if(state == State.Expired)
+        if(verificationState == VerificationState.Expired)
         {
             SetCanvasGroup(_expired, true);
         }

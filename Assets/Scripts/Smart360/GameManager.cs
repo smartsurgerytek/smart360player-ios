@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public void Initialize(int edition)
     {
         if (_initialized) return;
+
         _currentModule = edition;
         var staffs = _applicationManager.staffManager.data;
         var staffGroups = _applicationManager.staffGroupManager.data;

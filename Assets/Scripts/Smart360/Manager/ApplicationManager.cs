@@ -8,6 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Application Manager", menuName = "Managers/Application Manager")]
 public class ApplicationManager : ScriptableObject
 {
+    [SerializeField] private ManifestManager _manifestManger;
     [SerializeField] private StaffGroupManager _staffGroupManager;
     [SerializeField] private StaffManager _staffManager;
     [SerializeField] private VideoManager _videoManager;
@@ -30,6 +31,8 @@ public class ApplicationManager : ScriptableObject
     public EditionVerificationManager editionVerificationManager {get=>_editionVerificationManager;}
     public UserManager userManager {get=>_userManager;}
     public DeviceManager deviceManager { get => _deviceManager; }
+
+
 
     [Button]
     private void AutoRefreshFilePath()

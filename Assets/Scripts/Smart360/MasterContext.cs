@@ -13,11 +13,16 @@ public class MasterContext : SerializedMonoBehaviour
     public IModuleContext module { get => _module; }
     internal IEditionContext edition { get => _edition; }
 
+    public void Load(Manifest manifest)
+    {
+        //_credential.Load(manifest.credentialPath);
+        //_edition.Load(manifest.editionPath);
+    }
     public void Initialize()
     {
         _credential.Initialize();
         _editionButton.Initialize();
-        _edition.Initialize();
+        //_edition.Initialize(this);
     }
 
 }

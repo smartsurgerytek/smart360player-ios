@@ -138,6 +138,7 @@ public class EasonModuleCredentialHasher : ICredentialHasher<ModuleCredential>
 [Serializable]
 public struct EasonCredentialContext : ICredentialContext
 {
+    [SerializeField] private ILoader<Credential> _loader;
     [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCookieExist), InfoMessageType = InfoMessageType.Error)] private string _cookieFileName;
@@ -175,6 +176,7 @@ public struct EasonCredentialContext : ICredentialContext
 
     void ICredentialContext.Initialize()
     {
+        if (_initialized) throw new Exception("Cannot initialize twice.");
         EnsureRootFolderExist();
         LoadCredential();
         LoadCookie();
@@ -183,9 +185,10 @@ public struct EasonCredentialContext : ICredentialContext
     [Button, FoldoutGroup("Debug/Credential"), EnableIf(nameof(isCredentialExist))]
     private void LoadCredential()
     {
-        AssertCredentialFile();
-        var json = File.ReadAllText(credentialPath);
-        this._credential = JsonUtility.FromJson<Credential>(json);
+        //AssertCredentialFile();
+        //var json = File.ReadAllText(credentialPath);
+        //this._credential = JsonUtility.FromJson<Credential>(json);
+        this._credential = _loader.Load();
     }
 
     [Button, FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieExist))]
@@ -290,5 +293,6 @@ public struct EasonCredentialContext : ICredentialContext
     {
         return _credential.editions.First(o => o.id == edition).expiredDate > DateTime.Now.Ticks;
     }
+
 #endif
 }

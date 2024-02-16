@@ -1,15 +1,30 @@
 ﻿using Sirenix.OdinInspector;
+using System;
 using System.Linq;
-using System.Xml.Linq;
 using UnityEngine;
+
+[Serializable]
+public struct FilePath
+{
+    [SerializeField] private string _name;
+    [SerializeField] private string _path;
+
+    public string name { get => _name; }
+    public string path { get => _path; }
+}
+public struct Manifest
+{
+    [SerializeField] private FilePath[] _files;
+    internal string credentialPath { get => _files.First(o => o.name == nameof(credentialPath)).path; }
+    internal string editionPath { get=> _files.First(o => o.name == nameof(credentialPath)).path; }
+}
 
 [CreateAssetMenu(fileName = "Edition Manager", menuName = "Managers/Edition Manager")]
 public class EditionManager : ScriptableObject
 {
     
-    [SerializeField, TableList] private EditionModel[] _data;
-    public EditionModel[] data { get => _data?.ToArray(); internal set => _data = value; }
-
+    [SerializeField, TableList] private Edition[] _data;
+    public Edition[] data { get => _data; internal set => _data = value; }
 
     private void OnValidate()
     {
@@ -24,31 +39,33 @@ public class EditionManager : ScriptableObject
         }
     }
 }
-public struct EditionContext : IEditionContext
+
+
+public struct EditionContext 
 {
     [SerializeField] private int[] _currentEditions;
-    [SerializeField, TableList] private EditionModel[] _data;
+    [SerializeField, TableList] private Edition[] _data;
     #region IEditionContext
 
-    void IEditionContext.Initialize()
-    {
+    //void IEditionContext.Initialize()
+    //{
+    //}
 
-    }
+    //int IEditionContext.GetCount(int index)
+    //{
+    //    return _data.Count(o => o.module == index);
+    //}
 
-    int IEditionContext.GetCount(int index)
-    {
-        return _data.Count(o => o.module == index);
-    }
+    //int[] IEditionContext.GetCurrentEditions()
+    //{
+    //    return _currentEditions.ToArray();
+    //}
 
-    int[] IEditionContext.GetCurrentEditions()
-    {
-        return _currentEditions.ToArray();
-    }
+    //string IEditionContext.GetName(int index)
+    //{
+    //    return _data[index].name;
+    //}
 
-    string IEditionContext.GetName(int index)
-    {
-        return _data[index].name;
-    }
 
     //private EditionModel[] GetEditions(int module)
     //{

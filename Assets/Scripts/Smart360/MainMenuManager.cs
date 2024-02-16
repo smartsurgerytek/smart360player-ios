@@ -4,19 +4,23 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class MainMenuManager : MonoBehaviour
+public class MainMenuManager : SerializedMonoBehaviour
 {
-    [SerializeField] private ApplicationManager _applicationManager;
     [Header("Components")]
-    [SerializeField] private VerificationSystem _verificationSystem;
+    //[SerializeField] private VerificationSystem _verificationSystem;
     [SerializeField] private Button _exitButton;
-    [SerializeField] private VerificationView _verificationView;
+    //[SerializeField] private VerificationView _verificationView;
 
     [Header("Edition Buttons")]
-    [SerializeField, HideInInspector] private bool[] _enables;
+    //[SerializeField, HideInInspector] private bool[] _enables;
+    //[SerializeField, SceneObjectsOnly] private ExactPositionLayout _editionButtonsLayout;
     [SerializeField] private EditionButton _editionButtonPrefab;
-    [SerializeField, SceneObjectsOnly] private ExactPositionLayout _editionButtonsLayout;
+    [SerializeField] private Transform _editionButtonParent;
+    [SerializeField] private int[] _editionButtonIds;
     [NonSerialized, ShowInInspector, ReadOnly] private EditionButton[] _editionButtons;
+
+    [Header("Controllers")]
+    [SerializeField] private IEditionButtonPreinitializer[] _editionButtonPreInitializers;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<int> _clickEditionButton;
@@ -25,18 +29,20 @@ public class MainMenuManager : MonoBehaviour
     [Header("Debug")]
     private bool _initialized;
 
-
-    public ApplicationManager applicationManager { get => _applicationManager; internal set => _applicationManager = value; }
     public UnityEvent<int> clickEditionButton { get => _clickEditionButton; }
-    public VerificationSystem verificationSystem { get => _verificationSystem; internal set => _verificationSystem = value; }
-    public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
+
+    internal event Action<EditionButton> preinitializeEditonButton;
+    public int editionCount { get => _editionButtonIds.Length; }
+
+    //public VerificationSystem verificationSystem { get => _verificationSystem; internal set => _verificationSystem = value; }
+    //public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
 
     private void CleanUpEditionButtons()
     {
         if (_editionButtons == null) return;
         for (int i = 0; i < _editionButtons.Length; i++)
         {
-            _editionButtonsLayout.Remove(i, _editionButtons[i].transform);
+            //_editionButtonsLayout.Remove(i, _editionButtons[i].transform);
             Destroy(_editionButtons[i].gameObject);
         }
     }
@@ -44,28 +50,33 @@ public class MainMenuManager : MonoBehaviour
     {
         if (_initialized) return;
         CleanUpEditionButtons();
-
+        CreateEditionButtons();
         //_verificationSystem.verificationView = verificationView;
         _exitButton.onClick.AddListener(_exitButton_onClick);
 
-
         _initialized = true;
     }
-    private void CreateEditionButtons(MasterContext context, MasterView rawView, int module)
+    private void CreateEditionButtons()
     {
-
         //var editions = _applicationManager?.editionManager?.data;
         //if (editions == null)
         //{
         //    return;
         //}
-        var view = rawView.mainMenuView.editionButtonsView;
-        var credentialContext = context.credential;
-        var editions = context.edition.GetCurrentEditions();
-        view.CleanUp();
-        for (int i = 0; i < editions.Length; i++)
+        //var view = rawView.mainMenuView.editionButtonsView;
+        //var credentialContext = context.credential;
+        //var editions = context.edition.GetCurrentEditions();
+        //view.CleanUp();
+        _editionButtons = new EditionButton[editionCount];
+        for (int i = 0; i < editionCount; i++)
         {
-            view.AddEditionButton(i, enabled, credentialContext.IsUnpaid(editions[i]), credentialContext.isExpired(editions[i]), context.edition.GetName(editions[i]), _editionButton_onClick);
+            _editionButtons[i] = Instantiate(_editionButtonPrefab, _editionButtonParent);
+            _editionButtons[i].index = i;
+            for (int j = 0; j< (_editionButtonPreInitializers?.Length ?? 0); j++)
+            {
+                _editionButtonPreInitializers[j].OnPreInitialize(_editionButtons[i]);
+            }
+            _editionButtons[i].Initialize();
         }
         //_editionButtons = new EditionButton[editions.Length];
         //for (int i = 0; i < editions.Length; i++)
@@ -75,9 +86,6 @@ public class MainMenuManager : MonoBehaviour
         //    else if (verificationSystem.IsEditionUnpaid(i)) state = EditionButton.State.Unpaid;
         //    else if (verificationSystem.IsEditionExpired(i)) state = EditionButton.State.Expired;
 
-        //    _editionButtons[i] = Instantiate(_editionButtonPrefab);
-        //    _editionButtons[i].clickButton.AddListener(_editionButton_onClick);
-        //    _editionButtons[i].Initialize(i, editions[i].englishName, state);
 
         //    _editionButtonsLayout.Layout(i, _editionButtons[i].transform);
         //}

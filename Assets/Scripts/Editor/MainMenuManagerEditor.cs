@@ -6,7 +6,6 @@ using UnityEngine;
 [CustomEditor(typeof(MainMenuManager))]
 public class MainMenuManagerEditor : OdinEditor
 {
-    private MainMenuManager menuManager => target as MainMenuManager;
     private SerializedProperty SP_applicationManager;
     private SerializedProperty SP_enables;
     private static bool _showEnableGroup;
@@ -23,16 +22,16 @@ public class MainMenuManagerEditor : OdinEditor
         serializedObject.Update();
 
         var applicationManager = SP_applicationManager?.objectReferenceValue as ApplicationManager;
-        var modules = applicationManager?.editionManager?.data;
-        if (modules == null) return;
-        SP_enables.arraySize = modules.Length;
+        var editions = applicationManager?.editionManager?.data;
+        if (editions == null) return;
+        SP_enables.arraySize = editions.Length;
         if (_showEnableGroup = EditorGUILayout.Foldout(_showEnableGroup, "Enable Editions"))
         {
             EditorGUI.indentLevel++;
-            for (int i = 0; i < modules.Length; i++)
+            for (int i = 0; i < editions.Length; i++)
             {
                 var SP_enable = SP_enables.GetArrayElementAtIndex(i);
-                SP_enable.boolValue = EditorGUILayout.ToggleLeft(modules[i].englishName, SP_enable.boolValue);
+                SP_enable.boolValue = EditorGUILayout.ToggleLeft(editions[i].englishName, SP_enable.boolValue);
             }
             EditorGUI.indentLevel--;
         }

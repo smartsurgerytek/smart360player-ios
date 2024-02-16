@@ -1,12 +1,74 @@
 ﻿using Eason.Odin;
-using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.IO;
 using System.Linq;
 using UnityEngine;
 
+public interface ILoader<T>
+{
+    T Load();
+}
+public interface ILoader<TResult, TParameter>
+{
+    TResult Load(TParameter parameter);
+}
+public struct EasonCredentialLoaderParameter
+{
+
+    [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
+    [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
+
+
+    [ShowInInspector, FoldoutGroup("Debug")] public string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', '\\');
+    [ShowInInspector, FoldoutGroup("Debug")] public string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName ?? "");
+    [ShowInInspector, FoldoutGroup("Debug")] public bool isRootFolderNameValid => !string.IsNullOrEmpty(_rootFolderName);
+    [ShowInInspector, FoldoutGroup("Debug")] public bool isCredentialFileNameValid => !string.IsNullOrEmpty(_credentialFileName);
+    [ShowInInspector, FoldoutGroup("Debug")] public bool isRootExist => isRootFolderNameValid && Directory.Exists(rootPath);
+    [ShowInInspector, FoldoutGroup("Debug")] public bool isCredentialExist => isCredentialFileNameValid && File.Exists(credentialPath);
+
+    public void AssertRootFolderName()
+    {
+        if (!isRootFolderNameValid) throw new Exception("Root folder name cannot be null or empty.");
+    }
+    public void AssertCredentialFileName()
+    {
+        if (!isCredentialFileNameValid) throw new Exception("Credential file name cannot be null or empty.");
+    }
+    public void AssertRootFolder()
+    {
+        AssertRootFolderName();
+        if (!isRootExist) throw new DirectoryNotFoundException($"Root folder \"{rootPath}\" doesn't exist");
+    }
+    public void AssertCredentialFile()
+    {
+        AssertCredentialFileName();
+        if (!isCredentialExist) throw new FileNotFoundException($"Root folder \"{credentialPath}\" doesn't exist");
+    }
+
+    [Button("Open Root Folder"), FoldoutGroup("Debug"), ShowIf(nameof(isRootExist))]
+    private void OdinOpen()
+    {
+        System.Diagnostics.Process.Start("explorer.exe", rootPath);
+    }
+}
+public class EasonCredentialLoader : ScriptableObject ,ILoader<Credential, EasonCredentialLoaderParameter>
+{
+
+
+    Credential ILoader<Credential, EasonCredentialLoaderParameter>.Load(EasonCredentialLoaderParameter parameter)
+    {
+        parameter.AssertCredentialFile();
+        var json = File.ReadAllText(parameter.credentialPath);
+        return JsonUtility.FromJson<Credential>(json);
+    }
+
+
+    #region Odin
+    #endregion
+}
 [Serializable]
 public struct ModuleCredential
 {
@@ -85,7 +147,6 @@ public struct VerificationResult
 {
 
     [SerializeField] bool _verified;
-    [SerializeField] private bool _isValid;
     [SerializeField] private bool _deviceInvalid;
     [SerializeField] private bool _lastTimeLoginInvalid;
     [SerializeField] private bool _applicationHashInvalid;
@@ -113,8 +174,6 @@ public struct VerificationResult
     public bool applicationExpired { get => _applicationExpired; internal set => _applicationExpired = value; }
     public bool lastTimeLoginInvalid { get => _lastTimeLoginInvalid; internal set => _lastTimeLoginInvalid = value; }
     public bool deviceInvalid { get => _deviceInvalid; internal set => _deviceInvalid = value; }
-    public bool isValid { get => _isValid; internal set => _isValid = value; }
-    public bool verified { get => _verified; internal set => _verified = value; }
     public bool[] moduleUnpaid { get => _moduleUnpaid; }
     public bool[] moduleExpired { get => _moduleExpired; }
     public bool[] editionUnpaid { get => _editionUnpaid; }
@@ -122,6 +181,21 @@ public struct VerificationResult
     public bool[] moduleHashInvalid { get => _moduleHashInvalid; }
     public bool[] editionHashInvalid { get => _editionHashInvalid; }
 
+    public bool verified { get => _verified; internal set => _verified = value; }
+    public bool isValid
+    {
+        get
+        {
+            return !applicationHashInvalid && !applicationUnpaid & !applicationExpired & !lastTimeLoginInvalid & deviceInvalid &
+                moduleUnpaid.All(o => !o) &&
+                moduleExpired.All(o => !o) &&
+                editionUnpaid.All(o => !o) &&
+                editionExpired.All(o => !o) &&
+                moduleHashInvalid.All(o => !o) &&
+                editionHashInvalid.All(o => !o) &&
+                verified;
+        }
+    }
 }
 [SerializeField]
 public struct CredentialCookie
@@ -135,6 +209,7 @@ public struct CredentialCookie
 }
 public class VerificationSystem : MonoBehaviour
 {
+
     [Header("Settings")]
     [SerializeField] private string _credentialFolderPath = "secret";
     [SerializeField] private string _credentialFileName = "result";
@@ -152,29 +227,12 @@ public class VerificationSystem : MonoBehaviour
     [Header("Components")]
     [SerializeField] private VerificationView _verificationView;
 
+    [Header("Controllers")]
+    [SerializeField] private ICredentialVerifier _credentialVerifier;
+
     #region Debug
     [Header("Debug")]
     [SerializeField,ReadOnly] private VerificationResult _verificationResult;
-
-    //[Button("Save Credential"), HideIf(nameof(folderNotExist))]
-    //private void OnSaveCredentialButtonClick()
-    //{
-    //    var json = JsonUtility.ToJson(_credential);
-    //    File.WriteAllText(Path.Combine(Application.persistentDataPath, _credentialFolderPath, _credentialFileName), json);
-    //}
-
-    //[Button("Save Credential Cookie"), HideIf(nameof(folderNotExist))]
-    //private void OnSaveCredentialCookieButtonClick()
-    //{
-    //    var json = JsonUtility.ToJson(_cookie);
-    //    File.WriteAllText(Path.Combine(Application.persistentDataPath, _credentialFolderPath, _credentialCookieFileName), json);
-    //}
-    //[Button("Load Verification"), HideIf(nameof(fileNotExist))]
-    //private void LoadVerificationInfoButtonClick()
-    //{
-    //    _credential = LoadCredential();
-    //}
-
 
     [Button("Hash Modules")]
     private string[] HashModuleVerificationInfoButtonClick(bool apply = true)
@@ -223,7 +281,7 @@ public class VerificationSystem : MonoBehaviour
     public void Initialize()
     {
         if (_initialized) { throw new Exception("This should not happen. Check the error immdiately!"); }
-
+        _verificationResult = _credentialVerifier.Verify(_credential);
         _initialized = true;
     }
 
@@ -293,7 +351,6 @@ public class VerificationSystem : MonoBehaviour
             }
         }
         result.verified = true;
-        result.isValid = true;
         return result;
     }
 

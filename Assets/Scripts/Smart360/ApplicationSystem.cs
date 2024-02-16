@@ -3,7 +3,10 @@ using System;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+public interface IEditionButtonPreinitializer
+{
+    internal void OnPreInitialize(EditionButton editionButton);
+}
 public class ApplicationSystem : MonoBehaviour
 {
     private static ApplicationSystem _instance;
@@ -62,7 +65,6 @@ public class ApplicationSystem : MonoBehaviour
         _verificationSystem.InternalUpdate();
         CheckMainMenu();
         CheckVideoPlayerScene();
-        //_menuManager_onClickEditionButton
     }
 
 
@@ -88,8 +90,9 @@ public class ApplicationSystem : MonoBehaviour
         {
 
             //_verificationSystem.OnMainMenuSceneInitializing(_mainMenuManager);
-            _mainMenuManager.verificationSystem = _verificationSystem;
+            //_mainMenuManager.verificationSystem = _verificationSystem;
             _mainMenuManager.clickEditionButton.AddListener(_mainMenuManager_onClickEditionButton);
+            //_mainMenuManager.preinitializeEditonButton.AddListener();
             _mainMenuManager.Initialize();
             _mainMenuSceneNeedInitialize = false;
         }
