@@ -21,11 +21,6 @@ public interface ISaver<TData, TParameter>
     void Save(TData data, TParameter parameter);
 }
 [Serializable]
-public struct EasonCredential
-{
-
-}
-[Serializable]
 public struct EasonCredentialSaveLoadParameter
 {
 
@@ -63,6 +58,16 @@ public struct EasonCredentialSaveLoadParameter
     private void OdinOpen()
     {
         System.Diagnostics.Process.Start("explorer.exe", rootPath);
+    }
+}
+[Serializable]
+public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadParameter>
+{
+    void ISaver<Credential, EasonCredentialSaveLoadParameter>.Save(Credential data, EasonCredentialSaveLoadParameter parameter)
+    {
+        parameter.AssertCredentialFile();
+        var json = File.ReadAllText(parameter.credentialPath);
+        return JsonUtility.FromJson<Credential>(json);
     }
 }
 [Serializable]
