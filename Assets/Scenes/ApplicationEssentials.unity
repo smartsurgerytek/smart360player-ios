@@ -228,6 +228,24 @@ MonoBehaviour:
     - Name: _credential
       Entry: 7
       Data: 0|EasonCredentialContext, SmartSurgery.Smart360
+    - Name: _loader
+      Entry: 7
+      Data: 1|EasonCredentialLoader, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _parameter
+      Entry: 7
+      Data: EasonCredentialLoaderParameter, SmartSurgery.Smart360
+    - Name: _rootFolderName
+      Entry: 1
+      Data: Credential
+    - Name: _credentialFileName
+      Entry: 1
+      Data: credential
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _rootFolderName
       Entry: 1
       Data: Credential
@@ -239,19 +257,19 @@ MonoBehaviour:
       Data: cookie
     - Name: _applicationHasher
       Entry: 7
-      Data: 1|EasonApplicationCredentialHasher, SmartSurgery.Smart360
+      Data: 2|EasonApplicationCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _editionHasher
       Entry: 7
-      Data: 2|EasonEditionCredentialHasher, SmartSurgery.Smart360
+      Data: 3|EasonEditionCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _moduleHasher
       Entry: 7
-      Data: 3|EasonModuleCredentialHasher, SmartSurgery.Smart360
+      Data: 4|EasonModuleCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
@@ -322,7 +340,6 @@ MonoBehaviour:
   _verificationView: {fileID: 0}
   _verificationResult:
     _verified: 0
-    _isValid: 0
     _deviceInvalid: 0
     _lastTimeLoginInvalid: 0
     _applicationHashInvalid: 0

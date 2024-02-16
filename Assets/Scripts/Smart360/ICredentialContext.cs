@@ -138,7 +138,8 @@ public class EasonModuleCredentialHasher : ICredentialHasher<ModuleCredential>
 [Serializable]
 public struct EasonCredentialContext : ICredentialContext
 {
-    [SerializeField] private ILoader<Credential> _loader;
+    [SerializeField] private ILoader<Credential,EasonCredentialSaveLoadParameter> _loader;
+    [SerializeField] private EasonCredentialSaveLoadParameter _parameter;
     [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCookieExist), InfoMessageType = InfoMessageType.Error)] private string _cookieFileName;
@@ -188,7 +189,7 @@ public struct EasonCredentialContext : ICredentialContext
         //AssertCredentialFile();
         //var json = File.ReadAllText(credentialPath);
         //this._credential = JsonUtility.FromJson<Credential>(json);
-        this._credential = _loader.Load();
+        this._credential = _loader.Load(_parameter);
     }
 
     [Button, FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieExist))]

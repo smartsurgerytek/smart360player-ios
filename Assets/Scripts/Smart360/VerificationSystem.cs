@@ -1,4 +1,5 @@
 ﻿using Eason.Odin;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,17 @@ public interface ILoader<TResult, TParameter>
 {
     TResult Load(TParameter parameter);
 }
-public struct EasonCredentialLoaderParameter
+public interface ISaver<TData, TParameter>
+{
+    void Save(TData data, TParameter parameter);
+}
+[Serializable]
+public struct EasonCredential
+{
+
+}
+[Serializable]
+public struct EasonCredentialSaveLoadParameter
 {
 
     [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
@@ -54,20 +65,15 @@ public struct EasonCredentialLoaderParameter
         System.Diagnostics.Process.Start("explorer.exe", rootPath);
     }
 }
-public class EasonCredentialLoader : ScriptableObject ,ILoader<Credential, EasonCredentialLoaderParameter>
+[Serializable]
+public struct EasonCredentialLoader : ILoader<Credential, EasonCredentialSaveLoadParameter>
 {
-
-
-    Credential ILoader<Credential, EasonCredentialLoaderParameter>.Load(EasonCredentialLoaderParameter parameter)
+    Credential ILoader<Credential, EasonCredentialSaveLoadParameter>.Load(EasonCredentialSaveLoadParameter parameter)
     {
         parameter.AssertCredentialFile();
         var json = File.ReadAllText(parameter.credentialPath);
         return JsonUtility.FromJson<Credential>(json);
     }
-
-
-    #region Odin
-    #endregion
 }
 [Serializable]
 public struct ModuleCredential
