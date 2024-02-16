@@ -228,48 +228,51 @@ MonoBehaviour:
     - Name: _credential
       Entry: 7
       Data: 0|EasonCredentialContext, SmartSurgery.Smart360
+    - Name: _rootFolderName
+      Entry: 1
+      Data: Credential
+    - Name: _cookieFileName
+      Entry: 1
+      Data: cookie
+    - Name: _parameter
+      Entry: 7
+      Data: EasonCredentialSaveLoadParameter, SmartSurgery.Smart360
+    - Name: _rootFolderName
+      Entry: 1
+      Data: Credential
+    - Name: _credentialFileName
+      Entry: 1
+      Data: credential
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _loader
       Entry: 7
       Data: 1|EasonCredentialLoader, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
-    - Name: _parameter
+    - Name: _saver
       Entry: 7
-      Data: EasonCredentialLoaderParameter, SmartSurgery.Smart360
-    - Name: _rootFolderName
-      Entry: 1
-      Data: Credential
-    - Name: _credentialFileName
-      Entry: 1
-      Data: credential
+      Data: 2|EasonCredentialSaver, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
-    - Name: _rootFolderName
-      Entry: 1
-      Data: Credential
-    - Name: _credentialFileName
-      Entry: 1
-      Data: credential
-    - Name: _cookieFileName
-      Entry: 1
-      Data: cookie
     - Name: _applicationHasher
       Entry: 7
-      Data: 2|EasonApplicationCredentialHasher, SmartSurgery.Smart360
+      Data: 3|EasonApplicationCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _editionHasher
       Entry: 7
-      Data: 3|EasonEditionCredentialHasher, SmartSurgery.Smart360
+      Data: 4|EasonEditionCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _moduleHasher
       Entry: 7
-      Data: 4|EasonModuleCredentialHasher, SmartSurgery.Smart360
+      Data: 5|EasonModuleCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 

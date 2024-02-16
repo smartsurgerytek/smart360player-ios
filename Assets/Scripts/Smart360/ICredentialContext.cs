@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -69,7 +70,6 @@ public class EasonEditionCredentialHasher : ICredentialHasher<EditionCredential>
         EnqueneBySalt(numList, credential.expiredDate);
 
         long num = numList.Dequeue();
-        Debug.Log(num);
         while (numList.Any())
         {
             var power = numList.Dequeue();
@@ -138,30 +138,34 @@ public class EasonModuleCredentialHasher : ICredentialHasher<ModuleCredential>
 [Serializable]
 public struct EasonCredentialContext : ICredentialContext
 {
-    [SerializeField] private ILoader<Credential,EasonCredentialSaveLoadParameter> _loader;
-    [SerializeField] private EasonCredentialSaveLoadParameter _parameter;
     [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
-    [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
+    //[SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCookieExist), InfoMessageType = InfoMessageType.Error)] private string _cookieFileName;
+    [OdinSerialize] private EasonCredentialSaveLoadParameter _parameter;
+
+    [ShowInInspector] private Credential _credential;
+    [ShowInInspector] private CredentialCookie _cookie;
+
+    [Header("Controllers")]
+    [SerializeField] private ILoader<Credential,EasonCredentialSaveLoadParameter> _loader;
+    [SerializeField] private ISaver<Credential, EasonCredentialSaveLoadParameter> _saver;
     [SerializeField] private ICredentialHasher<ApplicationCredential> _applicationHasher;
     [SerializeField] private ICredentialHasher<EditionCredential> _editionHasher;
     [SerializeField] private ICredentialHasher<ModuleCredential> _moduleHasher;
 
-    [ShowInInspector] private Credential _credential;
-    [ShowInInspector] private CredentialCookie _cookie;
 
 
 
     private bool _initialized;
 
     [ShowInInspector, FoldoutGroup("Debug")] private string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', '\\');
-    [ShowInInspector, FoldoutGroup("Debug")] private string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName?? "");
+    //[ShowInInspector, FoldoutGroup("Debug")] private string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName?? "");
     [ShowInInspector, FoldoutGroup("Debug")] private string cookiePath => Path.Combine(rootPath ?? "", _cookieFileName?? "");
     [ShowInInspector, FoldoutGroup("Debug")] private bool isRootFolderNameValid => !string.IsNullOrEmpty(_rootFolderName);
-    [ShowInInspector, FoldoutGroup("Debug")] private bool isCredentialFileNameValid => !string.IsNullOrEmpty(_credentialFileName);
+    //[ShowInInspector, FoldoutGroup("Debug")] private bool isCredentialFileNameValid => !string.IsNullOrEmpty(_credentialFileName);
     [ShowInInspector, FoldoutGroup("Debug")] private bool isCookieFileNameValid => !string.IsNullOrEmpty(_cookieFileName);
     [ShowInInspector, FoldoutGroup("Debug")] private bool isRootExist => isRootFolderNameValid && Directory.Exists(rootPath);
-    [ShowInInspector, FoldoutGroup("Debug")] private bool isCredentialExist => isCredentialFileNameValid && File.Exists(credentialPath);
+    //[ShowInInspector, FoldoutGroup("Debug")] private bool isCredentialExist => isCredentialFileNameValid && File.Exists(credentialPath);
     [ShowInInspector, FoldoutGroup("Debug")] private bool isCookieExist => isCookieFileNameValid && File.Exists(cookiePath);
 
     Credential ICredentialContext.credential
@@ -183,7 +187,7 @@ public struct EasonCredentialContext : ICredentialContext
         LoadCookie();
         _initialized = true;
     }
-    [Button, FoldoutGroup("Debug/Credential"), EnableIf(nameof(isCredentialExist))]
+    [Button, FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_parameter) + "."+ "isCredentialExist")]
     private void LoadCredential()
     {
         //AssertCredentialFile();
@@ -210,10 +214,10 @@ public struct EasonCredentialContext : ICredentialContext
     {
         if (!isRootFolderNameValid) throw new Exception("Root folder name cannot be null or empty.");
     }
-    private void AssertCredentialFileName()
-    {
-        if (!isCredentialFileNameValid) throw new Exception("Credential file name cannot be null or empty.");
-    }
+    //private void AssertCredentialFileName()
+    //{
+    //    //if (!isCredentialFileNameValid) throw new Exception("Credential file name cannot be null or empty.");
+    //}
     private void AssertCookieFileName()
     {
         if (!isCookieFileNameValid) throw new Exception("Cookie file name cannot be null or empty.");
@@ -223,11 +227,11 @@ public struct EasonCredentialContext : ICredentialContext
         AssertRootFolderName();
         if (!isRootExist) throw new DirectoryNotFoundException($"Root folder \"{rootPath}\" doesn't exist");
     }
-    private void AssertCredentialFile()
-    {
-        AssertCredentialFileName();
-        if (!isCredentialExist) throw new FileNotFoundException($"Root folder \"{credentialPath}\" doesn't exist");
-    }
+    //private void AssertCredentialFile()
+    //{
+    //    AssertCredentialFileName();
+    //    if (!isCredentialExist) throw new FileNotFoundException($"Root folder \"{credentialPath}\" doesn't exist");
+    //}
     private void AssertCookieFile()
     {
         AssertCookieFileName();
@@ -235,13 +239,11 @@ public struct EasonCredentialContext : ICredentialContext
     }
 #if UNITY_EDITOR
 
-    [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf(nameof(isCredentialFileNameValid))]
+    [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@"+nameof(_parameter)+"."+" isCredentialFileNameValid")]
     private void OdinSaveCredential()
     {
-        AssertCredentialFileName();
         OdinHashAll();
-        var json = JsonUtility.ToJson(this._credential);
-        File.WriteAllText(credentialPath, json);
+        _saver.Save(_credential, _parameter);
     }
     [Button("Hash All"), FoldoutGroup("Debug/Credential")]
     private void OdinHashAll()

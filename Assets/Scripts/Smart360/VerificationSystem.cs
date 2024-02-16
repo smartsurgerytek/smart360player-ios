@@ -66,8 +66,8 @@ public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadP
     void ISaver<Credential, EasonCredentialSaveLoadParameter>.Save(Credential data, EasonCredentialSaveLoadParameter parameter)
     {
         parameter.AssertCredentialFile();
-        var json = File.ReadAllText(parameter.credentialPath);
-        return JsonUtility.FromJson<Credential>(json);
+        var json = JsonUtility.ToJson(data);
+        File.WriteAllText(parameter.credentialPath, json);
     }
 }
 [Serializable]
