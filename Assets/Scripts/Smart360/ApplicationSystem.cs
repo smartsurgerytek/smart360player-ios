@@ -163,7 +163,7 @@ public class ApplicationSystem : MonoBehaviour
     private void _videoPlayerSceneManager_onQuit()
     {
         _needToLoadScene = true;
-        _sceneToLoad = _videoPlayerScene;
+        _sceneToLoad = _mainMenuScene;
     }
     public void Quit()
     {
