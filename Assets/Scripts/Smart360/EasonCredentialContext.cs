@@ -162,6 +162,7 @@ public struct EasonCredentialContext : ICredentialContext
         System.Diagnostics.Process.Start("explorer.exe", rootPath);
     }
 
+#endif
     bool ICredentialContext.IsUnpaid(int edition)
     {
         return _credential.editions.First(o => o.id == edition).purchased;
@@ -172,5 +173,4 @@ public struct EasonCredentialContext : ICredentialContext
         return _credential.editions.First(o => o.id == edition).expiredDate > DateTime.Now.Ticks;
     }
 
-#endif
 }
