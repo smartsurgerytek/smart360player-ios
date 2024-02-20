@@ -237,10 +237,15 @@ public struct EasonCredentialContext : ICredentialContext
     }
 #if UNITY_EDITOR
 
-    [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@"+nameof(_parameter)+"."+" isCredentialFileNameValid")]
+    [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_parameter) + "." + " isCredentialFileNameValid")]
     private void OdinSaveCredential()
     {
         OdinHashAll();
+        _saver.Save(_credential, _parameter);
+    }
+    [Button("Save Credential Without Hashing"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_parameter) + "." + " isCredentialFileNameValid")]
+    private void OdinSaveCredentialWithoutHashing()
+    {
         _saver.Save(_credential, _parameter);
     }
     [Button("Hash All"), FoldoutGroup("Debug/Credential")]
