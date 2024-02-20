@@ -11,7 +11,6 @@ interface ISaverLoader<T> : ISaver<T>, ILoader<T>
 [Serializable]
 public class OdinSaverLoader<T> : ISaverLoader<T>
 {
-    [SerializeField] private string _relativePath;
     [SerializeField] private ISaver<T> _saver;
     [SerializeField] private ILoader<T> _loader;
     [OdinSerialize] private T _data;

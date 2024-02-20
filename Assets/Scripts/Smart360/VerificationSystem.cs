@@ -69,7 +69,7 @@ public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadP
 {
     void ISaver<Credential, EasonCredentialSaveLoadParameter>.Save(Credential data, EasonCredentialSaveLoadParameter parameter)
     {
-        parameter.AssertCredentialFile();
+        parameter.AssertRootFolder();
         var json = JsonUtility.ToJson(data);
         File.WriteAllText(parameter.credentialPath, json);
     }

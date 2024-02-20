@@ -291,7 +291,7 @@ MonoBehaviour:
       Data: Credential
     - Name: _credentialFileName
       Entry: 1
-      Data: credential
+      Data: ezra-credential
     - Name: 
       Entry: 8
       Data: 
@@ -309,19 +309,19 @@ MonoBehaviour:
       Data: 
     - Name: _applicationHasher
       Entry: 7
-      Data: 3|EasonApplicationCredentialHasher, SmartSurgery.Smart360
+      Data: 3|EzraApplicationCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _editionHasher
       Entry: 7
-      Data: 4|EasonEditionCredentialHasher, SmartSurgery.Smart360
+      Data: 4|EzraEditionCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _moduleHasher
       Entry: 7
-      Data: 5|EasonModuleCredentialHasher, SmartSurgery.Smart360
+      Data: 5|EzraModuleCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
@@ -691,19 +691,19 @@ MonoBehaviour:
       Data: 0|CredentialVerifier, SmartSurgery.Smart360
     - Name: _applicationHasher
       Entry: 7
-      Data: 1|EasonApplicationCredentialHasher, SmartSurgery.Smart360
+      Data: 1|EzraApplicationCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _editionHasher
       Entry: 7
-      Data: 2|EasonEditionCredentialHasher, SmartSurgery.Smart360
+      Data: 2|EzraEditionCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
     - Name: _moduleHasher
       Entry: 7
-      Data: 3|EasonModuleCredentialHasher, SmartSurgery.Smart360
+      Data: 3|EzraModuleCredentialHasher, SmartSurgery.Smart360
     - Name: 
       Entry: 8
       Data: 
