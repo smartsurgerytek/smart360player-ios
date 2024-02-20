@@ -32,7 +32,7 @@ public struct EasonCredentialSaveLoadParameter
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
 
 
-    [ShowInInspector, FoldoutGroup("Debug")] public string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', '\\');
+    [ShowInInspector, FoldoutGroup("Debug")] public string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', Path.DirectorySeparatorChar);
     [ShowInInspector, FoldoutGroup("Debug")] public string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName ?? "");
     [ShowInInspector, FoldoutGroup("Debug")] public bool isRootFolderNameValid => !string.IsNullOrEmpty(_rootFolderName);
     [ShowInInspector, FoldoutGroup("Debug")] public bool isCredentialFileNameValid => !string.IsNullOrEmpty(_credentialFileName);
