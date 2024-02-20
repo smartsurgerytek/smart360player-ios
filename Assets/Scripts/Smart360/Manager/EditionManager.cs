@@ -67,6 +67,8 @@ public struct EditionContext : IEditionContext
 {
     [SerializeField, TableList] private Edition[] _data;
 
+    public Edition[] data { get => _data; internal set => _data = value; }
+
     public void Initialize()
     {
     }
@@ -75,13 +77,11 @@ public struct EditionContext : IEditionContext
 
     int IEditionContext.GetCount(int index)
     {
-        return _data.Count(o => o.module == index);
+        return data.Count(o => o.module == index);
     }
-
-
     string IEditionContext.GetName(int index)
     {
-        return _data[index].name;
+        return data[index].name;
     }
 
 

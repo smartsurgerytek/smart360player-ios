@@ -5,8 +5,6 @@ using UnityEngine;
 
 class FreeEditor : SerializedMonoBehaviour
 {
-    [OdinSerialize] private ISaverLoader<EditionContext> _editon;
-    [OdinSerialize] private ISaverLoader<ModuleContext> _module;
+    [OdinSerialize] private ISaverLoader<EditionContext>[] _editon;
+    [OdinSerialize] private ISaverLoader<ModuleContext>[] _module;
 }
-
-

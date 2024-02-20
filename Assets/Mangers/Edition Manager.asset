@@ -17,27 +17,23 @@ MonoBehaviour:
     _name: Standard
     _englishName: Standard
     _displayName: "\u6A19\u6E96\u7248\u672C"
+    _module: 0
     _initialSelected: 4
-    _loadDataMethod: 0
-    _surroundingVideo: {fileID: 32900000, guid: 8c154d6e42d09224daecf7f9640a6968, type: 3}
   - _index: 1
     _name: DoctorCarry
     _englishName: Doctor Carry
     _displayName: "\u91AB\u5E2B\u6551\u5834"
+    _module: 0
     _initialSelected: 4
-    _loadDataMethod: 0
-    _surroundingVideo: {fileID: 32900000, guid: c50bb222cac612c42bd6028603b9121c, type: 3}
   - _index: 2
     _name: Chaotic
     _englishName: Chaotic
     _displayName: "\u73FE\u5834\u6DF7\u4E82"
+    _module: 0
     _initialSelected: 4
-    _loadDataMethod: 0
-    _surroundingVideo: {fileID: 32900000, guid: 2f1eaa4b2ca5e87478ba519a5d0c4d59, type: 3}
   - _index: 3
     _name: NurseCarry
     _englishName: Nurse Carry
     _displayName: "\u8B77\u58EB\u6551\u5834"
+    _module: 0
     _initialSelected: 4
-    _loadDataMethod: 0
-    _surroundingVideo: {fileID: 32900000, guid: 61460cd0f7573384481b5a288f55e221, type: 3}
