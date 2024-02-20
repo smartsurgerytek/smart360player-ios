@@ -26,6 +26,17 @@ public class EditionManager : ScriptableObject
     [SerializeField, TableList] private Edition[] _data;
     public Edition[] data { get => _data; internal set => _data = value; }
 
+    internal int GetEditionIdByIndexInModule(int module,int index)
+    {
+        var editions = GetEditionsOfModule(module);
+        return editions[index];
+    }
+
+    internal int[] GetEditionsOfModule(int module)
+    {
+        return data.Where(o => o.module == module).Select(o=>o.id).ToArray();
+    }
+
     private void OnValidate()
     {
         if (_data == null) return;

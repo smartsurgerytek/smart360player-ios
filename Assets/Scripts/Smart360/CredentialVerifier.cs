@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Sirenix.Serialization;
+using System;
 using UnityEngine;
 
+[Serializable]
 public class CredentialVerifier : ICredentialVerifier
 {
-    private ICredentialHasher<ApplicationCredential> _applicationHasher;
-    private ICredentialHasher<EditionCredential> _editionHasher;
-    private ICredentialHasher<ModuleCredential> _moduleHasher;
-    private CredentialCookie _cookie;
+
+    [OdinSerialize] private ICredentialHasher<ApplicationCredential> _applicationHasher;
+    [OdinSerialize] private ICredentialHasher<EditionCredential> _editionHasher;
+    [OdinSerialize] private ICredentialHasher<ModuleCredential> _moduleHasher;
+    [SerializeField] private CredentialCookie _cookie;
 
     VerificationResult ICredentialVerifier.Verify(Credential credential)
     {

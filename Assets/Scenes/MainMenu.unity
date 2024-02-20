@@ -5201,64 +5201,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702964137}
   m_CullTransparentMesh: 1
---- !u!1 &1726313739
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1726313741}
-  - component: {fileID: 1726313742}
-  m_Layer: 0
-  m_Name: EditionButtonVerificationStatePreinitializer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1726313741
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726313739}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05167999, y: 1.6346102, z: 0.3388977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1726313742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726313739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7d76a5d2169fe24d8ba288c8869d60b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _verificationResult:
-    _verified: 0
-    _isValid: 0
-    _deviceInvalid: 0
-    _lastTimeLoginInvalid: 0
-    _applicationHashInvalid: 0
-    _applicationExpired: 0
-    _applicationUnpaid: 0
-    _moduleHashInvalid: 
-    _moduleUnpaid: 
-    _moduleExpired: 
-    _editionHashInvalid: 
-    _editionUnpaid: 
-    _editionExpired: 
 --- !u!1 &1764793286
 GameObject:
   m_ObjectHideFlags: 0
@@ -5435,7 +5377,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1771474910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d2c518066817c4797f14f1467cb173, type: 3}
+  m_Script: {fileID: 11500000, guid: f620ddfa7a378cd4a8a1c0887328f990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -5444,7 +5386,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 1881893179}
     - {fileID: 314941002}
-    - {fileID: 1726313742}
+    - {fileID: 11400000, guid: 21a7ff2e8c777f04ba5682b5ca09dfe7, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -5452,10 +5394,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _editionButtonPreInitializers
       Entry: 7
-      Data: 0|IEditionButtonPreinitializer[], SmartSurgery.Smart360
+      Data: 0|System.Collections.Generic.List`1[[IEditionButtonPreinitializer, SmartSurgery.Smart360]],
+        mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 10
       Data: 0
@@ -5463,8 +5406,30 @@ MonoBehaviour:
       Entry: 10
       Data: 1
     - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _mainMenuSceneWriters
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[IWriter`1[[MainMenuSceneManager,
+        SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 2|MainMenuSceneManagerEditionsWriter, SmartSurgery.Smart360
+    - Name: _currentModuleId
+      Entry: 3
+      Data: 0
+    - Name: _editionManager
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -5474,11 +5439,11 @@ MonoBehaviour:
   _exitButton: {fileID: 350493763}
   _editionButtonPrefab: {fileID: 2856381491119376256, guid: 4b89f06f8208a074bbfff31a670d5875, type: 3}
   _editionButtonParent: {fileID: 2074003724}
-  _editionButtonIds: 00000000010000000200000003000000
+  _editionIds: 00000000010000000200000003000000
   _clickEditionButton:
     m_PersistentCalls:
       m_Calls: []
-  _initializeOnEnable: 1
+  _initializeOnEnable: 0
 --- !u!1 &1785807972
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choose Your Version
+  m_text: Choose An Edition
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 367710e9bd3f5e64baabfbc2fadefb12, type: 2}
   m_sharedMaterial: {fileID: 2781674639111947800, guid: 367710e9bd3f5e64baabfbc2fadefb12, type: 2}

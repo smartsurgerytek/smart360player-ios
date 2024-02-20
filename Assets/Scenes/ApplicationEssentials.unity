@@ -123,6 +123,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &61340420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61340421}
+  - component: {fileID: 61340422}
+  m_Layer: 0
+  m_Name: ApplicationContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &61340421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61340420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464290784}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61340422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61340420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dc3a76cfa37474181312a8e2f16e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentModule: 0
+  _editionManager: {fileID: 0}
 --- !u!1 &321522697
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +226,7 @@ GameObject:
   - component: {fileID: 464290784}
   - component: {fileID: 464290785}
   m_Layer: 0
-  m_Name: Models
+  m_Name: Context
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +243,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 61340421}
+  - {fileID: 994285543}
+  - {fileID: 1821162540}
   m_Father: {fileID: 1921794713}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -216,15 +265,15 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 61340422}
+    - {fileID: 1821162541}
+    - {fileID: 994285544}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _editionButton
-      Entry: 6
-      Data: 
     - Name: _credential
       Entry: 7
       Data: 0|EasonCredentialContext, SmartSurgery.Smart360
@@ -279,12 +328,78 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: _application
+      Entry: 10
+      Data: 0
+    - Name: _mainMenuScene
+      Entry: 10
+      Data: 1
     - Name: _module
       Entry: 6
       Data: 
     - Name: _edition
       Entry: 6
       Data: 
+    - Name: _verification
+      Entry: 10
+      Data: 2
+--- !u!1 &994285542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994285543}
+  - component: {fileID: 994285544}
+  m_Layer: 0
+  m_Name: VerificationContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &994285543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994285542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464290784}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &994285544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994285542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bea45521d7c094a9065160b972ee84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _result:
+    _verified: 0
+    _deviceInvalid: 0
+    _lastTimeLoginInvalid: 0
+    _applicationHashInvalid: 0
+    _applicationExpired: 0
+    _applicationUnpaid: 0
+    _moduleHashInvalid: 
+    _moduleUnpaid: 
+    _moduleExpired: 
+    _editionHashInvalid: 
+    _editionUnpaid: 
+    _editionExpired: 
 --- !u!1 &1128237992
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,8 +444,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a18921293afdb47ba7c0bdbc07cfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _credentialFolderPath: secret
-  _credentialFileName: result
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _cookie
+      Entry: 7
+      Data: CredentialCookie, SmartSurgery.Smart360
+    - Name: _lastTimeLogin
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _credentialVerifier
+      Entry: 7
+      Data: 0|CredentialVerifier, SmartSurgery.Smart360
+    - Name: _applicationHasher
+      Entry: 7
+      Data: 1|EasonApplicationCredentialHasher, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _editionHasher
+      Entry: 7
+      Data: 2|EasonEditionCredentialHasher, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _moduleHasher
+      Entry: 7
+      Data: 3|EasonModuleCredentialHasher, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _cookie
+      Entry: 7
+      Data: CredentialCookie, SmartSurgery.Smart360
+    - Name: _lastTimeLogin
+      Entry: 3
+      Data: 638438976000000000
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _credentialFolderPath: Credential
+  _credentialFileName: credential
   _credentialCookieFileName: cookie
   _credential:
     _application:
@@ -402,6 +568,7 @@ MonoBehaviour:
   _masterApplication: {fileID: 1921794714}
   _applicationManager: {fileID: 11400000, guid: ca4fec60a68cded43a65408506cae64c, type: 2}
   _verificationSystem: {fileID: 1128237994}
+  _initialSceneToLoad: MainMenu
   _videoPlayerScene: VideoPlayer
   _mainMenuScene: MainMenu
 --- !u!1 &1529575322
@@ -477,7 +644,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1726313741}
   m_Father: {fileID: 1921794713}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -496,12 +664,155 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 1726313742}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _credentialVerifier
+      Entry: 7
+      Data: 0|CredentialVerifier, SmartSurgery.Smart360
+    - Name: _applicationHasher
+      Entry: 7
+      Data: 1|EasonApplicationCredentialHasher, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _editionHasher
+      Entry: 7
+      Data: 2|EasonEditionCredentialHasher, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _moduleHasher
+      Entry: 7
+      Data: 3|EasonModuleCredentialHasher, SmartSurgery.Smart360
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _cookie
+      Entry: 7
+      Data: CredentialCookie, SmartSurgery.Smart360
+    - Name: _lastTimeLogin
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _verificationResultReceiver
+      Entry: 6
+      Data: 
+    - Name: _editionButtonPreinitializer
+      Entry: 10
+      Data: 0
+--- !u!1 &1726313739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726313741}
+  - component: {fileID: 1726313742}
+  m_Layer: 0
+  m_Name: EditionButtonVerificationStatePreinitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1726313741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726313739}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.05167999, y: 1.6346102, z: 0.3388977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710230734}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726313742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726313739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d76a5d2169fe24d8ba288c8869d60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 994285544}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _resultProvider
+      Entry: 10
+      Data: 0
+--- !u!1 &1821162539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821162540}
+  - component: {fileID: 1821162541}
+  m_Layer: 0
+  m_Name: MainMenuSceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1821162540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821162539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464290784}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821162541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821162539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81ada9218f711b49ae44198e0ace11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentModule: 0
+  _editionManager: {fileID: 11400000, guid: 21a7ff2e8c777f04ba5682b5ca09dfe7, type: 2}
 --- !u!1 &1921794712
 GameObject:
   m_ObjectHideFlags: 0

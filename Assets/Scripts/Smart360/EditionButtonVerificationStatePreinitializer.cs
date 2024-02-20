@@ -1,15 +1,21 @@
-﻿using System.Net;
-using System.Runtime.CompilerServices;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
-
-public class EditionButtonVerificationStatePreinitializer : MonoBehaviour, IEditionButtonPreinitializer
+interface IWriter<T>
 {
-    [SerializeField] private VerificationResult _verificationResult;
+    void Write(T target);
+}
+public class EditionButtonVerificationStatePreinitializer : SerializedMonoBehaviour, IEditionButtonPreinitializer
+{
+    [SerializeField] private IProvider<VerificationResult> _resultProvider;
+
     void IEditionButtonPreinitializer.OnPreInitialize(EditionButton editionButton)
     {
+        var result = _resultProvider.Get();
+        if (!result.verified) throw new System.Exception("Verification result is not verified!");
         editionButton.verificationState = EditionButton.VerificationState.Normal;
-        if (_verificationResult.editionHashInvalid[editionButton.EditionId]) editionButton.verificationState = EditionButton.VerificationState.Unenabled;
-        else if (_verificationResult.editionUnpaid[editionButton.EditionId]) editionButton.verificationState = EditionButton.VerificationState.Unpaid;
-        else if (_verificationResult.editionExpired[editionButton.EditionId]) editionButton.verificationState = EditionButton.VerificationState.Expired;
+        if (result.editionHashInvalid[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Unenabled;
+        else if (result.editionUnpaid[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Unpaid;
+        else if (result.editionExpired[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Expired;
     }
+
 }

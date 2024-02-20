@@ -31,7 +31,7 @@ public class EditionButton : MonoBehaviour
     [SerializeField] private UnityEvent<int> _clickButton;
 
     public int index { get => _index; internal set => _index = value; }
-    public int EditionId { get => _editionId; internal set => _editionId = value; }
+    public int editionId { get => _editionId; internal set => _editionId = value; }
     public string title { get => _titleText.text; internal set => _titleText.text = value; }
     public VerificationState verificationState { get => _verificationState; internal set => _verificationState = value; }
     public UnityEvent<int> clickButton { get => _clickButton; }

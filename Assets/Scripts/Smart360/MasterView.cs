@@ -8,6 +8,5 @@ public class MasterView : MonoBehaviour
 
     internal void Initialize()
     {
-        throw new NotImplementedException();
     }
 }

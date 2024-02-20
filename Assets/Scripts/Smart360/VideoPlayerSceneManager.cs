@@ -5,16 +5,14 @@ using SmartSurgery.VideoControllers;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.Video;
-public class GameManager : MonoBehaviour
+public class VideoPlayerSceneManager : MonoBehaviour
 {
-
     [SerializeField] private bool _initializeOnEnable;
-
 
     [Header("Data")]
     [SerializeField] private ApplicationManager _applicationManager;
     [SerializeField] private VideoModel[] _videoModels;
-    [SerializeField] private int _currentModule = 0;
+    [SerializeField] private int _currentEdition = 0;
 
     [Header("Components")]
     [SerializeField] private Smart360PlayerController _smartPlayer;
@@ -35,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if (_initialized) return;
 
-        _currentModule = edition;
+        _currentEdition = edition;
         var staffs = _applicationManager.staffManager.data;
         var staffGroups = _applicationManager.staffGroupManager.data;
         var editions = _applicationManager.editionManager.data;
@@ -103,7 +101,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (_initializeOnEnable) Initialize(_currentModule);
+        if (_initializeOnEnable) Initialize(_currentEdition);
     }
     private void OnDisable()
     {

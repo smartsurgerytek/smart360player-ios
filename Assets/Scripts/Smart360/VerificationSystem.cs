@@ -218,7 +218,7 @@ public struct CredentialCookie
         _lastTimeLogin = DateTime.Now.Ticks;
     }
 }
-public class VerificationSystem : MonoBehaviour
+public class VerificationSystem : SerializedMonoBehaviour
 {
 
     [Header("Settings")]

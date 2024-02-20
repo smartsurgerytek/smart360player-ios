@@ -14,27 +14,26 @@ public class ApplicationSystem : MonoBehaviour
 
     [SerializeField] private ApplicationManager _applicationManager;
     [SerializeField] private VerificationSystem _verificationSystem;
+    [SerializeField] private string _initialSceneToLoad;
     [SerializeField] private string _videoPlayerScene;
     [SerializeField] private string _mainMenuScene;
+
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _destroying;
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _initialized;
 
+    // general scene
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToLoadScene; // trigger SceneManager.LoadScene
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToLoadSceneContext; // trigger
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToInitializeScene;
+    [NonSerialized, ShowInInspector, ReadOnly] private string _sceneToLoad = "MainMenu";
 
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _needLoadVideoPlayerScene;
     [NonSerialized, ShowInInspector, ReadOnly] private int _editionToLoad;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _waitForVideoPlayerSceneLoaded;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _videoPlayerSceneNeedInitialize;
 
 
-
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _needLoadMainMenuScene = true;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _waitForMainMenuLoaded;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _mainMenuSceneNeedInitialize;
-
-    [NonSerialized, ShowInInspector, ReadOnly] private GameManager _gameManager;
-    [NonSerialized, ShowInInspector, ReadOnly] private MainMenuManager _mainMenuManager;
+    [NonSerialized, ShowInInspector, ReadOnly] private VideoPlayerSceneManager _videoPlayerSceneManager;
+    [NonSerialized, ShowInInspector, ReadOnly] private MainMenuSceneManager _mainMenuManager;
 
     private void Awake()
     {
@@ -54,76 +53,81 @@ public class ApplicationSystem : MonoBehaviour
     private void Initialize()
     {
         _masterApplication.Initialize();
-        _verificationSystem.Initialize();
+        _sceneToLoad = _initialSceneToLoad;
+        _needToLoadScene = true;
+        //_verificationSystem.Initialize();
         _initialized = true;
     }
 
 
     private void Update()
     {
+
+        //_verificationSystem.InternalUpdate();
+        CheckNeedToLoadScene(); // Check if there is a scene need to load
+        CheckNeedToLoadSceneContext(); // Check if there is a scene just loaded.
+        //CheckViewContext(); // After Scene just loaded, we need to ensure the component context is filled. 
+        CheckNeedToInitializeScene(); // After the component found, we start to initialize each component.
         //_masterApplication.Update();
-        _verificationSystem.InternalUpdate();
-        CheckMainMenu();
-        CheckVideoPlayerScene();
     }
 
-
-    private void CheckMainMenu()
+    private void CheckNeedToLoadScene()
     {
-        if (_needLoadMainMenuScene)
+        if (!_needToLoadScene) return;
+        SceneManager.LoadScene(_sceneToLoad);
+
+        if (_sceneToLoad ==_mainMenuScene)
         {
-            SceneManager.LoadScene(_mainMenuScene);
             _mainMenuManager = null;
-            _needLoadMainMenuScene = false;
-            _waitForMainMenuLoaded = true;
         }
-        if (_waitForMainMenuLoaded)
+        else if (_sceneToLoad == _videoPlayerScene)
         {
-            _mainMenuManager = GameObject.FindObjectOfType<MainMenuManager>();
+        }
+        _needToLoadScene = false;
+
+        if (!_needToLoadScene) _needToLoadSceneContext = true;
+    }
+
+    private void CheckNeedToLoadSceneContext()
+    {
+        if (!_needToLoadSceneContext) return;
+
+        if (_sceneToLoad == _mainMenuScene)
+        {
+            _mainMenuManager = GameObject.FindObjectOfType<MainMenuSceneManager>();
             if (_mainMenuManager)
             {
-                _waitForMainMenuLoaded = false;
-                _mainMenuSceneNeedInitialize = true;
+                _mainMenuManager.context = _masterApplication.context.mainMenuScene;
+                _needToLoadSceneContext = false;
             }
         }
-        if (_mainMenuSceneNeedInitialize && _mainMenuManager)
+        else if (_sceneToLoad == _videoPlayerScene)
         {
-
-            //_verificationSystem.OnMainMenuSceneInitializing(_mainMenuManager);
-            //_mainMenuManager.verificationSystem = _verificationSystem;
-            _mainMenuManager.clickEditionButton.AddListener(_mainMenuManager_onClickEditionButton);
-            //_mainMenuManager.preinitializeEditonButton.AddListener();
-            _mainMenuManager.Initialize();
-            _mainMenuSceneNeedInitialize = false;
-        }
-    }
-
-    private void CheckVideoPlayerScene()
-    {
-
-        if (_needLoadVideoPlayerScene)
-        {
-            SceneManager.LoadScene(_videoPlayerScene);
-            _needLoadVideoPlayerScene = false;
-            _waitForVideoPlayerSceneLoaded = true;
-        }
-        if (_waitForVideoPlayerSceneLoaded)
-        {
-            _gameManager = GameObject.FindObjectOfType<GameManager>();
-            if (_gameManager)
+            _videoPlayerSceneManager = GameObject.FindObjectOfType<VideoPlayerSceneManager>();
+            if (_videoPlayerSceneManager)
             {
-                _waitForVideoPlayerSceneLoaded = false;
-                _videoPlayerSceneNeedInitialize = true;
-
+                _needToLoadSceneContext = false;
             }
         }
-        if (_videoPlayerSceneNeedInitialize && _gameManager && _gameManager.quit != null)
-        {
-            _gameManager.quit.AddListener(_gameManager_onQuit);
-            _gameManager.Initialize(_editionToLoad);
-            _videoPlayerSceneNeedInitialize = false;
-        }
+        if (!_needToLoadSceneContext) _needToInitializeScene = true;
     }
+    private void CheckNeedToInitializeScene()
+    {
+        if (!_needToInitializeScene) return;
+        if (_sceneToLoad == _mainMenuScene)
+        {
+            _mainMenuManager.AddEditionButtonPreinitializer(_masterApplication.controller.editionButtonPreinitializer);
+            _mainMenuManager.clickEditionButton.AddListener(_mainMenuManager_onClickEditionButton);
+            _mainMenuManager.Initialize();
+        }
+        else if (_sceneToLoad == _videoPlayerScene)
+        {
+            _videoPlayerSceneManager.quit.AddListener(_videoPlayerSceneManager_onQuit);
+            _videoPlayerSceneManager.Initialize(_editionToLoad);
+        }
+        _needToInitializeScene = false;
+    }
+
 
     private void _mainMenuManager_onClickEditionButton(int i)
     {
@@ -143,13 +147,14 @@ public class ApplicationSystem : MonoBehaviour
         else
         {
             _editionToLoad = i;
-            _needLoadVideoPlayerScene = true;
+            _needToLoadScene= true;
+            _sceneToLoad = _videoPlayerScene;
         }
     }
-
-    private void _gameManager_onQuit()
+    private void _videoPlayerSceneManager_onQuit()
     {
-        _needLoadMainMenuScene = true;
+        _needToLoadScene = true;
+        _sceneToLoad = _videoPlayerScene;
     }
     public void Quit()
     {

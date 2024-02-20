@@ -13,6 +13,7 @@ public class MasterApplication : MonoBehaviour
     {
         _context.Initialize();
         _view.Initialize();
+        _controller.Initialize(_context);
     }
     internal void InternalUpdate()
     {
