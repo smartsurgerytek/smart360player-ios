@@ -13,7 +13,7 @@ public class EditionButtonVerificationStatePreinitializer : SerializedMonoBehavi
         var result = _resultProvider.Get();
         if (!result.verified) throw new System.Exception("Verification result is not verified!");
         editionButton.verificationState = EditionButton.VerificationState.Normal;
-        if (result.editionHashInvalid[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Unenabled;
+        if (result.editionHashInvalid[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Warning;
         else if (result.editionUnpaid[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Unpaid;
         else if (result.editionExpired[editionButton.editionId]) editionButton.verificationState = EditionButton.VerificationState.Expired;
     }

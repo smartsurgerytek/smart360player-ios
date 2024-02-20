@@ -1,4 +1,4 @@
 ﻿internal class MainMenuView
 {
-    internal EditionButtonsView editionButtonsView;
+    //internal EditionButtonsView editionButtonsView;
 }

@@ -11,7 +11,8 @@ public class EditionButton : MonoBehaviour
         Normal,
         Unpaid,
         Expired,
-        Unenabled
+        Unenabled,
+        Warning
     }
     
     [Header("Profile")]
@@ -23,6 +24,7 @@ public class EditionButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private CanvasGroup _unpaid;
     [SerializeField] private CanvasGroup _expired;
+    [SerializeField] private CanvasGroup _warning;
 
     [Header("State")]
     [SerializeField,ReadOnly] private VerificationState _verificationState;
@@ -44,9 +46,13 @@ public class EditionButton : MonoBehaviour
         {
             SetCanvasGroup(_unpaid, true);
         }
-        if(verificationState == VerificationState.Expired)
+        if (verificationState == VerificationState.Expired)
         {
             SetCanvasGroup(_expired, true);
+        }
+        if (verificationState == VerificationState.Warning)
+        {
+            SetCanvasGroup(_warning, true);
         }
     }
 

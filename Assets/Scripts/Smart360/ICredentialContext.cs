@@ -14,8 +14,6 @@ public interface ICredentialContext
 
     Credential credential { get; }
     CredentialCookie cookie { get; }
-
-
 }
 public class EasonApplicationCredentialHasher : ICredentialHasher<ApplicationCredential>
 {

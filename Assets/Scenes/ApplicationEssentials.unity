@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentModule: 0
-  _editionManager: {fileID: 0}
+  _editionManager: {fileID: 11400000, guid: 21a7ff2e8c777f04ba5682b5ca09dfe7, type: 2}
 --- !u!1 &321522697
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,22 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: _edition
-      Entry: 6
+      Entry: 7
+      Data: 6|EditionContext, SmartSurgery.Smart360
+    - Name: _data
+      Entry: 7
+      Data: 7|Edition[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: _verification
       Entry: 10

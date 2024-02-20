@@ -25,7 +25,9 @@ public class MasterContext : SerializedMonoBehaviour
     }
     public void Initialize()
     {
-        _credential.Initialize();
+        credential.Initialize();
+        //module?.Initialize();
+        edition?.Initialize();
         //_editionButton.Initialize();
         //_edition.Initialize(this);
     }

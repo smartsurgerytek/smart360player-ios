@@ -21,6 +21,7 @@ namespace Eason.Odin.Editor
         protected override void Initialize()
         {
             base.Initialize();
+            if (_initialized) return;
             _id = Guid.NewGuid().ToString();
             _tempString = new DateTime((long)Property.ValueEntry.WeakSmartValue).ToString(Attribute.format);
             _initialized = true;
@@ -95,7 +96,7 @@ namespace Eason.Odin.Editor
             {
                 try
                 {
-                    Property.ValueEntry.
+                    Property.ValueEntry.Update();
                     Property.ValueEntry.WeakSmartValue = DateTime.Parse(_tempString).Ticks;
                     Property.ValueEntry.ApplyChanges();
                     GUIHelper.RequestRepaint();

@@ -1,4 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using JetBrains.Annotations;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -49,33 +51,38 @@ public class EditionManager : ScriptableObject
             _data[i].id = i;
         }
     }
+
 }
 
-
-public struct EditionContext 
+[Serializable]
+public struct ModuleContext : IModuleContext
 {
-    [SerializeField] private int[] _currentEditions;
     [SerializeField, TableList] private Edition[] _data;
+    public int GetCount(int module)
+    {
+        return _data.Length;
+    }
+}
+public struct EditionContext : IEditionContext
+{
+    [SerializeField, TableList] private Edition[] _data;
+
+    public void Initialize()
+    {
+    }
+
     #region IEditionContext
 
-    //void IEditionContext.Initialize()
-    //{
-    //}
+    int IEditionContext.GetCount(int index)
+    {
+        return _data.Count(o => o.module == index);
+    }
 
-    //int IEditionContext.GetCount(int index)
-    //{
-    //    return _data.Count(o => o.module == index);
-    //}
 
-    //int[] IEditionContext.GetCurrentEditions()
-    //{
-    //    return _currentEditions.ToArray();
-    //}
-
-    //string IEditionContext.GetName(int index)
-    //{
-    //    return _data[index].name;
-    //}
+    string IEditionContext.GetName(int index)
+    {
+        return _data[index].name;
+    }
 
 
     //private EditionModel[] GetEditions(int module)

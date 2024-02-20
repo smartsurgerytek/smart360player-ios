@@ -12,6 +12,10 @@ public interface ILoader<T>
 {
     T Load();
 }
+public interface ISaver<T>
+{
+    void Save(T data);
+}
 public interface ILoader<TResult, TParameter>
 {
     TResult Load(TParameter parameter);

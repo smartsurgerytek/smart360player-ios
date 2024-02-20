@@ -137,6 +137,7 @@ public class ApplicationSystem : MonoBehaviour
         var view = _masterApplication.view.verificationView;
         var isUnpaid = verification.editionUnpaid[i];
         var isExpired = verification.editionExpired[i];
+        var isHashInvalid= verification.editionHashInvalid[i];
         if (isUnpaid)
         {
             view.needToShowView = true;
@@ -145,7 +146,12 @@ public class ApplicationSystem : MonoBehaviour
         else if (isExpired)
         {
             view.needToShowView = true;
-            view.viewToShow = VerificationView.Views.Purchase;
+            view.viewToShow = VerificationView.Views.Expired;
+        }
+        else if (isHashInvalid)
+        {
+            view.needToShowView = true;
+            view.viewToShow = VerificationView.Views.Warning;
         }
         else
         {
