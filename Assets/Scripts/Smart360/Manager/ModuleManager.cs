@@ -6,8 +6,8 @@ using UnityEngine;
 public class ModuleManager : ScriptableObject
 {
 
-    [SerializeField, TableList] private ModuleModel[] _data;
-    public ModuleModel[] data { get => _data?.ToArray(); internal set => _data = value; }
+    [SerializeField, TableList] private Module[] _data;
+    public Module[] data { get => _data?.ToArray(); internal set => _data = value; }
 
 
     private void OnValidate()

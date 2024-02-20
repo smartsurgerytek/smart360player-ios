@@ -11,7 +11,7 @@ public class VideoPlayerSceneManager : MonoBehaviour
 
     [Header("Data")]
     [SerializeField] private ApplicationManager _applicationManager;
-    [SerializeField] private VideoModel[] _videoModels;
+    [SerializeField] private Video[] _videoModels;
     [SerializeField] private int _currentEdition = 0;
 
     [Header("Components")]

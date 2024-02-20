@@ -13,6 +13,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     [SerializeField] private Button _exitButton;
 
     [Header("Views")]
+    [SerializeField] private MainMenuView _mainMenuView;
     [SerializeField] private VerificationView _verificationView;
 
     [Header("Edition Buttons")]
@@ -59,11 +60,34 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
 
         CleanUpEditionButtons();
         CreateEditionButtons();
-        //_verificationSystem.verificationView = verificationView;
+
+        _verificationView.show.AddListener(_verificationView_back);
+        _verificationView.back.AddListener(_verificationView_back);
         _exitButton.onClick.AddListener(_exitButton_onClick);
 
         _initialized = true;
     }
+
+    private void _verificationView_show(VerificationView.Views view)
+    {
+        _mainMenuView.Hide();
+    }
+    private void _verificationView_back(VerificationView.Views view)
+    {
+        switch (view)
+        {
+            case VerificationView.Views.Purchase:
+            case VerificationView.Views.Expired:
+                _mainMenuView.Show();
+                return;
+            case VerificationView.Views.Warning:
+                Application.Quit();
+                return;
+            default:
+                return;
+        }
+    }
+
     private void CreateEditionButtons()
     {
         var count = context.currentEditionIds.Length;

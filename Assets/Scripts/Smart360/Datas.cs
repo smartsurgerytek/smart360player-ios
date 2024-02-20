@@ -52,7 +52,7 @@ public struct SurroundingVideoModel
 
 }
 [Serializable]
-public struct VideoModel
+public struct Video
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private int _edition;
@@ -70,7 +70,7 @@ public struct VideoModel
     public double startTime { get => _startTime; }
 }
 [Serializable]
-public struct ModuleModel
+public struct Module
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private string _name;

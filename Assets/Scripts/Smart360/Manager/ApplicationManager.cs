@@ -1,6 +1,69 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
+using System;
 using UnityEngine;
+public class  ScriptableSaverLoader<T> : ScriptableObject, ISaverLoader<T>
+{
+    T data;
 
+    T ILoader<T>.Load()
+    {
+        return SaveLoadUtility.JsonDeepClone(data);
+    }
+
+    void ISaver<T>.Save(T data)
+    {
+        this.data = SaveLoadUtility.JsonDeepClone(data);
+    }
+}
+[Serializable]
+public class DefaultModuleModel : IModuleModel
+{
+    [SerializeField] private Module[] _data;
+    Module[] IModuleModel.data { get => _data; set => _data = value; }
+}
+[Serializable]
+public class DefaultVideoModel : IVideoModel
+{
+
+    [SerializeField] private Video[] _data;
+    Video[] IVideoModel.data { get => _data; set => _data = value; }
+}
+[Serializable]
+public class DefaultEditionModel : IEditionModel
+{
+    [SerializeField] private Edition[] _data;
+    Edition[] IEditionModel.data { get => _data; set => _data = value; }
+}
+
+[Serializable]
+public class DefaultApplicationModel : IApplicationModel
+{
+}
+public class MonoMasterModel : MonoBehaviour, IMasterModel
+{
+    [OdinSerialize] private IApplicationModel _application;
+    [OdinSerialize] private IModuleModel _module;
+    [OdinSerialize] private IVideoModel _video;
+    [OdinSerialize] private IEditionModel _edition;
+
+    IApplicationModel IMasterModel.application => _application;
+    IModuleModel IMasterModel.module => _module;
+    IVideoModel IMasterModel.video => _video;
+    IEditionModel IMasterModel.edition => _edition;
+}
+public class DefaultMasterModel : IMasterModel
+{
+    [OdinSerialize] private IApplicationModel _application;
+    [OdinSerialize] private IModuleModel _module;
+    [OdinSerialize] private IVideoModel _video;
+    [OdinSerialize] private IEditionModel _edition;
+
+    IApplicationModel IMasterModel.application => _application ;
+    IModuleModel IMasterModel.module => _module ;
+    IVideoModel IMasterModel.video => _video ;
+    IEditionModel IMasterModel.edition => _edition;
+}
 
 [CreateAssetMenu(fileName = "Application Manager", menuName = "Managers/Application Manager")]
 public class ApplicationManager : ScriptableObject

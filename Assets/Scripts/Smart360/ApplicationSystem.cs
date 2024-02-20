@@ -12,10 +12,11 @@ public class ApplicationSystem : MonoBehaviour
     [SerializeField] private MasterApplication _masterApplication;
 
     [SerializeField] private ApplicationManager _applicationManager;
-    [SerializeField] private VerificationSystem _verificationSystem;
+    //[SerializeField] private VerificationSystem _verificationSystem;
     [SerializeField] private string _initialSceneToLoad;
     [SerializeField] private string _videoPlayerScene;
     [SerializeField] private string _mainMenuScene;
+    [SerializeField] private string _verificationScene;
 
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _destroying;
@@ -33,6 +34,7 @@ public class ApplicationSystem : MonoBehaviour
 
     [NonSerialized, ShowInInspector, ReadOnly] private VideoPlayerSceneManager _videoPlayerSceneManager;
     [NonSerialized, ShowInInspector, ReadOnly] private MainMenuSceneManager _mainMenuManager;
+    [NonSerialized, ShowInInspector, ReadOnly] private VerificationSceneManager _verficationSceneManager;
 
     private void Awake()
     {
@@ -52,9 +54,16 @@ public class ApplicationSystem : MonoBehaviour
     private void Initialize()
     {
         _masterApplication.Initialize();
-        _sceneToLoad = _initialSceneToLoad;
+        var result = _masterApplication.context.verification.result;
+        if(result.applicationInvalid)
+        {
+            _sceneToLoad = _verificationScene;
+        }
+        else
+        {
+            _sceneToLoad = _initialSceneToLoad;
+        }
         _needToLoadScene = true;
-        //_verificationSystem.Initialize();
         _initialized = true;
     }
 
@@ -62,12 +71,9 @@ public class ApplicationSystem : MonoBehaviour
     private void Update()
     {
 
-        //_verificationSystem.InternalUpdate();
         CheckNeedToLoadScene(); // Check if there is a scene need to load
         CheckNeedToLoadSceneContext(); // Check if there is a scene just loaded.
-        //CheckViewContext(); // After Scene just loaded, we need to ensure the component context is filled. 
         CheckNeedToInitializeScene(); // After the component found, we start to initialize each component.
-        //_masterApplication.Update();
     }
 
     private void CheckNeedToLoadScene()
@@ -81,6 +87,10 @@ public class ApplicationSystem : MonoBehaviour
         }
         else if (_sceneToLoad == _videoPlayerScene)
         {
+        }
+        else if(_sceneToLoad == _verificationScene)
+        {
+
         }
         _needToLoadScene = false;
 
@@ -99,6 +109,7 @@ public class ApplicationSystem : MonoBehaviour
                 _mainMenuManager.context = _masterApplication.context.mainMenuScene;
                 _masterApplication.view.verificationView = _mainMenuManager.verificationView;
 
+
                 _needToLoadSceneContext = false;
             }
         }
@@ -108,6 +119,19 @@ public class ApplicationSystem : MonoBehaviour
             if (_videoPlayerSceneManager)
             {
                 _needToLoadSceneContext = false;
+            }
+        }
+        else if (_sceneToLoad == _verificationScene)
+        {
+            _verficationSceneManager = GameObject.FindObjectOfType<VerificationSceneManager>();
+            if (_verficationSceneManager)
+            {
+                if (TryGetVerificationView(out var viewToShow))
+                {
+                    _verficationSceneManager.verificationView.needToShowView = true;
+                    _verficationSceneManager.verificationView.viewToShow = viewToShow;
+                }
+
             }
         }
         if (!_needToLoadSceneContext) _needToInitializeScene = true;
@@ -132,33 +156,69 @@ public class ApplicationSystem : MonoBehaviour
 
     private void _mainMenuManager_onClickEditionButton(int i)
     {
+
+        if(TryGetVerificationView(i, out var viewToShow))
+        {
+            var view = _masterApplication.view.verificationView;
+            view.needToShowView = true;
+            view.viewToShow = viewToShow;
+        }
+        _editionToLoad = i;
+        _needToLoadScene = true;
+        _sceneToLoad = _videoPlayerScene;
+    }
+
+    private bool TryGetVerificationView(int editionId, out VerificationView.Views result)
+    {
         var verification = _masterApplication.context.verification.result;
         var view = _masterApplication.view.verificationView;
-        var isUnpaid = verification.editionUnpaid[i];
-        var isExpired = verification.editionExpired[i];
-        var isHashInvalid= verification.editionHashInvalid[i];
+        var isUnpaid =   verification.editionUnpaid[editionId];
+        var isExpired =  verification.editionExpired[editionId];
+        var isOtherInvalid = verification.editionHashInvalid[editionId];
+        result = default;
         if (isUnpaid)
         {
-            view.needToShowView = true;
-            view.viewToShow = VerificationView.Views.Purchase;
-        } 
+            result = VerificationView.Views.Purchase;
+            return true;
+        }
         else if (isExpired)
         {
-            view.needToShowView = true;
-            view.viewToShow = VerificationView.Views.Expired;
+            result = VerificationView.Views.Expired;
+            return true;
         }
-        else if (isHashInvalid)
+        else if (isOtherInvalid)
         {
-            view.needToShowView = true;
-            view.viewToShow = VerificationView.Views.Warning;
+            result = VerificationView.Views.Warning;
+            return true;
         }
-        else
-        {
-            _editionToLoad = i;
-            _needToLoadScene= true;
-            _sceneToLoad = _videoPlayerScene;
-        }
+        return false;
     }
+    private bool TryGetVerificationView(out VerificationView.Views result)
+    {
+        var verification = _masterApplication.context.verification.result;
+        var view = _masterApplication.view.verificationView;
+        var isUnpaid = verification.applicationUnpaid;
+        var isExpired = verification.applicationExpired;
+        var isOtherInvalid = verification.applicationHashInvalid || verification.deviceInvalid || verification.lastTimeLoginInvalid;
+        result = default;
+        if (isUnpaid)
+        {
+            result = VerificationView.Views.Purchase;
+            return true;
+        }
+        else if (isExpired)
+        {
+            result = VerificationView.Views.Expired;
+            return true;
+        }
+        else if (isOtherInvalid)
+        {
+            result = VerificationView.Views.Warning;
+            return true;
+        }
+        return false;
+    }
+
     private void _videoPlayerSceneManager_onQuit()
     {
         _needToLoadScene = true;
@@ -169,3 +229,4 @@ public class ApplicationSystem : MonoBehaviour
         Application.Quit();
     }
 }
+

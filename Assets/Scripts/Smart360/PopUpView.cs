@@ -17,7 +17,7 @@ public class PopUpView : MonoBehaviour
     [SerializeField] private UnityEvent _back;
 
     [Header("Debug")]
-    [NonSerialized, ShowInInspector, ReadOnly] private CanvasGroup _callerCanvasGroup;
+    //[NonSerialized, ShowInInspector, ReadOnly] private CanvasGroup _callerCanvasGroup;
     [NonSerialized, ShowInInspector, ReadOnly] private bool _isOpened;
 
     public UnityEvent back { get => _back;}
@@ -30,23 +30,23 @@ public class PopUpView : MonoBehaviour
     {
         if (!_initialOpened) Hide(true);
     }
-    public void Show(CanvasGroup caller = null) 
+    public void Show() 
     {
         if (_isOpened) throw new Exception("This pop up view  has opened already.");
         _backButton.onClick.AddListener(_backButton_onClick);
-        _callerCanvasGroup = caller;
+        //_callerCanvasGroup = ;
 
         ShowCanvas(_canvasGroup, true);
 
-        if(_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, false);
+        //if(_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, false);
         _isOpened = true;
     }
     private void Hide(bool noCheck = false)
     {
         if (!noCheck && !_isOpened) throw new Exception("This pop up view is not opened.");
         ShowCanvas(_canvasGroup, false);
-        if (_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, true);
-        _callerCanvasGroup = null;
+        //if (_callerCanvasGroup) ShowCanvas(_callerCanvasGroup, true);
+        //_callerCanvasGroup = null;
         _isOpened = false;
     }
     private void _backButton_onClick()
@@ -60,9 +60,5 @@ public class PopUpView : MonoBehaviour
         canvasGroup.alpha = show ? 1 : 0;
         canvasGroup.interactable = show;
         canvasGroup.blocksRaycasts = show;
-    }
-    private void ShowCanvas(GameObject gameObject, bool show)
-    {
-        gameObject.SetActive(show);
     }
 }

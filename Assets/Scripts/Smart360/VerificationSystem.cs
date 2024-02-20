@@ -1,13 +1,10 @@
 ﻿using Eason.Odin;
-using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.IO;
 using System.Linq;
 using UnityEngine;
-
 public interface ILoader<T>
 {
     T Load();
@@ -87,7 +84,7 @@ public struct EasonCredentialLoader : ILoader<Credential, EasonCredentialSaveLoa
 [Serializable]
 public struct ModuleCredential
 {
-    [SerializeField, TableColumnWidth(40,resizable: false), ReadOnly] private int _id;
+    [SerializeField, TableColumnWidth(40, resizable: false), ReadOnly] private int _id;
     [SerializeField, TableColumnWidth(70, resizable: false)] private bool _purchased;
     [SerializeField, TableColumnWidth(100, resizable: false), DateTime] private long _expiredDate;
     [SerializeField] private string _deviceUniqueIdentifier;
@@ -108,7 +105,7 @@ public struct EditionCredential
     [SerializeField] private string _deviceUniqueIdentifier;
     [SerializeField, ReadOnly] private string _hash;
 
-    public int id { get => _id;}
+    public int id { get => _id; }
     public bool purchased { get => _purchased; internal set => _purchased = value; }
     public long expiredDate { get => _expiredDate; }
     public string deviceUniqueIdentifier { get => _deviceUniqueIdentifier; }
@@ -124,7 +121,7 @@ public struct ApplicationCredential
     public bool purchased { get => _purchased; }
     public long expiredDate { get => _expiredDate; }
     public string deviceUniqueIdentifier { get => _deviceUniqueIdentifier; }
-    public string hash 
+    public string hash
     {
         get => _hash;
         internal set => _hash = value;
@@ -174,13 +171,13 @@ public struct VerificationResult
     [SerializeField] private bool[] _editionUnpaid;
     [SerializeField] private bool[] _editionExpired;
 
-    public VerificationResult(int moduleCount, int editionCount) :this()
+    public VerificationResult(int moduleCount, int editionCount) : this()
     {
         _moduleHashInvalid = new bool[moduleCount];
-        _moduleUnpaid= new bool[moduleCount];
-        _moduleExpired= new bool[moduleCount];
-        _editionHashInvalid= new bool[editionCount];
-        _editionUnpaid= new bool[editionCount];
+        _moduleUnpaid = new bool[moduleCount];
+        _moduleExpired = new bool[moduleCount];
+        _editionHashInvalid = new bool[editionCount];
+        _editionUnpaid = new bool[editionCount];
         _editionExpired = new bool[editionCount];
     }
 
@@ -189,6 +186,13 @@ public struct VerificationResult
     public bool applicationExpired { get => _applicationExpired; internal set => _applicationExpired = value; }
     public bool lastTimeLoginInvalid { get => _lastTimeLoginInvalid; internal set => _lastTimeLoginInvalid = value; }
     public bool deviceInvalid { get => _deviceInvalid; internal set => _deviceInvalid = value; }
+    public bool applicationInvalid
+{
+    get
+    {
+        return !applicationHashInvalid || !applicationUnpaid || !applicationExpired || !lastTimeLoginInvalid || !deviceInvalid;
+    }
+}
     public bool[] moduleUnpaid { get => _moduleUnpaid; }
     public bool[] moduleExpired { get => _moduleExpired; }
     public bool[] editionUnpaid { get => _editionUnpaid; }
@@ -201,7 +205,7 @@ public struct VerificationResult
     {
         get
         {
-            return !applicationHashInvalid && !applicationUnpaid & !applicationExpired & !lastTimeLoginInvalid & deviceInvalid &
+            return !applicationHashInvalid && !applicationUnpaid & !applicationExpired & !lastTimeLoginInvalid & !deviceInvalid &
                 moduleUnpaid.All(o => !o) &&
                 moduleExpired.All(o => !o) &&
                 editionUnpaid.All(o => !o) &&
@@ -217,7 +221,8 @@ public struct CredentialCookie
 {
     [SerializeField, DateTime] private long _lastTimeLogin;
     public long lastTimeLogin { get => _lastTimeLogin; }
-    [Button] public void UpdateCookie()
+    [Button]
+    public void UpdateCookie()
     {
         _lastTimeLogin = DateTime.Now.Ticks;
     }
@@ -247,7 +252,7 @@ public class VerificationSystem : SerializedMonoBehaviour
 
     #region Debug
     [Header("Debug")]
-    [SerializeField,ReadOnly] private VerificationResult _verificationResult;
+    [SerializeField, ReadOnly] private VerificationResult _verificationResult;
 
     [Button("Hash Modules")]
     private string[] HashModuleVerificationInfoButtonClick(bool apply = true)
@@ -400,14 +405,14 @@ public class VerificationSystem : SerializedMonoBehaviour
     //{
     //    return credential.hash == HashVerificationInfo(credential);
     //}
-//    public bool VerifyDevice(Credential credential)
-//    {
-//#if UNITY_ANDROID
-//        return credential.deviceUniqueIdentifier == SystemInfo.deviceUniqueIdentifier;
-//#elif UNITY_EDITOR
-//        return true;
-//#endif
-//    }
+    //    public bool VerifyDevice(Credential credential)
+    //    {
+    //#if UNITY_ANDROID
+    //        return credential.deviceUniqueIdentifier == SystemInfo.deviceUniqueIdentifier;
+    //#elif UNITY_EDITOR
+    //        return true;
+    //#endif
+    //    }
     private bool VerifyLastTimeLogin(CredentialCookie cookie)
     {
         return DateTime.Now.Ticks > cookie.lastTimeLogin;
@@ -468,7 +473,7 @@ public class VerificationSystem : SerializedMonoBehaviour
     }
 
 
-    [InfoBox("The verification folder dosen't exist. check \"Verification Folder Path\" or create one.", InfoMessageType =InfoMessageType.Warning,VisibleIf = nameof(folderNotExist))]
+    [InfoBox("The verification folder dosen't exist. check \"Verification Folder Path\" or create one.", InfoMessageType = InfoMessageType.Warning, VisibleIf = nameof(folderNotExist))]
     [Button, ShowIf(nameof(folderNotExist))]
     public void CreateMissingFolder()
     {
@@ -516,4 +521,3 @@ public class VerificationSystem : SerializedMonoBehaviour
         return ret;
     }
 }
-
