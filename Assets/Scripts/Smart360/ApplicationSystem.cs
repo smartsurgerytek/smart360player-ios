@@ -36,6 +36,7 @@ public class ApplicationSystem : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("device UUID: "+SystemInfo.deviceUniqueIdentifier);
         if (_instance)
         {
             Destroy(this.gameObject);
