@@ -28,7 +28,7 @@ public struct EasonCredentialContext : ICredentialContext
 
     private bool _initialized;
 
-    [ShowInInspector, FoldoutGroup("Debug")] private string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', Path.PathSeparator);
+    [ShowInInspector, FoldoutGroup("Debug")] private string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', Path.DirectorySeparatorChar);
     //[ShowInInspector, FoldoutGroup("Debug")] private string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName?? "");
     [ShowInInspector, FoldoutGroup("Debug")] private string cookiePath => Path.Combine(rootPath ?? "", _cookieFileName?? "");
     [ShowInInspector, FoldoutGroup("Debug")] private bool isRootFolderNameValid => !string.IsNullOrEmpty(_rootFolderName);
@@ -78,7 +78,15 @@ public struct EasonCredentialContext : ICredentialContext
     [Button, FoldoutGroup("Debug"), HideIf(nameof(isRootExist))]
     private void EnsureRootFolderExist()
     {
-        if (!isRootExist) Directory.CreateDirectory(rootPath);
+        if (!isRootExist)
+        {
+            Debug.LogError("!isRootExist");
+            Debug.LogError(rootPath);
+            Debug.LogError(!string.IsNullOrEmpty(_rootFolderName));
+            Debug.LogError(Directory.Exists(rootPath));
+            Debug.LogError(Application.persistentDataPath);
+            Directory.CreateDirectory(rootPath);
+        }
     }
     private void AssertRootFolderName()
     {
