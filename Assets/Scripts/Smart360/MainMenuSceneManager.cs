@@ -12,6 +12,9 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     [Header("Components")]
     [SerializeField] private Button _exitButton;
 
+    [Header("Views")]
+    [SerializeField] private VerificationView _verificationView;
+
     [Header("Edition Buttons")]
     [SerializeField] private EditionButton _editionButtonPrefab;
     [SerializeField] private Transform _editionButtonParent;
@@ -28,6 +31,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
 
     internal IMainMenuSceneContext context { get => _context; set => _context = value; }
     public UnityEvent<int> clickEditionButton { get => _clickEditionButton; }
+    public VerificationView verificationView { get => _verificationView; }
 
     internal event Action<EditionButton> preinitializeEditonButton;
     //public int editionCount { get => editionIds.Length; }
@@ -68,6 +72,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
         {
             _editionButtons[i] = Instantiate(_editionButtonPrefab, _editionButtonParent);
             _editionButtons[i].index = i;
+            _editionButtons[i].clickButton.AddListener(_editionButton_onClick);
             _editionButtons[i].editionId = context.currentEditionIds[i];
             for (int j = 0; j< (_editionButtonPreInitializers?.Count ?? 0); j++)
             {

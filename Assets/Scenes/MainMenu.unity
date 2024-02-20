@@ -2285,6 +2285,8 @@ MonoBehaviour:
   _warningView: {fileID: 1785807979}
   _purchaseView: {fileID: 407351639}
   _expiredView: {fileID: 1018590041}
+  _needToShowView: 0
+  _viewToShow: 0
 --- !u!1 &891198017
 GameObject:
   m_ObjectHideFlags: 0
@@ -5386,12 +5388,14 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 1881893179}
     - {fileID: 314941002}
-    - {fileID: 11400000, guid: 21a7ff2e8c777f04ba5682b5ca09dfe7, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: _context
+      Entry: 6
+      Data: 
     - Name: _editionButtonPreInitializers
       Entry: 7
       Data: 0|System.Collections.Generic.List`1[[IEditionButtonPreinitializer, SmartSurgery.Smart360]],
@@ -5411,35 +5415,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: _mainMenuSceneWriters
-      Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[IWriter`1[[MainMenuSceneManager,
-        SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 2|MainMenuSceneManagerEditionsWriter, SmartSurgery.Smart360
-    - Name: _currentModuleId
-      Entry: 3
-      Data: 0
-    - Name: _editionManager
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
   _exitButton: {fileID: 350493763}
+  _verificationView: {fileID: 860205322}
   _editionButtonPrefab: {fileID: 2856381491119376256, guid: 4b89f06f8208a074bbfff31a670d5875, type: 3}
   _editionButtonParent: {fileID: 2074003724}
-  _editionIds: 00000000010000000200000003000000
   _clickEditionButton:
     m_PersistentCalls:
       m_Calls: []

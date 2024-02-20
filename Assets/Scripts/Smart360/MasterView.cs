@@ -3,10 +3,16 @@ using UnityEngine;
 
 public class MasterView : MonoBehaviour
 {
-    internal MainMenuView mainMenuView;
+    [SerializeField] private MainMenuView _mainMenuView;
+
     [SerializeField] private VerificationView _verificationView;
+
+
+
+    public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
 
     internal void Initialize()
     {
+
     }
 }

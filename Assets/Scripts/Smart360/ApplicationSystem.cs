@@ -98,6 +98,8 @@ public class ApplicationSystem : MonoBehaviour
             if (_mainMenuManager)
             {
                 _mainMenuManager.context = _masterApplication.context.mainMenuScene;
+                _masterApplication.view.verificationView = _mainMenuManager.verificationView;
+
                 _needToLoadSceneContext = false;
             }
         }
@@ -131,18 +133,19 @@ public class ApplicationSystem : MonoBehaviour
 
     private void _mainMenuManager_onClickEditionButton(int i)
     {
-
-        var isUnpaid = _verificationSystem.IsEditionUnpaid(i);
-        var isExpired = _verificationSystem.IsEditionExpired(i);
+        var verification = _masterApplication.context.verification.result;
+        var view = _masterApplication.view.verificationView;
+        var isUnpaid = verification.editionUnpaid[i];
+        var isExpired = verification.editionExpired[i];
         if (isUnpaid)
         {
-            //_verificationSystem.needShowVerificationView = true;
-            //_verificationSystem.verificationViewToShow = VerificationView.Views.Purchase;
+            view.needToShowView = true;
+            view.viewToShow = VerificationView.Views.Purchase;
         } 
         else if (isExpired)
         {
-            //_verificationSystem.needShowVerificationView = true;
-            //_verificationSystem.verificationViewToShow = VerificationView.Views.Expired;
+            view.needToShowView = true;
+            view.viewToShow = VerificationView.Views.Purchase;
         }
         else
         {

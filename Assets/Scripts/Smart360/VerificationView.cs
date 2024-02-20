@@ -15,6 +15,10 @@ public class VerificationView : MonoBehaviour
     [SerializeField] private PopUpView _purchaseView;
     [SerializeField] private PopUpView _expiredView;
 
+    [SerializeField] private bool _needToShowView;
+    [SerializeField] private Views _viewToShow;
+    public bool needToShowView { get => _needToShowView; internal set => _needToShowView = value; }
+    public Views viewToShow { get => _viewToShow; internal set => _viewToShow = value; }
 
     private PopUpView[] popUpViews => new PopUpView[3]
     {
@@ -23,13 +27,17 @@ public class VerificationView : MonoBehaviour
         _expiredView
     };
 
-
-
     public void Start()
     {
         _warningView.back.AddListener(Application.Quit);
     }
-
+    public void Update()
+    {
+        if (!needToShowView) return;
+        if ((int)viewToShow < 0 || (int)viewToShow > 2) return;
+        ShowView(viewToShow);
+        needToShowView = false;
+    }
     public void ShowView(Views view)
     {
         var caller = _mainMenu;

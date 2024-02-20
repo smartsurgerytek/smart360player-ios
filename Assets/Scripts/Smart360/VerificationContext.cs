@@ -8,12 +8,6 @@ internal class VerificationContext : MonoBehaviour, IVerificationContext,IProvid
 
     VerificationResult IVerificationContext.result { get => _result; set => _result = value; }
 
-    //VerificationResult IVerificationContext.result 
-    //{
-    //    get => _result;
-    //    set => _result = value;
-    //}
-
     VerificationResult IProvider<VerificationResult>.Get()
     {
         return _result;

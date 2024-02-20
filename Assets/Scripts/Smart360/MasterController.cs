@@ -8,10 +8,11 @@ public class MasterController : SerializedMonoBehaviour
     [SerializeField] IEditionButtonPreinitializer _editionButtonPreinitializer;
 
     public IEditionButtonPreinitializer editionButtonPreinitializer { get => _editionButtonPreinitializer; }
+    public ICredentialVerifier credentialVerifier { get => _credentialVerifier; }
 
     internal void Initialize(MasterContext context)
     {
-        context.verification.result = _credentialVerifier.Verify(context.credential.credential);
+        context.verification.result = credentialVerifier.Verify(context.credential.credential);
     }
 
     internal void InternalUpdate(MasterContext context, MasterView view)

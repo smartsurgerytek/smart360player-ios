@@ -52,7 +52,7 @@ public class EditionButton : MonoBehaviour
 
     private void _button_onClick()
     {
-        clickButton?.Invoke(_index);
+        clickButton?.Invoke(_editionId);
     }
     private void SetCanvasGroup(CanvasGroup canvasGroup, bool show)
     {
