@@ -16,6 +16,12 @@ public class MasterContext : SerializedMonoBehaviour
     internal IVerificationContext verification { get => _verification; }
     internal IMainMenuSceneContext mainMenuScene { get => _mainMenuScene; }
 
+    internal void  SetVerificationResult(VerificationResult result)
+    {
+        _verification.result = result;
+    }
+
+
     [OdinSerialize] private ILoader<IEditionModel> _editionLoader;
     public void Load(Manifest manifest)
     {

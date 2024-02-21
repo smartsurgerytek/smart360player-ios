@@ -12,7 +12,6 @@ public class ApplicationSystem : MonoBehaviour
     [SerializeField] private MasterApplication _masterApplication;
 
     [SerializeField] private ApplicationManager _applicationManager;
-    //[SerializeField] private VerificationSystem _verificationSystem;
     [SerializeField] private string _initialSceneToLoad;
     [SerializeField] private string _videoPlayerScene;
     [SerializeField] private string _mainMenuScene;
@@ -131,6 +130,7 @@ public class ApplicationSystem : MonoBehaviour
                 {
                     _verficationSceneManager.verificationView.needToShowView = true;
                     _verficationSceneManager.verificationView.viewToShow = viewToShow;
+                    _needToLoadSceneContext = false;
                 }
 
             }

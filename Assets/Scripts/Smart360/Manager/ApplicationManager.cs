@@ -2,20 +2,20 @@
 using Sirenix.Serialization;
 using System;
 using UnityEngine;
-public class  ScriptableSaverLoader<T> : ScriptableObject, ISaverLoader<T>
-{
-    T data;
+//public class  ScriptableSaverLoader<T> : ScriptableObject, ISaverLoader<T>
+//{
+//    T data;
 
-    T ILoader<T>.Load()
-    {
-        return SaveLoadUtility.JsonDeepClone(data);
-    }
+//    T ILoader<T>.Load()
+//    {
+//        return SaveLoadUtility.JsonDeepClone(data);
+//    }
 
-    void ISaver<T>.Save(T data)
-    {
-        this.data = SaveLoadUtility.JsonDeepClone(data);
-    }
-}
+//    void ISaver<T>.Save(T data)
+//    {
+//        this.data = SaveLoadUtility.JsonDeepClone(data);
+//    }
+//}
 [Serializable]
 public class DefaultModuleModel : IModuleModel
 {

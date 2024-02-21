@@ -43,7 +43,14 @@ public class VerificationView : MonoBehaviour
     public void ShowView(Views view)
     {
         show?.Invoke(view);
-        popUpViews[(int)view].Show();
+        try
+        {
+            popUpViews[(int)view].Show();
+        }
+        catch(System.Exception e)
+        {
+            Debug.LogException(e);
+        }
     }
     private void warningView_back()
     {

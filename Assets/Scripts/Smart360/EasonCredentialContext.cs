@@ -1,8 +1,10 @@
-﻿using Sirenix.OdinInspector;
+﻿using Eason.Odin;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
 using System.IO;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 [Serializable]
@@ -115,6 +117,15 @@ public struct EasonCredentialContext : ICredentialContext
         AssertCookieFileName();
         if (!isCookieExist) throw new FileNotFoundException($"Root folder \"{cookiePath}\" doesn't exist");
     }
+    bool ICredentialContext.IsUnpaid(int edition)
+    {
+        return _credential.editions.First(o => o.id == edition).purchased;
+    }
+
+    bool ICredentialContext.isExpired(int edition)
+    {
+        return _credential.editions.First(o => o.id == edition).expiredDate > DateTime.Now.Ticks;
+    }
 #if UNITY_EDITOR
 
     [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_parameter) + "." + " isCredentialFileNameValid")]
@@ -157,7 +168,7 @@ public struct EasonCredentialContext : ICredentialContext
             _credential.SetModuleHash(i, _moduleHasher.Hash(_credential.modules[i]));
         }
     }
-    [Button("Load Credential"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieFileNameValid))]
+    [Button("Save Cookie"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieFileNameValid))]
     private void OdinSaveCookie()
     {
         AssertCookieFileName();
@@ -169,16 +180,30 @@ public struct EasonCredentialContext : ICredentialContext
     {
         System.Diagnostics.Process.Start("explorer.exe", rootPath);
     }
+    [Button("Fill Duid"), FoldoutGroup("Debug"), ShowIf(nameof(isRootExist))]
+    private void OdinFillDuid()
+    {
+        OdinFillDuid(SystemInfo.deviceUniqueIdentifier);
 
+    }
+    [Button("Fill Expired Date"), FoldoutGroup("Debug"), ShowIf(nameof(isRootExist))]
+    private void OdinFillExpiredDate()
+    {
+
+        var date = DateTime.Now;
+        date = date.AddDays(1);
+        OdinFillExpiredDate(date.Ticks);
+    }
+    [Button("Fill Duid"), FoldoutGroup("Debug"), ShowIf(nameof(isRootExist))]
+    private void OdinFillDuid(string duid)
+    {
+        _credential.FillDuid(duid);
+    }
+    [Button("Fill Expired Date"), FoldoutGroup("Debug"), ShowIf(nameof(isRootExist))]
+    private void OdinFillExpiredDate([DateTime] long time)
+    {
+        _credential.FillExpiredDate(time);
+    }
 #endif
-    bool ICredentialContext.IsUnpaid(int edition)
-    {
-        return _credential.editions.First(o => o.id == edition).purchased;
-    }
-
-    bool ICredentialContext.isExpired(int edition)
-    {
-        return _credential.editions.First(o => o.id == edition).expiredDate > DateTime.Now.Ticks;
-    }
 
 }
