@@ -274,7 +274,6 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-<<<<<<< HEAD
     SerializationNodes:
     - Name: _credential
       Entry: 7
@@ -369,9 +368,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-=======
-    SerializationNodes: []
->>>>>>> 664689ada3e4691861bf58b88751a267c1a36ed7
+61bf58b88751a267c1a36ed7
 --- !u!1 &994285542
 GameObject:
   m_ObjectHideFlags: 0
