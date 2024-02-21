@@ -1,4 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using Eason.Odin;
+using JetBrains.Annotations;
+using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
 using UnityEngine.Video;
@@ -50,7 +52,7 @@ public struct SurroundingVideoModel
 
 }
 [Serializable]
-public struct VideoModel
+public struct Video
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private int _edition;
@@ -68,15 +70,28 @@ public struct VideoModel
     public double startTime { get => _startTime; }
 }
 [Serializable]
-public struct EditionModel
+public struct Module
+{
+    [SerializeField, ReadOnly] private int _index;
+    [SerializeField] private string _name;
+    [SerializeField] private string _displayName;
+    public int index { get => _index; internal set => _index = value; }
+    public string name { get => _name; set => _name = value; }
+    public string displayName { get => _displayName; set => _displayName = value; }
+}
+
+[Serializable]
+public struct Edition : IEdition
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private string _name;
     [SerializeField] private string _englishName;
     [SerializeField] private string _displayName;
+    [SerializeField] private int _module;
     [SerializeField] private int _initialSelected;
 
-    public int index { get => _index; internal set => _index = value; }
+    public int id { get => _index; internal set => _index = value; }
+    public int module { get => _module; }
     public string name { get => _name; set => _name = value; }
     public string englishName { get => _englishName; set => _englishName = value; }
     public string displayName { get => _displayName; set => _displayName = value; }
@@ -108,4 +123,62 @@ public struct AssetBundleVideoModel
 
     public int index { get => _index; internal set => _index = value; }
     public string fileName { get => _fileName; }
+}
+
+[Serializable]
+public struct UserModel
+{
+    [SerializeField, ReadOnly, TableColumnWidth(40, resizable: false)] private int _id;
+    [SerializeField] private string _name;
+
+    public int id { get => _id; internal set => _id = value; }
+}
+[Serializable]
+public struct ApplicationVerificationModel
+{
+    [SerializeField, ReadOnly, TableColumnWidth(40, resizable: false)] private int _id;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private int _userId;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private int _deviceId;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private bool _purchased;
+    [SerializeField, TableColumnWidth(90, resizable: false), DateTime] private long _expiredDate;
+    public int id { get => _id; internal set => _id = value; }
+}
+[Serializable]
+public struct ModuleVerificationModel
+{
+    [SerializeField, ReadOnly, TableColumnWidth(40, resizable: false)] private int _id;
+    [SerializeField, TableColumnWidth(110, resizable: false)] private int _applicationId;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private int _moduleId;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private bool _purchased;
+    [SerializeField, TableColumnWidth(90, resizable: false), DateTime] private long _expiredDate;
+    public int id { get => _id; internal set => _id = value; }
+    public int applicationId { get => applicationId; }
+    public int moduleId { get => moduleId; }
+    public bool purchased { get => purchased; }
+    public long expiredDate { get => expiredDate; }
+}
+
+[Serializable]
+public struct EditionVerificationModel
+{
+    [SerializeField, ReadOnly, TableColumnWidth(40, resizable: false)] private int _id;
+    [SerializeField, TableColumnWidth(110, resizable: false)] private int _applicationId;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private int _editionId;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private bool _purchased;
+    [SerializeField, TableColumnWidth(90, resizable: false), DateTime] private long _expiredDate;
+    public int id { get => _id; internal set => _id = value; }
+    public int applicationId { get => _applicationId; }
+    public int editionId {get =>_editionId ;}
+    public bool purchased {get =>_purchased ;}
+    public long expiredDate {get =>_expiredDate ;}
+
+}
+[Serializable]
+public struct DeviceModel
+{
+    [SerializeField, ReadOnly, TableColumnWidth(40, resizable: false)] private int _id;
+    [SerializeField, TableColumnWidth(70, resizable: false)] private int _userId;
+    [SerializeField, TableColumnWidth(150, resizable: false)] private string _serialNumber;
+    [SerializeField] private string _uniqueIdentifier;
+    public int id { get => _id; internal set => _id = value; }
 }

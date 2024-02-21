@@ -8,8 +8,7 @@ namespace Eason.Odin
     
     public class DateTimeAttribute : Attribute
     {
-        public string format;
-
+        public string format;   
         public DateTimeAttribute(string format = "yyyy-MM-dd")
         {
             this.format = format;

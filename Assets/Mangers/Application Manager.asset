@@ -17,3 +17,9 @@ MonoBehaviour:
   _videoManager: {fileID: 11400000, guid: 755c8d9bd014aa149bec5d4b4715f9ae, type: 2}
   _editionManager: {fileID: 11400000, guid: 21a7ff2e8c777f04ba5682b5ca09dfe7, type: 2}
   _fileManager: {fileID: 11400000, guid: 721c39fcb5cb86e4db8bd06916e17ff2, type: 2}
+  _moduleManager: {fileID: 11400000, guid: 2b77cc9d1683bc340a913c59e3780844, type: 2}
+  _applicationVerificationManager: {fileID: 11400000, guid: 3c7475903df2b5e41b4ebcd000650b2a, type: 2}
+  _moduleVerificationManager: {fileID: 11400000, guid: 9bc1960503b146b47b68d4ddb758861c, type: 2}
+  _editionVerificationManager: {fileID: 11400000, guid: 352c210955127164f9a09b2b81bea017, type: 2}
+  _userManager: {fileID: 11400000, guid: 0ac85c4f0ab847f4695d1e2e52241a2f, type: 2}
+  _deviceManager: {fileID: 11400000, guid: 26b5ee8aabe7e7a4bbf35e478b6774b9, type: 2}

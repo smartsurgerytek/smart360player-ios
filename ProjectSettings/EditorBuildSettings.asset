@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VideoPlayer.unity
     guid: 186fcf9f1aa76a24fa3d246b9183645f
+  - enabled: 1
+    path: Assets/Scenes/VerificationView.unity
+    guid: 805263efd1f53ff418cd08aee2baf749
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5786a148f7388f3499ae6c6bb042c3bc, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d447bd09d9d911f4bbe938eaa100b546, type: 2}

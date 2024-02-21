@@ -11,7 +11,7 @@ public class VideoManagerEditor : OdinEditor
     new VideoManager target => (VideoManager)base.target;
 
     private InspectorProperty _loadDataMethod_IP;
-    private EasonGUITable<VideoModel> _videoTable;
+    private EasonGUITable<Video> _videoTable;
     private EasonGUITable<SurroundingVideoModel> _surroundingTable;
     private string[] sourcePropertyName = new[] { "_clip", "_fileName", "_assetName" };
 
@@ -20,7 +20,7 @@ public class VideoManagerEditor : OdinEditor
         base.OnEnable();
 
         _loadDataMethod_IP = Tree.GetPropertyAtPath("_loadDataMethod");
-        _videoTable = new EasonGUITable<VideoModel>(Tree, "_data", new[] { "_index", "_edition", "_staff", "", "_startTime" });
+        _videoTable = new EasonGUITable<Video>(Tree, "_data", new[] { "_index", "_edition", "_staff", "", "_startTime" });
         _surroundingTable = new EasonGUITable<SurroundingVideoModel>(Tree, "_surroundingData", new[] { "_index", "_edition", "" });
 
         _videoTable.SetDisabled(0, true);

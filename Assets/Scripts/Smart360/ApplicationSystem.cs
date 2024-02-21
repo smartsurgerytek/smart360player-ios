@@ -1,42 +1,44 @@
 ﻿using Sirenix.OdinInspector;
 using System;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+public interface IEditionButtonPreinitializer
+{
+    internal void OnPreInitialize(EditionButton editionButton);
+}
 public class ApplicationSystem : MonoBehaviour
 {
     private static ApplicationSystem _instance;
+    [SerializeField] private MasterApplication _masterApplication;
 
     [SerializeField] private ApplicationManager _applicationManager;
-    [SerializeField] private VerificationSystem _verificationSystem;
-    [SerializeField] private VerificationView _verificationView;
+    //[SerializeField] private VerificationSystem _verificationSystem;
+    [SerializeField] private string _initialSceneToLoad;
     [SerializeField] private string _videoPlayerScene;
     [SerializeField] private string _mainMenuScene;
+    [SerializeField] private string _verificationScene;
+
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _destroying;
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _initialized;
 
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _needShowVerificationView;
-    [NonSerialized, ShowInInspector, ReadOnly] private VerificationView.Views _verificationViewToShow;
+    // general scene
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToLoadScene; // trigger SceneManager.LoadScene
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToLoadSceneContext; // trigger
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToInitializeScene;
+    [NonSerialized, ShowInInspector, ReadOnly] private string _sceneToLoad = "MainMenu";
 
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _needLoadVideoPlayerScene;
     [NonSerialized, ShowInInspector, ReadOnly] private int _editionToLoad;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _waitForVideoPlayerSceneLoaded;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _videoPlayerSceneNeedInitialize;
-
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _needLoadMainMenuScene = true;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _waitForMainMenuLoaded;
-    [NonSerialized, ShowInInspector, ReadOnly] private bool _mainMenuSceneNeedInitialize;
-
-    [NonSerialized, ShowInInspector, ReadOnly] private GameManager _gameManager;
-    [NonSerialized, ShowInInspector, ReadOnly] private MainMenuManager _mainManuManager;
 
 
-
+    [NonSerialized, ShowInInspector, ReadOnly] private VideoPlayerSceneManager _videoPlayerSceneManager;
+    [NonSerialized, ShowInInspector, ReadOnly] private MainMenuSceneManager _mainMenuManager;
+    [NonSerialized, ShowInInspector, ReadOnly] private VerificationSceneManager _verficationSceneManager;
 
     private void Awake()
     {
+        Debug.Log("device UUID: "+SystemInfo.deviceUniqueIdentifier);
         if (_instance)
         {
             Destroy(this.gameObject);
@@ -52,104 +54,180 @@ public class ApplicationSystem : MonoBehaviour
 
     private void Initialize()
     {
-
+        _masterApplication.Initialize();
+        var result = _masterApplication.context.verification.result;
+        if(result.applicationInvalid)
+        {
+            _sceneToLoad = _verificationScene;
+        }
+        else
+        {
+            _sceneToLoad = _initialSceneToLoad;
+        }
+        _needToLoadScene = true;
         _initialized = true;
     }
 
 
     private void Update()
     {
-        CheckVerificationSystem();
-        CheckMainMenu();
-        CheckVideoPlayerScene();
-        //_menuManager_onClickEditionButton
+
+        CheckNeedToLoadScene(); // Check if there is a scene need to load
+        CheckNeedToLoadSceneContext(); // Check if there is a scene just loaded.
+        CheckNeedToInitializeScene(); // After the component found, we start to initialize each component.
     }
 
-    private void CheckVerificationSystem()
+    private void CheckNeedToLoadScene()
     {
-        if (_needShowVerificationView)
+        if (!_needToLoadScene) return;
+        SceneManager.LoadScene(_sceneToLoad);
+
+        if (_sceneToLoad ==_mainMenuScene)
         {
-            _verificationView.ShowView(_verificationViewToShow);
-            _needShowVerificationView = false;
+            _mainMenuManager = null;
         }
+        else if (_sceneToLoad == _videoPlayerScene)
+        {
+        }
+        else if(_sceneToLoad == _verificationScene)
+        {
+
+        }
+        _needToLoadScene = false;
+
+        if (!_needToLoadScene) _needToLoadSceneContext = true;
     }
 
-    private void CheckMainMenu()
+    private void CheckNeedToLoadSceneContext()
     {
-        if (_needLoadMainMenuScene)
+        if (!_needToLoadSceneContext) return;
+
+        if (_sceneToLoad == _mainMenuScene)
         {
-            SceneManager.LoadScene(_mainMenuScene);
-            _mainManuManager = null;
-            _needLoadMainMenuScene = false;
-            _waitForMainMenuLoaded = true;
-        }
-        if (_waitForMainMenuLoaded)
-        {
-            _mainManuManager = GameObject.FindObjectOfType<MainMenuManager>();
-            if (_mainManuManager)
+            _mainMenuManager = GameObject.FindObjectOfType<MainMenuSceneManager>();
+            if (_mainMenuManager)
             {
-                _waitForMainMenuLoaded = false;
-                _mainMenuSceneNeedInitialize = true;
+                _mainMenuManager.context = _masterApplication.context.mainMenuScene;
+                _masterApplication.view.verificationView = _mainMenuManager.verificationView;
+
+
+                _needToLoadSceneContext = false;
             }
         }
-        if (_mainMenuSceneNeedInitialize && _mainManuManager)
+        else if (_sceneToLoad == _videoPlayerScene)
         {
-            _mainManuManager.clickEditionButton.AddListener(_mainMenuManager_onClickEditionButton);
-            _mainManuManager.Initialize();
-            _mainMenuSceneNeedInitialize = false;
-        }
-    }
-
-    private void CheckVideoPlayerScene()
-    {
-        if (_needLoadVideoPlayerScene)
-        {
-            SceneManager.LoadScene(_videoPlayerScene);
-            _needLoadVideoPlayerScene = false;
-            _waitForVideoPlayerSceneLoaded = true;
-        }
-        if (_waitForVideoPlayerSceneLoaded)
-        {
-            _gameManager = GameObject.FindObjectOfType<GameManager>();
-            if (_gameManager)
+            _videoPlayerSceneManager = GameObject.FindObjectOfType<VideoPlayerSceneManager>();
+            if (_videoPlayerSceneManager)
             {
-                _waitForVideoPlayerSceneLoaded = false;
-                _videoPlayerSceneNeedInitialize = true;
+                _needToLoadSceneContext = false;
             }
         }
-        if (_videoPlayerSceneNeedInitialize && _gameManager && _gameManager.quit != null)
+        else if (_sceneToLoad == _verificationScene)
         {
-            _gameManager.quit.AddListener(_gameManager_onQuit);
-            _gameManager.Initialize(_editionToLoad);
-            _videoPlayerSceneNeedInitialize = false;
+            _verficationSceneManager = GameObject.FindObjectOfType<VerificationSceneManager>();
+            if (_verficationSceneManager)
+            {
+                if (TryGetVerificationView(out var viewToShow))
+                {
+                    _verficationSceneManager.verificationView.needToShowView = true;
+                    _verficationSceneManager.verificationView.viewToShow = viewToShow;
+                }
+
+            }
         }
+        if (!_needToLoadSceneContext) _needToInitializeScene = true;
+    }
+    private void CheckNeedToInitializeScene()
+    {
+        if (!_needToInitializeScene) return;
+        if (_sceneToLoad == _mainMenuScene)
+        {
+            _mainMenuManager.AddEditionButtonPreinitializer(_masterApplication.controller.editionButtonPreinitializer);
+            _mainMenuManager.clickEditionButton.AddListener(_mainMenuManager_onClickEditionButton);
+            _mainMenuManager.Initialize();
+        }
+        else if (_sceneToLoad == _videoPlayerScene)
+        {
+            _videoPlayerSceneManager.quit.AddListener(_videoPlayerSceneManager_onQuit);
+            _videoPlayerSceneManager.Initialize(_editionToLoad);
+        }
+        _needToInitializeScene = false;
     }
 
-    private void _gameManager_onQuit()
-    {
-        _needLoadMainMenuScene = true;
-    }
+
     private void _mainMenuManager_onClickEditionButton(int i)
     {
-        var isValid = IsPurchased(i);
-        if (isValid)
+
+        if(TryGetVerificationView(i, out var viewToShow))
         {
-            _editionToLoad = i;
-            _needLoadVideoPlayerScene = true;
+            var view = _masterApplication.view.verificationView;
+            view.needToShowView = true;
+            view.viewToShow = viewToShow;
         }
-        else
-        {
-            _needShowVerificationView = true;
-            //_verificationViewToShow = VerificationView.Views.
-        }
+        _editionToLoad = i;
+        _needToLoadScene = true;
+        _sceneToLoad = _videoPlayerScene;
     }
 
-    private bool IsPurchased(int i)
+    private bool TryGetVerificationView(int editionId, out VerificationView.Views result)
     {
-        return true;
+        var verification = _masterApplication.context.verification.result;
+        var view = _masterApplication.view.verificationView;
+        var isUnpaid =   verification.editionUnpaid[editionId];
+        var isExpired =  verification.editionExpired[editionId];
+        var isOtherInvalid = verification.editionHashInvalid[editionId];
+        result = default;
+        if (isUnpaid)
+        {
+            result = VerificationView.Views.Purchase;
+            return true;
+        }
+        else if (isExpired)
+        {
+            result = VerificationView.Views.Expired;
+            return true;
+        }
+        else if (isOtherInvalid)
+        {
+            result = VerificationView.Views.Warning;
+            return true;
+        }
+        return false;
+    }
+    private bool TryGetVerificationView(out VerificationView.Views result)
+    {
+        var verification = _masterApplication.context.verification.result;
+        var view = _masterApplication.view.verificationView;
+        var isUnpaid = verification.applicationUnpaid;
+        var isExpired = verification.applicationExpired;
+        var isOtherInvalid = verification.applicationHashInvalid || verification.deviceInvalid || verification.lastTimeLoginInvalid;
+        result = default;
+        if (isUnpaid)
+        {
+            result = VerificationView.Views.Purchase;
+            return true;
+        }
+        else if (isExpired)
+        {
+            result = VerificationView.Views.Expired;
+            return true;
+        }
+        else if (isOtherInvalid)
+        {
+            result = VerificationView.Views.Warning;
+            return true;
+        }
+        return false;
+    }
+
+    private void _videoPlayerSceneManager_onQuit()
+    {
+        _needToLoadScene = true;
+        _sceneToLoad = _mainMenuScene;
     }
     public void Quit()
     {
         Application.Quit();
     }
 }
+

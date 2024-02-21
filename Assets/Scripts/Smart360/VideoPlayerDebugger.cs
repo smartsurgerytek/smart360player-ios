@@ -11,6 +11,12 @@ public class VideoPlayerDebugger : MonoBehaviour
     [ShowInInspector] private VideoTimeReference _player_timeReference => _player.timeReference;
     [ShowInInspector] private bool _player_isPlaying => _player.isPlaying;
 
+    [Button("Play")]
+    private void OdinPlayButtonClick()
+    {
+        _player.Play();
+    }
+
     private void Reset()
     {
         _player = GetComponent<VideoPlayer>();

@@ -1,23 +1,98 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
-using System.IO;
-using System.Linq;
 using UnityEngine;
+public class  ScriptableSaverLoader<T> : ScriptableObject, ISaverLoader<T>
+{
+    T data;
 
+    T ILoader<T>.Load()
+    {
+        return SaveLoadUtility.JsonDeepClone(data);
+    }
+
+    void ISaver<T>.Save(T data)
+    {
+        this.data = SaveLoadUtility.JsonDeepClone(data);
+    }
+}
+[Serializable]
+public class DefaultModuleModel : IModuleModel
+{
+    [SerializeField] private Module[] _data;
+    Module[] IModuleModel.data { get => _data; set => _data = value; }
+}
+[Serializable]
+public class DefaultVideoModel : IVideoModel
+{
+
+    [SerializeField] private Video[] _data;
+    Video[] IVideoModel.data { get => _data; set => _data = value; }
+}
+[Serializable]
+public class DefaultEditionModel : IEditionModel
+{
+    [SerializeField] private Edition[] _data;
+    Edition[] IEditionModel.data { get => _data; set => _data = value; }
+}
+
+[Serializable]
+public class DefaultApplicationModel : IApplicationModel
+{
+}
+public class MonoMasterModel : MonoBehaviour, IMasterModel
+{
+    [OdinSerialize] private IApplicationModel _application;
+    [OdinSerialize] private IModuleModel _module;
+    [OdinSerialize] private IVideoModel _video;
+    [OdinSerialize] private IEditionModel _edition;
+
+    IApplicationModel IMasterModel.application => _application;
+    IModuleModel IMasterModel.module => _module;
+    IVideoModel IMasterModel.video => _video;
+    IEditionModel IMasterModel.edition => _edition;
+}
+public class DefaultMasterModel : IMasterModel
+{
+    [OdinSerialize] private IApplicationModel _application;
+    [OdinSerialize] private IModuleModel _module;
+    [OdinSerialize] private IVideoModel _video;
+    [OdinSerialize] private IEditionModel _edition;
+
+    IApplicationModel IMasterModel.application => _application ;
+    IModuleModel IMasterModel.module => _module ;
+    IVideoModel IMasterModel.video => _video ;
+    IEditionModel IMasterModel.edition => _edition;
+}
 
 [CreateAssetMenu(fileName = "Application Manager", menuName = "Managers/Application Manager")]
 public class ApplicationManager : ScriptableObject
 {
+    [SerializeField] private ManifestManager _manifestManger;
     [SerializeField] private StaffGroupManager _staffGroupManager;
     [SerializeField] private StaffManager _staffManager;
     [SerializeField] private VideoManager _videoManager;
     [SerializeField] private EditionManager _editionManager;
     [SerializeField] private FileManager _fileManager;
+    [SerializeField] private ModuleManager _moduleManager;
+    [SerializeField] private ApplicationVerificationManager _applicationVerificationManager;
+    [SerializeField] private ModuleVerificationManager _moduleVerificationManager;
+    [SerializeField] private EditionVerificationManager _editionVerificationManager;
+    [SerializeField] private UserManager _userManager;
+    [SerializeField] private DeviceManager _deviceManager;
     public StaffGroupManager staffGroupManager { get => _staffGroupManager; }
     public StaffManager staffManager { get => _staffManager; }
     public VideoManager videoManager { get => _videoManager; }
     public EditionManager editionManager { get => _editionManager; }
     public FileManager fileManager { get => _fileManager; }
+    public ModuleManager moduleManager { get => _moduleManager; }
+    public ApplicationVerificationManager applicationVerificationManager {get=>_applicationVerificationManager;}
+    public ModuleVerificationManager moduleVerificationManager {get=>_moduleVerificationManager;}
+    public EditionVerificationManager editionVerificationManager {get=>_editionVerificationManager;}
+    public UserManager userManager {get=>_userManager;}
+    public DeviceManager deviceManager { get => _deviceManager; }
+
+
 
     [Button]
     private void AutoRefreshFilePath()

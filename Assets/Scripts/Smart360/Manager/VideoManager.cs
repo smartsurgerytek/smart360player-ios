@@ -12,9 +12,9 @@ using System.Runtime.CompilerServices;
 public class VideoManager : ScriptableObject
 {
     [SerializeField] private LoadDataMethod _loadDataMethod;
-    [SerializeField, TableList] private VideoModel[] _data;
+    [SerializeField, TableList] private Video[] _data;
     [SerializeField, TableList] private SurroundingVideoModel[] _surroundingData;
-    public VideoModel[] data { get => _data?.ToArray(); internal set => _data = value; }
+    public Video[] data { get => _data?.ToArray(); internal set => _data = value; }
     public SurroundingVideoModel[] surroundingData { get => _surroundingData?.ToArray(); internal set => _surroundingData = value; }
     public LoadDataMethod loadDataMethod { get => _loadDataMethod; }
 
@@ -44,7 +44,7 @@ public class VideoManager : ScriptableObject
         if (_data == null) return null;
         return _data?.Select(videoData => videoData.clip).ToArray();
     }
-    public VideoModel[] GetVideoModelsByEdition(int edition)
+    public Video[] GetVideoModelsByEdition(int edition)
     {
             return _data.Where(video => video.edition == edition).ToArray();
     }
