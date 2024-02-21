@@ -2,9 +2,10 @@
 
 public class EditionButtonPreinitializer : MonoBehaviour, IEditionButtonPreinitializer
 {
-    [SerializeField] private EditionManager _editionManager;
+    [SerializeField] private IEditionModel _editionModel;
+    [SerializeField] private IEditionController _controller;
     void IEditionButtonPreinitializer.OnPreInitialize(EditionButton editionButton)
     {
-        editionButton.title = _editionManager.data[editionButton.editionId].englishName + " Edtion";
+        editionButton.title = _controller.GetEnglishName(_editionModel, editionButton.editionId);
     }
 }

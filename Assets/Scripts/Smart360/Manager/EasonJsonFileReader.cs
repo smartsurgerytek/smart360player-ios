@@ -3,19 +3,19 @@ using System.IO;
 using UnityEngine;
 
 [Serializable]
-public class EasonJsonFileSaver<T> : ISaver<T>
+public class EasonJsonFileReader<T> : IReader<T>
 {
     [SerializeField] private string _relativePath;
 
-    public EasonJsonFileSaver(string relativePath)
+    public EasonJsonFileReader(string relativePath)
     {
         _relativePath = relativePath;
     }
 
     private string absolutePath => Path.Combine(Application.persistentDataPath, _relativePath);
-    public void Save(T data)
+    public T Load()
     {
-        var json = JsonUtility.ToJson(data);
-        File.WriteAllText(absolutePath, json); 
+        var json = File.ReadAllText(absolutePath);
+        return JsonUtility.FromJson<T>(json);
     }
 }

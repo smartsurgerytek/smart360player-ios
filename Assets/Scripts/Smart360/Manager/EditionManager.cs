@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
+﻿using Sirenix.OdinInspector;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -24,7 +22,6 @@ public struct Manifest
 [CreateAssetMenu(fileName = "Edition Manager", menuName = "Managers/Edition Manager")]
 public class EditionManager : ScriptableObject
 {
-    
     [SerializeField, TableList] private Edition[] _data;
     public Edition[] data { get => _data; internal set => _data = value; }
 

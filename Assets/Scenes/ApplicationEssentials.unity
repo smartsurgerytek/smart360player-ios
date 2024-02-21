@@ -335,10 +335,34 @@ MonoBehaviour:
       Entry: 10
       Data: 1
     - Name: _module
-      Entry: 6
+      Entry: 7
+      Data: 6|FileModuleModel, SmartSurgery.Smart360
+    - Name: _accessor
+      Entry: 7
+      Data: 7|EasonJsonFileSaverLoader`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 1
+      Data: Data\modules
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: _edition
-      Entry: 6
+      Entry: 7
+      Data: 8|FileEditionModel, SmartSurgery.Smart360
+    - Name: _accessor
+      Entry: 7
+      Data: 9|EasonJsonFileSaverLoader`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 1
+      Data: Data\editoins
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: _verification
       Entry: 10
@@ -397,9 +421,11 @@ MonoBehaviour:
     _applicationHashInvalid: 0
     _applicationExpired: 0
     _applicationUnpaid: 0
+    _moduleIds: 
     _moduleHashInvalid: 
     _moduleUnpaid: 
     _moduleExpired: 
+    _editionIds: 
     _editionHashInvalid: 
     _editionUnpaid: 
     _editionExpired: 
@@ -507,7 +533,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1694199883}
-  - component: {fileID: 1694199884}
   m_Layer: 0
   m_Name: EditionModel
   m_TagString: Untagged
@@ -530,19 +555,6 @@ Transform:
   m_Father: {fileID: 464290784}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1694199884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694199882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c3bd61666ea874f8b0b07fe295c7f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data: []
 --- !u!1 &1710230733
 GameObject:
   m_ObjectHideFlags: 0

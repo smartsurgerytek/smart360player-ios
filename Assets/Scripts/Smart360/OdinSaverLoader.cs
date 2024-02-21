@@ -1,19 +1,16 @@
 ﻿using System.Linq;
 using UnityEngine;
-public class EditionManagerSaverLoader : ISaverLoader<EditionContext>
+public class EditionManagerAccessor : IAccessor<Edition[]>
 {
     [SerializeField] private EditionManager _manager;
-    void ISaver<EditionContext>.Save(EditionContext data)
+
+    void IWriter<Edition[]>.Write(Edition[] value)
     {
-        _manager.data = data.data.ToArray();
+        _manager.data = value.ToArray();
     }
 
-    EditionContext ILoader<EditionContext>.Load()
+    Edition[] IReader<Edition[]>.Read()
     {
-        var context = new EditionContext
-        {
-            data = _manager.data.ToArray(),
-        };
-        return context;
+         return _manager.data.ToArray();
     }
 }

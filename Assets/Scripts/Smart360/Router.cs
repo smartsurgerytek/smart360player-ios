@@ -1,10 +1,10 @@
 ﻿using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 
-public class Router<T> :ISaverLoader<T>
+public class Router<T> :IAccessor<T>
 {
-    [OdinSerialize] ISaver<T> _saver;
-    [OdinSerialize] ILoader<T> _loader;
+    [OdinSerialize] IWriter<T> _saver;
+    [OdinSerialize] IReader<T> _loader;
 
     [Button] 
     private void Foward()
@@ -12,12 +12,12 @@ public class Router<T> :ISaverLoader<T>
         _saver.Save(_loader.Load());
     }
 
-    T ILoader<T>.Load()
+    T IReader<T>.Load()
     {
         return _loader.Load();
     }
 
-    void ISaver<T>.Save(T data)
+    void IWriter<T>.Save(T data)
     {
         _saver.Save(data);
     }

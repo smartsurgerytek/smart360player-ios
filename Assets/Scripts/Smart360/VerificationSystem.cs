@@ -1,25 +1,23 @@
 ﻿using Eason.Odin;
 using Sirenix.OdinInspector;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
-public interface ILoader<T>
+public interface IReader<T>
 {
-    T Load();
+    T Read();
 }
-public interface ISaver<T>
+public interface IWriter<T>
 {
-    void Save(T data);
+    void Write(T value);
 }
-public interface ILoader<TResult, TParameter>
+public interface IReader<TResult, TParameter>
 {
-    TResult Load(TParameter parameter);
+    TResult Read(TParameter parameter);
 }
-public interface ISaver<TData, TParameter>
+public interface IWriter<TData, TParameter>
 {
-    void Save(TData data, TParameter parameter);
+    void Write(TData data, TParameter parameter);
 }
 [Serializable]
 public struct EasonCredentialSaveLoadParameter
@@ -62,9 +60,9 @@ public struct EasonCredentialSaveLoadParameter
     }
 }
 [Serializable]
-public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadParameter>
+public struct EasonCredentialSaver : IWriter<Credential, EasonCredentialSaveLoadParameter>
 {
-    void ISaver<Credential, EasonCredentialSaveLoadParameter>.Save(Credential data, EasonCredentialSaveLoadParameter parameter)
+    void IWriter<Credential, EasonCredentialSaveLoadParameter>.Write(Credential data, EasonCredentialSaveLoadParameter parameter)
     {
         parameter.AssertRootFolder();
         var json = JsonUtility.ToJson(data);
@@ -72,9 +70,9 @@ public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadP
     }
 }
 [Serializable]
-public struct EasonCredentialLoader : ILoader<Credential, EasonCredentialSaveLoadParameter>
+public struct EasonCredentialLoader : IReader<Credential, EasonCredentialSaveLoadParameter>
 {
-    Credential ILoader<Credential, EasonCredentialSaveLoadParameter>.Load(EasonCredentialSaveLoadParameter parameter)
+    Credential IReader<Credential, EasonCredentialSaveLoadParameter>.Read(EasonCredentialSaveLoadParameter parameter)
     {
         parameter.AssertCredentialFile();
         var json = File.ReadAllText(parameter.credentialPath);

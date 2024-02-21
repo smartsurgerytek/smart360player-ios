@@ -2,13 +2,19 @@
 
 internal interface IEditionController
 {
-    int[] GetEditionsOfModule(IEditionModel editionModel, int currentModule);
+    int[] GetEditionsOfModule(Edition[] model, int moduleId);
+    string GetEnglishName(Edition[] model, int editionId);
 }
 
 internal class DefaultEditionController : IEditionController
 {
-    public int[] GetEditionsOfModule(IEditionModel model, int module)
+    int[] IEditionController.GetEditionsOfModule(Edition[] model, int moduleId)
     {
-        return model.data.Where(o => o.module == module).Select(o => o.id).ToArray();
+        return model.Where(o => o.module == moduleId).Select(o => o.id).ToArray();
+    }
+
+    string IEditionController.GetEnglishName(Edition[] model, int editionId)
+    {
+        return model.First(o => o.id == editionId).englishName;
     }
 }
