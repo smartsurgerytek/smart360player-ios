@@ -2,10 +2,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public interface IEditionButtonPreinitializer
-{
-    internal void OnPreInitialize(EditionButton editionButton);
-}
 public class ApplicationSystem : MonoBehaviour
 {
     private static ApplicationSystem _instance;
