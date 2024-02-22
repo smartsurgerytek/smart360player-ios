@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 [Serializable]
 public class EditionButtonInitializer : ISpawnInitializer<EditionButton>
@@ -16,28 +16,25 @@ public class EditionButtonInitializer : ISpawnInitializer<EditionButton>
         instance.title = editions[index].englishName;
     }
 }
-public interface IDictionaryReader<TKey, TValue> : IReader<TValue>
+public interface IDictionaryReader<TKey, TValue> : IReader<IDictionary<TKey,TValue>>
 {
     TValue Read(TKey key);
 }
-public interface IDictionaryWriter<TKey, TValue> : IWriter<TValue>
+public interface IDictionaryWriter<TKey, TValue> : IWriter<IDictionary<TKey, TValue>>
 {
     void Write(TKey key, TValue value);
 }
-public interface IDictionaryAccessor<TKey, TValue> : IDictionaryReader<TKey, TValue>, IDictionaryWriter<TKey, TValue>, IAccessor<TValue>
+public interface IDictionaryAccessor<TKey, TValue> : IDictionaryReader<TKey, TValue>, IDictionaryWriter<TKey, TValue>, IAccessor<IDictionary<TKey, TValue>>
 {
 
 }
 public class FreeScriptableDictionaryAccessor<TKey, TValue> : ScriptableDictionaryAccessor<TKey, TValue>
 {
-    [OdinSerialize] private IAccessor<TKey> _innerKey;
     [OdinSerialize] private IDictionaryAccessor<TKey, TValue> _innerAccessor;
-    protected override TKey key { get => _innerKey.Read(); set => _innerKey.Write(value); }
     protected override IDictionaryAccessor<TKey, TValue> innerAccessor => _innerAccessor;
 }
 public abstract class ScriptableDictionaryAccessor<TKey, TValue> : SerializedScriptableObject, IDictionaryAccessor<TKey, TValue>
 {
-    protected abstract TKey key { get; set; }
     protected abstract IDictionaryAccessor<TKey, TValue> innerAccessor { get; }
     
     TValue IDictionaryReader<TKey, TValue>.Read(TKey key)
@@ -45,9 +42,10 @@ public abstract class ScriptableDictionaryAccessor<TKey, TValue> : SerializedScr
         return innerAccessor.Read(key);
     }
 
-    TValue IReader<TValue>.Read()
+
+    IDictionary<TKey, TValue> IReader<IDictionary<TKey, TValue>>.Read()
     {
-        return innerAccessor.Read(this.key);
+        return innerAccessor.Read();
     }
 
     void IDictionaryWriter<TKey, TValue>.Write(TKey key, TValue value)
@@ -55,14 +53,37 @@ public abstract class ScriptableDictionaryAccessor<TKey, TValue> : SerializedScr
         innerAccessor.Write(key, value);
     }
 
-    void IWriter<TValue>.Write(TValue value)
+
+    void IWriter<IDictionary<TKey, TValue>>.Write(IDictionary<TKey, TValue> value)
     {
-        innerAccessor.Write(this.key, value);
+        innerAccessor.Write(value);
     }
 }
 
-public class StringStringFreeScriptableDictionaryAccessor : FreeScriptableDictionaryAccessor<string, string>
+
+public abstract class DictionaryAccessor<TKey, TValue> :  IDictionaryAccessor<TKey, TValue>
 {
+    protected abstract IDictionaryAccessor<TKey, TValue> innerAccessor { get; }
 
+    TValue IDictionaryReader<TKey, TValue>.Read(TKey key)
+    {
+        return innerAccessor.Read(key);
+    }
+
+
+    IDictionary<TKey, TValue> IReader<IDictionary<TKey, TValue>>.Read()
+    {
+        return innerAccessor.Read();
+    }
+
+    void IDictionaryWriter<TKey, TValue>.Write(TKey key, TValue value)
+    {
+        innerAccessor.Write(key, value);
+    }
+
+
+    void IWriter<IDictionary<TKey, TValue>>.Write(IDictionary<TKey, TValue> value)
+    {
+        innerAccessor.Write(value);
+    }
 }
-
