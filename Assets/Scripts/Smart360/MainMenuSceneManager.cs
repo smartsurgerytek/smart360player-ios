@@ -17,8 +17,9 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     [SerializeField] private VerificationView _verificationView;
 
     [Header("Edition Buttons")]
-    [SerializeField] private EditionButton _editionButtonPrefab;
-    [SerializeField] private Transform _editionButtonParent;
+    [SerializeField] private ISpawner<EditionButton> _editionButtonSpawner;
+    //[SerializeField] private EditionButton _editionButtonPrefab;
+    //[SerializeField] private Transform _editionButtonParent;
     [NonSerialized, ShowInInspector, ReadOnly] private EditionButton[] _editionButtons;
 
     [Header("Controllers")]
@@ -59,7 +60,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
         if (_initialized) return;
 
         CleanUpEditionButtons();
-        CreateEditionButtons();
+        //CreateEditionButtons();
 
         _verificationView.show.AddListener(_verificationView_back);
         _verificationView.back.AddListener(_verificationView_back);
@@ -87,23 +88,23 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
                 return;
         }
     }
-
-    private void CreateEditionButtons()
+    
+    private EditionButton[] CreateEditionButtons(int[] currentEditionIds)
     {
-        var count = context.currentEditionIds.Length;
-        _editionButtons = new EditionButton[count];
+        var count = currentEditionIds.Length;
+        var rt = _editionButtonSpawner.Spawn(count);
         for (int i = 0; i < count; i++)
         {
-            _editionButtons[i] = Instantiate(_editionButtonPrefab, _editionButtonParent);
-            _editionButtons[i].index = i;
-            _editionButtons[i].clickButton.AddListener(_editionButton_onClick);
-            _editionButtons[i].editionId = context.currentEditionIds[i];
-            for (int j = 0; j< (_editionButtonPreInitializers?.Count ?? 0); j++)
-            {
-                _editionButtonPreInitializers[j].OnPreInitialize(_editionButtons[i]);
-            }
-            _editionButtons[i].Initialize();
+            rt[i].index = i;
+            rt[i].clickButton.AddListener(_editionButton_onClick);
+            rt[i].editionId = currentEditionIds[i];
+            //for (int j = 0; j< (_editionButtonPreInitializers?.Count ?? 0); j++)
+            //{
+            //    _editionButtonPreInitializers[j].OnPreInitialize(rt[i]);
+            //}
+            rt[i].Initialize();
         }
+        return rt;
     }
     private void _exitButton_onClick()
     {

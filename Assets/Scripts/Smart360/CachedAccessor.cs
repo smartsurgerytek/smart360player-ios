@@ -1,18 +1,27 @@
-﻿using Sirenix.Serialization;
+﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using UnityEngine;
 
 [Serializable]
-public class CachedAccessor<T> : IAccessor<T>
+public class CachedAccessor<T> : ICachedAccessor<T>
 {
     [OdinSerialize] IAccessor<T> _source;
     [OdinSerialize] IAccessor<T> _target;
 
-    public void Save()
+    public CachedAccessor(IAccessor<T> source, IAccessor<T> target)
+    {
+        _source = source;
+        _target = target;
+    }
+
+    [Button("Save")]
+    void ICachedWriter<T>.Save()
     {
         _source.Write(_target.Read());
     }
-    public void Load()
+    [Button("Load")]
+    void ICachedReader<T>.Load()
     {
         _target.Write(_source.Read());
     }

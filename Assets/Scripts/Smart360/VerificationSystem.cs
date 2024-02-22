@@ -3,6 +3,19 @@ using Sirenix.OdinInspector;
 using System;
 using System.IO;
 using UnityEngine;
+
+public interface ICachedReader<T> : IReader<T>
+{
+    void Load();
+}
+public interface ICachedWriter<T> : IWriter<T>
+{
+    void Save();
+}
+public interface ICachedAccessor<T> : ICachedReader<T>, ICachedWriter<T>, IAccessor<T>
+{
+
+}
 public interface IReader<T>
 {
     T Read();

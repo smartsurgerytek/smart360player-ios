@@ -3,5 +3,5 @@
     IApplicationModel application { get; }
     IVideoModel video { get; }
     IModuleModel module { get; }
-    IEditionModel edition { get; }
+    IAccessor<Edition[]> edition { get; }
 }
