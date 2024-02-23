@@ -1,7 +1,119 @@
 ﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+public class LinkLoadSceneController : SerializedMonoBehaviour, ILoadSceneController
+{
+    [OdinSerialize] private ILoadSceneController _next;
+
+    void ILoadSceneController.LoadScene(ILoadSceneModel model)
+    {
+        SceneManager.LoadScene(model.sceneToLoad);
+        _next.LoadScene(model);
+    }
+}
+public class RouterLoadSceneController : SerializedMonoBehaviour , ILoadSceneController
+{
+    [OdinSerialize] private IDictionary<string, ILoadSceneController[]> _subNodes;
+
+    void ILoadSceneController.LoadScene(ILoadSceneModel model)
+    {
+        if (!_subNodes.ContainsKey(model.sceneToLoad)) return;
+        var subNodes = _subNodes[model.sceneToLoad];
+        if (subNodes == null) return;
+        for (var i = 0; i < _subNodes.Count; i++)
+        {
+            subNodes[i].LoadScene(model);
+        }
+    }
+}
+public interface IEditionButtonClickController : IController
+{
+
+}
+public interface IInputView<T> : IAccessor<T>
+{
+    T @return { get; set; }
+}
+
+public class DefaultButtonView<T> : IInputView<T>
+{
+    [OdinSerialize] T _return;
+    T IInputView<T>.@return { get => _return; set => _return = value; }
+
+    T IReader<T>.Read()
+    {
+        return _return;
+    }
+
+    void IWriter<T>.Write(T value)
+    {
+        _return = value;
+    }
+}
+
+//public class EditionButtonClickController : IController<T>
+//{
+    //[OdinSerialize] private IReader<VerificationView> _verificationView;
+    //[OdinSerialize] private 
+    //void _(int i)
+    //{
+    //    if (TryGetVerificationView(editionId, out var viewToShow))
+    //    {
+    //        var view = _masterApplication.view.verificationView;
+    //        view.needToShowView = true;
+    //        view.viewToShow = viewToShow;
+    //    }
+    //    _editionToLoad.Write(editionId);
+    //    _needToLoadScene = true;
+    //    _sceneToLoad = _videoPlayerScene;
+    //}
+    //private bool TryGetVerificationView(out VerificationView.Views result)
+    //{
+    //    var verification = _masterApplication.context.verification.result;
+    //    var view = _masterApplication.view.verificationView;
+    //    var isUnpaid = verification.applicationUnpaid;
+    //    var isExpired = verification.applicationExpired;
+    //    var isOtherInvalid = verification.applicationHashInvalid || verification.deviceInvalid || verification.lastTimeLoginInvalid;
+    //    result = default;
+    //    if (isUnpaid)
+    //    {
+    //        result = VerificationView.Views.Purchase;
+    //        return true;
+    //    }
+    //    else if (isExpired)
+    //    {
+    //        result = VerificationView.Views.Expired;
+    //        return true;
+    //    }
+    //    else if (isOtherInvalid)
+    //    {
+    //        result = VerificationView.Views.Warning;
+    //        return true;
+    //    }
+    //    return false;
+    //}
+//}
+
+public class MainMenuLoadSceneModel : DefaultLoadSceneModel
+{
+    [OdinSerialize] private IAccessor<int> _editionToLoad;
+
+    private MainMenuSceneManager _mainMenuManager;
+
+    public IAccessor<int> editionToLoad { get => _editionToLoad; set => _editionToLoad = value; }
+    public MainMenuSceneManager mainMenuManager { get => _mainMenuManager; set => _mainMenuManager = value; }
+}
+public class DefaultLoadSceneModel : SerializedMonoBehaviour, ILoadSceneModel
+{
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToLoadScene; // trigger SceneManager.LoadScene
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToLoadSceneContext; // trigger
+    [NonSerialized, ShowInInspector, ReadOnly] private bool _needToInitializeScene;
+    [OdinSerialize] private IAccessor<string> _sceneToLoad;
+    string ILoadSceneModel.sceneToLoad { get => _sceneToLoad.Read(); set => _sceneToLoad.Write(value); }
+}
 public class ApplicationSystem : MonoBehaviour
 {
     private static ApplicationSystem _instance;
@@ -24,7 +136,7 @@ public class ApplicationSystem : MonoBehaviour
     [NonSerialized, ShowInInspector, ReadOnly] private bool _needToInitializeScene;
     [NonSerialized, ShowInInspector, ReadOnly] private string _sceneToLoad = "MainMenu";
 
-    [NonSerialized, ShowInInspector, ReadOnly] private int _editionToLoad;
+    [NonSerialized, ShowInInspector, ReadOnly] private IAccessor<int> _editionToLoad;
 
 
     [NonSerialized, ShowInInspector, ReadOnly] private VideoPlayerSceneManager _videoPlayerSceneManager;
@@ -105,7 +217,6 @@ public class ApplicationSystem : MonoBehaviour
                 _mainMenuManager.context = _masterApplication.context.mainMenuScene;
                 _masterApplication.view.verificationView = _mainMenuManager.verificationView;
 
-
                 _needToLoadSceneContext = false;
             }
         }
@@ -145,7 +256,7 @@ public class ApplicationSystem : MonoBehaviour
         else if (_sceneToLoad == _videoPlayerScene)
         {
             _videoPlayerSceneManager.quit.AddListener(_videoPlayerSceneManager_onQuit);
-            _videoPlayerSceneManager.Initialize(_editionToLoad);
+            _videoPlayerSceneManager.Initialize(_editionToLoad.Read());
         }
         _needToInitializeScene = false;
     }
@@ -159,7 +270,7 @@ public class ApplicationSystem : MonoBehaviour
             view.needToShowView = true;
             view.viewToShow = viewToShow;
         }
-        _editionToLoad = editionId;
+        _editionToLoad.Write(editionId);
         _needToLoadScene = true;
         _sceneToLoad = _videoPlayerScene;
     }

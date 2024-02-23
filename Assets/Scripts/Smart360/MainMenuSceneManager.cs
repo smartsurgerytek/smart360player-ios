@@ -23,7 +23,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     [NonSerialized, ShowInInspector, ReadOnly] private EditionButton[] _editionButtons;
 
     [Header("Controllers")]
-    [SerializeField] private List<IEditionButtonPreinitializer> _editionButtonPreInitializers;
+    [SerializeField] private List<ISpawnInitializer<EditionButton>> _editionButtonPreInitializers;
     [Header("Events")]
     [SerializeField] private UnityEvent<int> _clickEditionButton;
     [SerializeField] private bool _initializeOnEnable = false;
@@ -41,7 +41,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
 
     //public VerificationSystem verificationSystem { get => _verificationSystem; internal set => _verificationSystem = value; }
     //public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
-    public void AddEditionButtonPreinitializer(IEditionButtonPreinitializer editionButtonPreinitializer)
+    public void AddEditionButtonPreinitializer(ISpawnInitializer<EditionButton> editionButtonPreinitializer)
     {
         _editionButtonPreInitializers.Add(editionButtonPreinitializer);
     }

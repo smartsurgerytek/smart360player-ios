@@ -8,7 +8,7 @@ public class MonoFileToMonoAccessor<T> :  SerializedMonoBehaviour ,ICachedAccess
     [SerializeField] private DefaultMonoAccessor<T> _model;
     [ShowInInspector] private string absolutePath => Path.Combine(Application.persistentDataPath, _relativePath ?? "")?.Replace('/', Path.DirectorySeparatorChar);
     [ShowInInspector] private bool exists => File.Exists(absolutePath);
-    void ICachedReader<T>.Load()
+    void ICachedReader.Load()
     {
         var source = new WrappedJsonFileAccessor<T>(absolutePath);
         var target = new DefaultMonoAccessor<T>();
@@ -16,7 +16,7 @@ public class MonoFileToMonoAccessor<T> :  SerializedMonoBehaviour ,ICachedAccess
         innerAccessor.Load();
     }
 
-    void ICachedWriter<T>.Save()
+    void ICachedWriter.Save()
     {
         var source = new WrappedJsonFileAccessor<T>(absolutePath);
         var target = new DefaultMonoAccessor<T>();

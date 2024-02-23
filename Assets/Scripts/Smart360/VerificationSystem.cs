@@ -4,23 +4,35 @@ using System;
 using System.IO;
 using UnityEngine;
 
-public interface ICachedReader<T> : IReader<T>
+public interface ICachedReader
 {
     void Load();
 }
-public interface ICachedWriter<T> : IWriter<T>
+public interface ICachedWriter
 {
     void Save();
 }
-public interface ICachedAccessor<T> : ICachedReader<T>, ICachedWriter<T>, IAccessor<T>
+
+public interface ICachedAccessor : ICachedReader, ICachedWriter
 {
 
 }
-public interface IReader<T>
+
+public interface ICachedReader<T> : ICachedReader, IReader<T>
+{
+}
+public interface ICachedWriter<T> : ICachedWriter, IWriter<T>
+{
+}
+public interface ICachedAccessor<T> : ICachedReader<T>, ICachedWriter<T>, IAccessor<T>, ICachedAccessor
+{
+
+}
+public interface IReader<T> 
 {
     T Read();
 }
-public interface IWriter<T>
+public interface IWriter<T> 
 {
     void Write(T value);
 }
@@ -153,9 +165,9 @@ public struct ApplicationCredential
     [SerializeField] private string _hash;
     public bool purchased { get => _purchased; }
     public long expiredDate { get => _expiredDate; }
-    public string deviceUniqueIdentifier 
-    { 
-        get => _deviceUniqueIdentifier; 
+    public string deviceUniqueIdentifier
+    {
+        get => _deviceUniqueIdentifier;
     }
     public string hash
     {

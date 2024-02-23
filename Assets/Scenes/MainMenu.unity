@@ -589,51 +589,6 @@ RectTransform:
   m_AnchoredPosition: {x: 640, y: -60}
   m_SizeDelta: {x: 1280, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &314941001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314941003}
-  - component: {fileID: 314941002}
-  m_Layer: 0
-  m_Name: EditionButtonLayoutPreinitializer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &314941002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314941001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 889d585ee41e1f041a9574ed531b2236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _layout: {fileID: 1026331753}
---- !u!4 &314941003
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314941001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05167999, y: 1.6346102, z: 0.3388977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343335148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,12 +2236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac650f466a2f5c4cb3a0386d676bdbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenu: {fileID: 8179500410976606047}
   _warningView: {fileID: 1785807979}
   _purchaseView: {fileID: 407351639}
   _expiredView: {fileID: 1018590041}
   _needToShowView: 0
   _viewToShow: 0
+  _show:
+    m_PersistentCalls:
+      m_Calls: []
+  _back:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &891198017
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,9 +5345,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1881893179}
-    - {fileID: 314941002}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -5396,19 +5354,28 @@ MonoBehaviour:
     - Name: _context
       Entry: 6
       Data: 
+    - Name: _mainMenuView
+      Entry: 6
+      Data: 
+    - Name: _editionButtonSpawner
+      Entry: 6
+      Data: 
     - Name: _editionButtonPreInitializers
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[IEditionButtonPreinitializer, SmartSurgery.Smart360]],
-        mscorlib
+      Data: 0|System.Collections.Generic.List`1[[ISpawnInitializer`1[[EditionButton,
+        SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
       Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|EditionButtonInitializer, SmartSurgery.Smart360
+    - Name: _editions
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -5417,8 +5384,6 @@ MonoBehaviour:
       Data: 
   _exitButton: {fileID: 350493763}
   _verificationView: {fileID: 860205322}
-  _editionButtonPrefab: {fileID: 2856381491119376256, guid: 4b89f06f8208a074bbfff31a670d5875, type: 3}
-  _editionButtonParent: {fileID: 2074003724}
   _clickEditionButton:
     m_PersistentCalls:
       m_Calls: []
@@ -5970,51 +5935,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805663312}
   m_CullTransparentMesh: 1
---- !u!1 &1881893178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1881893180}
-  - component: {fileID: 1881893179}
-  m_Layer: 0
-  m_Name: EditionButtonPreinitializer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1881893179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881893178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ba260360dcf3d941a8718a4b92ff808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _editionManager: {fileID: 11400000, guid: 21a7ff2e8c777f04ba5682b5ca09dfe7, type: 2}
---- !u!4 &1881893180
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881893178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05167999, y: 1.6346102, z: 0.3388977}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1899353465
 GameObject:
   m_ObjectHideFlags: 0
