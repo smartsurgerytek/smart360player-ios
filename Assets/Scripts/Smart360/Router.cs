@@ -1,24 +1,27 @@
 ﻿using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using UnityEngine;
 
-public class Router<T> :ISaverLoader<T>
+public class Router<T> :IAccessor<T>
 {
-    [OdinSerialize] ISaver<T> _saver;
-    [OdinSerialize] ILoader<T> _loader;
+    [OdinSerialize] IWriter<T> _writer;
+    [OdinSerialize] IReader<T> _reader;
 
     [Button] 
     private void Foward()
     {
-        _saver.Save(_loader.Load());
+        var value = _reader.Read();
+        //Debug.Log(value);
+        _writer.Write(value);
     }
 
-    T ILoader<T>.Load()
+    T IReader<T>.Read()
     {
-        return _loader.Load();
+        return _reader.Read();
     }
 
-    void ISaver<T>.Save(T data)
+    void IWriter<T>.Write(T data)
     {
-        _saver.Save(data);
+        _writer.Write(data);
     }
 }

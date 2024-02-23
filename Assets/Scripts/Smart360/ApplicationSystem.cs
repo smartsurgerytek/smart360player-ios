@@ -8,7 +8,6 @@ public class ApplicationSystem : MonoBehaviour
     [SerializeField] private MasterApplication _masterApplication;
 
     [SerializeField] private ApplicationManager _applicationManager;
-    //[SerializeField] private VerificationSystem _verificationSystem;
     [SerializeField] private string _initialSceneToLoad;
     [SerializeField] private string _videoPlayerScene;
     [SerializeField] private string _mainMenuScene;
@@ -127,6 +126,7 @@ public class ApplicationSystem : MonoBehaviour
                 {
                     _verficationSceneManager.verificationView.needToShowView = true;
                     _verficationSceneManager.verificationView.viewToShow = viewToShow;
+                    _needToLoadSceneContext = false;
                 }
 
             }
@@ -151,41 +151,45 @@ public class ApplicationSystem : MonoBehaviour
     }
 
 
-    private void _mainMenuManager_onClickEditionButton(int i)
+    private void _mainMenuManager_onClickEditionButton(int editionId)
     {
-
-        if(TryGetVerificationView(i, out var viewToShow))
+        if(TryGetVerificationView(editionId, out var viewToShow))
         {
             var view = _masterApplication.view.verificationView;
             view.needToShowView = true;
             view.viewToShow = viewToShow;
         }
-        _editionToLoad = i;
+        _editionToLoad = editionId;
         _needToLoadScene = true;
         _sceneToLoad = _videoPlayerScene;
     }
 
-    private bool TryGetVerificationView(int editionId, out VerificationView.Views result)
+    private bool TryGetVerificationView(int editionId, out VerificationView.Views viewId)
     {
-        var verification = _masterApplication.context.verification.result;
+        var result = _masterApplication.context.verification.result;
         var view = _masterApplication.view.verificationView;
-        var isUnpaid =   verification.editionUnpaid[editionId];
-        var isExpired =  verification.editionExpired[editionId];
-        var isOtherInvalid = verification.editionHashInvalid[editionId];
-        result = default;
-        if (isUnpaid)
+        var isUnpaid = true;
+        var isExpired = false;
+        var isOtherInvalid = false;
+        if (result.TryGetTargetIndex(VerificationTarget.Edition, editionId, out var index)){
+            isUnpaid =   result.editionUnpaid[index];
+            isExpired =  result.editionExpired[index];
+            isOtherInvalid = result.editionHashInvalid[index];
+        }
+        viewId = default;
+        if (isOtherInvalid)
         {
-            result = VerificationView.Views.Purchase;
+            viewId = VerificationView.Views.Purchase;
+            return true;
+        }
+        else if (isUnpaid)
+        {
+            viewId = VerificationView.Views.Warning;
             return true;
         }
         else if (isExpired)
         {
-            result = VerificationView.Views.Expired;
-            return true;
-        }
-        else if (isOtherInvalid)
-        {
-            result = VerificationView.Views.Warning;
+            viewId = VerificationView.Views.Expired;
             return true;
         }
         return false;

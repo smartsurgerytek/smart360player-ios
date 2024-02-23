@@ -7,16 +7,19 @@ public class MasterContext : SerializedMonoBehaviour
     [SerializeField] private IApplicationContext _application;
     [SerializeField] private IMainMenuSceneContext _mainMenuScene;
     [SerializeField] private IModuleModel _module;
-    [SerializeField] private IEditionModel _edition;
+    [SerializeField] private IAccessor<Edition[]> _editions;
     [SerializeField] private IVerificationContext _verification;
     public ICredentialContext credential { get => _credential; }
     internal IApplicationContext application { get => _application; }
     public IModuleModel module { get => _module; }
-    internal IEditionModel edition { get => _edition; }
+    internal IAccessor<Edition[]> edition { get => _editions; }
     internal IVerificationContext verification { get => _verification; }
     internal IMainMenuSceneContext mainMenuScene { get => _mainMenuScene; }
 
-    [OdinSerialize] private ILoader<IEditionModel> _editionLoader;
+    internal void  SetVerificationResult(VerificationResult result)
+    {
+        _verification.result = result;
+    }
     public void Load(Manifest manifest)
     {
         //_credential.Load(manifest.credentialPath);

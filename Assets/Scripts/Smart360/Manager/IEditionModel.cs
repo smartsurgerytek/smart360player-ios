@@ -1,6 +1,6 @@
 ﻿using OVR.OpenVR;
 
-public interface IEditionModel
+public interface IModel
 {
-     public Edition[] data { get; internal set; }
+    void Initialize();
 }

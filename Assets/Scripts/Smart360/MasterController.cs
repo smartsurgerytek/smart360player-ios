@@ -10,7 +10,8 @@ public class MasterController : SerializedMonoBehaviour
     public ICredentialVerifier credentialVerifier { get => _credentialVerifier; }
     internal void Initialize(MasterContext context)
     {
-        context.verification.result = credentialVerifier.Verify(context.credential.credential);
+        var result = credentialVerifier.Verify(context.credential.credential);
+        context.SetVerificationResult(result);
     }
     internal void InternalUpdate(MasterContext context, MasterView view)
     {

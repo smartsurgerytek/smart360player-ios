@@ -2,20 +2,20 @@
 using Sirenix.Serialization;
 using System;
 using UnityEngine;
-public class  ScriptableSaverLoader<T> : ScriptableObject, ISaverLoader<T>
-{
-    T data;
+//public class  ScriptableSaverLoader<T> : ScriptableObject, ISaverLoader<T>
+//{
+//    T data;
 
-    T ILoader<T>.Load()
-    {
-        return SaveLoadUtility.JsonDeepClone(data);
-    }
+//    T ILoader<T>.Load()
+//    {
+//        return SaveLoadUtility.JsonDeepClone(data);
+//    }
 
-    void ISaver<T>.Save(T data)
-    {
-        this.data = SaveLoadUtility.JsonDeepClone(data);
-    }
-}
+//    void ISaver<T>.Save(T data)
+//    {
+//        this.data = SaveLoadUtility.JsonDeepClone(data);
+//    }
+//}
 [Serializable]
 public class DefaultModuleModel : IModuleModel
 {
@@ -30,10 +30,8 @@ public class DefaultVideoModel : IVideoModel
     Video[] IVideoModel.data { get => _data; set => _data = value; }
 }
 [Serializable]
-public class DefaultEditionModel : IEditionModel
+public class DefaultEditionReader : DefaultAccessor<Edition[]>
 {
-    [SerializeField] private Edition[] _data;
-    Edition[] IEditionModel.data { get => _data; set => _data = value; }
 }
 
 [Serializable]
@@ -45,24 +43,24 @@ public class MonoMasterModel : MonoBehaviour, IMasterModel
     [OdinSerialize] private IApplicationModel _application;
     [OdinSerialize] private IModuleModel _module;
     [OdinSerialize] private IVideoModel _video;
-    [OdinSerialize] private IEditionModel _edition;
+    [OdinSerialize] private IAccessor<Edition[]> _edition;
 
     IApplicationModel IMasterModel.application => _application;
     IModuleModel IMasterModel.module => _module;
     IVideoModel IMasterModel.video => _video;
-    IEditionModel IMasterModel.edition => _edition;
+    IAccessor<Edition[]> IMasterModel.edition => _edition;
 }
 public class DefaultMasterModel : IMasterModel
 {
     [OdinSerialize] private IApplicationModel _application;
     [OdinSerialize] private IModuleModel _module;
     [OdinSerialize] private IVideoModel _video;
-    [OdinSerialize] private IEditionModel _edition;
+    [OdinSerialize] private IAccessor<Edition[]> _edition;
 
     IApplicationModel IMasterModel.application => _application ;
     IModuleModel IMasterModel.module => _module ;
     IVideoModel IMasterModel.video => _video ;
-    IEditionModel IMasterModel.edition => _edition;
+    IAccessor<Edition[]> IMasterModel.edition => _edition;
 }
 
 [CreateAssetMenu(fileName = "Application Manager", menuName = "Managers/Application Manager")]
