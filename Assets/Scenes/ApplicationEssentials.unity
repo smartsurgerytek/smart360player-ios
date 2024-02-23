@@ -370,7 +370,13 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: _editions
-      Entry: 6
+      Entry: 7
+      Data: 6|EasonJsonFileAccessor`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 1
+      Data: Data\editions
+    - Name: 
+      Entry: 8
       Data: 
     - Name: _verification
       Entry: 10
