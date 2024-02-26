@@ -4,6 +4,25 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+public class ApplicationEssential_GetSceneToLoad : Router<VerificationResult, string>
+{
+    [OdinSerialize] private IReader<string> _verificationScene;
+    [OdinSerialize] private IReader<string> _initialSceneToLoad;
+    public override string Route(VerificationResult result)
+    {
+        var rt = "";
+        if (result.applicationInvalid)
+        {
+            rt = _verificationScene.Read();
+        }
+        else
+        {
+            rt = _initialSceneToLoad.Read();
+        }
+        return rt;
+    }
+}
 public class LinkLoadSceneController : SerializedMonoBehaviour, ILoadSceneController
 {
     [OdinSerialize] private ILoadSceneController _next;
@@ -114,7 +133,7 @@ public class DefaultLoadSceneModel : SerializedMonoBehaviour, ILoadSceneModel
     [OdinSerialize] private IAccessor<string> _sceneToLoad;
     string ILoadSceneModel.sceneToLoad { get => _sceneToLoad.Read(); set => _sceneToLoad.Write(value); }
 }
-public class ApplicationSystem : MonoBehaviour
+public class ApplicationSystem : SerializedMonoBehaviour
 {
     private static ApplicationSystem _instance;
     [SerializeField] private MasterApplication _masterApplication;
@@ -125,6 +144,7 @@ public class ApplicationSystem : MonoBehaviour
     [SerializeField] private string _mainMenuScene;
     [SerializeField] private string _verificationScene;
 
+    [OdinSerialize] IReader<VerificationResult> _verificationResult;
 
     [NonSerialized, ShowInInspector, ReadOnly] private bool _destroying;
 
@@ -162,23 +182,14 @@ public class ApplicationSystem : MonoBehaviour
     private void Initialize()
     {
         _masterApplication.Initialize();
-        var result = _masterApplication.context.verification.result;
-        if(result.applicationInvalid)
-        {
-            _sceneToLoad = _verificationScene;
-        }
-        else
-        {
-            _sceneToLoad = _initialSceneToLoad;
-        }
-        _needToLoadScene = true;
+
+        //_needToLoadScene = true;
         _initialized = true;
     }
 
 
     private void Update()
     {
-
         CheckNeedToLoadScene(); // Check if there is a scene need to load
         CheckNeedToLoadSceneContext(); // Check if there is a scene just loaded.
         CheckNeedToInitializeScene(); // After the component found, we start to initialize each component.
@@ -249,7 +260,7 @@ public class ApplicationSystem : MonoBehaviour
         if (!_needToInitializeScene) return;
         if (_sceneToLoad == _mainMenuScene)
         {
-            _mainMenuManager.AddEditionButtonPreinitializer(_masterApplication.controller.editionButtonPreinitializer);
+            //_mainMenuManager.AddEditionButtonPreinitializer(_masterApplication.controller.editionButtonPreinitializer);
             _mainMenuManager.clickEditionButton.AddListener(_mainMenuManager_onClickEditionButton);
             _mainMenuManager.Initialize();
         }
@@ -277,7 +288,7 @@ public class ApplicationSystem : MonoBehaviour
 
     private bool TryGetVerificationView(int editionId, out VerificationView.Views viewId)
     {
-        var result = _masterApplication.context.verification.result;
+        var result = _verificationResult.Read();
         var view = _masterApplication.view.verificationView;
         var isUnpaid = true;
         var isExpired = false;
@@ -307,7 +318,7 @@ public class ApplicationSystem : MonoBehaviour
     }
     private bool TryGetVerificationView(out VerificationView.Views result)
     {
-        var verification = _masterApplication.context.verification.result;
+        var verification = _verificationResult.Read();
         var view = _masterApplication.view.verificationView;
         var isUnpaid = verification.applicationUnpaid;
         var isExpired = verification.applicationExpired;

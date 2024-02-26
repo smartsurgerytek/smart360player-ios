@@ -1,1 +1,1 @@
-﻿public class MonoVideosFreeAccessor : MonoFreeAccessor<Video[]> { }
+﻿

@@ -63,9 +63,9 @@ public struct EasonCredentialContext : ICredentialContext
     private void OdinLoadCredential()
     {
        var credential = _loader.Read(_accessionParameter);
-
+        
         //credential.FillDuid();
-        //this._credential = _loader.Read(_parameter);
+        this._credential = credential;
     }
 
     [Button("Load Cookie"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieExist))]
@@ -131,12 +131,11 @@ public struct EasonCredentialContext : ICredentialContext
     [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")]
     private void OdinSaveCredential()
     {
-        OdinFillDuid();
+        //OdinFillDuid();
         OdinHashAll();
-        var credential = EasonJsonUtility.JsonDeepClone(_credential);
-
-        credential.FillDuid("");
-        _saver.Write(credential, _accessionParameter);
+        //var credential = EasonJsonUtility.JsonDeepClone(_credential);
+        //credential.FillDuid("");
+        _saver.Write(_credential, _accessionParameter);
     }
     [Button("Save Credential Without Hashing"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")]
     private void OdinSaveCredentialWithoutHashing()

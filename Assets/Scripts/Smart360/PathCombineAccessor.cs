@@ -2,9 +2,9 @@
 using Sirenix.Serialization;
 using System;
 using System.IO;
-public class PathCombineAccessor : IAccessor<string>
+public class PathCombineAccessor : IReader<string>
 {
-    [OdinSerialize] private IAccessor<string>[] _elements;
+    [OdinSerialize] private IReader<string>[] _elements;
     string IReader<string>.Read()
     {
         var count = _elements.Length;
@@ -13,7 +13,7 @@ public class PathCombineAccessor : IAccessor<string>
         {
             try
             {
-                paths[i] = _elements[i].Read();
+                paths[i] = _elements[i]?.Read() ?? "";
             }
             catch
             {
@@ -22,12 +22,6 @@ public class PathCombineAccessor : IAccessor<string>
         }
         return Path.Combine(paths);
     }
-
-    void IWriter<string>.Write(string value)
-    {
-        throw new NotImplementedException();
-    }
-
     [ShowInInspector, LabelText("Path")] private string odinPath
     {
         get

@@ -28,14 +28,6 @@ public interface ICachedAccessor<T> : ICachedReader<T>, ICachedWriter<T>, IAcces
 {
 
 }
-public interface IReader<T> 
-{
-    T Read();
-}
-public interface IWriter<T> 
-{
-    void Write(T value);
-}
 public interface IReader<TResult, TParameter>
 {
     TResult Read(TParameter parameter);

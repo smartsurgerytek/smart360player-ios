@@ -1,27 +1,43 @@
-﻿using Sirenix.OdinInspector;
-using Sirenix.Serialization;
-using UnityEngine;
-
-public class Router<T> :IAccessor<T>
+﻿using Sirenix.Serialization;
+public interface IRouter<TRead, TWrite> : IAccessor<TRead, TWrite>, IController
 {
-    [OdinSerialize] IWriter<T> _writer;
-    [OdinSerialize] IReader<T> _reader;
 
-    [Button] 
-    private void Foward()
+}
+public interface IRouter<T> : IRouter<T, T>
+{
+
+}
+public interface IAccessor<TRead,TWrite> : IReader<TRead>, IWriter<TWrite>
+{
+
+}
+public abstract class Router<TRead, TWrite> : IRouter<TRead, TWrite>
+{
+    [OdinSerialize] protected IReader<TRead> _reader;
+    [OdinSerialize] protected IWriter<TWrite> _writer;
+    public abstract TWrite Route(TRead value);
+    void IController.Execute()
     {
-        var value = _reader.Read();
-        //Debug.Log(value);
+        var value = Route(_reader.Read());
         _writer.Write(value);
     }
 
-    T IReader<T>.Read()
+    TRead IReader<TRead>.Read()
     {
         return _reader.Read();
     }
 
-    void IWriter<T>.Write(T data)
+    void IWriter<TWrite>.Write(TWrite value)
     {
-        _writer.Write(data);
+        _writer.Write(value);
+    }
+}
+
+public class Router<T> : Router<T,T> ,IRouter<T>
+{
+
+    public override T Route(T value)
+    {
+        return value;
     }
 }
