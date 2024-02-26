@@ -1,25 +1,36 @@
 ﻿using Eason.Odin;
 using Sirenix.OdinInspector;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
-public interface ILoader<T>
+
+public interface ICachedReader<T> : IReader<T>
 {
-    T Load();
+    void Load();
 }
-public interface ISaver<T>
+public interface ICachedWriter<T> : IWriter<T>
 {
-    void Save(T data);
+    void Save();
 }
-public interface ILoader<TResult, TParameter>
+public interface ICachedAccessor<T> : ICachedReader<T>, ICachedWriter<T>, IAccessor<T>
 {
-    TResult Load(TParameter parameter);
+
 }
-public interface ISaver<TData, TParameter>
+public interface IReader<T>
 {
-    void Save(TData data, TParameter parameter);
+    T Read();
+}
+public interface IWriter<T>
+{
+    void Write(T value);
+}
+public interface IReader<TResult, TParameter>
+{
+    TResult Read(TParameter parameter);
+}
+public interface IWriter<TData, TParameter>
+{
+    void Write(TData data, TParameter parameter);
 }
 [Serializable]
 public struct EasonCredentialSaveLoadParameter
@@ -62,9 +73,9 @@ public struct EasonCredentialSaveLoadParameter
     }
 }
 [Serializable]
-public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadParameter>
+public struct EasonCredentialSaver : IWriter<Credential, EasonCredentialSaveLoadParameter>
 {
-    void ISaver<Credential, EasonCredentialSaveLoadParameter>.Save(Credential data, EasonCredentialSaveLoadParameter parameter)
+    void IWriter<Credential, EasonCredentialSaveLoadParameter>.Write(Credential data, EasonCredentialSaveLoadParameter parameter)
     {
         parameter.AssertRootFolder();
         var json = JsonUtility.ToJson(data);
@@ -72,9 +83,9 @@ public struct EasonCredentialSaver : ISaver<Credential, EasonCredentialSaveLoadP
     }
 }
 [Serializable]
-public struct EasonCredentialLoader : ILoader<Credential, EasonCredentialSaveLoadParameter>
+public struct EasonCredentialLoader : IReader<Credential, EasonCredentialSaveLoadParameter>
 {
-    Credential ILoader<Credential, EasonCredentialSaveLoadParameter>.Load(EasonCredentialSaveLoadParameter parameter)
+    Credential IReader<Credential, EasonCredentialSaveLoadParameter>.Read(EasonCredentialSaveLoadParameter parameter)
     {
         parameter.AssertCredentialFile();
         var json = File.ReadAllText(parameter.credentialPath);

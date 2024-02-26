@@ -19,8 +19,8 @@ public struct EasonCredentialContext : ICredentialContext
     [ShowInInspector] private CredentialCookie _cookie;
 
     [Header("Controllers")]
-    [SerializeField] private ILoader<Credential,EasonCredentialSaveLoadParameter> _loader;
-    [SerializeField] private ISaver<Credential, EasonCredentialSaveLoadParameter> _saver;
+    [SerializeField] private IReader<Credential,EasonCredentialSaveLoadParameter> _loader;
+    [SerializeField] private IWriter<Credential, EasonCredentialSaveLoadParameter> _saver;
     [SerializeField] private ICredentialHasher<ApplicationCredential> _applicationHasher;
     [SerializeField] private ICredentialHasher<EditionCredential> _editionHasher;
     [SerializeField] private ICredentialHasher<ModuleCredential> _moduleHasher;
@@ -65,7 +65,7 @@ public struct EasonCredentialContext : ICredentialContext
         //AssertCredentialFile();
         //var json = File.ReadAllText(credentialPath);
         //this._credential = JsonUtility.FromJson<Credential>(json);
-        this._credential = _loader.Load(_parameter);
+        this._credential = _loader.Read(_parameter);
     }
 
     [Button, FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieExist))]
@@ -132,12 +132,12 @@ public struct EasonCredentialContext : ICredentialContext
     private void OdinSaveCredential()
     {
         OdinHashAll();
-        _saver.Save(_credential, _parameter);
+        _saver.Write(_credential, _parameter);
     }
     [Button("Save Credential Without Hashing"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_parameter) + "." + " isCredentialFileNameValid")]
     private void OdinSaveCredentialWithoutHashing()
     {
-        _saver.Save(_credential, _parameter);
+        _saver.Write(_credential, _parameter);
     }
     [Button("Hash All"), FoldoutGroup("Debug/Credential")]
     private void OdinHashAll()

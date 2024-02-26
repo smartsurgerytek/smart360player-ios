@@ -21,12 +21,14 @@ public class CredentialVerifier : ICredentialVerifier
         rt.lastTimeLoginInvalid = DateTime.Now.Ticks < _cookie.lastTimeLogin;
         for (int i = 0; i < credential.modules.Length; i++)
         {
+            rt.moduleIds[i] = credential.modules[i].id;
             rt.moduleHashInvalid[i] = credential.modules[i].hash != _moduleHasher.Hash(credential.modules[i]);
             rt.moduleExpired[i] = DateTime.Now.Ticks >credential.editions[i].expiredDate;
             rt.moduleUnpaid[i] = !credential.modules[i].purchased;
         }
         for (int i = 0; i < credential.editions.Length; i++)
         {
+            rt.editionIds[i] = credential.editions[i].id;
             rt.editionHashInvalid[i] = credential.editions[i].hash != _editionHasher.Hash(credential.editions[i]);
             rt.editionExpired[i] = DateTime.Now.Ticks > credential.editions[i].expiredDate;
             rt.editionUnpaid[i] = !credential.editions[i].purchased;
