@@ -7,6 +7,7 @@ public class EzraModuleCredentialHasher : ICredentialHasher<ModuleCredential>
     string ICredentialHasher<ModuleCredential>.Hash(ModuleCredential credential)
     {
         var numList = new Queue<byte>();
+        numList.Enqueue((byte)credential.id);
         var tmp = BitConverter.GetBytes(credential.deviceUniqueIdentifier.GetHashCode());
         foreach( var elm in tmp)
         {
