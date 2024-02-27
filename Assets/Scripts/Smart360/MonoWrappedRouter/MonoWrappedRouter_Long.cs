@@ -22,4 +22,8 @@ public class DefaultDateTimeAccessor : IAccessor<long>
     {
         _value = value;
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<long>)this).Write((long)value);
+    }
 }

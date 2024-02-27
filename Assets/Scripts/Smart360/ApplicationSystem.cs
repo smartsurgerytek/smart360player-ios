@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class ApplicationEssential_GetSceneToLoad : Router<VerificationResult, string>
 {
     [OdinSerialize] private IReader<string> _verificationScene;
@@ -70,6 +69,11 @@ public class DefaultButtonView<T> : IInputView<T>
     void IWriter<T>.Write(T value)
     {
         _return = value;
+    }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write(value);
     }
 }
 
@@ -182,8 +186,6 @@ public class ApplicationSystem : SerializedMonoBehaviour
     private void Initialize()
     {
         _masterApplication.Initialize();
-
-        //_needToLoadScene = true;
         _initialized = true;
     }
 
@@ -266,8 +268,8 @@ public class ApplicationSystem : SerializedMonoBehaviour
         }
         else if (_sceneToLoad == _videoPlayerScene)
         {
-            _videoPlayerSceneManager.quit.AddListener(_videoPlayerSceneManager_onQuit);
-            _videoPlayerSceneManager.Initialize(_editionToLoad.Read());
+            //_videoPlayerSceneManager.quit.AddListener(_videoPlayerSceneManager_onQuit);
+            _videoPlayerSceneManager.Initialize();
         }
         _needToInitializeScene = false;
     }

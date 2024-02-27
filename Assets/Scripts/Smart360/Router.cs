@@ -1,5 +1,14 @@
 ﻿using Sirenix.Serialization;
+using UnityEngine;
 public interface IRouter<TRead, TWrite> : IAccessor<TRead, TWrite>, IController
+{
+
+}
+public class ArrayRouter<T> : Router<T[]>, IArrayRouter<T>
+{
+    int ICountProvider.count => ((IReader<T[]>)this).Read().Length;
+}
+public interface IArrayRouter<T> : IRouter<T[]>, IArrayAccessor<T>
 {
 
 }
@@ -30,6 +39,11 @@ public abstract class Router<TRead, TWrite> : IRouter<TRead, TWrite>
     void IWriter<TWrite>.Write(TWrite value)
     {
         _writer.Write(value);
+    }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<TWrite>)this).Write((TWrite)value);
     }
 }
 

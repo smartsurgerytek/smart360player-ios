@@ -44,8 +44,6 @@ public class CredentialHashUpdater : IController
         {
             credential.SetEditionHash(i, _edition.Hash(credential.editions[i]));
         }
-
-
         _credential.Write(credential);
     }
 }

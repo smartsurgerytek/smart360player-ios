@@ -24,4 +24,8 @@ public class ObjectMemberAccessor<T> : IAccessor<T>
     void IWriter<T>.Write(T value)
     {
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
+    }
 }

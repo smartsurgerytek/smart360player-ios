@@ -53,4 +53,8 @@ public class CredentialVerifier : IRouter<Credential, VerificationResult>
         return rt;
     }
 
+    void IWriter.Write(object value)
+    {
+        ((IWriter<VerificationResult>)this).Write((VerificationResult)value);
+    }
 }

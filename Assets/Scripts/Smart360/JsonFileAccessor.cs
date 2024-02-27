@@ -53,6 +53,10 @@ public class JsonFileAccessor<T> : IAccessor<T>
         var json = JsonUtility.ToJson(data);
         File.WriteAllText(absolutePath, json);
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
+    }
 #if UNITY_EDITOR
     [ShowInInspector, FoldoutGroup("Debug"), HideIf(nameof(isFolderExist)), TableList] private OdinCreateFolderButton[] _createFolderButton
     {

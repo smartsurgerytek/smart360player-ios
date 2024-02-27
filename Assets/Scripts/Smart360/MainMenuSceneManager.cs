@@ -1,7 +1,6 @@
 ﻿using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -25,6 +24,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
 
 
     [Header("Controllers")]
+    [SerializeField] private IController _spawnEditionButtons;
     [SerializeField] private List<ISpawnInitializer<EditionButton>> _editionButtonPreInitializers;
     [Header("Events")]
     [SerializeField] private UnityEvent<int> _clickEditionButton;
@@ -48,22 +48,10 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     {
         _editionButtonPreInitializers.Add(editionButtonPreinitializer);
     }
-    private void CleanUpEditionButtons()
-    {
-        if (_editionButtons == null) return;
-        for (int i = 0; i < _editionButtons.Length; i++)
-        {
-            //_editionButtonsLayout.Remove(i, _editionButtons[i].transform);
-            Destroy(_editionButtons[i]?.gameObject);
-        }
-        _editionButtons = null;
-    }
     internal void Initialize()
     {
         if (_initialized) return;
-        var edition = _editions.Read().Select(o=>o.id).ToArray();
-        CleanUpEditionButtons();
-        CreateEditionButtons(edition);
+        _spawnEditionButtons.Execute();
 
         _verificationView.show.AddListener(_verificationView_back);
         _verificationView.back.AddListener(_verificationView_back);

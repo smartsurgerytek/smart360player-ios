@@ -18,6 +18,10 @@ public class DeviceManagerDuidAccessor : IAccessor<string>
         var index = _manager.data.ToList().FindIndex(o=>o.serialNumber == _serialNumber.Read());
         _manager.SetDuid(_serialNumber.Read(), value);
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<string>)this).Write((string)value);
+    }
 }
 
 [CreateAssetMenu(fileName = "Device Manager", menuName = "Managers/Device Manager")]
@@ -80,6 +84,10 @@ public class KeyValueMapAccessor<TKey, TValue> : IAccessor<TValue>
         {
 
         }
+    }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<TValue>)this).Write((TValue)value);
     }
 }
 public class StringValueMapAccessor<TValue> : KeyValueMapAccessor<string, TValue>

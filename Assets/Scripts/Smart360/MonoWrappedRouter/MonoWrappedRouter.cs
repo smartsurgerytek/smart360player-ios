@@ -17,4 +17,8 @@ public class MonoWrappedRouter<T> : MonoWrapper<IRouter<T>>, IRouter<T>
     {
         innerData.Write(value);
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
+    }
 }

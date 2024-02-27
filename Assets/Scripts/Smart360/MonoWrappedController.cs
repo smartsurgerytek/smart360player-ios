@@ -41,4 +41,9 @@ public class GlobalContextAccessor<T> : IAccessor<T>
         var key = _key.Read();
         GlobalContext.Set(key, value);
     }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
+    }
 }

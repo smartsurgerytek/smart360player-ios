@@ -7,6 +7,7 @@ public class PathCombineAccessor : IReader<string>
     [OdinSerialize] private IReader<string>[] _elements;
     string IReader<string>.Read()
     {
+        if (_elements == null) return "";
         var count = _elements.Length;
         var paths = new string[count];
         for (int i = 0; i < count; i++)

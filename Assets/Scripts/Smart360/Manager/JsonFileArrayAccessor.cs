@@ -25,4 +25,9 @@ public class JsonFileArrayAccessor<T> : IArrayAccessor<T>
         var json  =JsonUtility.ToJson(new Wrapper<T[]>(value)); 
         File.WriteAllText(absolutePath, json);
     }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter < T[]>)this).Write(value);    
+    }
 }

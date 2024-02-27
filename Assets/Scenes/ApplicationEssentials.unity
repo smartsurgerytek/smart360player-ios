@@ -1348,22 +1348,305 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!4 &313813091 stripped
+--- !u!1 &313813090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 313813091}
+  - component: {fileID: 313813092}
+  - component: {fileID: 313813093}
+  m_Layer: 0
+  m_Name: VerificationResult
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &313813091
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-  m_PrefabInstance: {fileID: 8283842383242859888}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &313813092 stripped
+  m_GameObject: {fileID: 313813090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1613179876}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &313813092
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8283842383539371284, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-  m_PrefabInstance: {fileID: 8283842383242859888}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 313813090}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b70aad8ab477284680d2e87bd7b3040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|GlobalContextAccessor`1[[VerificationResult, SmartSurgery.Smart360]],
+        SmartSurgery.Smart360
+    - Name: _key
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: Context.Verification.Result
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &313813093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313813090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 428ce28b0cdd9384294d6732f0aaa6b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 313813092}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|Router`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 7
+      Data: VerificationResult, SmartSurgery.Smart360
+    - Name: _verified
+      Entry: 5
+      Data: true
+    - Name: _deviceInvalid
+      Entry: 5
+      Data: false
+    - Name: _lastTimeLoginInvalid
+      Entry: 5
+      Data: false
+    - Name: _applicationHashInvalid
+      Entry: 5
+      Data: false
+    - Name: _applicationExpired
+      Entry: 5
+      Data: false
+    - Name: _applicationUnpaid
+      Entry: 5
+      Data: false
+    - Name: _moduleIds
+      Entry: 7
+      Data: 2|System.Int32[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _moduleHashInvalid
+      Entry: 7
+      Data: 3|System.Boolean[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 2
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _moduleUnpaid
+      Entry: 7
+      Data: 4|System.Boolean[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 2
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _moduleExpired
+      Entry: 7
+      Data: 5|System.Boolean[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 2
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _editionIds
+      Entry: 7
+      Data: 6|System.Int32[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 4
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _editionHashInvalid
+      Entry: 7
+      Data: 7|System.Boolean[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 4
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _editionUnpaid
+      Entry: 7
+      Data: 8|System.Boolean[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 4
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _editionExpired
+      Entry: 7
+      Data: 9|System.Boolean[], mscorlib
+    - Name: 
+      Entry: 14
+      Data: 4
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &321522697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,7 +2462,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1473774109}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &484282980
 MonoBehaviour:
@@ -3355,7 +3638,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1473774109}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1178377440
 MonoBehaviour:
@@ -3624,8 +3907,8 @@ Transform:
   - {fileID: 1817696274}
   - {fileID: 814759078}
   - {fileID: 1563676919}
-  - {fileID: 1178377439}
   - {fileID: 484282979}
+  - {fileID: 1178377439}
   - {fileID: 818410717}
   - {fileID: 1691837611}
   m_Father: {fileID: 1710230734}
@@ -5562,97 +5845,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8835e42bd8490a14181cdb644ad36c1e, type: 3}
---- !u!1001 &8283842383242859888
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1613179876}
-    m_Modifications:
-    - target: {fileID: 8283842383539371282, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_Name
-      value: VerificationResult
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371283, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371284, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 8283842383539371284, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-    - target: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-    - target: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"_innerData._reader","value":$eref:0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"_innerData._writer._value","value":{"$id":0,"$type":"VerificationResult,
-        SmartSurgery.Smart360","_verified":true,"_deviceInvalid":false,"_lastTimeLoginInvalid":false,"_applicationHashInvalid":false,"_applicationExpired":false,"_applicationUnpaid":false,"_moduleIds":{"$id":1,"$type":"System.Int32[],
-        mscorlib","$plength":2,"$pcontent":[0,1]},"_moduleHashInvalid":{"$id":2,"$type":"System.Boolean[],
-        mscorlib","$plength":2,"$pcontent":[false,false]},"_moduleUnpaid":{"$id":3,"$type":"System.Boolean[],
-        mscorlib","$plength":2,"$pcontent":[false,false]},"_moduleExpired":{"$id":4,"$type":"System.Boolean[],
-        mscorlib","$plength":2,"$pcontent":[false,false]},"_editionIds":{"$id":5,"$type":"System.Int32[],
-        mscorlib","$plength":4,"$pcontent":[0,1,2,3]},"_editionHashInvalid":{"$id":6,"$type":"System.Boolean[],
-        mscorlib","$plength":4,"$pcontent":[false,false,false,false]},"_editionUnpaid":{"$id":7,"$type":"System.Boolean[],
-        mscorlib","$plength":4,"$pcontent":[false,false,false,false]},"_editionExpired":{"$id":8,"$type":"System.Boolean[],
-        mscorlib","$plength":4,"$pcontent":[false,false,false,false]}}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283842383539371285, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 313813092}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad76696eb0f9b374aa15dbda11cd81d1, type: 3}

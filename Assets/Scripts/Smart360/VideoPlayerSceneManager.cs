@@ -5,14 +5,24 @@ using SmartSurgery.VideoControllers;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.Video;
-public class VideoPlayerSceneManager : MonoBehaviour
+using Sirenix.Serialization;
+public class VideoPlayerSceneManager : SerializedMonoBehaviour
 {
     [SerializeField] private bool _initializeOnEnable;
 
     [Header("Data")]
-    [SerializeField] private ApplicationManager _applicationManager;
-    [SerializeField] private Video[] _videoModels;
-    [SerializeField] private int _currentEdition = 0;
+    //[SerializeField] private ApplicationManager _applicationManager;
+    [OdinSerialize] private IReader<Staff[]> _staffs;
+    [OdinSerialize] private IReader<StaffGroup[]> _groups;
+    [OdinSerialize] private IReader<Edition[]> _editions;
+    [OdinSerialize] private IReader<SurroundingVideo[]> _surroundings;
+    [OdinSerialize] private IReader<Video[]> _videos;
+    [OdinSerialize] private IReader<int> _loadDataMethod;
+    [SerializeField] private FileManager _fileManager;
+    
+    //[SerializeField] private Video[] _videoModels;
+    [SerializeField] private IAccessor<int> _currentEdition;
+
 
     [Header("Components")]
     [SerializeField] private Smart360PlayerController _smartPlayer;
@@ -21,40 +31,45 @@ public class VideoPlayerSceneManager : MonoBehaviour
     [Header("Views")]
     [SerializeField, SceneObjectsOnly] private ExactPositionLayout[] _layouts;
     [SerializeField] private TextMeshProUGUI _editionTitleText;
+    [Header("Controllers")]
+    [OdinSerialize] private IController _initializer;
+    [OdinSerialize] private IController _quit;
 
-    [Header("Events")] private UnityEvent _quit = new UnityEvent();
+    //[Header("Events")] private UnityEvent _quit = new UnityEvent();
 
     [NonSerialized, ShowInInspector, ReadOnly] private int[] _videoCountsInSocket;
     [NonSerialized, ShowInInspector, ReadOnly] private bool _initialized;
 
-    public UnityEvent quit { get => _quit; }
+    //public UnityEvent quit { get => _quit; }
 
-    public void Initialize(int edition)
+    public void Initialize()
     {
+        _initializer.Execute();
         if (_initialized) return;
 
-        _currentEdition = edition;
-        var staffs = _applicationManager.staffManager.data;
-        var staffGroups = _applicationManager.staffGroupManager.data;
-        var editions = _applicationManager.editionManager.data;
-        var surroundings = _applicationManager.videoManager.surroundingData;
-        _videoModels = _applicationManager.videoManager.GetVideoModelsByEdition(edition);
+        var currentEdition = _currentEdition.Read();
+        var staffs = _staffs.Read();
+        var groups = _groups.Read();
+        var editions = _editions.Read();
+        var surroundings = _surroundings.Read();
+        var loadDataMethod = _loadDataMethod.Read();
+        var videos = _videos.Read();
 
-        _editionTitleText.text = editions[edition].displayName;
+        _editionTitleText.text = editions[currentEdition].displayName;
 
-        _videoCountsInSocket = new int[staffGroups.Length];
+        _videoCountsInSocket = new int[groups.Length];
 
         _smartPlayer.layoutButton.AddListener(_smartPlayer_layoutButton);
-        _smartPlayer.initialSelected = editions[edition].initialSelected;
-        switch (_applicationManager.videoManager.loadDataMethod)
+        _smartPlayer.initialSelected = editions[currentEdition].initialSelected;
+        switch ((LoadDataMethod)loadDataMethod)
         {
             case LoadDataMethod.BuildIn:
                 _smartPlayer.videoSource = VideoSource.VideoClip;
-                _smartPlayer.surroundingVideoClip = surroundings[edition].clip;
+                _smartPlayer.surroundingVideoClip = surroundings[currentEdition].clip;
                 break;
             case LoadDataMethod.DirectFile:
                 _smartPlayer.videoSource = VideoSource.Url;
-                _smartPlayer.surroundingVideoUrl = _applicationManager.fileManager.GetVideoPath(surroundings[edition].fileName);
+                _smartPlayer.surroundingVideoUrl = _fileManager.GetVideoPath(surroundings[currentEdition].fileName);
                 break;
             case LoadDataMethod.AssetBundle:
                 _smartPlayer.videoSource = VideoSource.VideoClip;
@@ -64,20 +79,20 @@ public class VideoPlayerSceneManager : MonoBehaviour
         }
         _smartPlayer.flatPlayer.getTitleText += _flatPlayer_getTitleText;
         _smartPlayer.quit.AddListener(_smartPlayer_onQuit);
-        var videoCount = _videoModels.Length;
+        var videoCount = videos.Length;
 
         var syncVideoModels = new SyncVideoModel[videoCount];
         for (int i = 0; i < videoCount; i++)
         {
-            var staff = staffs[_videoModels[i].staff];
-            var group = staffGroups[staff.group];
+            var staff = staffs[videos[i].staff];
+            var group = groups[staff.group];
             syncVideoModels[i] = new SyncVideoModel(
                 i, 
-                _videoModels[i].startTime, 
+                videos[i].startTime, 
                 staff.displayButtonName, 
                 group.icon, 
-                _videoModels[i].clip,
-                _applicationManager.fileManager.GetVideoPath(_videoModels[i].fileName));
+                videos[i].clip,
+                _fileManager.GetVideoPath(videos[i].fileName));
         }
         _smartPlayer.syncVideoModels = syncVideoModels;
         _smartPlayer.Initialize();
@@ -85,23 +100,24 @@ public class VideoPlayerSceneManager : MonoBehaviour
 
     private string _flatPlayer_getTitleText(int index)
     {
-        var staffs = _applicationManager.staffManager.data;
-        return staffs[_videoModels[index].staff].displayTitleName+"視角";
+        var staffs = _staffs.Read();
+        var videos = _videos.Read();
+        return staffs[videos[index].staff].displayTitleName+"視角";
     }
     private void _smartPlayer_layoutButton(int index, Transform transform)
     {
-        var staffs = _applicationManager.staffManager.data;
-        var staffGroups = _applicationManager.staffGroupManager.data;
-        var staff = staffs[_videoModels[index].staff];
+        var staffs = _staffs.Read();
+        var videos = _videos.Read();
+        var staff = staffs[videos[index].staff];
         _layouts[staff.group].Layout(_videoCountsInSocket[staff.group]++, transform);
     }
     private void _smartPlayer_onQuit()
     {
-        quit?.Invoke();
+        _quit.Execute();
     }
     private void OnEnable()
     {
-        if (_initializeOnEnable) Initialize(_currentEdition);
+        if (_initializeOnEnable) Initialize();
     }
     private void OnDisable()
     {

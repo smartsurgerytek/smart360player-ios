@@ -1,12 +1,16 @@
 ﻿public class MonoWrappedAccessor<T> : MonoWrapper<IAccessor<T>>, IAccessor<T>
 {
-    public T Read()
+    T IReader<T>.Read()
     {
         return innerData.Read();
     }
 
-    public void Write(T value)
+    void IWriter<T>.Write(T value)
     {
         innerData.Write(value);
+    }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
     }
 }

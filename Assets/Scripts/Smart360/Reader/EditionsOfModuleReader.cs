@@ -1,10 +1,11 @@
 ﻿using Sirenix.Serialization;
 using System.Linq;
-
-public class EditionsOfModuleReader : IReader<Edition[]>
+public class EditionsOfModuleReader : IArrayReader<Edition>
 {
     [OdinSerialize] private IReader<Edition[]> _editions;
     [OdinSerialize] private IReader<int> _moduleId;
+
+    int ICountProvider.count => _editions.Read().Count(o => o.module == _moduleId.Read());
 
     Edition[] IReader<Edition[]>.Read()
     {
@@ -13,3 +14,4 @@ public class EditionsOfModuleReader : IReader<Edition[]>
         return editions.Where(o => o.module == moduleId).ToArray();
     }
 }
+

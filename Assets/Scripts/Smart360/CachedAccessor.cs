@@ -35,6 +35,11 @@ public class CachedAccessor<T> : ICachedAccessor<T>
     {
         _target.Write(value);
     }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
+    }
 }
 public static class EasonJsonUtility
 {

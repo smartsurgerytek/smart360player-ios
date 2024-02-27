@@ -13,4 +13,8 @@ public class VideoManagerAccessor : IAccessor<Video[]>
     {
         _manager.data = value;
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<Video[]>)this).Write((Video[])value);
+    }
 }

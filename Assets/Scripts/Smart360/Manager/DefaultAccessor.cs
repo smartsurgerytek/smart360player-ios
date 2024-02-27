@@ -14,5 +14,9 @@ public class DefaultAccessor<T> : IAccessor<T>
     {
         _value = value;
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
+    }
 }
 
