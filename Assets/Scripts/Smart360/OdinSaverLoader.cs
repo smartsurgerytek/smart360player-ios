@@ -13,4 +13,8 @@ public class EditionManagerAccessor : IAccessor<Edition[]>
     {
          return _manager.data.ToArray();
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<Edition[]>)this).Write((Edition[])value);
+    }
 }

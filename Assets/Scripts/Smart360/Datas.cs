@@ -11,7 +11,7 @@ public static class Constants
 }
 
 [Serializable]
-public struct StaffGroupModel
+public struct StaffGroup
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private string _name;
@@ -22,7 +22,7 @@ public struct StaffGroupModel
     public Sprite icon { get => _icon; }
 }
 [Serializable]
-public struct StaffModel
+public struct Staff
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private string _displayTitleName;
@@ -37,7 +37,7 @@ public struct StaffModel
     public int group { get => _group; }
 }
 [Serializable]
-public struct SurroundingVideoModel
+public struct SurroundingVideo
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private int _edition;
@@ -181,4 +181,7 @@ public struct DeviceModel
     [SerializeField, TableColumnWidth(150, resizable: false)] private string _serialNumber;
     [SerializeField] private string _uniqueIdentifier;
     public int id { get => _id; internal set => _id = value; }
+    public int userId { get => _userId; internal set => _userId = value; }
+    public string serialNumber { get => _serialNumber;internal set => _serialNumber = value; }
+    public string uniqueIdentifier { get => _uniqueIdentifier;internal set => _uniqueIdentifier = value; }
 }

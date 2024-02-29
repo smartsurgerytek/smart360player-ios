@@ -16,12 +16,12 @@ public class CachedAccessor<T> : ICachedAccessor<T>
     }
 
     [Button("Save")]
-    void ICachedWriter<T>.Save()
+    void ICachedWriter.Save()
     {
         _source.Write(_target.Read());
     }
     [Button("Load")]
-    void ICachedReader<T>.Load()
+    void ICachedReader.Load()
     {
         _target.Write(_source.Read());
     }
@@ -34,6 +34,11 @@ public class CachedAccessor<T> : ICachedAccessor<T>
     void IWriter<T>.Write(T value)
     {
         _target.Write(value);
+    }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<T>)this).Write((T)value);
     }
 }
 public static class EasonJsonUtility
