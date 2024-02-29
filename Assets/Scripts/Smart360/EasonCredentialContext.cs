@@ -14,14 +14,14 @@ public struct EasonCredentialContext : ICredentialContext
     [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private IReader<string> _rootFolderName;
     //[SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCookieExist), InfoMessageType = InfoMessageType.Error)] private string _cookieFileName;
-    [OdinSerialize] private EasonCredentialSaveLoadParameter _accessionParameter;
+    //[OdinSerialize] private EasonCredentialSaveLoadParameter _accessionParameter;
 
     [ShowInInspector] private Credential _credential;
     [ShowInInspector] private CredentialCookie _cookie;
 
     [Header("Controllers")]
-    [SerializeField] private IReader<Credential,EasonCredentialSaveLoadParameter> _loader;
-    [SerializeField] private IWriter<Credential, EasonCredentialSaveLoadParameter> _saver;
+    [SerializeField] private IReader<Credential> _loader;
+    [SerializeField] private IWriter<Credential> _saver;
     [SerializeField] private ICredentialHasher<ApplicationCredential> _applicationHasher;
     [SerializeField] private ICredentialHasher<EditionCredential> _editionHasher;
     [SerializeField] private ICredentialHasher<ModuleCredential> _moduleHasher;
@@ -62,10 +62,12 @@ public struct EasonCredentialContext : ICredentialContext
         OdinLoadCookie();
         _initialized = true;
     }
-    [Button("Load Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_accessionParameter) + "."+ "isCredentialExist")]
+    [Button("Load Credential"), FoldoutGroup("Debug/Credential"), 
+        //EnableIf("@" + nameof(_loader)
+        ]
     private void OdinLoadCredential()
     {
-       var credential = _loader.Read(_accessionParameter);
+       var credential = _loader.Read();
         
         //credential.FillDuid();
         this._credential = credential;
@@ -138,19 +140,23 @@ public struct EasonCredentialContext : ICredentialContext
         File.WriteAllText(cookiePath, json);
     }
 #if UNITY_EDITOR
-    [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")]
+    [Button("Save Credential"), FoldoutGroup("Debug/Credential"), 
+        //EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")
+        ]
     private void OdinSaveCredential()
     {
         //OdinFillDuid();
         OdinHashAll();
         //var credential = EasonJsonUtility.JsonDeepClone(_credential);
         //credential.FillDuid("");
-        _saver.Write(_credential, _accessionParameter);
+        _saver.Write(_credential);
     }
-    [Button("Save Credential Without Hashing"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")]
+    [Button("Save Credential Without Hashing"), FoldoutGroup("Debug/Credential"), 
+        //EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")
+        ]
     private void OdinSaveCredentialWithoutHashing()
     {
-        _saver.Write(_credential, _accessionParameter);
+        _saver.Write(_credential);
     }
     [Button("Hash All"), FoldoutGroup("Debug/Credential")]
     private void OdinHashAll()

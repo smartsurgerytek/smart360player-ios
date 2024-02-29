@@ -20,4 +20,12 @@ MonoBehaviour:
   - _id: 1
     _userId: 0
     _serialNumber: 1WMHHA648V1473
+<<<<<<< HEAD
     _uniqueIdentifier: 776db63f518505e2ae6d95e292f9c8a4
+=======
+    _uniqueIdentifier: c843fee05d186a69068c7817eeb412d4
+  - _id: 2
+    _userId: 0
+    _serialNumber: 
+    _uniqueIdentifier: 
+>>>>>>> 1ac4efd3c88bdc9da1e4fd6c9f4606fd9bd76bc9
