@@ -40,16 +40,18 @@ public interface IWriter<TData, TParameter>
 public struct EasonCredentialSaveLoadParameter
 {
 
-    [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
+    [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private IReader<string> _rootFolderName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
 
 
-    [ShowInInspector, FoldoutGroup("Debug")] public string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', Path.DirectorySeparatorChar);
+    [ShowInInspector, FoldoutGroup("Debug")] public string rootPath => Path.Combine(Application.persistentDataPath, rootFolderName ?? "").Replace('/', Path.DirectorySeparatorChar);
     [ShowInInspector, FoldoutGroup("Debug")] public string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName ?? "");
-    [ShowInInspector, FoldoutGroup("Debug")] public bool isRootFolderNameValid => !string.IsNullOrEmpty(_rootFolderName);
+    [ShowInInspector, FoldoutGroup("Debug")] public bool isRootFolderNameValid => !string.IsNullOrEmpty(rootFolderName);
     [ShowInInspector, FoldoutGroup("Debug")] public bool isCredentialFileNameValid => !string.IsNullOrEmpty(_credentialFileName);
     [ShowInInspector, FoldoutGroup("Debug")] public bool isRootExist => isRootFolderNameValid && Directory.Exists(rootPath);
     [ShowInInspector, FoldoutGroup("Debug")] public bool isCredentialExist => isCredentialFileNameValid && File.Exists(credentialPath);
+
+    public string rootFolderName { get => _rootFolderName?.Read() ?? ""; }
 
     public void AssertRootFolderName()
     {
