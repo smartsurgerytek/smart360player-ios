@@ -1,4 +1,6 @@
 ﻿using Sirenix.Serialization;
+
+#if UNITY_EDITOR
 public class CredentialExpiredDateUpdator : IController
 {
     [OdinSerialize] private IReader<long> _expiredDate;
@@ -9,6 +11,7 @@ public class CredentialExpiredDateUpdator : IController
         var credential = _credential.Read();
         credential.FillExpiredDate(expiredDate);
         _credential.Write(credential);
+
     }
 }
 public class CredentialDuidUpdater : IController
@@ -47,3 +50,5 @@ public class CredentialHashUpdater : IController
         _credential.Write(credential);
     }
 }
+
+#endif

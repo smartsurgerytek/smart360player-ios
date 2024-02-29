@@ -11,7 +11,7 @@ using UnityEngine;
 [Serializable]
 public struct EasonCredentialContext : ICredentialContext
 {
-    [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private string _rootFolderName;
+    [SerializeField, InfoBox("Folder doesn't exist.", "@!" + nameof(isRootExist), InfoMessageType = InfoMessageType.Error)] private IReader<string> _rootFolderName;
     //[SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCredentialExist), InfoMessageType = InfoMessageType.Error)] private string _credentialFileName;
     [SerializeField, InfoBox("File doesn't exist.", "@!" + nameof(isCookieExist), InfoMessageType = InfoMessageType.Error)] private string _cookieFileName;
     [OdinSerialize] private EasonCredentialSaveLoadParameter _accessionParameter;
@@ -31,10 +31,10 @@ public struct EasonCredentialContext : ICredentialContext
 
     private bool _initialized;
 
-    [ShowInInspector, FoldoutGroup("Debug")] private string rootPath => Path.Combine(Application.persistentDataPath, _rootFolderName ?? "").Replace('/', Path.DirectorySeparatorChar);
+    [ShowInInspector, FoldoutGroup("Debug")] private string rootPath => Path.Combine(Application.persistentDataPath, rootFolderName ?? "").Replace('/', Path.DirectorySeparatorChar);
     //[ShowInInspector, FoldoutGroup("Debug")] private string credentialPath => Path.Combine(rootPath ?? "", _credentialFileName?? "");
     [ShowInInspector, FoldoutGroup("Debug")] private string cookiePath => Path.Combine(rootPath ?? "", _cookieFileName?? "");
-    [ShowInInspector, FoldoutGroup("Debug")] private bool isRootFolderNameValid => !string.IsNullOrEmpty(_rootFolderName);
+    [ShowInInspector, FoldoutGroup("Debug")] private bool isRootFolderNameValid => !string.IsNullOrEmpty(rootFolderName);
     //[ShowInInspector, FoldoutGroup("Debug")] private bool isCredentialFileNameValid => !string.IsNullOrEmpty(_credentialFileName);
     [ShowInInspector, FoldoutGroup("Debug")] private bool isCookieFileNameValid => !string.IsNullOrEmpty(_cookieFileName);
     [ShowInInspector, FoldoutGroup("Debug")] private bool isRootExist => isRootFolderNameValid && Directory.Exists(rootPath);
@@ -51,9 +51,11 @@ public struct EasonCredentialContext : ICredentialContext
     }
     CredentialCookie ICredentialContext.cookie => this._cookie;
 
+    public string rootFolderName { get => _rootFolderName?.Read() ?? ""; }
 
     void ICredentialContext.Initialize()
     {
+
         if (_initialized) throw new Exception("Cannot initialize twice.");
         EnsureRootFolderExist();
         OdinLoadCredential();
@@ -86,7 +88,7 @@ public struct EasonCredentialContext : ICredentialContext
         {
             Debug.LogError("!isRootExist");
             Debug.LogError(rootPath);
-            Debug.LogError(!string.IsNullOrEmpty(_rootFolderName));
+            Debug.LogError(!string.IsNullOrEmpty(rootFolderName)) ;
             Debug.LogError(Directory.Exists(rootPath));
             Debug.LogError(Application.persistentDataPath);
             Directory.CreateDirectory(rootPath);
@@ -128,8 +130,14 @@ public struct EasonCredentialContext : ICredentialContext
     {
         return _credential.editions.First(o => o.id == edition).expiredDate > DateTime.Now.Ticks;
     }
+    [Button("Save Cookie"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieFileNameValid))]
+    private void OdinSaveCookie()
+    {
+        this._cookie.UpdateCookie();
+        var json = JsonUtility.ToJson(this._cookie);
+        File.WriteAllText(cookiePath, json);
+    }
 #if UNITY_EDITOR
-
     [Button("Save Credential"), FoldoutGroup("Debug/Credential"), EnableIf("@" + nameof(_accessionParameter) + "." + " isCredentialFileNameValid")]
     private void OdinSaveCredential()
     {
@@ -173,13 +181,7 @@ public struct EasonCredentialContext : ICredentialContext
             _credential.SetModuleHash(i, _moduleHasher.Hash(_credential.modules[i]));
         }
     }
-    [Button("Save Cookie"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieFileNameValid))]
-    private void OdinSaveCookie()
-    {
-        this._cookie.UpdateCookie();
-        var json = JsonUtility.ToJson(this._cookie);
-        File.WriteAllText(cookiePath, json);
-    }
+
     [Button("Open Root Folder"), FoldoutGroup("Debug"), ShowIf(nameof(isRootExist))]
     private void OdinOpen()
     {

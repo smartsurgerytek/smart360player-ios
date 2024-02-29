@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "Staff Group Manager", menuName = "Managers/Staff Group Manager")]
 public class StaffGroupManager : ScriptableObject, IArrayReader<StaffGroup>
 {

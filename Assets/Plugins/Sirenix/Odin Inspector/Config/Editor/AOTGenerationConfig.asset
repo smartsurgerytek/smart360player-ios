@@ -12,9 +12,644 @@ MonoBehaviour:
   m_Script: {fileID: 1726182683, guid: a4865f1ab4504ed8a368670db22f409c, type: 3}
   m_Name: AOTGenerationConfig
   m_EditorClassIdentifier: 
-  automateBeforeBuilds: 0
+  automateBeforeBuilds: 1
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
-  automateForPlatforms: 0900000014000000
-  lastScan: 0
-  supportSerializedTypes: []
+  automateForPlatforms: 0d000000
+  lastScan: 638448150353206250
+  supportSerializedTypes:
+  - TypeName: AndReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ApplicationCredential, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ApplicationEssential_GetSceneToLoad, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayCursorAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[SurroundingVideo, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Boolean, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Boolean[], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CachedAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CachedAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Cleanup, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CountReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Credential, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CredentialCookie, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CredentialDuidUpdater, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CredentialExpiredDateUpdator, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CredentialHashUpdater, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: CredentialVerifier, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[System.Collections.Generic.IEnumerable`1[[System.Int32,
+      mscorlib]], mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultAccessor`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[SurroundingVideo, SmartSurgery.Smart360]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultDateTimeAccessor, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DeviceManager, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DeviceManagerDuidAccessor, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DuidReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EasonCredentialContext, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EasonCredentialLoader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EasonCredentialSaveLoadParameter, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EasonCredentialSaver, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Edition, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Edition[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EditionButton, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EditionButtonInitializer, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EditionButtonVerificationStatePreinitializer, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EditionCredential, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EditionCredential[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EzraApplicationCredentialHasher, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EzraEditionCredentialHasher, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EzraModuleCredentialHasher, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ForeachController, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: GlobalContextAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: GlobalContextAccessor`1[[VerificationResult, SmartSurgery.Smart360]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[UnityEngine.Quaternion, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[UnityEngine.Transform[], UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IApplicationContext, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[SurroundingVideo, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayReader`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[SurroundingVideo, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IController, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IController[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ICountProvider, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ICredentialContext, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ICredentialHasher`1[[ApplicationCredential, SmartSurgery.Smart360]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ICredentialHasher`1[[EditionCredential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ICredentialHasher`1[[ModuleCredential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.IEnumerable`1[[System.Int32, mscorlib]],
+      mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IfController, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IMainMenuSceneContext, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IModuleModel, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: InitialTransformArrayReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Instantiator, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Int32, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Int32[], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`2[[Credential, SmartSurgery.Smart360],[EasonCredentialSaveLoadParameter,
+      SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[EditionButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.Collections.Generic.IEnumerable`1[[System.Int32,
+      mscorlib]], mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[UnityEngine.Quaternion, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[Staff[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[StaffGroup[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[SurroundingVideo[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[UnityEngine.Transform[], UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[UnityEngine.Quaternion, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IRouter`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IsEditorReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ISpawner`1[[EditionButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ISpawnInitializer`1[[EditionButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`2[[Credential, SmartSurgery.Smart360],[EasonCredentialSaveLoadParameter,
+      SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[UnityEngine.Quaternion, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[Staff[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[StaffGroup[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[SurroundingVideo[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[UnityEngine.Transform[], UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IWriter`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[SurroundingVideo, SmartSurgery.Smart360]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Collections.Generic.List`1[[ISpawnInitializer`1[[EditionButton,
+      SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Int64, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: MainMenuView, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Module, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Module[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ModuleCredential, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ModuleCredential[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: MulticastController, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: NextYearReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: NowReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: PathCombineAccessor, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Quaternion, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Range, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[UnityEngine.Quaternion, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[UnityEngine.Transform, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[UnityEngine.Vector3, UnityEngine.CoreModule]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Router`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: SceneLoader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Sprite, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Staff, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Staff[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: StaffGroup, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: StaffGroup[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.String, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: SurroundingVideo, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: SurroundingVideo[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Transform, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Transform[], UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TransformComponentReader`1[[EditionButton, SmartSurgery.Smart360]],
+      SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TransformPositionAccessor, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TransformRotationAccessor, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Vector3, UnityEngine.CoreModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: VerificationResult, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Video, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: Video[], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: UnityEngine.Video.VideoClip, UnityEngine.VideoModule
+    IsCustom: 0
+    Emit: 1
+  - TypeName: VideosOfEditionReader, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
