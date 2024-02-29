@@ -21,7 +21,7 @@ public class PathCombineAccessor : IReader<string>
                 paths[i] = "";
             }
         }
-        return Path.Combine(paths);
+        return Path.Combine(paths).Replace('/', '\\').Replace('\\', Path.DirectorySeparatorChar);
     }
     [ShowInInspector, LabelText("Path")] private string odinPath
     {

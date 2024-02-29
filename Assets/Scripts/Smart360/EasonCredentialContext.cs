@@ -4,6 +4,7 @@ using Sirenix.Serialization;
 using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 using UnityEditor;
 using UnityEngine;
 
@@ -71,7 +72,8 @@ public struct EasonCredentialContext : ICredentialContext
     [Button("Load Cookie"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieExist))]
     private void OdinLoadCookie()
     {
-        AssertCookieFile();
+        //AssertCookieFile();
+        if (!isCookieExist) OdinSaveCookie();
         var json = File.ReadAllText(cookiePath);
         this._cookie = JsonUtility.FromJson<CredentialCookie>(json);
     }
@@ -174,7 +176,7 @@ public struct EasonCredentialContext : ICredentialContext
     [Button("Save Cookie"), FoldoutGroup("Debug/Cookie"), EnableIf(nameof(isCookieFileNameValid))]
     private void OdinSaveCookie()
     {
-        AssertCookieFileName();
+        this._cookie.UpdateCookie();
         var json = JsonUtility.ToJson(this._cookie);
         File.WriteAllText(cookiePath, json);
     }

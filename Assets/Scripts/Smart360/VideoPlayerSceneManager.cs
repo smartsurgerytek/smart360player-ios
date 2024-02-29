@@ -6,7 +6,14 @@ using UnityEngine.Events;
 using TMPro;
 using UnityEngine.Video;
 using Sirenix.Serialization;
-public class VideoPlayerSceneManager : SerializedMonoBehaviour
+public class ApplicationQuitController : IController
+{
+    void IController.Execute()
+    {
+        Application.Quit();
+    }
+}
+public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
 {
     [SerializeField] private bool _initializeOnEnable;
 
@@ -140,5 +147,10 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
+    }
+
+    void IController.Execute()
+    {
+        Initialize();
     }
 }

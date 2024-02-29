@@ -11,6 +11,10 @@ public class MonoWrappedController : MonoWrapper<IController>, IController
     {
         innerData.Execute();
     }
+    public void Execute()
+    {
+        ((IController)this).Execute();
+    }
 }
 
 public static class GlobalContext
