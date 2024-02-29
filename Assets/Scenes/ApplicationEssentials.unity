@@ -2371,7 +2371,7 @@ MonoBehaviour:
       Data: 0|EasonCredentialContext, SmartSurgery.Smart360
     - Name: _rootFolderName
       Entry: 1
-      Data: Credentials\7d6fcf5f87d253e6d12b9ec7a7b768a8f20d6712
+      Data: Credentials
     - Name: _cookieFileName
       Entry: 1
       Data: cookie
@@ -2380,7 +2380,7 @@ MonoBehaviour:
       Data: EasonCredentialSaveLoadParameter, SmartSurgery.Smart360
     - Name: _rootFolderName
       Entry: 1
-      Data: Credentials\7d6fcf5f87d253e6d12b9ec7a7b768a8f20d6712
+      Data: Credential\
     - Name: _credentialFileName
       Entry: 1
       Data: credential
@@ -3167,7 +3167,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 544181575}
-    - {fileID: 1498558151}
+    - {fileID: 1820784251}
     - {fileID: 57421248}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -3199,6 +3199,68 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1 &967206583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967206584}
+  - component: {fileID: 967206585}
+  m_Layer: 0
+  m_Name: EasonDuid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &967206584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967206583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1498558150}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967206585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967206583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da499c596a635434f9c9793e62f6fec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: d200d205a625360da97d47b07054c17cd7ba673d
     - Name: 
       Entry: 8
       Data: 
@@ -4088,6 +4150,7 @@ Transform:
   m_Children:
   - {fileID: 136483471}
   - {fileID: 1820784250}
+  - {fileID: 967206584}
   m_Father: {fileID: 962833648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

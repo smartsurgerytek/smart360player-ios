@@ -4,24 +4,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class ApplicationEssential_GetSceneToLoad : Router<VerificationResult, string>
-{
-    [OdinSerialize] private IReader<string> _verificationScene;
-    [OdinSerialize] private IReader<string> _initialSceneToLoad;
-    public override string Route(VerificationResult result)
-    {
-        var rt = "";
-        if (result.applicationInvalid)
-        {
-            rt = _verificationScene.Read();
-        }
-        else
-        {
-            rt = _initialSceneToLoad.Read();
-        }
-        return rt;
-    }
-}
 public class LinkLoadSceneController : SerializedMonoBehaviour, ILoadSceneController
 {
     [OdinSerialize] private ILoadSceneController _next;
