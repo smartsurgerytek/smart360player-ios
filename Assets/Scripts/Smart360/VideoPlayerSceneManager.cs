@@ -2,7 +2,6 @@
 using Sirenix.OdinInspector;
 using System;
 using SmartSurgery.VideoControllers;
-using UnityEngine.Events;
 using TMPro;
 using UnityEngine.Video;
 using Sirenix.Serialization;
