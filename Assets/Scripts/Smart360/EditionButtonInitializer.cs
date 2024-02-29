@@ -2,20 +2,56 @@
 using Sirenix.Serialization;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-[Serializable]
-public class EditionButtonInitializer : ISpawnInitializer<EditionButton>
+public class TransformComponentReader<T> : IReader<T> where T : Component
 {
-     [OdinSerialize] private IReader<Edition[]> _editions;
-
-    void ISpawnInitializer<EditionButton>.Initialize(EditionButton instance, int index)
+    [OdinSerialize] IReader<Transform> _transform;
+    T IReader<T>.Read()
     {
-        var editions = _editions.Read();
-        instance.index = index;
-        instance.editionId = editions[index].id;
-        instance.title = editions[index].englishName;
+        var transform = _transform.Read();
+        return transform.GetComponent<T>();
     }
 }
+
+public class EditionButtonInitializer : IController
+{
+    [OdinSerialize] private IReader<Edition[]> _editions;
+    [OdinSerialize] private IReader<EditionButton> _instance;
+    [OdinSerialize] private IReader<int> _index;
+    [OdinSerialize] private IWriter<int> _editionToLoad;
+    [OdinSerialize] private IController _onClick;
+    void IController.Execute()
+    {
+        var editions = _editions.Read();
+        var instance = _instance.Read();
+        var index = _index.Read();
+        instance.index = index;
+        instance.editionId = editions[index].id;
+        instance.title = editions[index].englishName + " Edition";
+        instance.clickButton.AddListener(instance_clickButton);
+        instance.Initialize();
+    }
+
+    private void instance_clickButton(int edtionId)
+    {
+        _editionToLoad.Write(edtionId);
+        _onClick?.Execute();
+    }
+}
+//[Serializable]
+//public class EditionButtonInitializer : ISpawnInitializer<EditionButton>
+//{
+//     [OdinSerialize] private IReader<Edition[]> _editions;
+
+//    void ISpawnInitializer<EditionButton>.Initialize(EditionButton instance, int index)
+//    {
+//        var editions = _editions.Read();
+//        instance.index = index;
+//        instance.editionId = editions[index].id;
+//        instance.title = editions[index].englishName;
+//    }
+//}
 public interface IDictionaryReader<TKey, TValue> : IReader<IDictionary<TKey,TValue>>
 {
     TValue Read(TKey key);
@@ -58,6 +94,10 @@ public abstract class ScriptableDictionaryAccessor<TKey, TValue> : SerializedScr
     {
         innerAccessor.Write(value);
     }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<IDictionary<TKey, TValue>>)this).Write((IDictionary<TKey, TValue>)value);
+    }
 }
 
 
@@ -85,5 +125,9 @@ public abstract class DictionaryAccessor<TKey, TValue> :  IDictionaryAccessor<TK
     void IWriter<IDictionary<TKey, TValue>>.Write(IDictionary<TKey, TValue> value)
     {
         innerAccessor.Write(value);
+    }
+    void IWriter.Write(object value)
+    {
+        ((IWriter<IDictionary<TKey, TValue>>)this).Write((IDictionary<TKey, TValue>)value);
     }
 }

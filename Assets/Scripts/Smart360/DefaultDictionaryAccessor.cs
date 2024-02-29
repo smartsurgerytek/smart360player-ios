@@ -25,4 +25,9 @@ public class DefaultDictionaryAccessor<TKey, TValue> : IDictionaryAccessor<TKey,
     {
         _value = value;
     }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<IDictionary<TKey, TValue>>)this).Write((IDictionary<TKey, TValue>)value);
+    }
 }

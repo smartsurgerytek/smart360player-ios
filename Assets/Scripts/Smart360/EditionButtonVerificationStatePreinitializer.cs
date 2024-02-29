@@ -1,21 +1,22 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
-public class EditionButtonVerificationStatePreinitializer : SerializedMonoBehaviour, IEditionButtonPreinitializer
+public class EditionButtonVerificationStatePreinitializer : IController
 {
-    [SerializeField] private IProvider<VerificationResult> _resultProvider;
-
-    void IEditionButtonPreinitializer.OnPreInitialize(EditionButton editionButton)
+    [SerializeField] private IReader<VerificationResult> _result;
+    [SerializeField] private IReader<EditionButton> _button;
+    void IController.Execute()
     {
-        var result = _resultProvider.Get();
+        var button = _button.Read();
+        var result = _result.Read();
         if (!result.verified) throw new System.Exception("Verification result is not verified!");
-        editionButton.verificationState = EditionButton.VerificationState.Normal;
-        if(!result.TryGetTargetIndex(VerificationTarget.Edition, editionButton.editionId, out var index)) 
+        button.verificationState = EditionButton.VerificationState.Normal;
+        if(!result.TryGetTargetIndex(VerificationTarget.Edition, button.editionId, out var index)) 
         {
-            editionButton.verificationState = EditionButton.VerificationState.Unpaid;
+            button.verificationState = EditionButton.VerificationState.Unpaid;
         }
-        if (result.editionHashInvalid[index]) editionButton.verificationState = EditionButton.VerificationState.Warning;
-        else if (result.editionUnpaid[index]) editionButton.verificationState = EditionButton.VerificationState.Unpaid;
-        else if (result.editionExpired[index]) editionButton.verificationState = EditionButton.VerificationState.Expired;
+        if (result.editionHashInvalid[index]) button.verificationState = EditionButton.VerificationState.Warning;
+        else if (result.editionUnpaid[index]) button.verificationState = EditionButton.VerificationState.Unpaid;
+        else if (result.editionExpired[index]) button.verificationState = EditionButton.VerificationState.Expired;
     }
 
 }

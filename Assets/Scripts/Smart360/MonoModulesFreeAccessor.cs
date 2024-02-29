@@ -2,10 +2,6 @@
 using Sirenix.Serialization;
 using UnityEngine;
 
-public class MonoModulesFreeAccessor : MonoFreeAccessor<Module[]>
-{
-
-}
 public abstract class MonoSpawner<T> : SerializedMonoBehaviour, ISpawner<T> where T : Object
 {
     protected abstract ISpawner<T> innerSpwner { get; }

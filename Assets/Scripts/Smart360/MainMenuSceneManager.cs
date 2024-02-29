@@ -22,11 +22,14 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     //[SerializeField] private Transform _editionButtonParent;
     [NonSerialized, ShowInInspector, ReadOnly] private EditionButton[] _editionButtons;
 
+
     [Header("Controllers")]
-    [SerializeField] private List<IEditionButtonPreinitializer> _editionButtonPreInitializers;
+    [SerializeField] private IController _spawnEditionButtons;
+    [SerializeField] private List<ISpawnInitializer<EditionButton>> _editionButtonPreInitializers;
     [Header("Events")]
     [SerializeField] private UnityEvent<int> _clickEditionButton;
     [SerializeField] private bool _initializeOnEnable = false;
+    [SerializeField] private IReader<Edition[]> _editions;
 
     [Header("Debug")]
     private bool _initialized;
@@ -41,26 +44,14 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
 
     //public VerificationSystem verificationSystem { get => _verificationSystem; internal set => _verificationSystem = value; }
     //public VerificationView verificationView { get => _verificationView; internal set => _verificationView = value; }
-    public void AddEditionButtonPreinitializer(IEditionButtonPreinitializer editionButtonPreinitializer)
+    public void AddEditionButtonPreinitializer(ISpawnInitializer<EditionButton> editionButtonPreinitializer)
     {
         _editionButtonPreInitializers.Add(editionButtonPreinitializer);
-    }
-    private void CleanUpEditionButtons()
-    {
-        if (_editionButtons == null) return;
-        for (int i = 0; i < _editionButtons.Length; i++)
-        {
-            //_editionButtonsLayout.Remove(i, _editionButtons[i].transform);
-            Destroy(_editionButtons[i]?.gameObject);
-        }
-        _editionButtons = null;
     }
     internal void Initialize()
     {
         if (_initialized) return;
-
-        CleanUpEditionButtons();
-        //CreateEditionButtons();
+        _spawnEditionButtons.Execute();
 
         _verificationView.show.AddListener(_verificationView_back);
         _verificationView.back.AddListener(_verificationView_back);

@@ -15,4 +15,9 @@ public class ModuleManagerAccessor : IAccessor<Module[]>
     {
         _manager.data = value;
     }
+
+    void IWriter.Write(object value)
+    {
+        ((IWriter<Module[]>)this).Write((Module[])value);
+    }
 }
