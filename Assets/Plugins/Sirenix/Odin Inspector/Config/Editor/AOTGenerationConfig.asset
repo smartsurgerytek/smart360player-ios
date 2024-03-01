@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0d000000
-  lastScan: 638448150353206250
+  lastScan: 638448869948204924
   supportSerializedTypes:
   - TypeName: AndReader, SmartSurgery.Smart360
     IsCustom: 0
@@ -147,15 +147,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: EasonCredentialContext, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EasonCredentialLoader, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EasonCredentialSaveLoadParameter, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EasonCredentialSaver, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: Edition, SmartSurgery.Smart360
@@ -337,10 +328,6 @@ MonoBehaviour:
       PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: IReader`2[[Credential, SmartSurgery.Smart360],[EasonCredentialSaveLoadParameter,
-      SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IReader`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
@@ -443,10 +430,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: IWriter`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IWriter`2[[Credential, SmartSurgery.Smart360],[EasonCredentialSaveLoadParameter,
-      SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IWriter`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360

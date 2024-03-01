@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 20470419}
   - component: {fileID: 20470420}
   m_Layer: 0
-  m_Name: WriteFolderName
+  m_Name: credentialName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
       Data: 0|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
     - Name: _value
       Entry: 1
-      Data: Credentials/44555c8f91e2f4e5fce60a344c203808/credential
+      Data: credential
     - Name: 
       Entry: 8
       Data: 
@@ -1422,68 +1422,6 @@ Transform:
   m_Father: {fileID: 75662971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &254270851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 254270852}
-  - component: {fileID: 254270853}
-  m_Layer: 0
-  m_Name: duid2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &254270852
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254270851}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 385977126}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &254270853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254270851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f6c88792a651749a705d20faa197bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 1
-      Data: c843fee05d186a69068c7817eeb412d4
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &261806893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,7 +2237,6 @@ Transform:
   m_Children:
   - {fileID: 1135432857}
   - {fileID: 1323258871}
-  - {fileID: 254270852}
   m_Father: {fileID: 464290784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2399,7 +2336,6 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 26b5ee8aabe7e7a4bbf35e478b6774b9, type: 2}
     - {fileID: 1643635732}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -2413,11 +2349,11 @@ MonoBehaviour:
       Entry: 7
       Data: 1|DeviceManagerDuidAccessor, SmartSurgery.Smart360
     - Name: _manager
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: _serialNumber
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3773,7 +3709,7 @@ MonoBehaviour:
       Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
     - Name: _value
       Entry: 1
-      Data: C:\Users\Eason\AppData\LocalLow\Smart Surgery\Smart 360 Player\Credentials\44555c8f91e2f4e5fce60a344c203808\credential
+      Data: C:\Users\Ezra\AppData\LocalLow\Smart Surgery\Smart 360 Player\Credential\credential
     - Name: 
       Entry: 8
       Data: 
@@ -4218,7 +4154,7 @@ GameObject:
   - component: {fileID: 1323258871}
   - component: {fileID: 1323258872}
   m_Layer: 0
-  m_Name: duid
+  m_Name: duidField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5666,6 +5602,7 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 385977127}
     - {fileID: 20470420}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -5676,8 +5613,30 @@ MonoBehaviour:
       Entry: 7
       Data: 0|JsonFileAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
     - Name: _relativePath
+      Entry: 7
+      Data: 1|PathCombineAccessor, SmartSurgery.Smart360
+    - Name: _elements
+      Entry: 7
+      Data: 2|IReader`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
