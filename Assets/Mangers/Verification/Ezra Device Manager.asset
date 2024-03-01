@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a4477bf125e3745821047465c66219, type: 3}
+  m_Name: Ezra Device Manager
+  m_EditorClassIdentifier: 
+  _data:
+  - _id: 0
+    _userId: 0
+    _serialNumber: 2G0YC5ZF9C0JMZ
+    _uniqueIdentifier: 44555c8f91e2f4e5fce60a344c203808
+  - _id: 1
+    _userId: 0
+    _serialNumber: 1WMHHA648V1473
+    _uniqueIdentifier: c843fee05d186a69068c7817eeb412d4
+  - _id: 2
+    _userId: 0
+    _serialNumber: 1WMHHA648V1473
+    _uniqueIdentifier: 7ce87dfd59bd5a3ddc28e758ed06c596
+  - _id: 3
+    _userId: 1
+    _serialNumber: 1WMHHA65X02412
+    _uniqueIdentifier: 4c45124374bdaec5a45030f6aed4de05
+  - _id: 4
+    _userId: 2
+    _serialNumber: 1WMHHB66742027
+    _uniqueIdentifier: 68d8abd68aaa0ddbeac6e9dad7c391ca
