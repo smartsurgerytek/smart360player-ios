@@ -4832,7 +4832,205 @@ MonoBehaviour:
       Entry: 7
       Data: 0|DefaultArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
     - Name: _innerData
+      Entry: 7
+      Data: 1|Video[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 0
+    - Name: _clip
       Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_R.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 139
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 2
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_EP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 310
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 2
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 3
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_JP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 142
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 3
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 4
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_HN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 4
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 5
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_PN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 6
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_SN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 19
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 8
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_EN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 310
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -9585,7 +9783,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1696080490}
-    - {fileID: 1673536473}
+    - {fileID: 11400000, guid: 064ca48a040657c4c8cf328a894f8851, type: 2}
     - {fileID: 1886440089}
     - {fileID: 1557967193}
     - {fileID: 835117830}

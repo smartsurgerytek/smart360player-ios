@@ -20,10 +20,12 @@ public struct Manifest
 }
 
 [CreateAssetMenu(fileName = "Edition Manager", menuName = "Managers/Edition Manager")]
-public class EditionManager : ScriptableObject
+public class EditionManager : ScriptableObject, IArrayReader<Edition>
 {
     [SerializeField, TableList] private Edition[] _data;
     public Edition[] data { get => _data; internal set => _data = value; }
+
+    int ICountProvider.count => _data.Length;
 
     internal int GetEditionIdByIndexInModule(int module,int index)
     {
@@ -41,6 +43,12 @@ public class EditionManager : ScriptableObject
         if (_data == null) return;
         ValidateIndice();
     }
+
+    Edition[] IReader<Edition[]>.Read()
+    {
+        return _data?.ToArray();
+    }
+
     private void ValidateIndice()
     {
         for (int i = 0; i < _data.Length; i++)

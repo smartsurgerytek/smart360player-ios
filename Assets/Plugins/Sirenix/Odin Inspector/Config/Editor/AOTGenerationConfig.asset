@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0d000000
-  lastScan: 638448869948204924
+  lastScan: 638449021699441435
   supportSerializedTypes:
   - TypeName: AndReader, SmartSurgery.Smart360
     IsCustom: 0

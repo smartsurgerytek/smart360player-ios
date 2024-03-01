@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 #endif
 
 [CreateAssetMenu(fileName = "Video Manager", menuName = "Managers/Video Manager")]
-public class VideoManager : ScriptableObject, IArrayReader<SurroundingVideo>
+public class VideoManager : ScriptableObject, IArrayReader<SurroundingVideo>, IArrayReader<Video>
 {
     [SerializeField] private LoadDataMethod _loadDataMethod;
     [SerializeField, TableList] private Video[] _data;
@@ -17,7 +17,6 @@ public class VideoManager : ScriptableObject, IArrayReader<SurroundingVideo>
     public Video[] data { get => _data?.ToArray(); internal set => _data = value; }
     public SurroundingVideo[] surroundingData { get => _surroundingData?.ToArray(); internal set => _surroundingData = value; }
     public LoadDataMethod loadDataMethod { get => _loadDataMethod; }
-
     int ICountProvider.count => surroundingData.Length;
 
     private void OnValidate()
@@ -55,5 +54,10 @@ public class VideoManager : ScriptableObject, IArrayReader<SurroundingVideo>
     SurroundingVideo[] IReader<SurroundingVideo[]>.Read()
     {
         return _surroundingData.ToArray();
+    }
+
+    Video[] IReader<Video[]>.Read()
+    {
+        return _data?.ToArray(); 
     }
 }
