@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.023107532, g: 0.22352628, b: 0.540718, a: 1}
+  m_IndirectSpecularColor: {r: 0.023480162, g: 0.22285715, b: 0.5401014, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10388,10 +10388,7 @@ MonoBehaviour:
         SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 6
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
