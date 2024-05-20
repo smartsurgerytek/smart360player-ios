@@ -167,33 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58474f1eff4ba2f4996f685bcba22a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerAccesor
-      Entry: 7
-      Data: 0|CachedAccessor`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
-    - Name: _source
-      Entry: 7
-      Data: 1|WrappedJsonFileAccessor`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
-    - Name: _relativePath
-      Entry: 1
-      Data: Data\Videos
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _target
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &55668501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3385,7 +3358,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1350074280}
-  - component: {fileID: 1350074281}
   m_Layer: 0
   m_Name: Module
   m_TagString: Untagged
@@ -3408,27 +3380,6 @@ Transform:
   m_Father: {fileID: 1700668792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1350074281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350074279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6591dfe5a97130547b1e821d8454225e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
 --- !u!1 &1366541820
 GameObject:
   m_ObjectHideFlags: 0

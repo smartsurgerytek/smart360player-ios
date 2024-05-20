@@ -24,4 +24,8 @@ public class CanvasGroupFade : MonoBehaviour
         _visible = visible;
         _visibleChanged = true;
     }
+    public bool GetVisible()
+    {
+        return _visible;
+    }
 }

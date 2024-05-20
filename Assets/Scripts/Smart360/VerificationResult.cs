@@ -82,5 +82,4 @@ public struct VerificationResult
         if (id == -1) return false;
         return true;
     }
-
 }

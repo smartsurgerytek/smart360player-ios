@@ -17,6 +17,8 @@ public class Follow : MonoBehaviour
     [NonSerialized, ShowInInspector, ReadOnly] private Matrix4x4 _followingMatrix;
     [SerializeField] private float _disableLatancy = .2f;
     [SerializeField] private Coroutine _followingCorotine;
+    [SerializeField] private bool _lookAtCamera;
+
     public bool following
     {
         get => _following;
@@ -34,7 +36,15 @@ public class Follow : MonoBehaviour
     }
     private void Update()
     {
-        if (_followee)
+        if (!_followee) return;
+
+        if (_lookAtCamera)
+        {
+            var followeeMatrix = _followee.localToWorldMatrix;
+            followeeMatrix = Matrix4x4.LookAt(followeeMatrix.GetPosition(), Camera.main.transform.position, Vector3.up);
+            _followingMatrix = followeeMatrix * _anchor.worldToLocalMatrix * _follower.localToWorldMatrix;
+        }
+        else
         {
             _followingMatrix = _followee.localToWorldMatrix * _anchor.worldToLocalMatrix * _follower.localToWorldMatrix;
         }
@@ -42,7 +52,7 @@ public class Follow : MonoBehaviour
         if (_followingChanged && !_following)
         {
             if (_followingCorotine != null) StopCoroutine(_followingCorotine);
-            _followingCorotine = StartCoroutine( FollowForSecond(_disableLatancy));
+            _followingCorotine = StartCoroutine(FollowForSecond(_disableLatancy));
             _followingChanged = false;
         }
         if (_following)
