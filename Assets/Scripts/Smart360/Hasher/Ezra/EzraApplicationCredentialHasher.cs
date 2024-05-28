@@ -2,6 +2,28 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
+public class DeveloperModuleCredentialHasher : ICredentialHasher<ModuleCredential>
+{
+    string ICredentialHasher<ModuleCredential>.Hash(ModuleCredential credential)
+    {
+        return null;
+    }
+}
+public class DeveloperEditionCredentialHasher : ICredentialHasher<EditionCredential>
+{
+    string ICredentialHasher<EditionCredential>.Hash(EditionCredential credential)
+    {
+        return null;
+    }
+}
+public class DeveloperApplicationCredentialHasher : ICredentialHasher<ApplicationCredential>
+{
+    string ICredentialHasher<ApplicationCredential>.Hash(ApplicationCredential credential)
+    {
+        return null;
+    }
+}
+
 public class EzraApplicationCredentialHasher : ICredentialHasher<ApplicationCredential>
 {
     string ICredentialHasher<ApplicationCredential>.Hash(ApplicationCredential credential)

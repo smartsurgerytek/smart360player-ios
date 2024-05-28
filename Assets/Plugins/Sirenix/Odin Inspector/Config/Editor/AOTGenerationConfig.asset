@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0d000000
-  lastScan: 638449029195919890
+  lastScan: 638518939161760135
   supportSerializedTypes:
   - TypeName: AndReader, SmartSurgery.Smart360
     IsCustom: 0
@@ -135,6 +135,15 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: DefaultDateTimeAccessor, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DeveloperApplicationCredentialHasher, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DeveloperEditionCredentialHasher, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DeveloperModuleCredentialHasher, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: DeviceManager, SmartSurgery.Smart360
