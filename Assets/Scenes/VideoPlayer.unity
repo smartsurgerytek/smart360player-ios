@@ -4202,6 +4202,7 @@ MonoBehaviour:
   _following: 1
   _disableLatancy: 0.2
   _lookAtCamera: 0
+  _invertForward: 0
 --- !u!1 &685673142
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,6 +6346,7 @@ MonoBehaviour:
   _following: 1
   _disableLatancy: 0.2
   _lookAtCamera: 0
+  _invertForward: 0
 --- !u!1 &1001739526
 GameObject:
   m_ObjectHideFlags: 0
@@ -9460,6 +9462,7 @@ MonoBehaviour:
   _following: 1
   _disableLatancy: 0.2
   _lookAtCamera: 0
+  _invertForward: 0
 --- !u!1 &1517551594
 GameObject:
   m_ObjectHideFlags: 0
@@ -9653,6 +9656,7 @@ MonoBehaviour:
   _following: 1
   _disableLatancy: 0.2
   _lookAtCamera: 0
+  _invertForward: 0
 --- !u!1 &1527599848
 GameObject:
   m_ObjectHideFlags: 0
@@ -10312,7 +10316,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1696080490}
-    - {fileID: 11400000, guid: 064ca48a040657c4c8cf328a894f8851, type: 2}
+    - {fileID: 1673536473}
     - {fileID: 1886440089}
     - {fileID: 1557967193}
     - {fileID: 835117830}
@@ -10380,7 +10384,7 @@ MonoBehaviour:
     - Name: _quit
       Entry: 10
       Data: 6
-  _initializeOnEnable: 0
+  _initializeOnEnable: 1
   _fileManager: {fileID: 11400000, guid: 721c39fcb5cb86e4db8bd06916e17ff2, type: 2}
   _smartPlayer: {fileID: 1318351536}
   _loadingVideoScreen: {fileID: 0}
@@ -12044,6 +12048,7 @@ MonoBehaviour:
   _following: 0
   _disableLatancy: 0.2
   _lookAtCamera: 1
+  _invertForward: 1
 --- !u!114 &1788291435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12477,7 +12482,6 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 775041572}
-    - {fileID: 1709780286}
     - {fileID: 1676951670}
     - {fileID: 823517151}
     - {fileID: 109683495}
@@ -12494,7 +12498,7 @@ MonoBehaviour:
       Data: 1|IController[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 4
     - Name: 
       Entry: 10
       Data: 0
@@ -12507,9 +12511,6 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 3
-    - Name: 
-      Entry: 10
-      Data: 4
     - Name: 
       Entry: 13
       Data: 

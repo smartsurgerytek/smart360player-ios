@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.023480162, g: 0.22285715, b: 0.5401014, a: 1}
+  m_IndirectSpecularColor: {r: 0.023107532, g: 0.22352628, b: 0.540718, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2035,7 +2035,7 @@ MonoBehaviour:
       Data: 1|Edition[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 2
     - Name: 
       Entry: 7
       Data: Edition, SmartSurgery.Smart360
@@ -2044,19 +2044,19 @@ MonoBehaviour:
       Data: 0
     - Name: _name
       Entry: 1
-      Data: Standard
+      Data: PhysicalAssessment
     - Name: _englishName
       Entry: 1
-      Data: Standard
+      Data: Physical Assessment
     - Name: _displayName
       Entry: 1
-      Data: "\u6A19\u6E96\u7248\u672C"
+      Data: "\u8EAB\u9AD4\u8A55\u4F30"
     - Name: _module
       Entry: 3
       Data: 0
     - Name: _initialSelected
       Entry: 3
-      Data: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -2068,67 +2068,19 @@ MonoBehaviour:
       Data: 1
     - Name: _name
       Entry: 1
-      Data: DoctorCarry
+      Data: SpeechTherapy
     - Name: _englishName
       Entry: 1
-      Data: Doctor Carry
+      Data: Speech Therapy
     - Name: _displayName
       Entry: 1
-      Data: "\u91AB\u5E2B\u6551\u5834"
+      Data: "\u8A9E\u8A00\u6CBB\u7642"
     - Name: _module
       Entry: 3
       Data: 0
     - Name: _initialSelected
       Entry: 3
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Edition, SmartSurgery.Smart360
-    - Name: _index
-      Entry: 3
-      Data: 2
-    - Name: _name
-      Entry: 1
-      Data: Chaotic
-    - Name: _englishName
-      Entry: 1
-      Data: Chaotic
-    - Name: _displayName
-      Entry: 1
-      Data: "\u73FE\u5834\u6DF7\u4E82"
-    - Name: _module
-      Entry: 3
       Data: 0
-    - Name: _initialSelected
-      Entry: 3
-      Data: 4
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Edition, SmartSurgery.Smart360
-    - Name: _index
-      Entry: 3
-      Data: 3
-    - Name: _name
-      Entry: 1
-      Data: NurseCarry
-    - Name: _englishName
-      Entry: 1
-      Data: Nurse Carry
-    - Name: _displayName
-      Entry: 1
-      Data: "\u8B77\u58EB\u6551\u5834"
-    - Name: _module
-      Entry: 3
-      Data: 0
-    - Name: _initialSelected
-      Entry: 3
-      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -9172,11 +9124,11 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: _name
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: MMC
     - Name: _displayName
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: "\u99AC\u5055"
     - Name: 
       Entry: 8
       Data: 
@@ -10374,17 +10326,35 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: _mainMenuView
+      Entry: 7
+      Data: 0|MainMenuView, SmartSurgery.Smart360
+    - Name: _canvasGroup
       Entry: 6
       Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _editionButtonSpawner
+      Entry: 7
+      Data: 1|DefaultSpawner`1[[EditionButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _prefab
       Entry: 6
+      Data: 
+    - Name: _parent
+      Entry: 6
+      Data: 
+    - Name: _initializers
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: _spawnEditionButtons
       Entry: 10
       Data: 0
     - Name: _editionButtonPreInitializers
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[ISpawnInitializer`1[[EditionButton,
+      Data: 2|System.Collections.Generic.List`1[[ISpawnInitializer`1[[EditionButton,
         SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
     - Name: 
       Entry: 12

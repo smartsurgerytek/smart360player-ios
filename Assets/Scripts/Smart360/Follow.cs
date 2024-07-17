@@ -18,6 +18,7 @@ public class Follow : MonoBehaviour
     [SerializeField] private float _disableLatancy = .2f;
     [SerializeField] private Coroutine _followingCorotine;
     [SerializeField] private bool _lookAtCamera;
+    [SerializeField] private bool _invertForward;
 
     public bool following
     {
@@ -41,7 +42,14 @@ public class Follow : MonoBehaviour
         if (_lookAtCamera)
         {
             var followeeMatrix = _followee.localToWorldMatrix;
-            followeeMatrix = Matrix4x4.LookAt(followeeMatrix.GetPosition(), Camera.main.transform.position, Vector3.up);
+            if (_invertForward)
+            {
+                followeeMatrix = Matrix4x4.LookAt(followeeMatrix.GetPosition(), followeeMatrix.GetPosition()*2 - Camera.main.transform.position, Vector3.up);
+            }
+            else
+            {
+                followeeMatrix = Matrix4x4.LookAt(followeeMatrix.GetPosition(), Camera.main.transform.position, Vector3.up);
+            }
             _followingMatrix = followeeMatrix * _anchor.worldToLocalMatrix * _follower.localToWorldMatrix;
         }
         else
