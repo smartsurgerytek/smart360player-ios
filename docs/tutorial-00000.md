@@ -7,7 +7,7 @@ You should login to your Apple account on your Mac first
 Search `Apple Developer` on **App Store**, and install it.
 
 ### Step 2. Enroll the program.
-- Open `Apple Developer`, Click the **account button** on the bottom-left corner. 
-- Click the **Enroll Now** button on the page.
+- Open `Apple Developer`, Click the account button on the bottom-left corner. 
+- Click the `Enroll Now` button on the page.
 - Follow the prompt to sign up or enroll the program.
 
