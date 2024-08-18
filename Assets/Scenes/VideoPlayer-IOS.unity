@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2794926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
   m_TargetAudioSources:
@@ -1420,7 +1420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &318905203
 Transform:
   m_ObjectHideFlags: 0
@@ -3938,7 +3938,7 @@ MonoBehaviour:
       Data: 0
     - Name: _edition
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: _staff
       Entry: 3
       Data: 1
@@ -3947,13 +3947,13 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 01_Difficult_AP.mp4
+      Data: 00_Standard_AP.mp4
     - Name: _assetName
       Entry: 1
       Data: 
     - Name: _startTime
       Entry: 3
-      Data: 575
+      Data: 295
     - Name: 
       Entry: 8
       Data: 
@@ -3965,7 +3965,7 @@ MonoBehaviour:
       Data: 1
     - Name: _edition
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: _staff
       Entry: 3
       Data: 0
@@ -3974,13 +3974,13 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 01_Difficult_DR.mp4
+      Data: 00_Standard_DR.mp4
     - Name: _assetName
       Entry: 1
       Data: 
     - Name: _startTime
       Entry: 3
-      Data: 136
+      Data: 160
     - Name: 
       Entry: 8
       Data: 
@@ -3992,7 +3992,7 @@ MonoBehaviour:
       Data: 2
     - Name: _edition
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: _staff
       Entry: 3
       Data: 2
@@ -4001,7 +4001,7 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 01_Difficult_PN.mp4
+      Data: 00_Standard_PN.mp4
     - Name: _assetName
       Entry: 1
       Data: 
@@ -4019,7 +4019,7 @@ MonoBehaviour:
       Data: 3
     - Name: _edition
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: _staff
       Entry: 3
       Data: 3
@@ -4028,13 +4028,13 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 01_Difficult_SN.mp4
+      Data: 00_Standard_SN.mp4
     - Name: _assetName
       Entry: 1
       Data: 
     - Name: _startTime
       Entry: 3
-      Data: 54
+      Data: 74
     - Name: 
       Entry: 8
       Data: 
@@ -4046,7 +4046,7 @@ MonoBehaviour:
       Data: 4
     - Name: _edition
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: _staff
       Entry: 3
       Data: 4
@@ -4055,13 +4055,13 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 01_Difficult_JN.mp4
+      Data: 00_Standard_JN.mp4
     - Name: _assetName
       Entry: 1
       Data: 
     - Name: _startTime
       Entry: 3
-      Data: 70
+      Data: 87
     - Name: 
       Entry: 8
       Data: 
@@ -5987,7 +5987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1125749150
 Transform:
   m_ObjectHideFlags: 0
@@ -8215,7 +8215,7 @@ MonoBehaviour:
       Data: 1|SurroundingVideo[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 8
     - Name: 
       Entry: 7
       Data: SurroundingVideo, SmartSurgery.Smart360
@@ -8251,7 +8251,7 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 01_DoctorCarry_Env360.mp4
+      Data: 01_Difficult_Env360.mp4
     - Name: _assetName
       Entry: 1
       Data: 
@@ -8293,7 +8293,91 @@ MonoBehaviour:
       Data: 
     - Name: _fileName
       Entry: 1
-      Data: 03_NurseCarry_Env360.mp4
+      Data: 03_Complete_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 4
+    - Name: _edition
+      Entry: 3
+      Data: 4
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 04_InadequateCommunication_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _edition
+      Entry: 3
+      Data: 5
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 05_SuccessfulCommunication_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _edition
+      Entry: 3
+      Data: 6
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 06_NurseAssisting_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _edition
+      Entry: 3
+      Data: 7
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 07_NurseSuccessfulCommunication_Env360.mp4
     - Name: _assetName
       Entry: 1
       Data: 
@@ -9428,13 +9512,13 @@ MonoBehaviour:
       Data: 0
     - Name: _displayTitleName
       Entry: 1
-      Data: "\u4F4F\u9662\u91AB\u5E2B"
+      Data: "\u503C\u73ED\u91AB\u5E2B"
     - Name: _displayButtonName
       Entry: 1
-      Data: "\u4F4F\u9662"
+      Data: "\u503C\u73ED"
     - Name: _acronym
       Entry: 1
-      Data: R
+      Data: DR
     - Name: _group
       Entry: 3
       Data: 1
@@ -9449,13 +9533,13 @@ MonoBehaviour:
       Data: 1
     - Name: _displayTitleName
       Entry: 1
-      Data: "\u4E3B\u6CBB\u91AB\u5E2B"
+      Data: "\u7E3D\u503C\u91AB\u5E2B"
     - Name: _displayButtonName
       Entry: 1
-      Data: "\u4E3B\u6CBB"
+      Data: "\u7E3D\u503C"
     - Name: _acronym
       Entry: 1
-      Data: VS
+      Data: AP
     - Name: _group
       Entry: 3
       Data: 1
@@ -9468,69 +9552,6 @@ MonoBehaviour:
     - Name: _index
       Entry: 3
       Data: 2
-    - Name: _displayTitleName
-      Entry: 1
-      Data: "\u6025\u8A3A\u91AB\u5E2B"
-    - Name: _displayButtonName
-      Entry: 1
-      Data: "\u6025\u8A3A"
-    - Name: _acronym
-      Entry: 1
-      Data: EP
-    - Name: _group
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Staff, SmartSurgery.Smart360
-    - Name: _index
-      Entry: 3
-      Data: 3
-    - Name: _displayTitleName
-      Entry: 1
-      Data: "\u8CC7\u6DFA\u91AB\u5E2B"
-    - Name: _displayButtonName
-      Entry: 1
-      Data: "\u8CC7\u6DFA"
-    - Name: _acronym
-      Entry: 1
-      Data: JP
-    - Name: _group
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Staff, SmartSurgery.Smart360
-    - Name: _index
-      Entry: 3
-      Data: 4
-    - Name: _displayTitleName
-      Entry: 1
-      Data: "\u8B77\u7406\u9577"
-    - Name: _displayButtonName
-      Entry: 1
-      Data: Leader
-    - Name: _acronym
-      Entry: 1
-      Data: HN
-    - Name: _group
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: Staff, SmartSurgery.Smart360
-    - Name: _index
-      Entry: 3
-      Data: 5
     - Name: _displayTitleName
       Entry: 1
       Data: "\u4E3B\u8B77"
@@ -9551,7 +9572,7 @@ MonoBehaviour:
       Data: Staff, SmartSurgery.Smart360
     - Name: _index
       Entry: 3
-      Data: 6
+      Data: 3
     - Name: _displayTitleName
       Entry: 1
       Data: "\u8CC7\u6DF1\u8B77\u7406\u5E2B"
@@ -9572,13 +9593,13 @@ MonoBehaviour:
       Data: Staff, SmartSurgery.Smart360
     - Name: _index
       Entry: 3
-      Data: 7
+      Data: 4
     - Name: _displayTitleName
       Entry: 1
-      Data: "\u8CC7\u6DFA\u8B77\u7406\u5E2B"
+      Data: "\u521D\u968E\u8B77\u7406\u5E2B"
     - Name: _displayButtonName
       Entry: 1
-      Data: "\u8CC7\u6DFA"
+      Data: "\u521D\u968E"
     - Name: _acronym
       Entry: 1
       Data: JN
@@ -9593,16 +9614,79 @@ MonoBehaviour:
       Data: Staff, SmartSurgery.Smart360
     - Name: _index
       Entry: 3
+      Data: 5
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u4F4F\u9662\u91AB\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u4F4F\u9662"
+    - Name: _acronym
+      Entry: 1
+      Data: R
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u4E3B\u6CBB\u91AB\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u4E3B\u6CBB"
+    - Name: _acronym
+      Entry: 1
+      Data: VS
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u75C5\u4EBA\u8996\u89D2"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u75C5\u4EBA"
+    - Name: _acronym
+      Entry: 1
+      Data: PP
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
       Data: 8
     - Name: _displayTitleName
       Entry: 1
-      Data: "\u6025\u8A3A\u8B77\u7406\u5E2B"
+      Data: "\u8B77\u7406\u5E2B"
     - Name: _displayButtonName
       Entry: 1
-      Data: "\u6025\u8A3A"
+      Data: "\u8B77\u7406\u5E2B"
     - Name: _acronym
       Entry: 1
-      Data: EN
+      Data: N
     - Name: _group
       Entry: 3
       Data: 0
@@ -10325,7 +10409,7 @@ MonoBehaviour:
       Data: 1|Edition[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 8
     - Name: 
       Entry: 7
       Data: Edition, SmartSurgery.Smart360
@@ -10340,13 +10424,13 @@ MonoBehaviour:
       Data: Standard
     - Name: _displayName
       Entry: 1
-      Data: "\u6A19\u6E96\u7248\u672C"
+      Data: "\u6A19\u6E96\u7248"
     - Name: _module
       Entry: 3
       Data: 0
     - Name: _initialSelected
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -10358,19 +10442,19 @@ MonoBehaviour:
       Data: 1
     - Name: _name
       Entry: 1
-      Data: DoctorCarry
+      Data: Difficult
     - Name: _englishName
       Entry: 1
-      Data: Doctor Carry
+      Data: Difficult
     - Name: _displayName
       Entry: 1
-      Data: "\u91AB\u5E2B\u6551\u5834"
+      Data: "\u56F0\u96E3\u7248"
     - Name: _module
       Entry: 3
       Data: 0
     - Name: _initialSelected
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -10388,13 +10472,13 @@ MonoBehaviour:
       Data: Chaotic
     - Name: _displayName
       Entry: 1
-      Data: "\u73FE\u5834\u6DF7\u4E82"
+      Data: "\u6DF7\u4E82\u7248"
     - Name: _module
       Entry: 3
       Data: 0
     - Name: _initialSelected
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -10406,19 +10490,115 @@ MonoBehaviour:
       Data: 3
     - Name: _name
       Entry: 1
-      Data: NurseCarry
+      Data: Complete
     - Name: _englishName
       Entry: 1
-      Data: Nurse Carry
+      Data: Complete
     - Name: _displayName
       Entry: 1
-      Data: "\u8B77\u58EB\u6551\u5834"
+      Data: "\u5B8C\u6574\u7248"
     - Name: _module
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: _initialSelected
       Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
       Data: 4
+    - Name: _name
+      Entry: 1
+      Data: InadequateCommunication
+    - Name: _englishName
+      Entry: 1
+      Data: Inadequate Communication
+    - Name: _displayName
+      Entry: 1
+      Data: "\u7121\u6548\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _name
+      Entry: 1
+      Data: SuccessfulCommunication
+    - Name: _englishName
+      Entry: 1
+      Data: Successful Communication
+    - Name: _displayName
+      Entry: 1
+      Data: "\u6709\u6548\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _name
+      Entry: 1
+      Data: NurseAssisting
+    - Name: _englishName
+      Entry: 1
+      Data: Nurse Assisting
+    - Name: _displayName
+      Entry: 1
+      Data: "\u8B77\u7406\u5E2B\u5354\u52A9\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _name
+      Entry: 1
+      Data: NurseSuccessfulCommunication
+    - Name: _englishName
+      Entry: 1
+      Data: Nurse Successful Communication
+    - Name: _displayName
+      Entry: 1
+      Data: "\u8B77\u7406\u5E2B\u4E3B\u52D5\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 

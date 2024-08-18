@@ -4,6 +4,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Video;
 
 namespace SmartSurgery.VideoControllers
@@ -177,7 +178,7 @@ namespace SmartSurgery.VideoControllers
             timeline.stop.AddListener(_timeline_onStop);
 
            
-            SetSelected(initialSelected);
+            SetSelected(initialSelected, false);
 
             _initialized = true;
         }
@@ -204,11 +205,27 @@ namespace SmartSurgery.VideoControllers
         {
             if (!_initialized) return;
             _multiRangeEventSystem?.Update();
+            for (int i = 0; i < _players.Length; i++)
+            {
+                if(_players[i].isPlaying && _selected != i)
+                {
+                    Debug.LogError($"the players[{i}] is playing, but not selected.");
+                    return;
+                }
+                if (_players[i].targetTexture == _targetTexture && _selected != i)
+                {
+                    _players[i].targetTexture = _targetTexture;
+                }
+            }
+            if(_players[_selected].targetTexture != _targetTexture)
+            {
+                _players[_selected].targetTexture = _targetTexture;
+            }
         }
 
         private void _videoButton_onClick(int index)
         {
-            SetSelected(index);
+            SetSelected(index, _timeline.isPlaying);
         }
         private double _multiRangeEventSystem_getCurrentValue()
         {
@@ -232,7 +249,7 @@ namespace SmartSurgery.VideoControllers
             {
                 if (interects.Length > 0)
                 {
-                    SetSelected(interects.Last());
+                    SetSelected(interects.Last(), _timeline.isPlaying);
                     _selectedInvalid = false;
                 }
                 else
@@ -250,7 +267,12 @@ namespace SmartSurgery.VideoControllers
         {
             SetPlayersExternalReferenceTime(time);
             SetPlayersTime(time);
+
+#if UNITY_IOS
+            _players[_selected].Play();
+#else
             PlayPlayers();
+#endif
             PausePlayers();
         }
         private void _timeline_onDragging(float time)
@@ -264,11 +286,21 @@ namespace SmartSurgery.VideoControllers
         {
             SetPlayersExternalReferenceTime(time);
             SetPlayersTime(time);
-            if (timeline.isPlaying) PlayPlayers();
+            if (timeline.isPlaying)
+#if UNITY_IOS 
+                _players[_selected].Pause();
+                _players[_selected].Play();
+#else
+            PlayPlayers();
+#endif
         }
         private void _timeline_onPlay()
         {
+#if UNITY_IOS
+            _players[_selected].Play();
+#else
             PlayPlayers();
+#endif
         }
         private void _timeline_onPause()
         {
@@ -278,18 +310,20 @@ namespace SmartSurgery.VideoControllers
         {
             SetPlayersTime(0);
             SetPlayersExternalReferenceTime(0);
-            PlayPlayers();
-            PausePlayers();
+            //PlayPlayers();
+            //PausePlayers();
+            StopPlayers();
         }
-
+#if UNITY_IOS
+#else
         private void PlayPlayers()
         {
-
             for (int i = 0; i < _players.Length; i++)
             {
                 _players[i]?.Play();
             }
         }
+#endif
         private void PausePlayers()
         {
             for (int i = 0; i < _players.Length; i++)
@@ -336,17 +370,25 @@ namespace SmartSurgery.VideoControllers
                 _players[index].SetDirectAudioMute(i, mute);
             }
         }
-        private void SetSelected(int index)
+        private void SetSelected(int index, bool play)
         {
             if (_selected == index) return;
             if (timeline.time < syncVideos[index].startTime || syncVideos[index].startTime + _players[index].length < timeline.time) _selectedInvalid = true;
+
             if (_selected >= 0)
             {
+                if (_players[_selected].isPlaying) _players[_selected].Pause(); // IOS
                 _players[_selected].targetTexture = null;
                 MutePlayer(_selected, true);
             }
             _players[index].targetTexture = _targetTexture;
             MutePlayer(index, false);
+
+            if (play)
+            {
+                _players[index].Play(); // IOS
+            }
+
             _selected = index;
             var title = GetTitleText(index);
             setTitle?.Invoke(title);
@@ -371,5 +413,6 @@ namespace SmartSurgery.VideoControllers
                 }
             }
         }
+        
     }
 }
