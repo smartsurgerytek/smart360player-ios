@@ -15,11 +15,11 @@ public struct StaffGroup
 {
     [SerializeField, ReadOnly] private int _index;
     [SerializeField] private string _name;
-    [SerializeField] private Sprite _icon;
+    [SerializeField] private string _icon;
 
     public int index { get => _index; internal set => _index = value; }
     public string name { get => _name; }
-    public Sprite icon { get => _icon; }
+    public string icon { get => _icon; }
 }
 [Serializable]
 public struct Staff
