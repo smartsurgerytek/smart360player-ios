@@ -269,18 +269,18 @@ namespace SmartSurgery.VideoControllers
             SetPlayersTime(time);
 
 #if UNITY_IOS
-            _players[_selected].Play();
+            _players[_selected].Pause();
 #else
             PlayPlayers();
-#endif
             PausePlayers();
+#endif
         }
         private void _timeline_onDragging(float time)
         {
             _players[_selected].time = time;    
             _players[_selected].externalReferenceTime = time;
-            _players[_selected].Play();
-            _players[_selected].Pause();
+            //_players[_selected].Play();
+            //_players[_selected].Pause();
         }
         private void _timeline_dragEnd(float time)
         {
