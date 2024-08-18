@@ -24,7 +24,7 @@ public class JsonFileAccessor<T> : IAccessor<T>
             }
         }
     }
-    [ShowInInspector] private string absolutePath => Path.Combine(Application.persistentDataPath, relativePath ?? "")?.Replace('/', Path.DirectorySeparatorChar);
+    [ShowInInspector] private string absolutePath => Path.Combine(Application.persistentDataPath, relativePath ?? "")?.Replace('/', Path.DirectorySeparatorChar).Replace('\\', Path.DirectorySeparatorChar);
     [ShowInInspector] private bool isFileExist => File.Exists(absolutePath);
 
     [ShowInInspector]
