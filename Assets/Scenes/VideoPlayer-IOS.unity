@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2794926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3954,6 +3954,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 295
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3981,6 +3984,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 160
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4007,6 +4013,9 @@ MonoBehaviour:
       Data: 
     - Name: _startTime
       Entry: 3
+      Data: 0
+    - Name: _duration
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 8
@@ -4035,6 +4044,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 74
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -4062,6 +4074,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 87
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5987,7 +6002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1125749150
 Transform:
   m_ObjectHideFlags: 0
