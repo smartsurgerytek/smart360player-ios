@@ -61,6 +61,7 @@ public struct Video
     [SerializeField] private string _fileName;
     [SerializeField] private string _assetName;
     [SerializeField] private int _startTime;
+    [SerializeField] private double _duration;
     public int index { get => _index; internal set => _index = value; }
     public int staff { get => _staff; }
     public int edition { get => _edition; }
@@ -68,6 +69,7 @@ public struct Video
     public string fileName { get => _fileName; internal set => _fileName = value; }
     public string assetName { get => _assetName; }
     public double startTime { get => _startTime; }
+    public double duration { get => _duration; set => _duration = value; }
 }
 [Serializable]
 public struct Module

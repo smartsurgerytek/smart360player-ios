@@ -161,8 +161,7 @@ namespace SmartSurgery.VideoControllers
             var rangeModels = new RangeModel[count];
             for (int i = 0; i < count; i++)
             {
-                Debug.Log($"[Eason] _players[{i}].length: {_players[i].length}.");
-                rangeModels[i] = new RangeModel(i, _syncVideos[i].startTime, _syncVideos[i].startTime + _players[i].length);
+                rangeModels[i] = new RangeModel(i, _syncVideos[i].startTime, _syncVideos[i].startTime + _syncVideos[i].duration);
             }
 
             _multiRangeEventSystem = new MultiRangeEventSystem();
@@ -208,22 +207,28 @@ namespace SmartSurgery.VideoControllers
         {
             if (!_initialized) return;
             _multiRangeEventSystem?.Update();
-            for (int i = 0; i < _players.Length; i++)
-            {
-                if(_players[i].isPlaying && _selected != i)
-                {
-                    Debug.LogError($"the players[{i}] is playing, but not selected.");
-                    return;
-                }
-                if (_players[i].targetTexture == _targetTexture && _selected != i)
-                {
-                    _players[i].targetTexture = _targetTexture;
-                }
-            }
-            if(_players[_selected].targetTexture != _targetTexture)
-            {
-                _players[_selected].targetTexture = _targetTexture;
-            }
+            //for (int i = 0; i < _players.Length; i++)
+            //{
+            //    if(_players[i].isPlaying || _players[i]. && _selected != i)
+            //    {
+            //        Debug.LogError($"the players[{i}] is playing, but not selected.");
+            //        _players[i].Stop();
+            //    }
+            //    if (_players[i].targetTexture == _targetTexture && _selected != i)
+            //    {
+            //        _players[i].targetTexture = _targetTexture;
+            //    }
+            //}
+            //if (!_players[_selected].isPlaying && timeline.isPlaying)
+            //{
+            //    SetPlayerTime(_selected, time);
+            //    SetPlayerExternalReferenceTime(_selected, time);
+            //    _players[_selected].Play();
+            //}
+            //if (_players[_selected].targetTexture != _targetTexture)
+            //{
+            //    _players[_selected].targetTexture = _targetTexture;
+            //}
         }
 
         private void _videoButton_onClick(int index)
@@ -263,45 +268,57 @@ namespace SmartSurgery.VideoControllers
         }
         private void _timeline_onPlaying(float time)
         {
+#if UNITY_IOS
+            SetPlayerExternalReferenceTime(_selected, time);
+#else
             SetPlayersExternalReferenceTime(time);
+
+#endif
         }
 
         private void _timeline_dragStart(float time)
         {
-            SetPlayersExternalReferenceTime(time);
-            SetPlayersTime(time);
 
 #if UNITY_IOS
+            SetPlayerExternalReferenceTime(_selected, time);
+            SetPlayerTime(_selected, time);
             _players[_selected].Pause();
 #else
+            SetPlayersExternalReferenceTime(time);
+            SetPlayersTime(time);
             PlayPlayers();
             PausePlayers();
 #endif
         }
         private void _timeline_onDragging(float time)
         {
-            _players[_selected].time = time;    
-            _players[_selected].externalReferenceTime = time;
+            SetPlayerExternalReferenceTime(_selected, time);
+            SetPlayerTime(_selected, time);
             //_players[_selected].Play();
             //_players[_selected].Pause();
         }
         private void _timeline_dragEnd(float time)
         {
-            SetPlayersExternalReferenceTime(time);
-            SetPlayersTime(time);
-            if (timeline.isPlaying)
 #if UNITY_IOS
-            { 
-                //_players[_selected].Pause();
-                _players[_selected].Play();
+            if(timeline.isPlaying)
+            {
+                SetPlayerExternalReferenceTime(_selected, time);
+                SetPlayerTime(_selected, time);
+                if (!_players[_selected].isPlaying) _players[_selected].Play();
             }
 #else
-            PlayPlayers();
+            if (timeline.isPlaying){
+                SetPlayersExternalReferenceTime(time);
+                SetPlayersTime(time);
+                PlayPlayers();
+            }
 #endif
         }
         private void _timeline_onPlay()
         {
 #if UNITY_IOS
+            //SetPlayerExternalReferenceTime(_selected, time);
+            //SetPlayerTime(_selected, time);
             _players[_selected].Play();
 #else
             PlayPlayers();
@@ -350,12 +367,24 @@ namespace SmartSurgery.VideoControllers
                 _players[i]?.Prepare();
             }
         }
+        private void SetPlayerTime(int playerId, double globalTime)
+        {
+            var clipTime = globalTime - _syncVideos[playerId].startTime;
+            Mathd.Clamp(clipTime, 0, _syncVideos[playerId].duration);
+            _players[playerId].time = clipTime;
+        }
+        private void SetPlayerExternalReferenceTime(int playerId, double globalTime)
+        {
+            var clipTime = globalTime - _syncVideos[playerId].startTime;
+            Mathd.Clamp(clipTime, 0, _syncVideos[playerId].duration);
+            _players[playerId].externalReferenceTime = clipTime;
+        }
         private void SetPlayersTime(double globalTime)
         {
             for (int i = 0; i < _players.Length; i++)
             {
                 var clipTime = globalTime - _syncVideos[i].startTime;
-                Mathd.Clamp(clipTime, 0, _players[i].length);
+                Mathd.Clamp(clipTime, 0, _syncVideos[i].duration);
                 _players[i].time = clipTime;
             }
         }
@@ -364,7 +393,7 @@ namespace SmartSurgery.VideoControllers
             for (int i = 0; i < _players.Length; i++)
             {
                 var clipTime = globalTime - _syncVideos[i].startTime;
-                Mathd.Clamp(clipTime, 0, _players[i].length);
+                Mathd.Clamp(clipTime, 0, _syncVideos[i].duration);
                 _players[i].externalReferenceTime = clipTime;
             }
         }
@@ -378,7 +407,12 @@ namespace SmartSurgery.VideoControllers
         private void SetSelected(int index, bool play)
         {
             if (_selected == index) return;
-            if (timeline.time < syncVideos[index].startTime || syncVideos[index].startTime + _players[index].length < timeline.time) _selectedInvalid = true;
+            if (timeline.time < syncVideos[index].startTime || syncVideos[index].startTime + _syncVideos[index].duration < timeline.time)
+            {
+                _selectedInvalid = true;
+                Debug.Log("Selected Invalid");
+            }
+            Debug.Log("SetSelected");
 
             if (_selected >= 0)
             {
@@ -386,15 +420,16 @@ namespace SmartSurgery.VideoControllers
                 _players[_selected].targetTexture = null;
                 MutePlayer(_selected, true);
             }
-            _players[index].targetTexture = _targetTexture;
             MutePlayer(index, false);
 
             if (play)
             {
                 _players[index].Play(); // IOS
-                SetPlayersExternalReferenceTime(time);
+                _players[index].targetTexture = _targetTexture;
             }
 
+            SetPlayerExternalReferenceTime(index, time);
+            SetPlayerTime(index, time);
             _selected = index;
             var title = GetTitleText(index);
             setTitle?.Invoke(title);

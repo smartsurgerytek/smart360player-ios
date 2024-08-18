@@ -10,6 +10,7 @@ public class VideoPlayerDebugger : MonoBehaviour
     [ShowInInspector] private double _player_externalReferenceTime => _player.externalReferenceTime;
     [ShowInInspector] private VideoTimeReference _player_timeReference => _player.timeReference;
     [ShowInInspector] private bool _player_isPlaying => _player.isPlaying;
+    [ShowInInspector] private double _player_length => _player.length;
 
     [Button("Play")]
     private void OdinPlayButtonClick()

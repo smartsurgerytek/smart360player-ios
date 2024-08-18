@@ -93,7 +93,8 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
                 staff.displayButtonName, 
                 icon, 
                 videos[i].clip,
-                _fileManager.GetVideoPath(videos[i].fileName));
+                _fileManager.GetVideoPath(videos[i].fileName),
+                videos[i].duration);
         }
         _smartPlayer.syncVideoModels = syncVideoModels;
         _smartPlayer.Initialize();
