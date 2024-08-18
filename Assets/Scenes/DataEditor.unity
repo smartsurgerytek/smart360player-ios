@@ -1,0 +1,2826 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &524353098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524353099}
+  - component: {fileID: 524353103}
+  - component: {fileID: 524353102}
+  - component: {fileID: 524353101}
+  - component: {fileID: 524353100}
+  m_Layer: 0
+  m_Name: SurroundingVideos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &524353099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524353098}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &524353100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524353098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1546299b1c0dcb84284bcd7bfdb47603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 524353103}
+    - {fileID: 524353102}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[SurroundingVideo, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &524353101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524353098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1546299b1c0dcb84284bcd7bfdb47603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 524353102}
+    - {fileID: 524353103}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[SurroundingVideo, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &524353102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524353098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aeee262bed2744afc7f9e623975e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[SurroundingVideo, SmartSurgery.Smart360]],
+        SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/surroundingVideos
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &524353103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524353098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aeee262bed2744afc7f9e623975e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[SurroundingVideo, SmartSurgery.Smart360]],
+        SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|SurroundingVideo[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _edition
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 01_Difficult_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 2
+    - Name: _edition
+      Entry: 3
+      Data: 2
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 02_Chaotic_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 3
+    - Name: _edition
+      Entry: 3
+      Data: 3
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 03_Complete_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 4
+    - Name: _edition
+      Entry: 3
+      Data: 4
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 04_InadequateCommunication_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _edition
+      Entry: 3
+      Data: 5
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 05_SuccessfulCommunication_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _edition
+      Entry: 3
+      Data: 6
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 06_NurseAssisting_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SurroundingVideo, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _edition
+      Entry: 3
+      Data: 7
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 07_NurseSuccessfulCommunication_Env360.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1 &623821211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 623821212}
+  - component: {fileID: 623821216}
+  - component: {fileID: 623821215}
+  - component: {fileID: 623821214}
+  - component: {fileID: 623821213}
+  m_Layer: 0
+  m_Name: Videos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &623821212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623821211}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623821213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623821211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b2b9490b88c7b449d6461935915258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 623821216}
+    - {fileID: 623821215}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|Router`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &623821214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623821211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b2b9490b88c7b449d6461935915258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 623821215}
+    - {fileID: 623821216}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|Router`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &623821215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623821211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51659d24e0a480844b9186a8fa005db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/videos
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &623821216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623821211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51659d24e0a480844b9186a8fa005db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|Video[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 28
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_AP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 295
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 0
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_DR.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 160
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 2
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 2
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_PN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 3
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 3
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_SN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 74
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 4
+    - Name: _edition
+      Entry: 3
+      Data: 0
+    - Name: _staff
+      Entry: 3
+      Data: 4
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 00_Standard_JN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 87
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _edition
+      Entry: 3
+      Data: 1
+    - Name: _staff
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 01_Difficult_AP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 575
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _edition
+      Entry: 3
+      Data: 1
+    - Name: _staff
+      Entry: 3
+      Data: 0
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 01_Difficult_DR.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 136
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _edition
+      Entry: 3
+      Data: 1
+    - Name: _staff
+      Entry: 3
+      Data: 2
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 01_Difficult_PN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 8
+    - Name: _edition
+      Entry: 3
+      Data: 1
+    - Name: _staff
+      Entry: 3
+      Data: 3
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 01_Difficult_SN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 54
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 9
+    - Name: _edition
+      Entry: 3
+      Data: 1
+    - Name: _staff
+      Entry: 3
+      Data: 4
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 01_Difficult_JN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 70
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 10
+    - Name: _edition
+      Entry: 3
+      Data: 2
+    - Name: _staff
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 02_Chaotic_AP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 298
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 11
+    - Name: _edition
+      Entry: 3
+      Data: 2
+    - Name: _staff
+      Entry: 3
+      Data: 0
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 02_Chaotic_DR.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 170
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 12
+    - Name: _edition
+      Entry: 3
+      Data: 2
+    - Name: _staff
+      Entry: 3
+      Data: 2
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 02_Chaotic_PN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 13
+    - Name: _edition
+      Entry: 3
+      Data: 2
+    - Name: _staff
+      Entry: 3
+      Data: 3
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 02_Chaotic_SN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 50
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 14
+    - Name: _edition
+      Entry: 3
+      Data: 2
+    - Name: _staff
+      Entry: 3
+      Data: 4
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 02_Chaotic_JN.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 65
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 15
+    - Name: _edition
+      Entry: 3
+      Data: 3
+    - Name: _staff
+      Entry: 3
+      Data: 2
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 03_Complete_PP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 16
+    - Name: _edition
+      Entry: 3
+      Data: 4
+    - Name: _staff
+      Entry: 3
+      Data: 7
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 04_InadequateCommunication_PP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 17
+    - Name: _edition
+      Entry: 3
+      Data: 4
+    - Name: _staff
+      Entry: 3
+      Data: 5
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 04_InadequateCommunication_R.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 13
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 18
+    - Name: _edition
+      Entry: 3
+      Data: 4
+    - Name: _staff
+      Entry: 3
+      Data: 6
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 04_InadequateCommunication_VS.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 127
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 19
+    - Name: _edition
+      Entry: 3
+      Data: 5
+    - Name: _staff
+      Entry: 3
+      Data: 7
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 05_SuccessfulCommunication_PP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 20
+    - Name: _edition
+      Entry: 3
+      Data: 5
+    - Name: _staff
+      Entry: 3
+      Data: 5
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 05_SuccessfulCommunication_R.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 21
+    - Name: _edition
+      Entry: 3
+      Data: 5
+    - Name: _staff
+      Entry: 3
+      Data: 6
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 05_SuccessfulCommunication_VS.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 133
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 22
+    - Name: _edition
+      Entry: 3
+      Data: 6
+    - Name: _staff
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 23
+    - Name: _edition
+      Entry: 3
+      Data: 6
+    - Name: _staff
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 24
+    - Name: _edition
+      Entry: 3
+      Data: 6
+    - Name: _staff
+      Entry: 3
+      Data: 1
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 25
+    - Name: _edition
+      Entry: 3
+      Data: 7
+    - Name: _staff
+      Entry: 3
+      Data: 6
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 07_NurseSuccessfulCommunication_VS.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 144
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 26
+    - Name: _edition
+      Entry: 3
+      Data: 7
+    - Name: _staff
+      Entry: 3
+      Data: 7
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 07_NurseSuccessfulCommunication_PP.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Video, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 27
+    - Name: _edition
+      Entry: 3
+      Data: 7
+    - Name: _staff
+      Entry: 3
+      Data: 8
+    - Name: _clip
+      Entry: 6
+      Data: 
+    - Name: _fileName
+      Entry: 1
+      Data: 07_NurseSuccessfulCommunication_N.mp4
+    - Name: _assetName
+      Entry: 1
+      Data: 
+    - Name: _startTime
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1 &694278210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694278214}
+  - component: {fileID: 694278215}
+  - component: {fileID: 694278218}
+  - component: {fileID: 694278217}
+  - component: {fileID: 694278216}
+  m_Layer: 0
+  m_Name: Editions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694278214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694278210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694278215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694278210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4f4397d93facf479fb176acd29cd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|Edition[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _name
+      Entry: 1
+      Data: Standard
+    - Name: _englishName
+      Entry: 1
+      Data: Standard
+    - Name: _displayName
+      Entry: 1
+      Data: "\u6A19\u6E96\u7248"
+    - Name: _module
+      Entry: 3
+      Data: 0
+    - Name: _initialSelected
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _name
+      Entry: 1
+      Data: Difficult
+    - Name: _englishName
+      Entry: 1
+      Data: Difficult
+    - Name: _displayName
+      Entry: 1
+      Data: "\u56F0\u96E3\u7248"
+    - Name: _module
+      Entry: 3
+      Data: 0
+    - Name: _initialSelected
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 2
+    - Name: _name
+      Entry: 1
+      Data: Chaotic
+    - Name: _englishName
+      Entry: 1
+      Data: Chaotic
+    - Name: _displayName
+      Entry: 1
+      Data: "\u6DF7\u4E82\u7248"
+    - Name: _module
+      Entry: 3
+      Data: 0
+    - Name: _initialSelected
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 3
+    - Name: _name
+      Entry: 1
+      Data: Complete
+    - Name: _englishName
+      Entry: 1
+      Data: Complete
+    - Name: _displayName
+      Entry: 1
+      Data: "\u5B8C\u6574\u7248"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 4
+    - Name: _name
+      Entry: 1
+      Data: InadequateCommunication
+    - Name: _englishName
+      Entry: 1
+      Data: Inadequate Communication
+    - Name: _displayName
+      Entry: 1
+      Data: "\u7121\u6548\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _name
+      Entry: 1
+      Data: SuccessfulCommunication
+    - Name: _englishName
+      Entry: 1
+      Data: Successful Communication
+    - Name: _displayName
+      Entry: 1
+      Data: "\u6709\u6548\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _name
+      Entry: 1
+      Data: NurseAssisting
+    - Name: _englishName
+      Entry: 1
+      Data: Nurse Assisting
+    - Name: _displayName
+      Entry: 1
+      Data: "\u8B77\u7406\u5E2B\u5354\u52A9\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Edition, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _name
+      Entry: 1
+      Data: NurseSuccessfulCommunication
+    - Name: _englishName
+      Entry: 1
+      Data: Nurse Successful Communication
+    - Name: _displayName
+      Entry: 1
+      Data: "\u8B77\u7406\u5E2B\u4E3B\u52D5\u6E9D\u901A"
+    - Name: _module
+      Entry: 3
+      Data: 1
+    - Name: _initialSelected
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &694278216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694278210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be67a648d02fd1240819380a9c5a2b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 694278215}
+    - {fileID: 694278218}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &694278217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694278210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be67a648d02fd1240819380a9c5a2b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 694278218}
+    - {fileID: 694278215}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &694278218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694278210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4f4397d93facf479fb176acd29cd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/editions
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1 &895314794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895314799}
+  - component: {fileID: 895314798}
+  - component: {fileID: 895314797}
+  - component: {fileID: 895314796}
+  - component: {fileID: 895314795}
+  m_Layer: 0
+  m_Name: Modules
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &895314795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895314794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e0291832d0ce4198d675e7d120415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 895314798}
+    - {fileID: 895314797}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &895314796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895314794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918e0291832d0ce4198d675e7d120415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 895314797}
+    - {fileID: 895314798}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &895314797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895314794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bd8021c5ed8404cb197781e7ba3117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/modules
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &895314798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895314794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bd8021c5ed8404cb197781e7ba3117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|Module[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: Module, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _name
+      Entry: 1
+      Data: RespiratoryDistress
+    - Name: _displayName
+      Entry: 1
+      Data: "\u547C\u5438\u7A98\u8FEB"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Module, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _name
+      Entry: 1
+      Data: MedicalError
+    - Name: _displayName
+      Entry: 1
+      Data: "\u91AB\u7642\u932F\u8AA4"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!4 &895314799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895314794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1349879088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1349879090}
+  - component: {fileID: 1349879089}
+  - component: {fileID: 1349879092}
+  - component: {fileID: 1349879091}
+  m_Layer: 0
+  m_Name: StaffGroupWhereVideoContained
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1349879089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349879088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c6ea7fb5e630e49a4b927dd61e5fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1349879091}
+    - {fileID: 1349879092}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|StaffGroupWhereVideoContained, SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: _staffsReader
+      Entry: 7
+      Data: 1|JsonFileArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 2|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/staffs
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _videosReader
+      Entry: 7
+      Data: 3|JsonFileArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 4|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/videos
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!4 &1349879090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349879088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1349879091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349879088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846c978b9afc6824cb32060d20228020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/staffGroups
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1349879092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349879088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846c978b9afc6824cb32060d20228020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 724ae80c2beae7d43a76f38eb8534c73, type: 3}
+    - {fileID: 21300000, guid: cb4b97c16cd98dc47be5a3d0a5220839, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|StaffGroup[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: StaffGroup, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _name
+      Entry: 1
+      Data: Doctor
+    - Name: _icon
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: StaffGroup, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _name
+      Entry: 1
+      Data: Nurse
+    - Name: _icon
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1 &1384310896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1384310897}
+  - component: {fileID: 1384310901}
+  - component: {fileID: 1384310900}
+  - component: {fileID: 1384310899}
+  - component: {fileID: 1384310898}
+  m_Layer: 0
+  m_Name: Staffs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1384310897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384310896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384310898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384310896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92adb7534756fa5458649dbbd3fb4e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1384310901}
+    - {fileID: 1384310900}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1384310899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384310896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92adb7534756fa5458649dbbd3fb4e7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1384310900}
+    - {fileID: 1384310901}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1384310900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384310896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa81c36344311ea4fa257b9a7ed1ed0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/staffs
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1384310901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384310896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa81c36344311ea4fa257b9a7ed1ed0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|Staff[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 9
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u503C\u73ED\u91AB\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u503C\u73ED"
+    - Name: _acronym
+      Entry: 1
+      Data: DR
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u7E3D\u503C\u91AB\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u7E3D\u503C"
+    - Name: _acronym
+      Entry: 1
+      Data: AP
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 2
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u4E3B\u8B77"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u4E3B\u8B77"
+    - Name: _acronym
+      Entry: 1
+      Data: PN
+    - Name: _group
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 3
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u8CC7\u6DF1\u8B77\u7406\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u8CC7\u6DF1"
+    - Name: _acronym
+      Entry: 1
+      Data: SN
+    - Name: _group
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 4
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u521D\u968E\u8B77\u7406\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u521D\u968E"
+    - Name: _acronym
+      Entry: 1
+      Data: JN
+    - Name: _group
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 5
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u4F4F\u9662\u91AB\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u4F4F\u9662"
+    - Name: _acronym
+      Entry: 1
+      Data: R
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 6
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u4E3B\u6CBB\u91AB\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u4E3B\u6CBB"
+    - Name: _acronym
+      Entry: 1
+      Data: VS
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 7
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u75C5\u4EBA\u8996\u89D2"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u75C5\u4EBA"
+    - Name: _acronym
+      Entry: 1
+      Data: PP
+    - Name: _group
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Staff, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 8
+    - Name: _displayTitleName
+      Entry: 1
+      Data: "\u8B77\u7406\u5E2B"
+    - Name: _displayButtonName
+      Entry: 1
+      Data: "\u8B77\u7406\u5E2B"
+    - Name: _acronym
+      Entry: 1
+      Data: N
+    - Name: _group
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!1 &1722567741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722567746}
+  - component: {fileID: 1722567745}
+  - component: {fileID: 1722567744}
+  - component: {fileID: 1722567743}
+  - component: {fileID: 1722567742}
+  m_Layer: 0
+  m_Name: StaffGroups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1722567742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722567741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c6ea7fb5e630e49a4b927dd61e5fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1722567745}
+    - {fileID: 1722567744}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1722567743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722567741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c6ea7fb5e630e49a4b927dd61e5fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1722567744}
+    - {fileID: 1722567745}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|ArrayRouter`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 10
+      Data: 0
+    - Name: _writer
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1722567744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722567741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846c978b9afc6824cb32060d20228020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|JsonFileArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _relativePath
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 1
+      Data: data/staffGroups
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &1722567745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722567741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846c978b9afc6824cb32060d20228020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: cb4b97c16cd98dc47be5a3d0a5220839, type: 3}
+    - {fileID: 21300000, guid: 724ae80c2beae7d43a76f38eb8534c73, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|DefaultArrayAccessor`1[[StaffGroup, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    - Name: _innerData
+      Entry: 7
+      Data: 1|StaffGroup[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: StaffGroup, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 0
+    - Name: _name
+      Entry: 1
+      Data: Nurse
+    - Name: _icon
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: StaffGroup, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 1
+    - Name: _name
+      Entry: 1
+      Data: Doctor
+    - Name: _icon
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: StaffGroup, SmartSurgery.Smart360
+    - Name: _index
+      Entry: 3
+      Data: 2
+    - Name: _name
+      Entry: 1
+      Data: Patient
+    - Name: _icon
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!4 &1722567746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722567741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1925518054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925518055}
+  m_Layer: 0
+  m_Name: ========================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1925518055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925518054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 495.6883, y: 890.669, z: 7.231881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

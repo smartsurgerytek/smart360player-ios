@@ -107,6 +107,9 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     }
     private void OnEnable()
     {
-        if (_initializeOnEnable && !_initialized) Initialize();
+        if (_initializeOnEnable && !_initialized)
+        {
+            Initialize();
+        }
     }
 }

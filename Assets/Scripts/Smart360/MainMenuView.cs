@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-internal class MainMenuView
+internal class MainMenuView : IMainMenuView
 {
+
     [SerializeField] private CanvasGroup _canvasGroup;
     public void Show()
     {

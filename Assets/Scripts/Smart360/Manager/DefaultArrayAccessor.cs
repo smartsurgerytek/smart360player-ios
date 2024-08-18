@@ -1,9 +1,11 @@
-﻿using Sirenix.Serialization;
+﻿using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Linq;
 public class DefaultArrayAccessor<T> : IArrayAccessor<T>
 {
-    [OdinSerialize] T[] _innerData;
+    
+    [OdinSerialize, TableList] T[] _innerData;
     int ICountProvider.count => _innerData.Length;
 
     T[] IReader<T[]>.Read()

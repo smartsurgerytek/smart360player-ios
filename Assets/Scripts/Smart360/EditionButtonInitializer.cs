@@ -13,7 +13,6 @@ public class TransformComponentReader<T> : IReader<T> where T : Component
         return transform.GetComponent<T>();
     }
 }
-
 public class EditionButtonInitializer : IController
 {
     [OdinSerialize] private IReader<Edition[]> _editions;

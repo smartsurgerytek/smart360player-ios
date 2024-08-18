@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+public interface ISpawnInitializer
+{
+}
 
 public interface ISpawnInitializer<T> : ISpawnInitializer where T : Object 
 {

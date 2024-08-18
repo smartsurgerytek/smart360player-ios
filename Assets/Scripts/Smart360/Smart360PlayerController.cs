@@ -11,17 +11,23 @@ using System.Collections;
 
 public class Smart360PlayerController : MonoBehaviour
 {
-    [Header("Components")]
-    [SerializeField] private TimelineController _timeline;
-    [SerializeField] private SyncVideoPlayerController _flatPlayer;
-    [SerializeField] private VideoPlayerController _surroundingPlayer;
-    [SerializeField] private Button _quitButton;
+
+
+
+
+    [FoldoutGroup("Components")] [SerializeField] private SyncVideoPlayerController _flatPlayer;
+    [FoldoutGroup("Components")] [SerializeField] private VideoPlayerController _surroundingPlayer;
+    [FoldoutGroup("Components")] [SerializeField] private TimelineController _timeline;
+    [FoldoutGroup("Components")] [SerializeField] private GameObject _previewMonitor;
+    [FoldoutGroup("Components")] [SerializeField] private GameObject _fullScreenMonitor;
+    [FoldoutGroup("Components")] [SerializeField] private CanvasGroup _playerControlPanel;
+    [FoldoutGroup("Components/Sidebar")] [SerializeField] private Button _toggleControlPanelButton;
+    [FoldoutGroup("Components/Sidebar")] [SerializeField] private Button _screenButton;
+    [FoldoutGroup("Components/Sidebar")] [SerializeField] private Button _quitButton;
     //[SerializeField] private Button _switchViewButton;
     //[SerializeField] private Button _togglePlayerMonitorButton;
     //[SerializeField] private Button _togglePlayerControlPanelButton;
-    [SerializeField] private CanvasGroup _playerControlPanel;
-    [SerializeField] private GameObject _previewMonitor;
-    [SerializeField] private GameObject _fullScreenMonitor;
+    
     
 
     [Header("Views")]
@@ -178,8 +184,8 @@ public class Smart360PlayerController : MonoBehaviour
 
 
         _quitButton.onClick.AddListener(_quitButton_onClick);
-        //_switchViewButton.onClick.AddListener(_switchView_onClick);
-        //_togglePlayerControlPanelButton.onClick.AddListener(_togglePlayerControlPanel_onClick);
+        _screenButton.onClick.AddListener(_switchView_onClick);
+        _toggleControlPanelButton.onClick.AddListener(_togglePlayerControlPanel_onClick);
         //_togglePlayerMonitorButton.onClick.AddListener(_togglePlayerMonitor_onClick);
 
         flatPlayer.Initialize();

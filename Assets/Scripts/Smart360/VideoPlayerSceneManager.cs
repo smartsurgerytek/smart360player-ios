@@ -5,13 +5,6 @@ using SmartSurgery.VideoControllers;
 using TMPro;
 using UnityEngine.Video;
 using Sirenix.Serialization;
-public class ApplicationQuitController : IController
-{
-    void IController.Execute()
-    {
-        Application.Quit();
-    }
-}
 public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
 {
     [SerializeField] private bool _initializeOnEnable;
@@ -55,7 +48,7 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
 
         var currentEdition = _currentEdition.Read();
         var staffs = _staffs.Read();
-        var groups = _groups.Read();
+        var staffGroups = _groups.Read();
         var editions = _editions.Read();
         var surroundings = _surroundings.Read();
         var loadDataMethod = _loadDataMethod.Read();
@@ -63,7 +56,7 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
 
         _editionTitleText.text = editions[currentEdition].displayName;
 
-        _videoCountsInSocket = new int[groups.Length];
+        _videoCountsInSocket = new int[staffGroups.Length];
 
         _smartPlayer.layoutButton.AddListener(_smartPlayer_layoutButton);
         _smartPlayer.initialSelected = editions[currentEdition].initialSelected;
@@ -91,7 +84,7 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
         for (int i = 0; i < videoCount; i++)
         {
             var staff = staffs[videos[i].staff];
-            var group = groups[staff.group];
+            var group = staffGroups[staff.group];
             syncVideoModels[i] = new SyncVideoModel(
                 i, 
                 videos[i].startTime, 
@@ -102,6 +95,7 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
         }
         _smartPlayer.syncVideoModels = syncVideoModels;
         _smartPlayer.Initialize();
+        _initialized = true;
     }
 
     private string _flatPlayer_getTitleText(int index)
@@ -123,7 +117,10 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
     }
     private void OnEnable()
     {
-        if (_initializeOnEnable) Initialize();
+        if (_initializeOnEnable)
+        {
+            Initialize();
+        }
     }
     private void OnDisable()
     {
