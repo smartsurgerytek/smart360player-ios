@@ -11980,7 +11980,7 @@ MonoBehaviour:
       Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
     - Name: _value
       Entry: 1
-      Data: data/editions
+      Data: Data/Editions
     - Name: 
       Entry: 8
       Data: 
