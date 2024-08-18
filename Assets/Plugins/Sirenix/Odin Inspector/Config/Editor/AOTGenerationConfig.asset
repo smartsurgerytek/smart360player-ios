@@ -16,15 +16,9 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0d000000
-  lastScan: 638594466989390343
+  lastScan: 638596072370087360
   supportSerializedTypes:
   - TypeName: AndReader, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: ApplicationCredential, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: ApplicationEssential_GetSceneToLoad, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: ArrayCursorAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
@@ -55,12 +49,6 @@ MonoBehaviour:
   - TypeName: System.Boolean[], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: CachedAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CachedAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: UnityEngine.CanvasGroup, UnityEngine.UIModule
     IsCustom: 0
     Emit: 1
@@ -70,28 +58,7 @@ MonoBehaviour:
   - TypeName: CountReader, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: Credential, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CredentialCookie, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CredentialDuidUpdater, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CredentialExpiredDateUpdator, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CredentialHashUpdater, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: CredentialVerifier, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: DefaultAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DefaultAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: DefaultAccessor`1[[System.Collections.Generic.IEnumerable`1[[System.Int32,
@@ -117,9 +84,6 @@ MonoBehaviour:
   - TypeName: DefaultArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: DefaultArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: DefaultArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
@@ -137,31 +101,7 @@ MonoBehaviour:
   - TypeName: DefaultArrayAccessor`1[[Video, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: DefaultDateTimeAccessor, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: DefaultSpawner`1[[EditionButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DeveloperApplicationCredentialHasher, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DeveloperEditionCredentialHasher, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DeveloperModuleCredentialHasher, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DeviceManager, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DeviceManagerDuidAccessor, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DuidReader, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EasonCredentialContext, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: Edition, SmartSurgery.Smart360
@@ -177,21 +117,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: EditionButtonVerificationStatePreinitializer, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EditionCredential, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EditionCredential[], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EzraApplicationCredentialHasher, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EzraEditionCredentialHasher, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: EzraModuleCredentialHasher, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: ForeachController, SmartSurgery.Smart360
@@ -210,16 +135,7 @@ MonoBehaviour:
   - TypeName: IAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: IAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IAccessor`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IAccessor`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -243,13 +159,7 @@ MonoBehaviour:
   - TypeName: IAccessor`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: IApplicationContext, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -298,19 +208,6 @@ MonoBehaviour:
   - TypeName: ICountProvider, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: ICredentialContext, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: ICredentialHasher`1[[ApplicationCredential, SmartSurgery.Smart360]],
-      SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: ICredentialHasher`1[[EditionCredential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: ICredentialHasher`1[[ModuleCredential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: System.Collections.Generic.IEnumerable`1[[System.Int32, mscorlib]],
       mscorlib
     IsCustom: 0
@@ -319,9 +216,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: IMainMenuSceneContext, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IModuleModel, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: InitialTransformArrayReader, SmartSurgery.Smart360
@@ -343,9 +237,6 @@ MonoBehaviour:
       PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: IReader`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IReader`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
@@ -357,9 +248,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: IReader`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IReader`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IReader`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -405,16 +293,10 @@ MonoBehaviour:
   - TypeName: IRouter`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: IRouter`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IRouter`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IRouter`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IRouter`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IRouter`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -450,16 +332,10 @@ MonoBehaviour:
   - TypeName: IWriter`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: IWriter`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IWriter`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IWriter`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IWriter`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IWriter`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -475,9 +351,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: IWriter`1[[StaffGroup[], SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IWriter`1[[System.String, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IWriter`1[[SurroundingVideo[], SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -498,13 +371,7 @@ MonoBehaviour:
   - TypeName: IWriter`1[[Video[], SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: JsonFileAccessor`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: JsonFileArrayAccessor`1[[Edition, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: JsonFileArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: JsonFileArrayAccessor`1[[Staff, SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -524,9 +391,6 @@ MonoBehaviour:
       SmartSurgery.Smart360]], SmartSurgery.Smart360]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Int64, mscorlib
-    IsCustom: 0
-    Emit: 1
   - TypeName: MainMenuView, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
@@ -536,19 +400,16 @@ MonoBehaviour:
   - TypeName: Module[], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: ModuleCredential, SmartSurgery.Smart360
+  - TypeName: MonoBehaviourEvent, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: ModuleCredential[], SmartSurgery.Smart360
+  - TypeName: MonoBehaviourEventElement, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: MonoBehaviourEventElement[], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: MulticastController, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: NextYearReader, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: NowReader, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: PathCombineAccessor, SmartSurgery.Smart360
@@ -563,16 +424,10 @@ MonoBehaviour:
   - TypeName: Router`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
-  - TypeName: Router`1[[Credential, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: Router`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: Router`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: Router`1[[System.Int64, mscorlib]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: Router`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
