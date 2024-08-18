@@ -86,6 +86,7 @@ public class VideoPlayerSceneManager : SerializedMonoBehaviour, IController
             var staff = staffs[videos[i].staff];
             var group = staffGroups[staff.group];
             var icon = Resources.Load<Sprite>(group.icon);
+
             syncVideoModels[i] = new SyncVideoModel(
                 i, 
                 videos[i].startTime, 

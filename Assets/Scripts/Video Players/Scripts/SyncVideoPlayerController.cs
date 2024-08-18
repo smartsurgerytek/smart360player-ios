@@ -130,7 +130,10 @@ namespace SmartSurgery.VideoControllers
                 _videoButtons[i] = Instantiate(videoButtonPrefab);
                 _videoButtons[i].interactable = false;
                 _videoButtons[i].index = i;
-                _videoButtons[i].icon = _syncVideos[i].icon;
+                if (_syncVideos[i].icon)
+                {
+                    _videoButtons[i].icon = _syncVideos[i].icon;
+                }
                 _videoButtons[i].title = _syncVideos[i].title;
                 _videoButtons[i].onClick.AddListener(_videoButton_onClick);
                 layoutButton?.Invoke(i, _videoButtons[i].transform);
