@@ -292,7 +292,7 @@ namespace SmartSurgery.VideoControllers
             if (timeline.isPlaying)
 #if UNITY_IOS
             { 
-                _players[_selected].Pause();
+                //_players[_selected].Pause();
                 _players[_selected].Play();
             }
 #else
@@ -382,7 +382,7 @@ namespace SmartSurgery.VideoControllers
 
             if (_selected >= 0)
             {
-                if (_players[_selected].isPlaying) _players[_selected].Pause(); // IOS
+                if (_players[_selected].isPlaying) _players[_selected].Stop(); // IOS
                 _players[_selected].targetTexture = null;
                 MutePlayer(_selected, true);
             }
@@ -392,6 +392,7 @@ namespace SmartSurgery.VideoControllers
             if (play)
             {
                 _players[index].Play(); // IOS
+                SetPlayersExternalReferenceTime(time);
             }
 
             _selected = index;
