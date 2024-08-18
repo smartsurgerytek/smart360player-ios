@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2794926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5987,7 +5987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1125749150
 Transform:
   m_ObjectHideFlags: 0
@@ -9104,9 +9104,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 21300000, guid: cb4b97c16cd98dc47be5a3d0a5220839, type: 3}
-    - {fileID: 21300000, guid: 724ae80c2beae7d43a76f38eb8534c73, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -9131,8 +9129,8 @@ MonoBehaviour:
       Entry: 1
       Data: Nurse
     - Name: _icon
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -9146,8 +9144,8 @@ MonoBehaviour:
       Entry: 1
       Data: Doctor
     - Name: _icon
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
