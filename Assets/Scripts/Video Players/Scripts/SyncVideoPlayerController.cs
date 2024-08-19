@@ -132,6 +132,7 @@ namespace SmartSurgery.VideoControllers
                 }
                 _players[i].timeReference = VideoTimeReference.ExternalTime;
                 _players[i].prepareCompleted += _players_prepareCompleted;
+                _players[i].seekCompleted += _players_seekCompleted;
                 MutePlayer(i, true);
                 //Debug.Log($"[Eason] count:{count}, _videoButtons[{i}].interactable: {_videoButtons[i].interactable}.");
             }
@@ -171,6 +172,11 @@ namespace SmartSurgery.VideoControllers
             yield break;
         }
 
+        private void _players_seekCompleted(VideoPlayer source)
+        {
+            if (!source.isPlaying && _timeline.isPlaying) source.Play();
+        }
+
         private void _players_prepareCompleted(VideoPlayer source)
         {
             var index = Array.IndexOf(_players, source);
@@ -181,7 +187,7 @@ namespace SmartSurgery.VideoControllers
             }
             SetPlayerExternalReferenceTime(index, time);
             SetPlayerTime(index, time);
-            if (!source.isPlaying && _timeline.isPlaying) source.Play();
+            
         }
 
         private void OnValidate()
@@ -302,7 +308,7 @@ namespace SmartSurgery.VideoControllers
             {
                 SetPlayerExternalReferenceTime(_selected, time);
                 SetPlayerTime(_selected, time);
-                if (!_players[_selected].isPlaying) _players[_selected].Play();
+                if (!_players[_selected].isPlaying) _players[_selected].Prepare();
             }
 #else
             if (timeline.isPlaying){
@@ -318,7 +324,7 @@ namespace SmartSurgery.VideoControllers
             SetPlayerExternalReferenceTime(_selected, time);
             SetPlayerTime(_selected, time);
             
-            _players[_selected].Play();
+            _players[_selected].Prepare();
 #else
             PlayPlayers();
 #endif
