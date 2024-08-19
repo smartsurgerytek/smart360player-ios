@@ -629,7 +629,35 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -657,8 +685,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: _fileName
       Entry: 1
       Data: 00_Standard_AP.mp4
@@ -670,7 +698,7 @@ MonoBehaviour:
       Data: 295
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 401.41769409179688
     - Name: 
       Entry: 8
       Data: 
@@ -687,8 +715,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 1
     - Name: _fileName
       Entry: 1
       Data: 00_Standard_DR.mp4
@@ -700,7 +728,7 @@ MonoBehaviour:
       Data: 160
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 537.87066650390625
     - Name: 
       Entry: 8
       Data: 
@@ -717,8 +745,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: _fileName
       Entry: 1
       Data: 00_Standard_PN.mp4
@@ -730,7 +758,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 699.89923095703125
     - Name: 
       Entry: 8
       Data: 
@@ -747,8 +775,8 @@ MonoBehaviour:
       Entry: 3
       Data: 3
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 3
     - Name: _fileName
       Entry: 1
       Data: 00_Standard_SN.mp4
@@ -760,7 +788,7 @@ MonoBehaviour:
       Data: 74
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 697.997314453125
     - Name: 
       Entry: 8
       Data: 
@@ -777,8 +805,8 @@ MonoBehaviour:
       Entry: 3
       Data: 4
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 4
     - Name: _fileName
       Entry: 1
       Data: 00_Standard_JN.mp4
@@ -790,7 +818,7 @@ MonoBehaviour:
       Data: 87
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 611.34405517578125
     - Name: 
       Entry: 8
       Data: 
@@ -807,8 +835,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 5
     - Name: _fileName
       Entry: 1
       Data: 01_Difficult_AP.mp4
@@ -820,7 +848,7 @@ MonoBehaviour:
       Data: 575
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 516.682861328125
     - Name: 
       Entry: 8
       Data: 
@@ -837,8 +865,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 6
     - Name: _fileName
       Entry: 1
       Data: 01_Difficult_DR.mp4
@@ -850,7 +878,7 @@ MonoBehaviour:
       Data: 136
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 951.41711425781239
     - Name: 
       Entry: 8
       Data: 
@@ -867,8 +895,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 7
     - Name: _fileName
       Entry: 1
       Data: 01_Difficult_PN.mp4
@@ -880,7 +908,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 1088.9202880859375
     - Name: 
       Entry: 8
       Data: 
@@ -897,8 +925,8 @@ MonoBehaviour:
       Entry: 3
       Data: 3
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 8
     - Name: _fileName
       Entry: 1
       Data: 01_Difficult_SN.mp4
@@ -910,7 +938,7 @@ MonoBehaviour:
       Data: 54
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 1037.7366943359375
     - Name: 
       Entry: 8
       Data: 
@@ -927,8 +955,8 @@ MonoBehaviour:
       Entry: 3
       Data: 4
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 9
     - Name: _fileName
       Entry: 1
       Data: 01_Difficult_JN.mp4
@@ -940,7 +968,7 @@ MonoBehaviour:
       Data: 70
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 1048.33056640625
     - Name: 
       Entry: 8
       Data: 
@@ -957,8 +985,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 10
     - Name: _fileName
       Entry: 1
       Data: 02_Chaotic_AP.mp4
@@ -970,7 +998,7 @@ MonoBehaviour:
       Data: 298
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 453.6031494140625
     - Name: 
       Entry: 8
       Data: 
@@ -987,8 +1015,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 11
     - Name: _fileName
       Entry: 1
       Data: 02_Chaotic_DR.mp4
@@ -1000,7 +1028,7 @@ MonoBehaviour:
       Data: 170
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 600.95037841796875
     - Name: 
       Entry: 8
       Data: 
@@ -1017,8 +1045,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 12
     - Name: _fileName
       Entry: 1
       Data: 02_Chaotic_PN.mp4
@@ -1030,7 +1058,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 770.11932373046875
     - Name: 
       Entry: 8
       Data: 
@@ -1047,8 +1075,8 @@ MonoBehaviour:
       Entry: 3
       Data: 3
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 13
     - Name: _fileName
       Entry: 1
       Data: 02_Chaotic_SN.mp4
@@ -1060,7 +1088,7 @@ MonoBehaviour:
       Data: 50
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 720.0693359375
     - Name: 
       Entry: 8
       Data: 
@@ -1077,8 +1105,8 @@ MonoBehaviour:
       Entry: 3
       Data: 4
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 14
     - Name: _fileName
       Entry: 1
       Data: 02_Chaotic_JN.mp4
@@ -1090,7 +1118,7 @@ MonoBehaviour:
       Data: 65
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 705.05438232421875
     - Name: 
       Entry: 8
       Data: 
@@ -1107,8 +1135,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 15
     - Name: _fileName
       Entry: 1
       Data: 03_Complete_PP.mp4
@@ -1120,7 +1148,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 430.02960205078131
     - Name: 
       Entry: 8
       Data: 
@@ -1137,8 +1165,8 @@ MonoBehaviour:
       Entry: 3
       Data: 7
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 16
     - Name: _fileName
       Entry: 1
       Data: 04_InadequateCommunication_PP.mp4
@@ -1150,7 +1178,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 264.86459350585938
     - Name: 
       Entry: 8
       Data: 
@@ -1167,8 +1195,8 @@ MonoBehaviour:
       Entry: 3
       Data: 5
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 17
     - Name: _fileName
       Entry: 1
       Data: 04_InadequateCommunication_R.mp4
@@ -1180,7 +1208,7 @@ MonoBehaviour:
       Data: 13
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 251.85160827636719
     - Name: 
       Entry: 8
       Data: 
@@ -1197,8 +1225,8 @@ MonoBehaviour:
       Entry: 3
       Data: 6
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 18
     - Name: _fileName
       Entry: 1
       Data: 04_InadequateCommunication_VS.mp4
@@ -1210,7 +1238,7 @@ MonoBehaviour:
       Data: 127
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 137.73759460449219
     - Name: 
       Entry: 8
       Data: 
@@ -1227,8 +1255,8 @@ MonoBehaviour:
       Entry: 3
       Data: 7
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 19
     - Name: _fileName
       Entry: 1
       Data: 05_SuccessfulCommunication_PP.mp4
@@ -1240,7 +1268,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 310.5435791015625
     - Name: 
       Entry: 8
       Data: 
@@ -1257,8 +1285,8 @@ MonoBehaviour:
       Entry: 3
       Data: 5
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 20
     - Name: _fileName
       Entry: 1
       Data: 05_SuccessfulCommunication_R.mp4
@@ -1270,7 +1298,7 @@ MonoBehaviour:
       Data: 15
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 295.54525756835938
     - Name: 
       Entry: 8
       Data: 
@@ -1287,8 +1315,8 @@ MonoBehaviour:
       Entry: 3
       Data: 6
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 21
     - Name: _fileName
       Entry: 1
       Data: 05_SuccessfulCommunication_VS.mp4
@@ -1300,7 +1328,7 @@ MonoBehaviour:
       Data: 133
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 169.43592834472656
     - Name: 
       Entry: 8
       Data: 
@@ -1317,8 +1345,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 22
     - Name: _fileName
       Entry: 1
       Data: 
@@ -1347,8 +1375,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 23
     - Name: _fileName
       Entry: 1
       Data: 
@@ -1377,8 +1405,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 24
     - Name: _fileName
       Entry: 1
       Data: 
@@ -1407,8 +1435,8 @@ MonoBehaviour:
       Entry: 3
       Data: 6
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 25
     - Name: _fileName
       Entry: 1
       Data: 07_NurseSuccessfulCommunication_VS.mp4
@@ -1437,8 +1465,8 @@ MonoBehaviour:
       Entry: 3
       Data: 7
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 26
     - Name: _fileName
       Entry: 1
       Data: 07_NurseSuccessfulCommunication_PP.mp4
@@ -1450,7 +1478,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 142.22541809082031
     - Name: 
       Entry: 8
       Data: 
@@ -1467,8 +1495,8 @@ MonoBehaviour:
       Entry: 3
       Data: 8
     - Name: _clip
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 27
     - Name: _fileName
       Entry: 1
       Data: 07_NurseSuccessfulCommunication_N.mp4
@@ -1480,7 +1508,7 @@ MonoBehaviour:
       Data: 0
     - Name: _duration
       Entry: 4
-      Data: 0
+      Data: 286.36941528320313
     - Name: 
       Entry: 8
       Data: 
@@ -2757,7 +2785,7 @@ MonoBehaviour:
       Data: PP
     - Name: _group
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -3042,7 +3070,7 @@ MonoBehaviour:
       Data: 1|StaffGroup[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
       Data: StaffGroup, SmartSurgery.Smart360
@@ -3053,8 +3081,8 @@ MonoBehaviour:
       Entry: 1
       Data: Nurse
     - Name: _icon
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: StaffGroup_Nurse
     - Name: 
       Entry: 8
       Data: 
@@ -3068,23 +3096,8 @@ MonoBehaviour:
       Entry: 1
       Data: Doctor
     - Name: _icon
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: StaffGroup, SmartSurgery.Smart360
-    - Name: _index
-      Entry: 3
-      Data: 2
-    - Name: _name
       Entry: 1
-      Data: Patient
-    - Name: _icon
-      Entry: 6
-      Data: 
+      Data: StaffGroup_Doctor
     - Name: 
       Entry: 8
       Data: 

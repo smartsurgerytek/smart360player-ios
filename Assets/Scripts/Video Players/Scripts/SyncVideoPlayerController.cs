@@ -364,6 +364,7 @@ namespace SmartSurgery.VideoControllers
         {
             for (int i = 0; i < _players.Length; i++)
             {
+                //_players[i]?.;
                 _players[i]?.Prepare();
             }
         }
