@@ -48,22 +48,24 @@ namespace SmartSurgery.VideoControllers
         public UnityEvent play { get => _play; }
         public UnityEvent<float> playing { get => _playing; }
         public UnityEvent pause { get => _pause; }
-        public double length { get => _length; set => _length = value; }
-        public bool isDragging { get => _isDragging; private set => _isDragging = value; }
-        public bool isPlaying { get => _isPlaying; private set => _isPlaying = value; }
+        public double length { get => _length; }
+        public bool isDragging { get => _isDragging; }
+        public bool isPlaying { get => _isPlaying; }
         public float time { get => _time; }
-        public UnityEvent stop { get => _stop; set => _stop = value; }
+        public UnityEvent stop { get => _stop; }
 
-        public void Initialize()
+        public void Initialize(double length)
         {
+
             if (_initialized) return;
+            _length = length;
             //_multiRangeController = new MultiRangeController();
             //_multiRangeController.enter += _multiRangeController_enter;
             //_multiRangeController.exit += _multiRangeController_exit;
             //_multiRangeController.update += _multiRangeController_update;
             //_multiRangeController.getCurrentValue += _multiRangeController_getCurrentValue;
 
-            isDragging = false;
+            _isDragging = false;
             _eventTrigger = _slider.GetComponent<EventTrigger>();
             if (!_eventTrigger) _eventTrigger = _slider.gameObject.AddComponent<EventTrigger>();
 
@@ -102,7 +104,7 @@ namespace SmartSurgery.VideoControllers
                 play?.Invoke();
             }
 
-            isPlaying = !isPlaying;
+            _isPlaying = !isPlaying;
             UpdatePlayPauseButtonUI();
         }
         private void _stopButton_OnClick()
@@ -120,7 +122,7 @@ namespace SmartSurgery.VideoControllers
         }
         private void OnEnable()
         {
-            if(_initialzeOnEnable) Initialize();
+            if(_initialzeOnEnable) Initialize(_length);
         }
         private void OnDisable()
         {
@@ -156,14 +158,14 @@ namespace SmartSurgery.VideoControllers
         public void Slider_OnPointerDown(BaseEventData pointerEventData)
         {
             if (isDragging) return;
-            isDragging = true;
+            _isDragging = true;
             _time = _slider.value;
             dragStart?.Invoke(_time);
         }
         public void Slider_OnPointerUp(BaseEventData pointerEventData)
         {
             if (!isDragging) return;
-            isDragging = false;
+            _isDragging = false;
             _time = _slider.value;
             dragEnd?.Invoke(_time);
         }
@@ -183,7 +185,7 @@ namespace SmartSurgery.VideoControllers
         public void Stop()
         {
             _time = 0;
-            isPlaying = false;
+            _isPlaying = false;
             stop?.Invoke();
             UpdatePlayPauseButtonUI();
         }

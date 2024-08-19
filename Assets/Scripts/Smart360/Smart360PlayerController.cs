@@ -171,7 +171,6 @@ public class Smart360PlayerController : MonoBehaviour
         {
             yield return null;
         }
-        _timeline.length = _surroundingPlayer.player.length;
         _surroundingPlayer.timeline = _timeline;
 
 
@@ -190,7 +189,7 @@ public class Smart360PlayerController : MonoBehaviour
 
         flatPlayer.Initialize();
         _surroundingPlayer.Initialize();
-        _timeline.Initialize();
+        _timeline.Initialize(_surroundingPlayer.player.length);
 
         _isPreviewChanged = true;
         _displayMonitorChanged = true;

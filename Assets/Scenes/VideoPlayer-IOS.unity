@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2794926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6002,7 +6002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1125749150
 Transform:
   m_ObjectHideFlags: 0
@@ -11638,7 +11638,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializeOnEnable: 0
-  _dragUpdateTime: 0.2
   _videoSource: 1
   _timeline: {fileID: 569386346}
   _targetTexture: {fileID: 8400000, guid: a9bcbc1f506f14a4d81dabd5c633fd7b, type: 2}

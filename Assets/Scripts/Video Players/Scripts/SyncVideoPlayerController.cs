@@ -4,15 +4,18 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.PlayerLoop;
 using UnityEngine.Video;
 
 namespace SmartSurgery.VideoControllers
 {
+    public class MetaQuestSyncVideoPlayerController : SyncVideoPlayerController
+    {
+
+    }
     public class SyncVideoPlayerController : MonoBehaviour
     {
-        [SerializeField] private bool _initializeOnEnable;
-        [SerializeField] private float _dragUpdateTime = 1f;
+        [SerializeField] private bool _initializeOnEnable; 
+
         [SerializeField] private VideoSource _videoSource;
 
         [Header("Components")]
@@ -69,15 +72,6 @@ namespace SmartSurgery.VideoControllers
             }
         }
 
-        public ListElementButton videoButtonPrefab 
-        { 
-            get => _videoButtonPrefab;
-            set
-            {
-                if (_initialized) throw new SetPropertyAfterInitializationException();
-                _videoButtonPrefab = value;
-            }
-        }
         public TimelineController timeline
         {
             get => _timeline;
@@ -90,20 +84,7 @@ namespace SmartSurgery.VideoControllers
 
         [ShowInInspector] 
         private double time => timeline?.time ?? double.MinValue;
-        [ShowInInspector]
-        private VideoPlayerInfo[] videoPlayersInfo
-        {
-            get
-            {
-                var count = _players?.Length ?? 0;
-                var rt = new VideoPlayerInfo[count];
-                for (int i = 0; i < count; i++)
-                {
-                    rt[i] = new VideoPlayerInfo(_players[i]);
-                }
-                return rt;
-            }
-        }
+
 
         public event Func<int, string> getTitleText;
         private string GetTitleText(int index)
@@ -127,7 +108,7 @@ namespace SmartSurgery.VideoControllers
             _players = new VideoPlayer[count];
             for (int i = 0; i < count; i++)
             {
-                _videoButtons[i] = Instantiate(videoButtonPrefab);
+                _videoButtons[i] = Instantiate(_videoButtonPrefab);
                 _videoButtons[i].interactable = false;
                 _videoButtons[i].index = i;
                 if (_syncVideos[i].icon)
@@ -140,6 +121,7 @@ namespace SmartSurgery.VideoControllers
 
                 _players[i] = _videoButtons[i].GetComponent<VideoPlayer>();
                 _players[i].source = videoSource;
+                // Set up video source data
                 if (videoSource == VideoSource.VideoClip)
                 {
                     _players[i].clip = _syncVideos[i].clip;
@@ -149,15 +131,18 @@ namespace SmartSurgery.VideoControllers
                     _players[i].url = _syncVideos[i].url;
                 }
                 _players[i].timeReference = VideoTimeReference.ExternalTime;
-                _players[i].Stop();
+                _players[i].prepareCompleted += _players_prepareCompleted;
                 MutePlayer(i, true);
                 //Debug.Log($"[Eason] count:{count}, _videoButtons[{i}].interactable: {_videoButtons[i].interactable}.");
             }
+#if UNITY_IOS
+#else
             PreparePlayers();
             while(_players.Any(player => !player.isPrepared))
             {
                 yield return null;
             }
+#endif
             var rangeModels = new RangeModel[count];
             for (int i = 0; i < count; i++)
             {
@@ -183,8 +168,22 @@ namespace SmartSurgery.VideoControllers
             SetSelected(initialSelected, false);
 
             _initialized = true;
+            yield break;
         }
-        
+
+        private void _players_prepareCompleted(VideoPlayer source)
+        {
+            var index = Array.IndexOf(_players, source);
+            if (_selected != index)
+            {
+                source.Stop();
+                throw new Exception("You prepared a player that is not selected.");
+            }
+            SetPlayerExternalReferenceTime(index, time);
+            SetPlayerTime(index, time);
+            if (!source.isPlaying && _timeline.isPlaying) source.Play();
+        }
+
         private void OnValidate()
         {
             if (_syncVideos == null) return;
@@ -272,7 +271,6 @@ namespace SmartSurgery.VideoControllers
             SetPlayerExternalReferenceTime(_selected, time);
 #else
             SetPlayersExternalReferenceTime(time);
-
 #endif
         }
 
@@ -317,8 +315,9 @@ namespace SmartSurgery.VideoControllers
         private void _timeline_onPlay()
         {
 #if UNITY_IOS
-            //SetPlayerExternalReferenceTime(_selected, time);
-            //SetPlayerTime(_selected, time);
+            SetPlayerExternalReferenceTime(_selected, time);
+            SetPlayerTime(_selected, time);
+            
             _players[_selected].Play();
 #else
             PlayPlayers();
@@ -326,7 +325,11 @@ namespace SmartSurgery.VideoControllers
         }
         private void _timeline_onPause()
         {
+#if UNITY_IOS
+            StopPlayers();
+#else
             PausePlayers();
+#endif
         }
         private void _timeline_onStop()
         {
@@ -425,7 +428,7 @@ namespace SmartSurgery.VideoControllers
 
             if (play)
             {
-                _players[index].Play(); // IOS
+                _players[index].Prepare(); // IOS
                 _players[index].targetTexture = _targetTexture;
             }
 
@@ -439,14 +442,18 @@ namespace SmartSurgery.VideoControllers
         [Serializable]
         internal struct VideoPlayerInfo
         {
-            [NonSerialized, ShowInInspector, ReadOnly] private double _externalReferenceTime;
+            [NonSerialized, ShowInInspector, ReadOnly] private int _id;
             [NonSerialized, ShowInInspector, ReadOnly] private double _time;
+            [NonSerialized, ShowInInspector, ReadOnly] private double _externalReferenceTime;
+            [NonSerialized, ShowInInspector, ReadOnly] private bool _isPrepared;
             [NonSerialized, ShowInInspector, ReadOnly] private bool _isPlaying;
             [NonSerialized, ShowInInspector, ReadOnly] private bool[] _mute;
-            internal VideoPlayerInfo(VideoPlayer player)
+            internal VideoPlayerInfo(int id, VideoPlayer player)
             {
-                _externalReferenceTime = player.externalReferenceTime;
+                _id = id;
                 _time = player.time;
+                _externalReferenceTime = player.externalReferenceTime;
+                _isPrepared = player.isPrepared;
                 _isPlaying = player.isPlaying;
                 _mute = new bool[player.audioTrackCount];
                 for (ushort i = 0; i < _mute.Length; i++)
@@ -455,6 +462,22 @@ namespace SmartSurgery.VideoControllers
                 }
             }
         }
-        
+
+        // Odin Inspection
+
+        [ShowInInspector, TableList]
+        private VideoPlayerInfo[] videoPlayersInfo
+        {
+            get
+            {
+                var count = _players?.Length ?? 0;
+                var rt = new VideoPlayerInfo[count];
+                for (int i = 0; i < count; i++)
+                {
+                    rt[i] = new VideoPlayerInfo(i,_players[i]);
+                }
+                return rt;
+            }
+        }
     }
 }
