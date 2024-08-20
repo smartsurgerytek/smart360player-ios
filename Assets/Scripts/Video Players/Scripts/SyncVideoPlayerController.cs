@@ -485,5 +485,9 @@ namespace SmartSurgery.VideoControllers
                 return rt;
             }
         }
+        private void OnDestroy()
+        {
+            StopPlayers();
+        }
     }
 }
