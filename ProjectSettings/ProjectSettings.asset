@@ -136,7 +136,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.2
+  bundleVersion: 0.2.0
   preloadedAssets:
   - {fileID: 11400000, guid: 11177927f3587bc40bc70f0beae54353, type: 2}
   metroInputSource: 0
@@ -158,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.SmartSurgery.Smart360Player
+    Android: com.smartsurgery.smart360player
     Standalone: com.SmartSurgery.Smart360Player
     iPhone: com.smartsurgerytek.smart360player
   buildNumber:

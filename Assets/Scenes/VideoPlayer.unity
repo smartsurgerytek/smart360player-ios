@@ -160,7 +160,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
   m_TargetAudioSources:
@@ -190,7 +190,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7025566
 MonoBehaviour:
@@ -207,7 +207,7 @@ MonoBehaviour:
   _initializeOnEnable: 0
   _player: {fileID: 7025564}
   _timeline: {fileID: 569386346}
-  _videoSource: 0
+  _videoSource: 1
 --- !u!114 &7025567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,6 +613,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 94726818}
+  - component: {fileID: 94726819}
   m_Layer: 0
   m_Name: Router
   m_TagString: Untagged
@@ -640,6 +641,65 @@ Transform:
   m_Father: {fileID: 799305636}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94726819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94726817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 775041572}
+    - {fileID: 1709780286}
+    - {fileID: 1676951670}
+    - {fileID: 823517151}
+    - {fileID: 109683495}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _innerData
+      Entry: 7
+      Data: 0|MulticastController, SmartSurgery.Smart360
+    - Name: _controllers
+      Entry: 7
+      Data: 1|IController[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &109683492
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +796,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &162198787
 GameObject:
@@ -767,83 +827,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &187366610
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 187366611}
-  - component: {fileID: 187366612}
-  m_Layer: 0
-  m_Name: false
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &187366611
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187366610}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1762987440}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &187366612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187366610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1574993468}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|MulticastController, SmartSurgery.Smart360
-    - Name: _controllers
-      Entry: 7
-      Data: 1|IController[], SmartSurgery.Smart360
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &189084636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,43 +1507,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307005884}
   m_CullTransparentMesh: 1
---- !u!1 &311898999
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311899000}
-  m_Layer: 0
-  m_Name: This is Debugging
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &311899000
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311898999}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1095300474}
-  - {fileID: 1783649371}
-  - {fileID: 1204628115}
-  - {fileID: 721963931}
-  - {fileID: 1969253058}
-  - {fileID: 1381227642}
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318905202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1537,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &318905204
 MonoBehaviour:
@@ -1778,63 +1726,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321309284}
   m_CullTransparentMesh: 1
---- !u!1 &338606256
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 338606257}
-  - component: {fileID: 338606258}
-  m_Layer: 0
-  m_Name: EnsureLoadDataMethod
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &338606257
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338606256}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1471532727}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &338606258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338606256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 685673144}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 10
-      Data: 0
 --- !u!1 &386993059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,7 +2648,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &476848158
 GameObject:
@@ -3398,7 +3289,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569386343
 GameObject:
@@ -3941,37 +3832,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!1 &619323946
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 619323947}
-  m_Layer: 0
-  m_Name: -----------------------------------
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &619323947
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619323946}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 10, z: 7.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &632173888
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,7 +4040,7 @@ Transform:
   - {fileID: 484605932}
   - {fileID: 1581490799}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &662380108
 MonoBehaviour:
@@ -4203,82 +4063,6 @@ MonoBehaviour:
   _disableLatancy: 0.2
   _lookAtCamera: 0
   _invertForward: 0
---- !u!1 &685673142
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 685673143}
-  - component: {fileID: 685673144}
-  m_Layer: 0
-  m_Name: LoadDataMethod
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &685673143
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685673142}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 721963931}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &685673144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685673142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5097a0f75f7efdd4aba34e9ce562d608, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1771289437}
-    - {fileID: 1381227643}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|Router`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _reader
-      Entry: 10
-      Data: 0
-    - Name: _writer
-      Entry: 7
-      Data: 1|GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _key
-      Entry: 10
-      Data: 1
-    - Name: _throwError
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &685954468
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,39 +4177,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!1 &721963930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 721963931}
-  m_Layer: 0
-  m_Name: Routers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &721963931
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721963930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1338901127}
-  - {fileID: 685673143}
-  m_Father: {fileID: 311899000}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736298373
 GameObject:
   m_ObjectHideFlags: 0
@@ -4607,6 +4358,84 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 65045025}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &755840229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 755840231}
+  - component: {fileID: 755840230}
+  m_Layer: 0
+  m_Name: EntryPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &755840230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755840229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fde5a3440b001347bc090f7c8496ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 1574993468}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _events
+      Entry: 7
+      Data: 0|MonoBehaviourEventElement[], SmartSurgery.Smart360
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: MonoBehaviourEventElement, SmartSurgery.Smart360
+    - Name: _source
+      Entry: 3
+      Data: 0
+    - Name: _target
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!4 &755840231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755840229}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &756738159
@@ -4899,7 +4728,7 @@ Transform:
   - {fileID: 94726818}
   - {fileID: 31131813}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804911717
 GameObject:
@@ -5151,6 +4980,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 139
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5178,6 +5010,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 310
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5205,6 +5040,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 142
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5231,6 +5069,9 @@ MonoBehaviour:
       Data: 
     - Name: _startTime
       Entry: 3
+      Data: 0
+    - Name: _duration
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 8
@@ -5259,6 +5100,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 0
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5286,6 +5130,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 19
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5313,6 +5160,9 @@ MonoBehaviour:
     - Name: _startTime
       Entry: 3
       Data: 310
+    - Name: _duration
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -5325,38 +5175,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!1 &837328138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 837328139}
-  m_Layer: 0
-  m_Name: Flow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &837328139
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837328138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1762987440}
-  m_Father: {fileID: 1783649371}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881553000
 GameObject:
   m_ObjectHideFlags: 0
@@ -6324,7 +6142,7 @@ Transform:
   - {fileID: 1112955440}
   - {fileID: 1730496455}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1001557502
 MonoBehaviour:
@@ -6485,7 +6303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1031036447
 GameObject:
@@ -6732,7 +6550,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1091268948
 MonoBehaviour:
@@ -6748,83 +6566,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SendPointerHoverToParent: 1
   _useInitialPressPositionForDrag: 1
---- !u!1 &1095300473
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1095300474}
-  - component: {fileID: 1095300475}
-  m_Layer: 0
-  m_Name: MonoBehaviourEventHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1095300474
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095300473}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 311899000}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1095300475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095300473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3488034f828937459991db00cf6f121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _awake:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1783649372}
-        m_TargetAssemblyTypeName: MonoWrappedController, SmartSurgery.Smart360
-        m_MethodName: Execute
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _update:
-    m_PersistentCalls:
-      m_Calls: []
-  _lateUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  _start:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDestroy:
-    m_PersistentCalls:
-      m_Calls: []
-  _onEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  _onDisable:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1098138371
 GameObject:
   m_ObjectHideFlags: 0
@@ -7680,39 +7421,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1204628114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1204628115}
-  m_Layer: 0
-  m_Name: Accessors
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1204628115
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204628114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1709062498}
-  - {fileID: 1771289436}
-  m_Father: {fileID: 311899000}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1214891014
 GameObject:
   m_ObjectHideFlags: 0
@@ -8100,119 +7808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentRaycastResultPresentor: {fileID: 433607149}
   _pressRaycastResultPresentor: {fileID: 592570440}
---- !u!1 &1286856651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1286856652}
-  - component: {fileID: 1286856653}
-  - component: {fileID: 1286856654}
-  m_Layer: 0
-  m_Name: IsFromMainMenu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1286856652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286856651}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1910838072}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1286856653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286856651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c793683ecf5d5429582d6054f6205b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|GlobalContextAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    - Name: _key
-      Entry: 7
-      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 1
-      Data: Context.IsFromMainMenu
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _throwError
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-  _reverse: 1
---- !u!114 &1286856654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286856651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8fc2741f743dff429287e494d5ded0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1286856653}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|Router`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    - Name: _reader
-      Entry: 10
-      Data: 0
-    - Name: _writer
-      Entry: 7
-      Data: 1|DefaultAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &1297943042
 GameObject:
   m_ObjectHideFlags: 0
@@ -8519,7 +8114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1318351536
 MonoBehaviour:
@@ -8533,13 +8128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9e4bb5e30c1a747bd4635b7777917f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeline: {fileID: 569386346}
   _flatPlayer: {fileID: 2106412560}
   _surroundingPlayer: {fileID: 7025566}
-  _quitButton: {fileID: 1803917819}
-  _playerControlPanel: {fileID: 2022902007}
+  _timeline: {fileID: 569386346}
   _previewMonitor: {fileID: 1031036447}
   _fullScreenMonitor: {fileID: 1099715482}
+  _playerControlPanel: {fileID: 2022902007}
+  _toggleControlPanelButton: {fileID: 0}
+  _screenButton: {fileID: 0}
+  _quitButton: {fileID: 1803917819}
   _videoTitle: {fileID: 995163199}
   _videoButtonsParent: {fileID: 2022902006}
   _videoButtons: []
@@ -8630,82 +8227,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319258662}
   m_CullTransparentMesh: 1
---- !u!1 &1338901126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1338901127}
-  - component: {fileID: 1338901128}
-  m_Layer: 0
-  m_Name: CurrentEdition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1338901127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338901126}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 721963931}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1338901128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338901126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5097a0f75f7efdd4aba34e9ce562d608, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1709062497}
-    - {fileID: 1969253059}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|Router`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _reader
-      Entry: 10
-      Data: 0
-    - Name: _writer
-      Entry: 7
-      Data: 1|GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _key
-      Entry: 10
-      Data: 1
-    - Name: _throwError
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!4 &1349979406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4246941135814254765, guid: c6a19e88c1588ec43809e3d5706daca8, type: 3}
@@ -8770,68 +8291,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3006956, y: 0.432, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0.005}
---- !u!1 &1381227641
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1381227642}
-  - component: {fileID: 1381227643}
-  m_Layer: 0
-  m_Name: Context.LoadDataMethod
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1381227642
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381227641}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 311899000}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1381227643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381227641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da499c596a635434f9c9793e62f6fec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 1
-      Data: Context.LoadDataMethod
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &1440254498
 GameObject:
   m_ObjectHideFlags: 0
@@ -9103,91 +8562,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
---- !u!1 &1471532726
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1471532727}
-  - component: {fileID: 1471532728}
-  m_Layer: 0
-  m_Name: true
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1471532727
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471532726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1483436633}
-  - {fileID: 338606257}
-  m_Father: {fileID: 1762987440}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1471532728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471532726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1483436634}
-    - {fileID: 338606258}
-    - {fileID: 1574993468}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|MulticastController, SmartSurgery.Smart360
-    - Name: _controllers
-      Entry: 7
-      Data: 1|IController[], SmartSurgery.Smart360
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 10
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &1480348964
 GameObject:
   m_ObjectHideFlags: 0
@@ -9257,63 +8631,6 @@ MonoBehaviour:
     _item: {fileID: 1695228143}
   - _socket: {fileID: 1634138869}
     _item: {fileID: 1803917818}
---- !u!1 &1483436632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1483436633}
-  - component: {fileID: 1483436634}
-  m_Layer: 0
-  m_Name: EnsureCurrentEdition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1483436633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483436632}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1471532727}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1483436634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483436632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1338901128}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 10
-      Data: 0
 --- !u!1 &1500630871
 GameObject:
   m_ObjectHideFlags: 0
@@ -9406,7 +8723,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1510834398
 GameObject:
@@ -9440,7 +8757,7 @@ Transform:
   - {fileID: 285005164}
   - {fileID: 1226678141}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1510834400
 MonoBehaviour:
@@ -9597,7 +8914,7 @@ Transform:
   - {fileID: 1375907797}
   - {fileID: 1720258332}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1522312857
 MonoBehaviour:
@@ -10344,28 +9661,19 @@ MonoBehaviour:
       Data: 4
     - Name: _loadDataMethod
       Entry: 7
-      Data: 0|GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _key
-      Entry: 7
-      Data: 1|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+      Data: 0|DefaultAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
     - Name: _value
-      Entry: 1
-      Data: Context.LoadDataMethod
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _throwError
-      Entry: 5
-      Data: false
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: _currentEdition
       Entry: 7
-      Data: 2|GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+      Data: 1|GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
     - Name: _key
       Entry: 7
-      Data: 3|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
+      Data: 2|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
     - Name: _value
       Entry: 1
       Data: Context.CurrentEdition
@@ -10384,7 +9692,7 @@ MonoBehaviour:
     - Name: _quit
       Entry: 10
       Data: 6
-  _initializeOnEnable: 1
+  _initializeOnEnable: 0
   _fileManager: {fileID: 11400000, guid: 721c39fcb5cb86e4db8bd06916e17ff2, type: 2}
   _smartPlayer: {fileID: 1318351536}
   _loadingVideoScreen: {fileID: 0}
@@ -10405,7 +9713,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581490798
 GameObject:
@@ -10849,9 +10157,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 21300000, guid: cb4b97c16cd98dc47be5a3d0a5220839, type: 3}
-    - {fileID: 21300000, guid: 724ae80c2beae7d43a76f38eb8534c73, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -10876,8 +10182,8 @@ MonoBehaviour:
       Entry: 1
       Data: Nurse
     - Name: _icon
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -10891,8 +10197,8 @@ MonoBehaviour:
       Entry: 1
       Data: Doctor
     - Name: _icon
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -11447,68 +10753,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!1 &1709062496
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1709062498}
-  - component: {fileID: 1709062497}
-  m_Layer: 0
-  m_Name: DummyCurrentEdition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1709062497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709062496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d285ed6db8f90f344a26b45e31c34b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|DefaultAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
---- !u!4 &1709062498
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709062496}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1204628115}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709780283
 GameObject:
   m_ObjectHideFlags: 0
@@ -11741,218 +10985,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1762987439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1762987440}
-  - component: {fileID: 1762987441}
-  m_Layer: 0
-  m_Name: If
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1762987440
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762987439}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1910838072}
-  - {fileID: 1471532727}
-  - {fileID: 187366611}
-  m_Father: {fileID: 837328139}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1762987441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762987439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1910838073}
-    - {fileID: 1471532728}
-    - {fileID: 187366612}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|IfController, SmartSurgery.Smart360
-    - Name: _condition
-      Entry: 10
-      Data: 0
-    - Name: _trueController
-      Entry: 10
-      Data: 1
-    - Name: _falseController
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
---- !u!1 &1771289435
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1771289436}
-  - component: {fileID: 1771289437}
-  m_Layer: 0
-  m_Name: LoadDataMethod
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1771289436
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771289435}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1204628115}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1771289437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771289435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d285ed6db8f90f344a26b45e31c34b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|DefaultAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
---- !u!1 &1783649370
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1783649371}
-  - component: {fileID: 1783649372}
-  m_Layer: 0
-  m_Name: Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1783649371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783649370}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 837328139}
-  m_Father: {fileID: 311899000}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1783649372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783649370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ec57d02f8b3754d95d2857c072e138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1762987441}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|MulticastController, SmartSurgery.Smart360
-    - Name: _controllers
-      Entry: 7
-      Data: 1|IController[], SmartSurgery.Smart360
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 10
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &1788291430
 GameObject:
   m_ObjectHideFlags: 0
@@ -11989,7 +11021,7 @@ Transform:
   - {fileID: 1099715486}
   - {fileID: 685954469}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1788291432
 MonoBehaviour:
@@ -12482,6 +11514,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 775041572}
+    - {fileID: 1709780286}
     - {fileID: 1676951670}
     - {fileID: 823517151}
     - {fileID: 109683495}
@@ -12498,7 +11531,7 @@ MonoBehaviour:
       Data: 1|IController[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 10
       Data: 0
@@ -12511,6 +11544,9 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
     - Name: 
       Entry: 13
       Data: 
@@ -12687,7 +11723,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!1 &1910838071
+--- !u!1 &1904300624
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12695,81 +11731,103 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1910838072}
-  - component: {fileID: 1910838073}
+  - component: {fileID: 1904300626}
+  - component: {fileID: 1904300625}
   m_Layer: 0
-  m_Name: Conditions
+  m_Name: EntryPoint_Debug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1910838072
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910838071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2002706905}
-  - {fileID: 1286856652}
-  m_Father: {fileID: 1762987440}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1910838073
+  m_IsActive: 0
+--- !u!114 &1904300625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910838071}
+  m_GameObject: {fileID: 1904300624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c793683ecf5d5429582d6054f6205b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fde5a3440b001347bc090f7c8496ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2002706906}
-    - {fileID: 1286856653}
+    - {fileID: 1986333911}
+    - {fileID: 94726819}
+    - {fileID: 1574993468}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _innerData
+    - Name: _events
       Entry: 7
-      Data: 0|AndReader, SmartSurgery.Smart360
-    - Name: _conditions
-      Entry: 7
-      Data: 1|IReader`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
+      Data: 0|MonoBehaviourEventElement[], SmartSurgery.Smart360
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
+      Entry: 7
+      Data: MonoBehaviourEventElement, SmartSurgery.Smart360
+    - Name: _source
+      Entry: 3
+      Data: 0
+    - Name: _target
       Entry: 10
       Data: 0
     - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: MonoBehaviourEventElement, SmartSurgery.Smart360
+    - Name: _source
+      Entry: 3
+      Data: 0
+    - Name: _target
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: MonoBehaviourEventElement, SmartSurgery.Smart360
+    - Name: _source
+      Entry: 3
+      Data: 0
+    - Name: _target
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  _reverse: 0
+--- !u!4 &1904300626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904300624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1986333912}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920070243
 GameObject:
   m_ObjectHideFlags: 0
@@ -13019,68 +12077,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956555703}
   m_CullTransparentMesh: 1
---- !u!1 &1969253057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1969253058}
-  - component: {fileID: 1969253059}
-  m_Layer: 0
-  m_Name: Context.CurrentEdition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1969253058
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969253057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 311899000}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1969253059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969253057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da499c596a635434f9c9793e62f6fec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
-    - Name: _value
-      Entry: 1
-      Data: Context.CurrentEdition
-    - Name: 
-      Entry: 8
-      Data: 
 --- !u!1 &1971675463
 GameObject:
   m_ObjectHideFlags: 0
@@ -13225,7 +12221,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!1 &2002706904
+--- !u!1 &1986333910
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13233,41 +12229,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2002706905}
-  - component: {fileID: 2002706906}
-  - component: {fileID: 2002706907}
+  - component: {fileID: 1986333912}
+  - component: {fileID: 1986333911}
   m_Layer: 0
-  m_Name: IsEditor
+  m_Name: DummyContextInitializer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2002706905
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002706904}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1910838072}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2002706906
+--- !u!114 &1986333911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002706904}
+  m_GameObject: {fileID: 1986333910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c793683ecf5d5429582d6054f6205b, type: 3}
+  m_Script: {fileID: 11500000, guid: 5097a0f75f7efdd4aba34e9ce562d608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -13281,43 +12261,29 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _innerData
       Entry: 7
-      Data: 0|IsEditorReader, SmartSurgery.Smart360
+      Data: 0|Router`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    - Name: _reader
+      Entry: 7
+      Data: 1|DefaultAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    - Name: _value
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
-  _reverse: 0
---- !u!114 &2002706907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002706904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8fc2741f743dff429287e494d5ded0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 2002706906}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _innerData
-      Entry: 7
-      Data: 0|Router`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    - Name: _reader
-      Entry: 10
-      Data: 0
     - Name: _writer
       Entry: 7
-      Data: 1|DefaultAccessor`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
+      Data: 2|GlobalContextAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
+    - Name: _key
+      Entry: 7
+      Data: 3|DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
     - Name: _value
+      Entry: 1
+      Data: Context.CurrentEdition
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _throwError
       Entry: 5
       Data: true
     - Name: 
@@ -13326,6 +12292,21 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+--- !u!4 &1986333912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986333910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1904300626}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022902005
 GameObject:
   m_ObjectHideFlags: 0
@@ -13598,7 +12579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2106412560
 MonoBehaviour:
@@ -13613,8 +12594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initializeOnEnable: 0
-  _dragUpdateTime: 0.2
-  _videoSource: 0
+  _videoSource: 1
   _timeline: {fileID: 569386346}
   _targetTexture: {fileID: 8400000, guid: a9bcbc1f506f14a4d81dabd5c633fd7b, type: 2}
   _initialSelected: 0
@@ -13810,7 +12790,7 @@ Transform:
   m_Children:
   - {fileID: 2818644032188756693}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -12}
 --- !u!4 &650874357914573830
 Transform:
@@ -14020,7 +13000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2101833845309761331, guid: c6a19e88c1588ec43809e3d5706daca8, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2101833845309761331, guid: c6a19e88c1588ec43809e3d5706daca8, type: 3}
       propertyPath: m_LocalPosition.x

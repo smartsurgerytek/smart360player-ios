@@ -11,10 +11,6 @@ using System.Collections;
 
 public class Smart360PlayerController : MonoBehaviour
 {
-
-
-
-
     [FoldoutGroup("Components")] [SerializeField] private SyncVideoPlayerController _flatPlayer;
     [FoldoutGroup("Components")] [SerializeField] private VideoPlayerController _surroundingPlayer;
     [FoldoutGroup("Components")] [SerializeField] private TimelineController _timeline;
@@ -171,6 +167,7 @@ public class Smart360PlayerController : MonoBehaviour
         {
             yield return null;
         }
+        Debug.Log("12345");
         _surroundingPlayer.timeline = _timeline;
 
 
@@ -182,12 +179,13 @@ public class Smart360PlayerController : MonoBehaviour
         flatPlayer.setTitle.AddListener(_flatPlayer_setTitle);
 
 
-        _quitButton.onClick.AddListener(_quitButton_onClick);
-        _screenButton.onClick.AddListener(_switchView_onClick);
-        _toggleControlPanelButton.onClick.AddListener(_togglePlayerControlPanel_onClick);
+        _quitButton?.onClick?.AddListener(_quitButton_onClick);
+        _screenButton?.onClick?.AddListener(_switchView_onClick);
+        _toggleControlPanelButton?.onClick?.AddListener(_togglePlayerControlPanel_onClick);
         //_togglePlayerMonitorButton.onClick.AddListener(_togglePlayerMonitor_onClick);
 
         flatPlayer.Initialize();
+
         _surroundingPlayer.Initialize();
         _timeline.Initialize(_surroundingPlayer.player.length);
 

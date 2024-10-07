@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Video;
 namespace SmartSurgery.VideoControllers
 {
@@ -22,15 +21,6 @@ namespace SmartSurgery.VideoControllers
                 _timeline = value;
             }
         }
-        //public VideoSource videoSource
-        //{
-        //    get => _videoSource;
-        //    set
-        //    {
-        //        if (_initialized) throw new SetPropertyAfterInitializationException();
-        //        _videoSource = value;
-        //    }
-        //}
         public void Initialize()
         {
             if (_initialized) return;

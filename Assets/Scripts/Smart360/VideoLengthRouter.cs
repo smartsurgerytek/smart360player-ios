@@ -8,7 +8,7 @@ using UnityEngine.Video;
 public class VideoLengthRouter : SerializedMonoBehaviour 
 {
     [OdinSerialize] private IArrayAccessor<Video> _source;
-    [SerializeField] private Video[] _buffer;
+    [SerializeField, TableList] private Video[] _buffer;
     [SerializeField] private VideoPlayer _player;
 
     [Button]

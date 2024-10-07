@@ -2,18 +2,6 @@
 using Sirenix.OdinInspector;
 using System.Collections.Generic;
 using Sirenix.Serialization;
-public class VideoPlayerSceneDummyContextInitializer : IController
-{
-    [OdinSerialize] private IArrayRouter<Edition> _loadEditions;
-    private void CreateDummyContext()
-    {
-        _loadEditions.Execute();
-    }
-    void IController.Execute()
-    {
-        CreateDummyContext();
-    }
-}
 public class MonoBehaviourEventTrigger : SerializedMonoBehaviour
 {
     [OdinSerialize,TableList] private MonoBehaviourEventElement[] _events;

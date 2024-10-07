@@ -9,6 +9,7 @@ public class VideoPlayerDebugger : MonoBehaviour
     [ShowInInspector] private double _player_time => _player.time;
     [ShowInInspector] private double _player_externalReferenceTime => _player.externalReferenceTime;
     [ShowInInspector] private VideoTimeReference _player_timeReference => _player.timeReference;
+    [ShowInInspector] private bool _player_isPrepared => _player.isPrepared;
     [ShowInInspector] private bool _player_isPlaying => _player.isPlaying;
     [ShowInInspector] private double _player_length => _player.length;
 

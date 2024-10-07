@@ -94,16 +94,16 @@ namespace SmartSurgery.VideoControllers
         public UnityEvent<string> setTitle { get => _setTitle; }
         public UnityEvent<int, Transform> layoutButton { get => _layoutButton; }
 
-        private float _lastTimeDrag = 0;
         public void Initialize()
         {
+            Debug.Log("SyncVideoPlayerController.Initialize()");
             if (_initialized) return;
             StartCoroutine(InitializeCoroutine());
         }
         private IEnumerator InitializeCoroutine()
         {
             var count = _syncVideos.Length;
-
+            Debug.Log($"Sync Video Count:{_syncVideos.Length}");
             _videoButtons = new ListElementButton[count];
             _players = new VideoPlayer[count];
             for (int i = 0; i < count; i++)
@@ -131,8 +131,10 @@ namespace SmartSurgery.VideoControllers
                     _players[i].url = _syncVideos[i].url;
                 }
                 _players[i].timeReference = VideoTimeReference.ExternalTime;
+#if UNITY_IOS
                 _players[i].prepareCompleted += _players_prepareCompleted;
                 _players[i].seekCompleted += _players_seekCompleted;
+#endif
                 MutePlayer(i, true);
                 //Debug.Log($"[Eason] count:{count}, _videoButtons[{i}].interactable: {_videoButtons[i].interactable}.");
             }
@@ -167,16 +169,20 @@ namespace SmartSurgery.VideoControllers
 
            
             SetSelected(initialSelected, false);
+#if UNITY_IOS
+#else
+            
+#endif
 
             _initialized = true;
             yield break;
         }
 
+#if UNITY_IOS
         private void _players_seekCompleted(VideoPlayer source)
         {
             if (!source.isPlaying && _timeline.isPlaying) source.Play();
         }
-
         private void _players_prepareCompleted(VideoPlayer source)
         {
             var index = Array.IndexOf(_players, source);
@@ -187,8 +193,8 @@ namespace SmartSurgery.VideoControllers
             }
             SetPlayerExternalReferenceTime(index, time);
             SetPlayerTime(index, time);
-            
         }
+#endif
 
         private void OnValidate()
         {
@@ -341,8 +347,6 @@ namespace SmartSurgery.VideoControllers
         {
             SetPlayersTime(0);
             SetPlayersExternalReferenceTime(0);
-            //PlayPlayers();
-            //PausePlayers();
             StopPlayers();
         }
 #if UNITY_IOS
@@ -416,30 +420,41 @@ namespace SmartSurgery.VideoControllers
         }
         private void SetSelected(int index, bool play)
         {
+            Debug.Log($"SetSelected({index},{play}), _selected={_selected}");
             if (_selected == index) return;
             if (timeline.time < syncVideos[index].startTime || syncVideos[index].startTime + _syncVideos[index].duration < timeline.time)
             {
                 _selectedInvalid = true;
                 Debug.Log("Selected Invalid");
             }
-            Debug.Log("SetSelected");
 
             if (_selected >= 0)
             {
-                if (_players[_selected].isPlaying) _players[_selected].Stop(); // IOS
+#if UNITY_IOS
+                if (_players[_selected].isPlaying)
+                {
+                    _players[_selected].Stop(); // IOS
+                }
+#endif
                 _players[_selected].targetTexture = null;
                 MutePlayer(_selected, true);
             }
-            MutePlayer(index, false);
 
+#if UNITY_IOS
             if (play)
             {
                 _players[index].Prepare(); // IOS
+                //_players[index].Play();
                 _players[index].targetTexture = _targetTexture;
             }
-
             SetPlayerExternalReferenceTime(index, time);
             SetPlayerTime(index, time);
+#else
+            _players[index].targetTexture = _targetTexture;
+#endif
+
+
+            MutePlayer(index, false);
             _selected = index;
             var title = GetTitleText(index);
             setTitle?.Invoke(title);
