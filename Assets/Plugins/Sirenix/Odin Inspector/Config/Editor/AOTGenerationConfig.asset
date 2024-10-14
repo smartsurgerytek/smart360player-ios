@@ -16,9 +16,46 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0d000000
-  lastScan: 638596072370087360
+  lastScan: 638639787343733304
   supportSerializedTypes:
-  - TypeName: AndReader, SmartSurgery.Smart360
+  - TypeName: ArrayCursorAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ArrayRouter`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: DefaultArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Double, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: EditionArrayOfModuleRouter, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IAccessor`1[[Module[], SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IArrayRouter`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: IReader`1[[ModuleButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: JsonFileArrayAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ModuleButton, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: ModuleButtonInitializer, SmartSurgery.Smart360
+    IsCustom: 0
+    Emit: 1
+  - TypeName: TransformComponentReader`1[[ModuleButton, SmartSurgery.Smart360]],
+      SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: ArrayCursorAccessor`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
@@ -66,9 +103,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: DefaultAccessor`1[[System.Int32, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: DefaultAccessor`1[[Module, SmartSurgery.Smart360]], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: DefaultAccessor`1[[System.String, mscorlib]], SmartSurgery.Smart360
@@ -212,9 +246,6 @@ MonoBehaviour:
       mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: IfController, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
   - TypeName: IMainMenuSceneContext, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
@@ -231,10 +262,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: IReader`1[[System.Boolean, mscorlib]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IReader`1[[System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089]][], SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: IReader`1[[Edition[], SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -315,9 +342,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: IRouter`1[[VerificationResult, SmartSurgery.Smart360]], SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IsEditorReader, SmartSurgery.Smart360
     IsCustom: 0
     Emit: 1
   - TypeName: ISpawner`1[[EditionButton, SmartSurgery.Smart360]], SmartSurgery.Smart360
@@ -449,9 +473,6 @@ MonoBehaviour:
     IsCustom: 0
     Emit: 1
   - TypeName: SceneLoader, SmartSurgery.Smart360
-    IsCustom: 0
-    Emit: 1
-  - TypeName: UnityEngine.Sprite, UnityEngine.CoreModule
     IsCustom: 0
     Emit: 1
   - TypeName: Staff, SmartSurgery.Smart360

@@ -24,7 +24,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
 
 
     [Header("Controllers")]
-    [SerializeField] private IController _spawnEditionButtons;
+    [SerializeField] private IController _initializer;
     [SerializeField] private List<ISpawnInitializer<EditionButton>> _editionButtonPreInitializers;
     [Header("Events")]
     [SerializeField] private UnityEvent<int> _clickEditionButton;
@@ -51,7 +51,7 @@ public class MainMenuSceneManager : SerializedMonoBehaviour
     internal void Initialize()
     {
         if (_initialized) return;
-        _spawnEditionButtons.Execute();
+        _initializer.Execute();
 
         _verificationView.show.AddListener(_verificationView_back);
         _verificationView.back.AddListener(_verificationView_back);

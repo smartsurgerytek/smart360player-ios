@@ -11,7 +11,6 @@ public class Instantiator : IController
         var prefab = _prefab.Read();
         var parent = _parent.Read();
         var instance = GameObject.Instantiate(prefab, parent);
-        Debug.Log(instance.GetInstanceID());
         _instance.Write(instance);
     }
 }

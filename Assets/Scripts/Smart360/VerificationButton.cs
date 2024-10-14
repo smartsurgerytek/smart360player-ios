@@ -3,7 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-public class EditionButton : MonoBehaviour
+
+public class VerificationButton : SerializedMonoBehaviour
 {
     public enum VerificationState
     {
@@ -13,35 +14,28 @@ public class EditionButton : MonoBehaviour
         Unenabled,
         Warning
     }
-    
-    [Header("Profile")]
-    [SerializeField] private int _index;
-    [SerializeField] private int _editionId;
 
     [Header("Components")]
-    [SerializeField] private Button _button;
+    [SerializeField] private Button<int> _button;
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private CanvasGroup _unpaid;
     [SerializeField] private CanvasGroup _expired;
     [SerializeField] private CanvasGroup _warning;
 
     [Header("State")]
-    [SerializeField,ReadOnly] private VerificationState _verificationState;
+    [SerializeField, ReadOnly] private VerificationState _verificationState;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent<int> _clickButton;
+    [SerializeField] private UnityEvent<int> _click;
 
-    public int index { get => _index; internal set => _index = value; }
-    public int editionId { get => _editionId; internal set => _editionId = value; }
     public string title { get => _titleText.text; internal set => _titleText.text = value; }
     public VerificationState verificationState { get => _verificationState; internal set => _verificationState = value; }
-    public UnityEvent<int> clickButton { get => _clickButton; }
+    public UnityEvent<int> click { get => _click; }
 
     public void Initialize()
     {
-        _button.interactable = verificationState != VerificationState.Unenabled;
-        _button.onClick.AddListener(_button_onClick);
-        if(verificationState == VerificationState.Unpaid)
+        _button.button.interactable = verificationState != VerificationState.Unenabled;
+        if (verificationState == VerificationState.Unpaid)
         {
             SetCanvasGroup(_unpaid, true);
         }
@@ -55,10 +49,6 @@ public class EditionButton : MonoBehaviour
         }
     }
 
-    private void _button_onClick()
-    {
-        clickButton?.Invoke(_editionId);
-    }
     private void SetCanvasGroup(CanvasGroup canvasGroup, bool show)
     {
         canvasGroup.alpha = show ? 1 : 0;

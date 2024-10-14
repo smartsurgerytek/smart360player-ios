@@ -2940,7 +2940,7 @@ MonoBehaviour:
     _clip: {fileID: 0}
     _fileName: 01_Difficult_DR.mp4
     _assetName: 
-    _startTime: 136
+    _startTime: 137
     _duration: 951.4171142578124
   - _index: 7
     _edition: 1
@@ -2956,7 +2956,7 @@ MonoBehaviour:
     _clip: {fileID: 0}
     _fileName: 01_Difficult_SN.mp4
     _assetName: 
-    _startTime: 54
+    _startTime: 53
     _duration: 1037.7366943359375
   - _index: 9
     _edition: 1
@@ -2964,7 +2964,7 @@ MonoBehaviour:
     _clip: {fileID: 0}
     _fileName: 01_Difficult_JN.mp4
     _assetName: 
-    _startTime: 70
+    _startTime: 69
     _duration: 1048.33056640625
   - _index: 10
     _edition: 2
@@ -3077,7 +3077,7 @@ MonoBehaviour:
     _fileName: 06_NurseAssisting_PP.mp4
     _assetName: 
     _startTime: 0
-    _duration: 328.7617797851563
+    _duration: 316
   - _index: 24
     _edition: 6
     _staff: 5
@@ -3092,7 +3092,7 @@ MonoBehaviour:
     _clip: {fileID: 0}
     _fileName: 07_NurseSuccessfulCommunication_VS.mp4
     _assetName: 
-    _startTime: 144
+    _startTime: 142
     _duration: 142.2254180908203
   - _index: 26
     _edition: 7
@@ -3110,6 +3110,230 @@ MonoBehaviour:
     _assetName: 
     _startTime: 0
     _duration: 286.3694152832031
+  - _index: 0
+    _edition: 8
+    _staff: 5
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_R.mp4
+    _assetName: 
+    _startTime: 139
+    _duration: 0
+  - _index: 1
+    _edition: 8
+    _staff: 9
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_EP.mp4
+    _assetName: 
+    _startTime: 310
+    _duration: 0
+  - _index: 2
+    _edition: 8
+    _staff: 10
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_JP.mp4
+    _assetName: 
+    _startTime: 142
+    _duration: 0
+  - _index: 3
+    _edition: 8
+    _staff: 11
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_HN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 4
+    _edition: 8
+    _staff: 2
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_PN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 5
+    _edition: 8
+    _staff: 3
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_SN.mp4
+    _assetName: 
+    _startTime: 19
+    _duration: 0
+  - _index: 6
+    _edition: 8
+    _staff: 12
+    _clip: {fileID: 0}
+    _fileName: 08_Standard_EN.mp4
+    _assetName: 
+    _startTime: 310
+    _duration: 0
+  - _index: 7
+    _edition: 9
+    _staff: 5
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_R.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 8
+    _edition: 9
+    _staff: 6
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_VS.mp4
+    _assetName: 
+    _startTime: 191
+    _duration: 0
+  - _index: 9
+    _edition: 9
+    _staff: 9
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_EP.mp4
+    _assetName: 
+    _startTime: 344
+    _duration: 0
+  - _index: 10
+    _edition: 9
+    _staff: 11
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_HN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 11
+    _edition: 9
+    _staff: 2
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_PN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 12
+    _edition: 9
+    _staff: 3
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_SN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 13
+    _edition: 9
+    _staff: 4
+    _clip: {fileID: 0}
+    _fileName: 09_DoctorCarry_JN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 14
+    _edition: 10
+    _staff: 5
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_R.mp4
+    _assetName: 
+    _startTime: 8
+    _duration: 0
+  - _index: 15
+    _edition: 10
+    _staff: 6
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_VS.mp4
+    _assetName: 
+    _startTime: 172
+    _duration: 0
+  - _index: 16
+    _edition: 10
+    _staff: 9
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_EP.mp4
+    _assetName: 
+    _startTime: 310
+    _duration: 0
+  - _index: 17
+    _edition: 10
+    _staff: 11
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_HN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 18
+    _edition: 10
+    _staff: 2
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_PN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 19
+    _edition: 10
+    _staff: 3
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_SN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 20
+    _edition: 10
+    _staff: 4
+    _clip: {fileID: 0}
+    _fileName: 10_Chaotic_JN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 21
+    _edition: 11
+    _staff: 5
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_R.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 22
+    _edition: 11
+    _staff: 6
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_VS.mp4
+    _assetName: 
+    _startTime: 200
+    _duration: 0
+  - _index: 23
+    _edition: 11
+    _staff: 9
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_EP.mp4
+    _assetName: 
+    _startTime: 327
+    _duration: 0
+  - _index: 24
+    _edition: 11
+    _staff: 11
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_HN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 25
+    _edition: 11
+    _staff: 2
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_PN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 26
+    _edition: 11
+    _staff: 3
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_SN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
+  - _index: 27
+    _edition: 11
+    _staff: 4
+    _clip: {fileID: 0}
+    _fileName: 11_NurseCarry_JN.mp4
+    _assetName: 
+    _startTime: 0
+    _duration: 0
   _player: {fileID: 748997560}
 --- !u!1 &1722567741
 GameObject:
