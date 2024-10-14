@@ -15,8 +15,8 @@ public class Smart360PlayerController : MonoBehaviour
     [FoldoutGroup("Components")] [SerializeField] private VideoPlayerController _surroundingPlayer;
     [FoldoutGroup("Components")] [SerializeField] private TimelineController _timeline;
     [FoldoutGroup("Components")] [SerializeField] private GameObject _previewMonitor;
-    [FoldoutGroup("Components")] [SerializeField] private GameObject _fullScreenMonitor;
-    [FoldoutGroup("Components")] [SerializeField] private CanvasGroup _playerControlPanel;
+    [FoldoutGroup("Components")] [SerializeField] private CanvasGroupFade _fullScreenMonitor;
+    [FoldoutGroup("Components")] [SerializeField] private CanvasGroupFade _playerControlPanel;
     [FoldoutGroup("Components/Sidebar")] [SerializeField] private Button _toggleControlPanelButton;
     [FoldoutGroup("Components/Sidebar")] [SerializeField] private Button _screenButton;
     [FoldoutGroup("Components/Sidebar")] [SerializeField] private Button _quitButton;
@@ -180,7 +180,7 @@ public class Smart360PlayerController : MonoBehaviour
 
 
         _quitButton?.onClick?.AddListener(_quitButton_onClick);
-        _screenButton?.onClick?.AddListener(_switchView_onClick);
+        _screenButton?.onClick?.AddListener(_toggleFullScreenMonitor_onClick);
         _toggleControlPanelButton?.onClick?.AddListener(_togglePlayerControlPanel_onClick);
         //_togglePlayerMonitorButton.onClick.AddListener(_togglePlayerMonitor_onClick);
 
@@ -210,14 +210,9 @@ public class Smart360PlayerController : MonoBehaviour
         displayConrols = !displayConrols;
     }
 
-    private void _togglePlayerMonitor_onClick()
+    private void _toggleFullScreenMonitor_onClick()
     {
-        displayMonitor = !displayMonitor;
-    }
-
-    private void _switchView_onClick()
-    {
-        isPreview = !isPreview;
+        _fullScreenMonitor.SetVisible(!_fullScreenMonitor.GetVisible());
     }
 
     private void Update()
@@ -240,12 +235,14 @@ public class Smart360PlayerController : MonoBehaviour
     }
     private void UpdatePlayerControlPanel(bool displayConrols)
     {
-        _playerControlPanel.alpha = displayConrols ? 1 : 0;
-        _playerControlPanel.interactable = displayConrols;
-        _playerControlPanel.blocksRaycasts = displayConrols;
+        _playerControlPanel.SetVisible(displayConrols);
     }
     private void _quitButton_onClick()
     {
+        if (_timeline.isPlaying)
+        {
+            _timeline.Stop();
+        }
         quit?.Invoke();
     }
     private void OnDisable()

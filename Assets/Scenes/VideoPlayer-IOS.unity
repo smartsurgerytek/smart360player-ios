@@ -2603,7 +2603,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 60, y: 166.66669}
-  m_SizeDelta: {x: 600, y: 26}
+  m_SizeDelta: {x: 600, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &569386345
 MonoBehaviour:
@@ -5602,7 +5602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1099715483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5642,7 +5642,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1099715485
 Canvas:
   m_ObjectHideFlags: 0
@@ -5684,7 +5684,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1638.4, y: 1228.8}
+  m_SizeDelta: {x: 1824, y: 1026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1099715487
 MonoBehaviour:
@@ -6190,7 +6190,7 @@ GameObject:
   - component: {fileID: 1145555687}
   - component: {fileID: 1145555686}
   m_Layer: 5
-  m_Name: Control_UI_ToggleControlPanel
+  m_Name: Control_UI_ToggleControlPanelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6969,8 +6969,8 @@ MonoBehaviour:
   _surroundingPlayer: {fileID: 7025566}
   _timeline: {fileID: 569386346}
   _previewMonitor: {fileID: 1031036447}
-  _fullScreenMonitor: {fileID: 1099715482}
-  _playerControlPanel: {fileID: 2022902007}
+  _fullScreenMonitor: {fileID: 1099715491}
+  _playerControlPanel: {fileID: 2022902008}
   _toggleControlPanelButton: {fileID: 1145555686}
   _screenButton: {fileID: 1695228144}
   _quitButton: {fileID: 1803917819}
@@ -8966,8 +8966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.00012207031, y: -0.0000009536743}
-  m_SizeDelta: {x: 26, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 48, y: 0}
   m_Pivot: {x: 0.5, y: 0.49999943}
 --- !u!114 &1641468898
 MonoBehaviour:
@@ -9347,7 +9347,7 @@ GameObject:
   - component: {fileID: 1695228145}
   - component: {fileID: 1695228144}
   m_Layer: 5
-  m_Name: Control_UI_Screen
+  m_Name: Control_UI_ToggleFullScreenButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10101,7 +10101,7 @@ GameObject:
   - component: {fileID: 1803917820}
   - component: {fileID: 1803917819}
   m_Layer: 5
-  m_Name: Control_UI_Quit
+  m_Name: Control_UI_QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11311,6 +11311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2022902006}
   - component: {fileID: 2022902007}
+  - component: {fileID: 2022902008}
   m_Layer: 5
   m_Name: PlayerControlPanel
   m_TagString: Untagged
@@ -11361,6 +11362,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2022902008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022902005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5c53862b9d7354ea7c038da21a104e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _visible: 1
+  _visibleChanged: 0
+  _canvasGroup: {fileID: 2022902007}
+  _speed: 20
 --- !u!1 &2090900178
 GameObject:
   m_ObjectHideFlags: 0
