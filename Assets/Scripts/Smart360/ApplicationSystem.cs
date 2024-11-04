@@ -209,7 +209,7 @@ public class ApplicationSystem : SerializedMonoBehaviour
             _mainMenuManager = GameObject.FindObjectOfType<MainMenuSceneManager>();
             if (_mainMenuManager)
             {
-                _mainMenuManager.context = _masterApplication.context.mainMenuScene;
+                //_mainMenuManager.context = _masterApplication.context.mainMenuScene;
                 _masterApplication.view.verificationView = _mainMenuManager.verificationView;
 
                 _needToLoadSceneContext = false;
