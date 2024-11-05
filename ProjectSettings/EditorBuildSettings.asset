@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 94ffc2010375da7439b7e572c4af5501
+    path: Assets/Scenes/MainMenu-IOS.unity
+    guid: 29804f86e38220041b1cad3302239151
   - enabled: 1
-    path: Assets/Scenes/VideoPlayer.unity
-    guid: 186fcf9f1aa76a24fa3d246b9183645f
+    path: Assets/Scenes/VideoPlayer-IOS.unity
+    guid: f4eebfa5d93e32d4cbe314d51b216c72
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5786a148f7388f3499ae6c6bb042c3bc, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d447bd09d9d911f4bbe938eaa100b546, type: 2}
