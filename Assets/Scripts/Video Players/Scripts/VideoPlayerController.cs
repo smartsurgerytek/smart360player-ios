@@ -112,8 +112,8 @@ namespace SmartSurgery.VideoControllers
         private void _players_prepareCompleted(VideoPlayer source)
         {
             Debug.Log("Prepare!");
-            source.time = timeline.time;
             source.externalReferenceTime = timeline.time;
+            source.time = timeline.time;
         }
 #endif
     }
