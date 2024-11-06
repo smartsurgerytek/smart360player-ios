@@ -167,6 +167,7 @@ public class Smart360PlayerController : MonoBehaviour
         {
             yield return null;
         }
+
         _surroundingPlayer.timeline = _timeline;
 
 

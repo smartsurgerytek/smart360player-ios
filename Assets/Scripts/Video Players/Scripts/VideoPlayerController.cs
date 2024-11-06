@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Video;
 namespace SmartSurgery.VideoControllers
 {
@@ -27,6 +28,11 @@ namespace SmartSurgery.VideoControllers
 
             player.timeReference = VideoTimeReference.ExternalTime;
             player.Pause();
+#if UNITY_IOS
+
+            player.prepareCompleted += _players_prepareCompleted;
+            player.seekCompleted += _players_seekCompleted;
+#endif
 
             _timeline.play.AddListener(_timeline_onPlay);
             _timeline.pause.AddListener(_timeline_onPause);
@@ -46,6 +52,9 @@ namespace SmartSurgery.VideoControllers
         {
             player.time = 0;
             player.externalReferenceTime = 0;
+#if UNITY_IOS
+#else
+#endif
             player.Play();
             player.Pause();
         }
@@ -55,22 +64,32 @@ namespace SmartSurgery.VideoControllers
         }
         private void _timeline_dragStart(float time)
         {
+#if UNITY_IOS
+            player.Pause();
+#else
             player.externalReferenceTime = time;
             player.time = time;
             player.Play();
             player.Pause();
+#endif
         }
         private void _timeline_onDragging(float time)
         {
             player.externalReferenceTime = time;
+#if UNITY_IOS
+            //player.Prepare();
+#else
             player.time = time;
             player.Play();
             player.Pause();
+#endif
         }
         private void _timeline_dragEnd(float time)
         {
-            player.externalReferenceTime = time;
-            player.time = time;
+            player.time = _timeline.time;
+#if UNITY_IOS
+#else
+#endif
             if (_timeline.isPlaying) player.Play();
         }
 
@@ -82,5 +101,16 @@ namespace SmartSurgery.VideoControllers
         {
             player.Pause();
         }
+#if UNITY_IOS
+        private void _players_seekCompleted(VideoPlayer source)
+        {
+            if (!source.isPlaying && _timeline.isPlaying) source.Play();
+        }
+        private void _players_prepareCompleted(VideoPlayer source)
+        {
+            Debug.Log("Prepare!");
+            source.externalReferenceTime = timeline.time;
+        }
+#endif
     }
 }

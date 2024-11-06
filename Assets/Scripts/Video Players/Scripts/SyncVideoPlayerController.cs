@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using System;
 using System.Collections;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,10 +9,6 @@ using UnityEngine.Video;
 
 namespace SmartSurgery.VideoControllers
 {
-    public class MetaQuestSyncVideoPlayerController : SyncVideoPlayerController
-    {
-
-    }
     public class SyncVideoPlayerController : MonoBehaviour
     {
         [SerializeField] private bool _initializeOnEnable; 
@@ -37,8 +34,6 @@ namespace SmartSurgery.VideoControllers
         [NonSerialized, ReadOnly, ShowInInspector] private int _selected = -1;
         [NonSerialized, ReadOnly, ShowInInspector] private ListElementButton[] _videoButtons;
         [NonSerialized, ReadOnly, ShowInInspector] private VideoPlayer[] _players;
-        //[NonSerialized, ShowInInspector] private VideoPlayer[] _isPrepared =>;
-
 
         [NonSerialized] private MultiRangeEventSystem _multiRangeEventSystem;
 
@@ -84,8 +79,7 @@ namespace SmartSurgery.VideoControllers
 
         [ShowInInspector] 
         private double time => timeline?.time ?? double.MinValue;
-
-
+        
         public event Func<int, string> getTitleText;
         private string GetTitleText(int index)
         {
@@ -96,49 +90,77 @@ namespace SmartSurgery.VideoControllers
 
         public void Initialize()
         {
-            Debug.Log("SyncVideoPlayerController.Initialize()");
             if (_initialized) return;
             StartCoroutine(InitializeCoroutine());
         }
         private IEnumerator InitializeCoroutine()
         {
+            InitializeVideoComponents();
+            yield return WaitForPlayerPreparation();
+            InitializeRangeSystem();
+            SetupTimelineListeners();
+            SetInitialState();
+            
+            _initialized = true;
+        }
+        private void InitializeVideoComponents()
+        {
             var count = _syncVideos.Length;
-            Debug.Log($"Sync Video Count:{_syncVideos.Length}");
             _videoButtons = new ListElementButton[count];
             _players = new VideoPlayer[count];
+
             for (int i = 0; i < count; i++)
             {
-                _videoButtons[i] = Instantiate(_videoButtonPrefab);
-                _videoButtons[i].interactable = false;
-                _videoButtons[i].index = i;
-                if (_syncVideos[i].icon)
-                {
-                    _videoButtons[i].icon = _syncVideos[i].icon;
-                }
-                _videoButtons[i].title = _syncVideos[i].title;
-                _videoButtons[i].onClick.AddListener(_videoButton_onClick);
-                layoutButton?.Invoke(i, _videoButtons[i].transform);
-
-                _players[i] = _videoButtons[i].GetComponent<VideoPlayer>();
-                _players[i].source = videoSource;
-                // Set up video source data
-                if (videoSource == VideoSource.VideoClip)
-                {
-                    _players[i].clip = _syncVideos[i].clip;
-                }
-                else
-                {
-                    _players[i].url = _syncVideos[i].url;
-                }
-                _players[i].timeReference = VideoTimeReference.ExternalTime;
-#if UNITY_IOS
-                _players[i].prepareCompleted += _players_prepareCompleted;
-                _players[i].seekCompleted += _players_seekCompleted;
-#endif
-                MutePlayer(i, true);
-                //Debug.Log($"[Eason] count:{count}, _videoButtons[{i}].interactable: {_videoButtons[i].interactable}.");
+                InitializeVideoButton(i);
+                InitializeVideoPlayer(i);
             }
+        }
+
+        private void InitializeVideoButton(int index)
+        {
+            _videoButtons[index] = Instantiate(_videoButtonPrefab);
+            _videoButtons[index].interactable = false;
+            _videoButtons[index].index = index;
+
+            if (_syncVideos[index].icon)
+            {
+                _videoButtons[index].icon = _syncVideos[index].icon;
+            }
+
+            _videoButtons[index].title = _syncVideos[index].title;
+            _videoButtons[index].onClick.AddListener(_videoButton_onClick);
+            layoutButton?.Invoke(index, _videoButtons[index].transform);
+        }
+
+        private void InitializeVideoPlayer(int index)
+        {
+            _players[index] = _videoButtons[index].GetComponent<VideoPlayer>();
+            _players[index].source = videoSource;
+
+            if (videoSource == VideoSource.VideoClip)
+            {
+                _players[index].clip = _syncVideos[index].clip;
+            }
+            else
+            {
+                _players[index].url = _syncVideos[index].url;
+            }
+
+            _players[index].timeReference = VideoTimeReference.ExternalTime;
+
 #if UNITY_IOS
+            _players[index].prepareCompleted += _players_prepareCompleted;
+            _players[index].seekCompleted += _players_seekCompleted;
+#endif
+
+            MutePlayer(index, true);
+        }
+
+        private IEnumerator WaitForPlayerPreparation()
+        {
+#if UNITY_IOS
+            
+            yield break;
 #else
             PreparePlayers();
             while(_players.Any(player => !player.isPrepared))
@@ -146,11 +168,12 @@ namespace SmartSurgery.VideoControllers
                 yield return null;
             }
 #endif
-            var rangeModels = new RangeModel[count];
-            for (int i = 0; i < count; i++)
-            {
-                rangeModels[i] = new RangeModel(i, _syncVideos[i].startTime, _syncVideos[i].startTime + _syncVideos[i].duration);
-            }
+        }
+
+        private void InitializeRangeSystem()
+        {
+            var rangeModels = _syncVideos.Select((video, index) =>
+                new RangeModel(index, video.startTime, video.startTime + video.duration)).ToArray();
 
             _multiRangeEventSystem = new MultiRangeEventSystem();
             _multiRangeEventSystem.Initialize(rangeModels);
@@ -158,7 +181,10 @@ namespace SmartSurgery.VideoControllers
             _multiRangeEventSystem.enter += _multiRangeEventSystem_enter;
             _multiRangeEventSystem.exit += _multiRangeEventSystem_exit;
             _multiRangeEventSystem.update += _multiRangeEventSystem_update;
+        }
 
+        private void SetupTimelineListeners()
+        {
             timeline.playing.AddListener(_timeline_onPlaying);
             timeline.play.AddListener(_timeline_onPlay);
             timeline.pause.AddListener(_timeline_onPause);
@@ -166,22 +192,24 @@ namespace SmartSurgery.VideoControllers
             timeline.dragging.AddListener(_timeline_onDragging);
             timeline.dragEnd.AddListener(_timeline_dragEnd);
             timeline.stop.AddListener(_timeline_onStop);
+        }
 
-           
+        private void SetInitialState()
+        {
             SetSelected(initialSelected, false);
-#if UNITY_IOS
-#else
-            
-#endif
-
-            _initialized = true;
-            yield break;
         }
 
 #if UNITY_IOS
         private void _players_seekCompleted(VideoPlayer source)
         {
             if (!source.isPlaying && _timeline.isPlaying) source.Play();
+            if(!source.isPlaying && !_timeline.isPlaying)
+            {
+                source.Play();
+                source.Pause();
+                Debug.Log("_Player Seek Completed");
+            }
+
         }
         private void _players_prepareCompleted(VideoPlayer source)
         {
@@ -193,6 +221,7 @@ namespace SmartSurgery.VideoControllers
             }
             SetPlayerExternalReferenceTime(index, time);
             SetPlayerTime(index, time);
+            Debug.Log("_player prepare completed.");
         }
 #endif
 
@@ -310,10 +339,10 @@ namespace SmartSurgery.VideoControllers
         private void _timeline_dragEnd(float time)
         {
 #if UNITY_IOS
-            if(timeline.isPlaying)
+            SetPlayerTime(_selected, time);
+            if (timeline.isPlaying)
             {
                 SetPlayerExternalReferenceTime(_selected, time);
-                SetPlayerTime(_selected, time);
                 if (!_players[_selected].isPlaying) _players[_selected].Prepare();
             }
 #else
@@ -329,7 +358,6 @@ namespace SmartSurgery.VideoControllers
 #if UNITY_IOS
             SetPlayerExternalReferenceTime(_selected, time);
             SetPlayerTime(_selected, time);
-            
             _players[_selected].Prepare();
 #else
             PlayPlayers();
@@ -442,14 +470,10 @@ namespace SmartSurgery.VideoControllers
             }
 
 #if UNITY_IOS
-            if (play)
-            {
-                _players[index].Prepare(); // IOS
-                //_players[index].Play();
-                _players[index].targetTexture = _targetTexture;
-            }
-            SetPlayerExternalReferenceTime(index, time);
-            SetPlayerTime(index, time);
+            _players[index].targetTexture = _targetTexture;
+            _players[index].Stop();
+            _players[index].Prepare();
+            Debug.Log("_player Prepare");
 #else
             _players[index].targetTexture = _targetTexture;
 #endif
