@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
@@ -202,7 +203,10 @@ namespace SmartSurgery.VideoControllers
 #if UNITY_IOS
         private void _players_seekCompleted(VideoPlayer source)
         {
-            if (!source.isPlaying && _timeline.isPlaying) source.Play();
+            if (!source.isPlaying && _timeline.isPlaying)
+            {
+                source.Play();
+            }
             if(!source.isPlaying && !_timeline.isPlaying)
             {
                 source.Play();
@@ -219,8 +223,8 @@ namespace SmartSurgery.VideoControllers
                 source.Stop();
                 throw new Exception("You prepared a player that is not selected.");
             }
-            SetPlayerExternalReferenceTime(index, time);
             SetPlayerTime(index, time);
+            SetPlayerExternalReferenceTime(index, time);
             Debug.Log("_player prepare completed.");
         }
 #endif
@@ -319,9 +323,8 @@ namespace SmartSurgery.VideoControllers
         {
 
 #if UNITY_IOS
-            SetPlayerExternalReferenceTime(_selected, time);
-            SetPlayerTime(_selected, time);
             _players[_selected].Pause();
+            SetPlayerExternalReferenceTime(_selected, time);
 #else
             SetPlayersExternalReferenceTime(time);
             SetPlayersTime(time);
@@ -332,7 +335,6 @@ namespace SmartSurgery.VideoControllers
         private void _timeline_onDragging(float time)
         {
             SetPlayerExternalReferenceTime(_selected, time);
-            SetPlayerTime(_selected, time);
             //_players[_selected].Play();
             //_players[_selected].Pause();
         }
@@ -342,7 +344,7 @@ namespace SmartSurgery.VideoControllers
             SetPlayerTime(_selected, time);
             if (timeline.isPlaying)
             {
-                SetPlayerExternalReferenceTime(_selected, time);
+                SetPlayerTime(_selected, time);
                 if (!_players[_selected].isPlaying) _players[_selected].Prepare();
             }
 #else
