@@ -66,6 +66,7 @@ namespace SmartSurgery.VideoControllers
         {
 #if UNITY_IOS
             player.Pause();
+            player.externalReferenceTime = time;
 #else
             player.externalReferenceTime = time;
             player.time = time;
@@ -104,12 +105,14 @@ namespace SmartSurgery.VideoControllers
 #if UNITY_IOS
         private void _players_seekCompleted(VideoPlayer source)
         {
-            source.time = timeline.time;
+            //source.time = timeline.time;
             if (!source.isPlaying && _timeline.isPlaying) source.Play();
+            Debug.Log("Seek Completed.");
         }
         private void _players_prepareCompleted(VideoPlayer source)
         {
             Debug.Log("Prepare!");
+            source.time = timeline.time;
             source.externalReferenceTime = timeline.time;
         }
 #endif
