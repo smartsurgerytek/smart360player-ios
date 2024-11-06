@@ -104,6 +104,7 @@ namespace SmartSurgery.VideoControllers
 #if UNITY_IOS
         private void _players_seekCompleted(VideoPlayer source)
         {
+            source.time = timeline.time;
             if (!source.isPlaying && _timeline.isPlaying) source.Play();
         }
         private void _players_prepareCompleted(VideoPlayer source)
