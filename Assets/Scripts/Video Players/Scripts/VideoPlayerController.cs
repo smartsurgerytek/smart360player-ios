@@ -26,9 +26,9 @@ namespace SmartSurgery.VideoControllers
         {
             if(Mathf.Abs((float)player.time - timeline.time) > 1)
             {
-                player.Pause();
+                player.Stop();
                 player.time = timeline.time;
-                if (timeline.isPlaying) player.Play();
+                if (timeline.isPlaying) player.Prepare();
             }
 
         }
