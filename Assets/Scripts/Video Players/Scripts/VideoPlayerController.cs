@@ -22,16 +22,6 @@ namespace SmartSurgery.VideoControllers
                 _timeline = value;
             }
         }
-        private void Update()
-        {
-            if(Mathf.Abs((float)player.time - timeline.time) > 1)
-            {
-                player.Stop();
-                player.time = timeline.time;
-                if (timeline.isPlaying) player.Prepare();
-            }
-
-        }
         public void Initialize()
         {
             if (_initialized) return;
@@ -97,11 +87,17 @@ namespace SmartSurgery.VideoControllers
         }
         private void _timeline_dragEnd(float time)
         {
-            player.time = _timeline.time;
 #if UNITY_IOS
+            if (_timeline.isPlaying)
+            {
+                player.Stop();
+                player.externalReferenceTime = timeline.time;
+                player.Prepare();
+            }
 #else
-#endif
+            player.time = _timeline.time;
             if (_timeline.isPlaying) player.Play();
+#endif
         }
 
         private void _timeline_onPlay()
