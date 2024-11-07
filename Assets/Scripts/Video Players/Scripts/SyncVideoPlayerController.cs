@@ -359,7 +359,7 @@ namespace SmartSurgery.VideoControllers
         {
 #if UNITY_IOS
             SetPlayerExternalReferenceTime(_selected, time);
-            //SetPlayerTime(_selected, time);
+            SetPlayerTime(_selected, time);
             _players[_selected].Prepare();
 #else
             PlayPlayers();
