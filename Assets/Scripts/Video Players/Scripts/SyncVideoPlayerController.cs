@@ -207,7 +207,7 @@ namespace SmartSurgery.VideoControllers
             {
                 source.Play();
             }
-            if(!source.isPlaying && !_timeline.isPlaying)
+            if (!source.isPlaying && !_timeline.isPlaying)
             {
                 source.Play();
                 source.Pause();
