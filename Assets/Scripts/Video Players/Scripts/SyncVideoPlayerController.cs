@@ -223,8 +223,8 @@ namespace SmartSurgery.VideoControllers
                 source.Stop();
                 throw new Exception("You prepared a player that is not selected.");
             }
-            SetPlayerTime(index, time);
             SetPlayerExternalReferenceTime(index, time);
+            SetPlayerTime(index, time);
             Debug.Log("_player prepare completed.");
         }
 #endif
@@ -324,7 +324,6 @@ namespace SmartSurgery.VideoControllers
 
 #if UNITY_IOS
             _players[_selected].Pause();
-            SetPlayerExternalReferenceTime(_selected, time);
 #else
             SetPlayersExternalReferenceTime(time);
             SetPlayersTime(time);
@@ -341,11 +340,12 @@ namespace SmartSurgery.VideoControllers
         private void _timeline_dragEnd(float time)
         {
 #if UNITY_IOS
-            SetPlayerTime(_selected, time);
-            if (timeline.isPlaying)
+            //SetPlayerTime(_selected, time);
+            if (timeline.isPlaying && !_players[_selected].isPlaying)
             {
-                SetPlayerTime(_selected, time);
-                if (!_players[_selected].isPlaying) _players[_selected].Prepare();
+                _players[_selected].Stop();
+                SetPlayerExternalReferenceTime(_selected, time);
+                _players[_selected].Prepare();
             }
 #else
             if (timeline.isPlaying){
