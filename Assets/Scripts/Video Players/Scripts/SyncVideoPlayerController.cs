@@ -340,7 +340,7 @@ namespace SmartSurgery.VideoControllers
         private void _timeline_dragEnd(float time)
         {
 #if UNITY_IOS
-            //SetPlayerTime(_selected, time);
+            SetPlayerTime(_selected, time);
             if (timeline.isPlaying && !_players[_selected].isPlaying)
             {
                 //_players[_selected].Stop();
