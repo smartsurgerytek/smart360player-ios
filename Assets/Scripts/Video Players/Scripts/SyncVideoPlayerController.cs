@@ -343,7 +343,7 @@ namespace SmartSurgery.VideoControllers
             //SetPlayerTime(_selected, time);
             if (timeline.isPlaying && !_players[_selected].isPlaying)
             {
-                _players[_selected].Stop();
+                //_players[_selected].Stop();
                 SetPlayerExternalReferenceTime(_selected, time);
                 _players[_selected].Prepare();
             }
@@ -359,7 +359,7 @@ namespace SmartSurgery.VideoControllers
         {
 #if UNITY_IOS
             SetPlayerExternalReferenceTime(_selected, time);
-            SetPlayerTime(_selected, time);
+            //SetPlayerTime(_selected, time);
             _players[_selected].Prepare();
 #else
             PlayPlayers();
