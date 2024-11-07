@@ -474,6 +474,7 @@ namespace SmartSurgery.VideoControllers
 #if UNITY_IOS
             _players[index].targetTexture = _targetTexture;
             _players[index].Stop();
+            SetPlayerExternalReferenceTime(index, _timeline.time);
             _players[index].Prepare();
             Debug.Log("_player Prepare");
 #else
